@@ -84,8 +84,9 @@ function App(): React.JSX.Element {
           </Section>
 
           <View style={[Layouts.row]}>
-            <MainBtn children="Log in" />
-            <Text>Helooooooooo</Text>
+          <MainBtn children="Log in"/>
+          
+          <Text>Helooooooooo</Text>
           </View>
           <View style={{ flexDirection: 'row', width: '100%' }}>
             <TouchableOpacity

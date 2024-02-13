@@ -9,7 +9,7 @@ interface MainBtnProps {
 }
 const MainBtn = ({children, style}: MainBtnProps) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity style={[styles.card]}>
     <Text style={[styles.cardContainer, style]}>{children}</Text> 
    </TouchableOpacity>
   );

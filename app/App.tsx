@@ -7,6 +7,7 @@
 
 import React from 'react';
 import type {PropsWithChildren} from 'react';
+import Layouts from './constants/styles/layouts'
 import {
   SafeAreaView,
   ScrollView,
@@ -15,6 +16,7 @@ import {
   Text,
   useColorScheme,
   View,
+  TouchableOpacity
 } from 'react-native';
 
 import {
@@ -80,7 +82,29 @@ function App(): React.JSX.Element {
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
           </Section>
-          <MainBtn>Log In</MainBtn>
+
+          <View style={[Layouts.row]}>
+          <MainBtn children="Log in"/>
+          <Text>Helooooooooo</Text>
+          </View>
+          <View style={{ flexDirection: 'row', width: '100%' }}>
+      <TouchableOpacity
+        style={{ flex: 2, backgroundColor: 'blue', padding: 10, margin: 5 }}
+        onPress={() => {
+          // Handle button press
+        }}
+      >
+        <Text style={{ color: 'white' }}>Button</Text>
+      </TouchableOpacity>
+
+      <View style={{ flex: 1, backgroundColor: 'green', padding: 10, margin: 5 }}>
+        <Text style={{ color: 'white' }}>Your Text</Text>
+      </View>
+    </View>
+
+
+
+
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>

@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import type { PropsWithChildren } from 'react';
-import Layouts from './constants/styles/layouts'
+import type {PropsWithChildren} from 'react';
+import Layouts from './constants/styles/layouts';
 import {
   SafeAreaView,
   ScrollView,
@@ -16,7 +16,7 @@ import {
   Text,
   useColorScheme,
   View,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 
 import {
@@ -26,12 +26,13 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import MainBtn from './components/atoms/MainBtn/MainBtn'
+import MainBtn from './components/atoms/MainBtn/MainBtn';
+import DropdownMenu from './components/atoms/DropdownMenu/DropdownMenu';
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({ children, title }: SectionProps): React.JSX.Element {
+function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -83,26 +84,7 @@ function App(): React.JSX.Element {
             screen and then come back to see your edits.
           </Section>
 
-          <View style={[Layouts.row]}>
-            <MainBtn children="Log in" />
-            <Text>Helooooooooo</Text>
-          </View>
-          <View style={{ flexDirection: 'row', width: '100%' }}>
-            <TouchableOpacity
-              style={{ flex: 2, backgroundColor: 'blue', padding: 10, margin: 5 }}
-              onPress={() => {
-                // Handle button press
-              }}
-            >
-              <Text style={{ color: 'white' }}>Button</Text>
-            </TouchableOpacity>
-
-            <View style={{ flex: 1, backgroundColor: 'green', padding: 10, margin: 5 }}>
-              <Text style={{ color: 'white' }}>Your Text</Text>
-            </View>
-          </View>
-
-
+         
 
 
           <Section title="See Your Changes">

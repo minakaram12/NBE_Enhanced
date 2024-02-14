@@ -6,7 +6,7 @@ function BottomTabsNavigation() {
     const Tab = createBottomTabNavigator();
 
     return(
-        <Tab.Navigator>
+        <Tab.Navigator initialRouteName='screen1'>
             <Tab.Screen name='Screen1' component={Screen1} />
             <Tab.Screen name='Screen2' component={Screen2} />
             <Tab.Screen name='Screen3' component={Screen3} />

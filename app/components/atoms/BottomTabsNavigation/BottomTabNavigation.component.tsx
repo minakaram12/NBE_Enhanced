@@ -4,9 +4,10 @@ import { Text } from 'react-native';
 function BottomTabsNavigation() {
 
     const Tab = createBottomTabNavigator();
+    const globalScreenOptions:Object = {position: 'absolute' }
 
     return(
-        <Tab.Navigator initialRouteName='screen1'>
+        <Tab.Navigator initialRouteName='screen1' screenOptions={globalScreenOptions}>
             <Tab.Screen name='Screen1' component={Screen1} />
             <Tab.Screen name='Screen2' component={Screen2} />
             <Tab.Screen name='Screen3' component={Screen3} />

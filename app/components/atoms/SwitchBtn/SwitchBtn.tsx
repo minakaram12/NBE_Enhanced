@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, Switch, StyleSheet } from 'react-native';
+import { View, Text, Switch, StyleSheet,useColorScheme } from 'react-native';
+
 
 const SwitchBtn: React.FC = () => {
     const [isEnabled, setIsEnabled] = useState(false);
+    const colorScheme = useColorScheme();
+
 
     const toggleSwitch = () => {
         setIsEnabled((previousState) => !previousState);

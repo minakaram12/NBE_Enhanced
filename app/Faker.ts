@@ -6,40 +6,40 @@ export interface MenuItems {
 export const myArray: MenuItems[] = [
     {
         text: "Account Summary",
-        img: " 1 ",
+        img: " ",
     },
     {
         text: "Open Certificates & Deposits",
-        img: " 2 ",
+        img: "  ",
     },
     {
         text: "Payement Services",
-        img: " 3 ",
+        img: "  ",
     },
 
     {
         text: "Cards Services",
-        img: " 4",
+        img: " ",
     },
     {
         text: "Hard Token",
-        img: "5 ",
+        img: " ",
     },
     {
         text: "Offers",
-        img: "6 ",
+        img: " ",
     },
     {
         text: "Customer Services",
-        img: " 7",
+        img: " ",
     },
     {
         text: "Calculators",
-        img: "8 ",
+        img: " ",
     },
     {
         text: "Dark Mode",
-        img: "9 ",
+        img: " ",
     },
 
 

@@ -22,5 +22,8 @@ export default StyleSheet.create({
         backgroundColor:'#e8e8e8',
         width:40, 
         height: 40
-    }
+    },
+    hoveredItem: {
+        backgroundColor: '#007236',
+      },
 });

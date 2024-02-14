@@ -1,7 +1,9 @@
 // MyComponent.tsx
 import React from 'react';
-import { View, Text, Image, ImageBackground } from 'react-native';
+import { View, Text, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import styles from './MenuItem.styles';
+import { useState } from 'react';
+import SwitchBtn from '../SwitchBtn/SwitchBtn';
 
 
 interface MyComponentProps {
@@ -10,13 +12,27 @@ interface MyComponentProps {
 }
 
 const MenuItem: React.FC<MyComponentProps> = ({ iconName, itemTitle }) => {
+
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handlePressIn = () => {
+    setIsHovered(true);
+  };
+
+  const handlePressOut = () => {
+    setIsHovered(false);
+  };
   return (
-    <View style={styles.itemContainer}>
+    <TouchableOpacity style={[styles.itemContainer ,isHovered && styles.hoveredItem]}
+    
+    onPressIn={handlePressIn}
+    onPressOut={handlePressOut}
+>
        <View style={styles.iconContainer}>
-        <Text>{iconName}</Text>
+        <Image src={iconName} />
        </View>
        <Text style={styles.text}>{itemTitle}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

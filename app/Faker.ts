@@ -53,7 +53,7 @@ export const myArray: MenuItems[] = [
         text: "Dark Mode",
         icon:DarkModeSvg
     },
-
+  ];
 export const validationList = [
   'Lower case letter',
   'Minimum 8 characters',

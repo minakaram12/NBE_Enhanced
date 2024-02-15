@@ -1,45 +1,57 @@
+import React from 'react';
+import AccountSummarySvg from './assets/svgs/AccountSummarySvg';
+import CertificatesSvg from './assets/svgs/CertificatesSvg';
+import PaymentSvg from './assets/svgs/PaymentSvg';
+import CardsServicesSvg from './assets/svgs/CardsServicesSvg';
+import HardTokenSvg  from './assets/svgs/HardTokenSvg';
+import OffersSvg from './assets/svgs/OffersSvg';
+import CustomerServicesSvg from './assets/svgs/CustomerServicesSvg';
+import CalculatorsSvg from './assets/svgs/CalculatorsSvg';
+import DarkModeSvg from './assets/svgs/DarkModeSvg';
+import { SvgProps } from 'react-native-svg';
 export interface MenuItems {
     text: string;
-    img: string;
+    icon:React.FC<SvgProps>;
+
 }
 
 export const myArray: MenuItems[] = [
     {
         text: "Account Summary",
-        img: " ",
+        icon:AccountSummarySvg
     },
     {
         text: "Open Certificates & Deposits",
-        img: "  ",
+        icon:CertificatesSvg
     },
     {
         text: "Payement Services",
-        img: "  ",
+        icon:PaymentSvg
     },
 
     {
         text: "Cards Services",
-        img: " ",
+        icon:CardsServicesSvg
     },
     {
         text: "Hard Token",
-        img: " ",
+        icon:HardTokenSvg
     },
     {
         text: "Offers",
-        img: " ",
+        icon:OffersSvg
     },
     {
         text: "Customer Services",
-        img: " ",
+        icon:CustomerServicesSvg
     },
     {
         text: "Calculators",
-        img: " ",
+        icon:CalculatorsSvg
     },
     {
         text: "Dark Mode",
-        img: " ",
+        icon:DarkModeSvg
     },
 
 

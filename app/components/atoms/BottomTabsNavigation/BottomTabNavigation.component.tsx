@@ -1,29 +1,78 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { StyleSheet } from 'react-native';
 import { Text, View } from 'react-native';
+
 import  Icon  from 'react-native-vector-icons/AntDesign';
 import  IconFontAwsome  from 'react-native-vector-icons/FontAwesome';
+import IconUserFriends from "react-native-vector-icons/FontAwesome5";
+import IconAtm from "react-native-vector-icons/EvilIcons";
+import IconCreditCard from "react-native-vector-icons/AntDesign";
+import IconFingerPrint from "react-native-vector-icons/FontAwesome5";
+
+import { layouts } from '../../../constants/styles';
+import { px } from '../../../constants/styles/layouts';
 
 function BottomTabsNavigation() {
 
     const Tab = createBottomTabNavigator();
-    const addHomeIcon = {tabBarIcon:({size,color})=>{return <Icon  name="home" color={color} size={size}/>}};
-    const addTransfer = {tabBarIcon:({size,color})=>{return(
+    const addHomeIcon = {tabBarIcon:({focused,size,color})=>{return( 
     
-        <IconFontAwsome name="paper-plane-o" color={color} size={size}/>
-    )},
+    <View style={focused?styles.focusedStyle : styles.blurredStyle}>
+        <Icon  name="home" color={color} size={size}/>
+        <Text style={focused?styles.NavigatorActiveTextStyle:styles.NavigatorInActiveTextStyle}>Home</Text>
+    </View>)}};
+   
+   
+   
+    const addTransfer = {tabBarIcon:({focused,size,color})=>{return(
+    
+        <View style={focused?styles.focusedStyle : styles.blurredStyle}>
+            <IconFontAwsome name="paper-plane-o" color={color} size={size}/>
+            <Text style={focused?styles.NavigatorActiveTextStyle:styles.NavigatorInActiveTextStyle}>Transfer</Text>
+        </View>
+    )},}
 
+    const addBeneficiariesIcon = {tabBarIcon:({focused,size,color})=>{return(
 
-}
+        <View style={focused?styles.focusedStyle : styles.blurredStyle}>
+        <IconUserFriends name="user-friends" color={color} size={size}/>
+        <Text style={focused?styles.NavigatorActiveTextStyle:styles.NavigatorInActiveTextStyle}>Beneficiaries</Text>
+    </View>
+
+    )}}
+
+    const addAtms = {tabBarIcon:({focused,size,color})=>{return(
+
+        <View style={focused?styles.focusedStyle : styles.blurredStyle}>
+        <IconAtm name="location" color={color} size={size*1.5}/>
+        <Text style={focused?styles.NavigatorActiveTextStyle:styles.NavigatorInActiveTextStyle}>ATMs</Text>
+    </View>
+
+    )}}
+
+    const addAirPlay = {tabBarIcon:({focused,size,color})=>{return(
+
+        <View style={focused?styles.focusedStyle : styles.blurredStyle}>
+            <IconFingerPrint name='fingerprint' style={styles.smallIcon} color={color}  />
+            <View style={layouts.xCentered}>
+                <IconCreditCard name='creditcard' color={color} size={size}/>
+                <Text style={focused?styles.NavigatorActiveTextStyle:styles.NavigatorInActiveTextStyle}>Air play</Text>
+            </View>
+        
+    </View>
+
+    )}}
 
 const globalStyle = {
-    tabBarActiveBackgroundColor:"#007236",
-    tabBarInactiveBackgroundColor:"#F1F3FB",
+    tabBarActiveBackgroundColor:"#ffffff",
+    tabBarInactiveBackgroundColor:"#ffffff",
     tabBarActiveTintColor:"#ffffff",
     tabBarInactiveTintColor:"#B7B7B7",
-    tabBarStyle:{height:70,          backgroundColor: 'blue',
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,},
-    showLabel:false,
+    tabBarStyle:{
+        height:80,
+        backgroundColor: 'blue',
+},
+    tabBarShowLabel:false,
     
 }
 
@@ -35,9 +84,9 @@ const globalStyle = {
         <Tab.Navigator initialRouteName='screen1' screenOptions={globalStyle} >
             <Tab.Screen name='Screen1' component={Screen1} options={{...addHomeIcon}}  />
             <Tab.Screen name='Screen2' component={Screen2} options={{...addTransfer}} />
-            <Tab.Screen name='Screen3' component={Screen3} />
-            <Tab.Screen name='Screen4' component={Screen4} />
-            <Tab.Screen name='Screen5' component={Screen5} />
+            <Tab.Screen name='Screen3' component={Screen3} options={{...addBeneficiariesIcon}}/>
+            <Tab.Screen name='Screen4' component={Screen4} options={{...addAtms}} />
+            <Tab.Screen name='Screen5' component={Screen5} options={{...addAirPlay}}/>
         </Tab.Navigator>
     )
     
@@ -70,3 +119,54 @@ function Screen5(){
         <Text>screen 5</Text>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+      // Common styles for the container
+      // You can set default background color, etc.
+    },
+    focusedStyle: {
+      backgroundColor: '#007236',
+      width:px(70),
+      height:px(70),
+      justifyContent:"center",
+      alignItems:"center",
+      borderRadius:px(15),
+      marginVertical:px(10)
+      // Other styles for focused state
+    },
+    blurredStyle: {
+      backgroundColor: '#F1F3FB',
+      width:px(70),
+      height:px(70),
+      justifyContent:"center",
+      alignItems:"center",
+      borderRadius:px(15),
+      marginVertical:px(10)
+      // Other styles for blurred state
+    },
+    NavigatorActiveTextStyle:{
+        fontFamily:"Roboto",
+        fontSize:px(10),
+        lineHeight:px(11.72),
+        textAlign:"center",
+        
+        color:"#F7F7F7"
+    },
+    NavigatorInActiveTextStyle:{
+        fontFamily:"Roboto",
+        
+        fontSize:px(10),
+        lineHeight:px(11.72),
+        textAlign:"center",
+        color:"#B7B7B7"
+
+    },
+    smallIcon:{
+        width:px(11),
+        height:px(11),
+    position:"absolute",
+top:px(4),
+left:px(4)}
+
+  });

@@ -2,9 +2,6 @@ import {StyleSheet} from 'react-native';
 import {px} from '../../../constants/styles/layouts';
 
 const styles = StyleSheet.create({
-  outerContainer: {
-    margin: 16, //TODO - remove this after finish the design of the component
-  },
   innerContainer: {
     height: px(65),
     borderRadius: px(10),
@@ -23,6 +20,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255, 255, 255, 0.5)',
   },
   transparentErrorContainer: {
+    borderWidth: px(1.5),
     borderColor: 'red',
   },
   label: {

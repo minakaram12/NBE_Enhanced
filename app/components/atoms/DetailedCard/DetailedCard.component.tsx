@@ -1,14 +1,17 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, ViewStyle} from 'react-native';
 import {layouts} from '../../../constants/styles';
-import IconTelephone from 'react-native-vector-icons/Foundation';
+
 import IconDollar from 'react-native-vector-icons/FontAwesome';
+import IconTelephone from 'react-native-vector-icons/Foundation';
 
 interface DetailedCardProps {
   readonly name: string;
-  mobileNumber: string;
-  balance: string;
+  mobileNumber: string; //mobile number isn't read only because we concat + to it later
+  balance: string; //balance isn't read only because we concat $ later to it
   readonly image: string;
+  color?: string;
+  viewStyle?: ViewStyle;
 }
 
 const DetailedCard: React.FC<DetailedCardProps> = ({
@@ -16,6 +19,8 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
   mobileNumber,
   balance,
   image,
+  color,
+  viewStyle
 }) => {
   mobileNumber = '+' + mobileNumber;
   balance = '$' + balance;
@@ -27,20 +32,36 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
   ) {
     throw new Error('Invalid mobile or account balance format');
   }
+  const viewBgColor: string = color ? color : '#ffffff';
+  
 
   return (
-    <View style={[layouts.row, layouts.px.mmlg, layouts.py.mmlg]}>
-      <Image source={{uri: image}} style={styles.detailedCardImage} />
+    <View
+      style={[
+        layouts.row,
+        layouts.px.mmlg,
+        layouts.py.mmlg,
+        styles.cardRadious,
+        layouts.bordered,
+        viewStyle,
+        {backgroundColor: viewBgColor},
+      ]}>
+      <Image
+        source={{uri: image}}
+        style={[styles.detailedCardImage, layouts.me.md]}
+        onError={() => {
+          console.log('====================================');
+          console.log('failed to load');
+          console.log('====================================');
+        }}
+      />
       <View>
         <Text style={styles.cardTitle}>{name}</Text>
-        <View style={layouts.row}>
-          <IconTelephone
-            name="telephone"
-            style={[styles.innerIcon, layouts.me.sm]}
-          />
+        <View style={[layouts.row, layouts.yCentered]}>
+          <IconTelephone name="telephone" style={styles.innerIcon} />
           <Text>{mobileNumber}</Text>
         </View>
-        <View style={layouts.row}>
+        <View style={[layouts.row, layouts.yCentered]}>
           <IconDollar name="dollar" style={styles.innerIcon} />
           <Text>{balance}</Text>
         </View>
@@ -55,21 +76,24 @@ const styles = StyleSheet.create({
     height: 59,
   },
   innerIcon: {
-    width: 6,
-    height: 6,
+    width: 12,
+    height: 12,
   },
   cardTitle: {
-    fontFamily: 'Roboto',
+    fontFamily: 'Roboto-Medium',
     fontWeight: '700',
     fontSize: 14,
     color: '#1C2437',
   },
   cardInformation: {
-    fontFamily: 'Roboto',
+    fontFamily: 'Roboto-Medium',
     fontWeight: '400',
     fontSize: 12,
     lineHeight: 14.06,
     color: '#B7B7B7',
+  },
+  cardRadious: {
+    borderRadius: 18,
   },
 });
 export default DetailedCard;

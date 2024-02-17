@@ -20,7 +20,7 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
   balance,
   image,
   color,
-  viewStyle
+  viewStyle,
 }) => {
   mobileNumber = '+' + mobileNumber;
   balance = '$' + balance;
@@ -33,7 +33,6 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
     throw new Error('Invalid mobile or account balance format');
   }
   const viewBgColor: string = color ? color : '#ffffff';
-  
 
   return (
     <View

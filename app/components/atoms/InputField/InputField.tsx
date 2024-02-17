@@ -6,7 +6,6 @@ import {
   TextStyle,
   View,
   TextInput,
-  TextInputProps,
   Pressable,
 } from 'react-native';
 
@@ -19,15 +18,17 @@ import {faCircleExclamation} from '@fortawesome/free-solid-svg-icons/faCircleExc
 
 import {IconProp} from '@fortawesome/fontawesome-svg-core';
 import styles from './InputField.style';
+import {Field, FormikValues, useFormikContext} from 'formik';
 
-interface InputProps extends TextInputProps {
+interface InputProps {
+  name: string;
   label?: string;
   placeholder?: string;
   variant?: 'primary' | 'outline' | 'transparent';
   // styles
-  outerContainerStyle?: StyleProp<ViewStyle> | null;
-  innerContainerStyle?: StyleProp<ViewStyle> | null;
-  labelStyle?: StyleProp<TextStyle> | null;
+  outerContainerStyle?: StyleProp<ViewStyle> | Array<ViewStyle> | null;
+  innerContainerStyle?: StyleProp<ViewStyle> | Array<ViewStyle> | null;
+  labelStyle?: StyleProp<TextStyle> | Array<TextStyle> | null;
   // left icon
   leftIcon?: string;
   leftIconSize?: number;
@@ -35,13 +36,10 @@ interface InputProps extends TextInputProps {
   // boolean props
   disabled?: boolean;
   isPassword?: boolean;
-  isRequired?: boolean;
-  // functions
-  validation?: (value: string) => string | null;
-  onChangeText?: (text: string) => void;
 }
 
 const InputField: React.FC<InputProps> = ({
+  name,
   label,
   placeholder,
   variant = 'primary',
@@ -53,9 +51,6 @@ const InputField: React.FC<InputProps> = ({
   leftIconColor = '#B7B7B7',
   disabled = false,
   isPassword = false,
-  isRequired = false,
-  validation,
-  onChangeText,
 }) => {
   const finalInnerContainerStyle = useMemo(() => {
     switch (variant) {
@@ -101,19 +96,8 @@ const InputField: React.FC<InputProps> = ({
     setIsPasswordVisible(prevState => !prevState);
   };
 
-  const [inputValue, setInputValue] = useState('');
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
-  const handleInputEndEditing = () => {
-    if (isRequired && inputValue.trim() === '') {
-      setErrorMessage('Field is required');
-    } else if (validation) {
-      const error = validation(inputValue);
-      setErrorMessage(error);
-    } else {
-      setErrorMessage(null);
-    }
-  };
+  const {values, errors, touched} = useFormikContext<FormikValues>();
+  const isError = errors[name] && touched[name];
 
   useEffect(() => {
     if (isPassword) {
@@ -122,15 +106,16 @@ const InputField: React.FC<InputProps> = ({
   }, [isPassword]);
 
   return (
-    <View style={[styles.outerContainer]}>
+    <View style={[outerContainerStyle]}>
       <View
         style={[
           layouts.row,
           layouts.allCentered,
           layouts.px.xl,
           styles.innerContainer,
-          errorMessage ? finalErrorInnerContainerStyle : null,
           finalInnerContainerStyle,
+          isError ? finalErrorInnerContainerStyle : null,
+          innerContainerStyle,
         ]}>
         {leftIcon && (
           <View style={[layouts.me.xl]}>
@@ -143,29 +128,35 @@ const InputField: React.FC<InputProps> = ({
         )}
         <View style={[layouts.flexed, layouts.xCentered]}>
           {label && (
-            <Text style={[styles.label, layouts.mt.lg, finalLabelStyle]}>
+            <Text
+              style={[
+                styles.label,
+                layouts.mt.lg,
+                finalLabelStyle,
+                isError ? styles.errorTextColor : null,
+                labelStyle,
+              ]}>
               {label}
             </Text>
           )}
           <View style={[layouts.row, layouts.allCentered]}>
-            <TextInput
-              style={[styles.input, layouts.flexed]}
-              placeholder={placeholder}
-              secureTextEntry={isPasswordVisible ? false : true}
-              editable={disabled ? false : true}
-              selectTextOnFocus={disabled ? false : true}
-              placeholderTextColor={
-                variant === 'transparent' ? '#cfcfcf' : '#B7B7B7'
-              }
-              onEndEditing={handleInputEndEditing}
-              onChangeText={text => {
-                setInputValue(text);
-                if (onChangeText) {
-                  onChangeText(text);
-                }
-                handleInputEndEditing(); // can run this if want check validation while text change
-              }}
-            />
+            <Field name={name}>
+              {({field}) => (
+                <TextInput
+                  style={[styles.input, layouts.flexed]}
+                  placeholder={placeholder}
+                  secureTextEntry={isPasswordVisible ? false : true}
+                  editable={disabled ? false : true}
+                  selectTextOnFocus={disabled ? false : true}
+                  placeholderTextColor={
+                    variant === 'transparent' ? '#cfcfcf' : '#B7B7B7'
+                  }
+                  onChangeText={field.onChange(name)}
+                  onBlur={field.onBlur(name)}
+                  value={values[name]}
+                />
+              )}
+            </Field>
             {isPassword && (
               <Pressable
                 style={[styles.icon]}
@@ -181,11 +172,11 @@ const InputField: React.FC<InputProps> = ({
           </View>
         </View>
       </View>
-      {errorMessage && (
+      {isError && (
         <View style={[layouts.row, layouts.mt.md, layouts.yCentered]}>
           <FontAwesomeIcon icon={faCircleExclamation} size={16} color={'red'} />
           <Text style={[styles.label, layouts.ms.sm, styles.errorTextColor]}>
-            {errorMessage}
+            {errors[name]}
           </Text>
         </View>
       )}

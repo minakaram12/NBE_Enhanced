@@ -21,8 +21,10 @@ const Mobile = () => {
         </View>
         <View style={[layouts.mt.lg]}>
           <InputField
+            name="mobileNumber"
             placeholder="Write your number here"
             label="Mobile number"
+            isPassword={false}
           />
         </View>
       </View>

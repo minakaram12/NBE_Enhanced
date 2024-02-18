@@ -32,7 +32,7 @@ interface ButtonProps {
 const MainBtn: React.FC<ButtonProps> = ({
   onPress,
   onLongPress,
-  buttonText ,
+  buttonText,
   variant = 'primary',
   isLoading = false,
   disabled = false,

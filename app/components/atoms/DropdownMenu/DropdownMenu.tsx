@@ -24,6 +24,7 @@ const DropdownMenu = ({options, title}) => {
           boxStyles={styles.dropBorder} // Customize dropdown background color
           inputStyles={styles.dropList}
           dropdownTextStyles={styles.dropList}
+          dropdownStyles={styles.dropStyle}
           defaultOption={{key: options[0].key, value: options[0].value}}
         />
       </View>

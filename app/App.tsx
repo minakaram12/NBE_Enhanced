@@ -73,21 +73,21 @@ function App(): React.JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
+        {/* <Header /> */}
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
+          {/* <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
-          </Section>
+          </Section> */}
 
-          <View style={[Layouts.row]}>
+          {/* <View style={[Layouts.row]}>
             <MainBtn children="Log in" />
             <Text>Helooooooooo</Text>
-          </View>
-          <View style={{flexDirection: 'row', width: '100%'}}>
+          </View> */}
+          {/* <View style={{flexDirection: 'row', width: '100%'}}>
             <TouchableOpacity
               style={{flex: 2, backgroundColor: 'blue', padding: 10, margin: 5}}
               onPress={() => {
@@ -105,12 +105,12 @@ function App(): React.JSX.Element {
               }}>
               <Text style={{color: 'white'}}>Your Text</Text>
             </View>
-          </View>
+          </View> */}
 
-          <View>
+          
             <TrasferScreen></TrasferScreen>
-          </View>
-
+          
+{/* 
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
@@ -120,7 +120,7 @@ function App(): React.JSX.Element {
           <Section title="Learn More">
             Read the docs to discover what to do next:
           </Section>
-          <LearnMoreLinks />
+          <LearnMoreLinks /> */}
         </View>
       </ScrollView>
     </SafeAreaView>

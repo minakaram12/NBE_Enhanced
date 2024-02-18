@@ -1,10 +1,17 @@
 import DropdownMenu from '../../atoms/DropdownMenu/DropdownMenu';
-import {View} from 'react-native';
+import {View, Image, Text} from 'react-native';
 import VisaCard from '../../atoms/VisaCard/VisaCard';
 import SimSvg from '../../../assets/svgs/SimSvg';
 import MainBtn from '../../atoms/MainBtn/MainBtn';
-import BillSvg from '../../../assets/svgs/BillSvg';
+import BellSvg from '../../../assets/svgs/BellSvg';
+import BackSvg from '../../../assets/svgs/BackSvg';
 import Icon from '../../atoms/MainBtn/Icon';
+import IconCard from '../../atoms/IconCard/IconCard';
+import {layouts, shadows} from '../../../constants/styles';
+
+import TopNavImg from '../../atoms/TopNavImg/TopNavImg';
+import MenuTogglerSvg from '../../../assets/svgs/MenuTogglerSvg';
+import TopNavigator from '../../molecules/TopNavigator/TopNavigator';
 
 const transferType = [
   {key: '1', value: 'Between your accounts'},
@@ -26,8 +33,29 @@ const transferTo = [
 
 const TrasferScreen = () => {
   return (
-    <View style={{backgroundColor: 'gray'}}>
-      <VisaCard
+    <View style={{backgroundColor: '#F1F3FB', paddingHorizontal: 10, flex: 1}}>
+      <TopNavigator
+        contentLeft={
+          <IconCard
+            icon={BackSvg}
+            containerstyle={[
+              {
+                borderRadius: 10,
+                width: 45,
+                height: 45,
+                backgroundColor: '#007236',
+              },
+              shadows(),
+            ]}
+          />
+        }
+        contentRight={
+          <Image
+            source={require('../../../assets/images/GreenLogo.png')}></Image>
+        }
+      />
+
+      {/* <VisaCard
         amount="125,381.15"
         card_num="6506"
         name="AHMAD SAMI AL-SAYED"
@@ -35,21 +63,80 @@ const TrasferScreen = () => {
         cvv="352"
         imgName="green_card"
       />
-      <MainBtn
-        onPress={() => {}}
-        onLongPress={() => {}}
-        variant="secondary"
-        iconLeft={<Icon SvgProps='Bill'></Icon>}
-        buttonStyle={{
-          width: 53,
-          alignItems: 'center',
-         
-          
-        }}></MainBtn>
+    */}
+
+      <Text
+        style={{
+          color: '#1C2437',
+          fontFamily: 'Roboto',
+          fontWeight: 'bold',
+          fontSize: 30,
+          padding: 10,
+        }}>
+        Transfer
+      </Text>
       <DropdownMenu options={transferType} title="Type of transfer" />
       <DropdownMenu options={transferFrom} title="Transfer from " />
       <DropdownMenu options={transferTo} title="Transfer to" />
-      <SimSvg />
+
+      <TopNavigator
+        contentLeft={<MenuTogglerSvg />}
+        contentMiddle={
+          <TopNavImg
+            name="Ahmed"
+            imgUrl={require('../../../assets/images/dummyUser.png')}
+          />
+        }
+        contentRight={
+          <IconCard
+            icon={BellSvg}
+            containerstyle={[
+              {
+                borderRadius: 10,
+                width: 45,
+                height: 45,
+                backgroundColor: '#FFFFFF',
+              },
+              shadows(),
+            ]}
+          />
+        }
+      />
+
+      <TopNavigator
+        contentLeft={
+          <IconCard
+            icon={BackSvg}
+            containerstyle={[
+              {
+                borderRadius: 10,
+                width: 45,
+                height: 45,
+                backgroundColor: '#007236',
+              },
+              shadows(),
+            ]}
+          />
+        }
+        contentMiddle={
+          <IconCard
+            icon={BellSvg}
+            containerstyle={[
+              {
+                borderRadius: 10,
+                width: 45,
+                height: 45,
+                backgroundColor: '#E5E5E5',
+              },
+              shadows(),
+            ]}
+          />
+        }
+        contentRight={
+          <Image
+            source={require('../../../assets/images/GreenLogo.png')}></Image>
+        }
+      />
     </View>
   );
 };

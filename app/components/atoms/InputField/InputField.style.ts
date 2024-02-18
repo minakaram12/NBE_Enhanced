@@ -16,8 +16,9 @@ const styles = StyleSheet.create({
     borderColor: 'red',
   },
   transparentContainer: {
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    borderWidth: px(1.5),
     borderColor: 'rgba(255, 255, 255, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
   },
   transparentErrorContainer: {
     borderWidth: px(1.5),

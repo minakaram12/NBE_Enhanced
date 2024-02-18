@@ -54,10 +54,31 @@ export const myArray: MenuItems[] = [
         icon:DarkModeSvg
     },
   ];
-export const validationList = [
-  'Lower case letter',
-  'Minimum 8 characters',
-  'Special character',
-  'Upper case letter',
-  'Number',
-];
+
+  export interface ValidationList {
+    text: string;
+    state: boolean;
+  }
+
+  export const validationList: ValidationList[] = [
+    {
+      text: 'Lower case letter',
+      state: false,
+    },
+    {
+      text: 'Minimum 8 characters',
+      state: false,
+    },
+    {
+      text: 'Special character',
+      state: false,
+    },
+    {
+      text: 'Upper case letter',
+      state: false,
+    },
+    {
+      text: 'Number',
+      state: false,
+    },
+  ];

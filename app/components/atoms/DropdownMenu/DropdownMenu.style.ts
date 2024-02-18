@@ -18,16 +18,22 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontFamily: 'Roboto-Black',
     color: '#1C2437',
-    paddingBottom: 10,
+    paddingTop: 5,
   },
   dropBorder: {
     borderColor: 'transparent',
+    paddingTop: 7,
   },
   dropList: {
     fontFamily: 'Roboto-Regular',
     fontSize: 17,
     color: '#1C2437',
   },
- 
+
+  dropStyle: {
+    borderColor: '#007236',
+    borderWidth: 3,
+    borderStyle: 'dotted',
+  },
 });
 export default styles;

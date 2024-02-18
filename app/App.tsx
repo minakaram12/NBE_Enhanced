@@ -26,11 +26,11 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import MainBtn from './components/atoms/MainBtn/MainBtn'
+import MainBtn from './components/atoms/MainBtn/MainBtn';
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
-
+import TrasferScreen from './components/screens/TranferScreen/TransferScreen';
 function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
@@ -73,38 +73,44 @@ function App(): React.JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
+        {/* <Header /> */}
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
+          {/* <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
-          </Section>
+          </Section> */}
 
-          <View style={[Layouts.row]}>
+          {/* <View style={[Layouts.row]}>
             <MainBtn children="Log in" />
             <Text>Helooooooooo</Text>
-          </View>
-          <View style={{ flexDirection: 'row', width: '100%' }}>
+          </View> */}
+          {/* <View style={{flexDirection: 'row', width: '100%'}}>
             <TouchableOpacity
-              style={{ flex: 2, backgroundColor: 'blue', padding: 10, margin: 5 }}
+              style={{flex: 2, backgroundColor: 'blue', padding: 10, margin: 5}}
               onPress={() => {
                 // Handle button press
-              }}
-            >
-              <Text style={{ color: 'white' }}>Button</Text>
+              }}>
+              <Text style={{color: 'white'}}>Button</Text>
             </TouchableOpacity>
 
-            <View style={{ flex: 1, backgroundColor: 'green', padding: 10, margin: 5 }}>
-              <Text style={{ color: 'white' }}>Your Text</Text>
+            <View
+              style={{
+                flex: 1,
+                backgroundColor: 'green',
+                padding: 10,
+                margin: 5,
+              }}>
+              <Text style={{color: 'white'}}>Your Text</Text>
             </View>
-          </View>
+          </View> */}
 
-
-
-
+          
+            <TrasferScreen></TrasferScreen>
+          
+{/* 
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
@@ -114,7 +120,7 @@ function App(): React.JSX.Element {
           <Section title="Learn More">
             Read the docs to discover what to do next:
           </Section>
-          <LearnMoreLinks />
+          <LearnMoreLinks /> */}
         </View>
       </ScrollView>
     </SafeAreaView>

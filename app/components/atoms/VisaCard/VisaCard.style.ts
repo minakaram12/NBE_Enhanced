@@ -6,24 +6,24 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   cardBackground: {
-    width: '90%',
+    width: '100%',
     height: screenHeight * 0.3,
     borderRadius: 20,
     justifyContent: 'space-around',
     alignItems: 'center',
     marginLeft: 'auto', // Set left margin to auto
     overflow: 'hidden',
-    marginRight: 'auto',  // Set right margin to auto
+    marginRight: 'auto', // Set right margin to auto
   },
   cardImage: {
     resizeMode: 'cover',
     width: '100%',
     height: '100%',
   },
- 
+
   cardContent: {
     paddingVertical: 40,
-    paddingHorizontal: 30,
+    paddingHorizontal: 40,
     flexDirection: 'row',
     justifyContent: 'center', // Center the items horizontally
     alignItems: 'stretch', // Align items vertically
@@ -57,6 +57,10 @@ const styles = StyleSheet.create({
     marginRight: 30,
   },
 
+  simView: {
+    marginRight: 5,
+  },
+
   cardView: {
     paddingVertical: 30,
     width: '100%',
@@ -81,6 +85,12 @@ const styles = StyleSheet.create({
     color: '#848484',
     fontFamily: 'Roboto-Bold',
     fontSize: 15,
+  },
+
+  simWithSignalView: {
+    flexDirection: 'row',
+    marginRight: 20,
+    alignItems: 'center',
   },
 });
 export default styles;

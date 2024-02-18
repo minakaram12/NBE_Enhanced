@@ -2,6 +2,9 @@ import DropdownMenu from '../../atoms/DropdownMenu/DropdownMenu';
 import {View} from 'react-native';
 import VisaCard from '../../atoms/VisaCard/VisaCard';
 import SimSvg from '../../../assets/svgs/SimSvg';
+import MainBtn from '../../atoms/MainBtn/MainBtn';
+import BillSvg from '../../../assets/svgs/BillSvg';
+import Icon from '../../atoms/MainBtn/Icon';
 
 const transferType = [
   {key: '1', value: 'Between your accounts'},
@@ -23,12 +26,30 @@ const transferTo = [
 
 const TrasferScreen = () => {
   return (
-    <View>
-      <VisaCard amount='125,381.15' card_num='6506' name='AHMAD SAMI AL-SAYED' date='08/25'cvv='352' imgName='green_card'/>
+    <View style={{backgroundColor: 'gray'}}>
+      <VisaCard
+        amount="125,381.15"
+        card_num="6506"
+        name="AHMAD SAMI AL-SAYED"
+        date="08/25"
+        cvv="352"
+        imgName="green_card"
+      />
+      <MainBtn
+        onPress={() => {}}
+        onLongPress={() => {}}
+        variant="secondary"
+        iconLeft={<Icon SvgProps='Bill'></Icon>}
+        buttonStyle={{
+          width: 53,
+          alignItems: 'center',
+         
+          
+        }}></MainBtn>
       <DropdownMenu options={transferType} title="Type of transfer" />
       <DropdownMenu options={transferFrom} title="Transfer from " />
       <DropdownMenu options={transferTo} title="Transfer to" />
-      <SimSvg/>
+      <SimSvg />
     </View>
   );
 };

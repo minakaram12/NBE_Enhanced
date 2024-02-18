@@ -4,6 +4,7 @@ import shadows from '../../../constants/styles/shadows';
 import VisaSvg from '../../../assets/svgs/VisaSvg';
 import SimSvg from '../../../assets/svgs/SimSvg';
 import styles from './VisaCard.style';
+import SignalsSvg from '../../../assets/svgs/SignalsSvg';
 
 const VisaCard = ({amount, card_num, name, date, cvv, imgName}) => {
   return (
@@ -16,12 +17,14 @@ const VisaCard = ({amount, card_num, name, date, cvv, imgName}) => {
           <Text style={styles.CreditText}>${amount}</Text>
           <View style={styles.svgView}>
             <VisaSvg />
+            
           </View>
         </View>
         <View style={styles.cardContent}>
           <Text style={styles.CreditText2}>**** **** **** {card_num}</Text>
-          <View style={styles.svgView}>
-            <SimSvg fill="#ffffff" />
+          <View style={styles.simWithSignalView}>
+            <SimSvg style={styles.simView} />
+            <SignalsSvg/>
           </View>
         </View>
         <View style={styles.cardContent}>

@@ -9,7 +9,7 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
     name: 'John Doe',
     mobileNumber: '1234567890',
     balance: '100.00',
-    image: 'url1',
+    image: 'https://picsum.photos/200/300',
     color: 'blue',
     key: '1',
   },

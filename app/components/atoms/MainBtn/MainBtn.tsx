@@ -19,7 +19,7 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'outline';
   isLoading?: boolean;
   disabled?: boolean;
-  buttonStyle?: StyleProp<ViewStyle> | null;
+  buttonStyle?: StyleProp<ViewStyle> | Array<ViewStyle> | null;
   textStyle?: StyleProp<TextStyle> | null;
   indicatorColor?: string | null;
   indicatorSize?: 'small' | 'large' | number;

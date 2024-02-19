@@ -5,7 +5,7 @@ import {layouts} from '../../../constants/styles';
 import IconDollar from 'react-native-vector-icons/FontAwesome';
 import IconTelephone from 'react-native-vector-icons/Foundation';
 
-interface DetailedCardProps {
+export interface DetailedCardProps {
   readonly name: string;
   mobileNumber: string; //mobile number isn't read only because we concat + to it later
   balance: string; //balance isn't read only because we concat $ later to it
@@ -20,7 +20,7 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
   balance,
   image,
   color,
-  viewStyle
+  viewStyle,
 }) => {
   mobileNumber = '+' + mobileNumber;
   balance = '$' + balance;
@@ -33,7 +33,6 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
     throw new Error('Invalid mobile or account balance format');
   }
   const viewBgColor: string = color ? color : '#ffffff';
-  
 
   return (
     <View

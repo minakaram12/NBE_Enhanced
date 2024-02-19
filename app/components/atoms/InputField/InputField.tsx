@@ -36,6 +36,8 @@ interface InputProps {
   // boolean props
   disabled?: boolean;
   isPassword?: boolean;
+  // functions
+  onChangeText?: (text: string) => void;
 }
 
 const InputField: React.FC<InputProps> = ({
@@ -51,6 +53,7 @@ const InputField: React.FC<InputProps> = ({
   leftIconColor = '#B7B7B7',
   disabled = false,
   isPassword = false,
+  onChangeText,
 }) => {
   const finalInnerContainerStyle = useMemo(() => {
     switch (variant) {
@@ -90,6 +93,8 @@ const InputField: React.FC<InputProps> = ({
         return null;
     }
   }, [variant]);
+
+  const [value, setValue] = useState('');
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
   const togglePasswordVisibility = () => {
@@ -151,7 +156,13 @@ const InputField: React.FC<InputProps> = ({
                   placeholderTextColor={
                     variant === 'transparent' ? '#cfcfcf' : '#B7B7B7'
                   }
-                  onChangeText={field.onChange(name)}
+                  onChangeText={text => {
+                    field.onChange(name)(text);
+                    setValue(text);
+                    if (onChangeText) {
+                      onChangeText(value);
+                    }
+                  }}
                   onBlur={field.onBlur(name)}
                   value={values[name]}
                 />
@@ -164,7 +175,7 @@ const InputField: React.FC<InputProps> = ({
                 {/* <ClosedEye /> */}
                 <FontAwesomeIcon
                   icon={isPasswordVisible ? faEye : faEyeSlash}
-                  size={20}
+                  size={23}
                   color={variant === 'transparent' ? '#fff' : '#B7B7B7'}
                 />
               </Pressable>

@@ -1,22 +1,38 @@
 import React from 'react';
-import {View} from 'react-native';
-import {SvgProps} from 'react-native-svg';
+import { StyleProp, View, ViewStyle } from 'react-native';
+import { SvgProps } from 'react-native-svg';
 import styles from '../IconCard/IconCard.style';
 
 interface IconProps {
-  icon: React.FC<SvgProps>;
-  containerstyle?: object;
-  iconstyle?: object;
+  icon: React.FC<SvgProps>|React.ReactNode;
+  customContainerstyle?: StyleProp<ViewStyle>,
+  Type?:'back'|'Notification',
+  iconProps?: SvgProps;
 }
 
 const IconCard: React.FC<IconProps> = ({
   icon: IconComponent,
-  containerstyle,
-  iconstyle,
+  customContainerstyle,
+  Type="General",
+  iconProps,
 }) => {
+  const getTypeStyle = () => {
+    switch (Type) {
+      case 'back':
+        return styles.BackContainer;
+      case 'Notification':
+        return styles.NotificationContainer;
+      // case 'Customize':
+      //   return [styles.defaultContainer, customContainerstyle]
+      default:
+        return [styles.defaultContainer, customContainerstyle]
+    }
+  };
+  
+
   return (
-    <View style={[styles.iconContainer, containerstyle]}>
-      <IconComponent style={iconstyle} />
+    <View style={[getTypeStyle()]}>
+      <IconComponent {...iconProps}/>
     </View>
   );
 };

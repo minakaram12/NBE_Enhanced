@@ -30,7 +30,7 @@ const MenuItem: React.FC<MyComponentProps> = ({ iconName:IconName, itemTitle }) 
        {/* <View style={styles.iconContainer}>
         <IconName/>
        </View> */}
-       <IconCard icon={IconName} style={styles.iconContainer}></IconCard>
+       <IconCard icon={IconName} customContainerstyle={{backgroundColor:"#DFD8D8"}}></IconCard>
        <Text style={styles.text}>{itemTitle}</Text>
     </TouchableOpacity>
   );

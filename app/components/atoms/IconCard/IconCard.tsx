@@ -4,7 +4,7 @@ import { SvgProps } from 'react-native-svg';
 import styles from '../IconCard/IconCard.style';
 
 interface IconProps {
-  icon: React.FC<SvgProps>|React.ReactNode;
+  icon: React.FC<SvgProps>,
   customContainerstyle?: StyleProp<ViewStyle>,
   Type?:'back'|'Notification',
   iconProps?: SvgProps;

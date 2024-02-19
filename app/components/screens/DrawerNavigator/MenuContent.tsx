@@ -29,7 +29,7 @@ const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber }) => {
                 <View style={styles.container}>
                     <IconCard
                         icon={LogoutSvg}
-                        containerstyle={styles.icon}>
+                        customContainerstyle={styles.icon}>
                     </IconCard>
                     <Text style={styles.textStyle}>Log out </Text>
                 </View>

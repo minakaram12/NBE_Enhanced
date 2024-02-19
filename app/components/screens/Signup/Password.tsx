@@ -1,8 +1,9 @@
 import React from 'react';
-import {View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import layouts from '../../../constants/styles/layouts';
 import Header from '../../molecules/Header';
 import PasswordForm from '../../molecules/Signup/PasswordForm';
+
 
 const Password = () => {
   const backHandler = () => {
@@ -10,7 +11,8 @@ const Password = () => {
   };
 
   return (
-    <View style={[layouts.flexed, layouts.mx.xl, layouts.my.xl]}>
+    <ScrollView
+      contentContainerStyle={[layouts.flexGrow, layouts.mx.xl, layouts.my.xl]}>
       <Header
         back={true}
         addBeneficiar={false}
@@ -18,7 +20,7 @@ const Password = () => {
         onBack={backHandler}
       />
       <PasswordForm />
-    </View>
+    </ScrollView>
   );
 };
 

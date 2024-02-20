@@ -10,21 +10,15 @@ const Finish = () => {
   return (
     <View style={[layouts.flexed, {backgroundColor: '#007236'}]}>
       <View style={[layouts.mx.xl, layouts.my.xl]}>
-        <Header
-          back={false}
-          addBeneficiar={false}
-          login={false}
-          onBack={handleBack}
-        />
+        <Header />
       </View>
       <ImageBackground
-        source={require('../../../assets/images/finish.png')}
-        resizeMode="contain"
-        style={[layouts.flexed, {left: -px(15)}]}>
-        <View
-          style={[layouts.flexed, layouts.justifyBetween, {right: -px(15)}]}>
-          <View style={[layouts.mx.xl, {top: -px(18)}]}>
-            <Text style={[styles.title, layouts.my.xs]}>Congratulations</Text>
+        source={require('../../../assets/images/Finish.jpg')}
+        resizeMode="cover"
+        style={[layouts.flexed]}>
+        <View style={[layouts.flexed, layouts.justifyBetween]}>
+          <View style={[layouts.mx.xl]}>
+            <Text style={[styles.title, layouts.my.lg]}>Congratulations</Text>
             <Text style={styles.caption}>
               You have successfully registered in NBE online banking service
             </Text>

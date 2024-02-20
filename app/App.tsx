@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
+import type { PropsWithChildren } from 'react';
 import Layouts from './constants/styles/layouts';
 import {
   SafeAreaView,
@@ -18,7 +18,7 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-
+import DrawerMenu from './components/screens/DrawerNavigator/DrawerMenu';
 import {
   Colors,
   DebugInstructions,
@@ -31,7 +31,16 @@ type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 import TrasferScreen from './components/screens/TranferScreen/TransferScreen';
-function Section({children, title}: SectionProps): React.JSX.Element {
+import TopNavImg from './components/atoms/TopNavImg/TopNavImg';
+import MenuContent from './components/screens/DrawerNavigator/MenuContent';
+import IconCard from './components/atoms/IconCard/IconCard';
+import BellSvg from './assets/svgs/BellSvg';
+import BackSvg from './assets/svgs/BackSvg';
+import MenuTogglerSvg from './assets/svgs/MenuTogglerSvg';
+import { width } from '@fortawesome/free-solid-svg-icons/faEye';
+import Logo from './assets/svgs/Logo';
+import TopNavigator from './components/molecules/TopNavigator/TopNavigator';
+function Section({ children, title }: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -107,10 +116,37 @@ function App(): React.JSX.Element {
             </View>
           </View> */}
 
-          
-            <TrasferScreen></TrasferScreen>
-          
-{/* 
+
+          <DrawerMenu></DrawerMenu>
+
+          {/* <IconCard icon={BackSvg} Type='back'/>
+          <IconCard icon={BellSvg} Type="Notification" />
+          <IconCard 
+          icon={MenuTogglerSvg} 
+          customContainerstyle={{ width: 60, height: 60, backgroundColor: 'black' }} 
+          iconProps={{ fill: 'red' }}/>
+          <IconCard icon={MenuTogglerSvg} iconProps={{ fill: 'red'}} />  */}
+           {/* <IconCard icon={Logo} iconProps={{width: 20, height: 60}}></IconCard>
+
+          {/* <TopNavigator
+            contentLeft={<IconCard icon={MenuTogglerSvg}/> }
+            contentMiddle={
+              <TopNavImg
+                name="Ahmed"
+                imgUrl={require('./assets/images/dummyUser.png')}
+              />
+            }
+            contentRight={
+              <IconCard
+                icon={BellSvg}
+                Type='Notification'
+              />
+            }
+          /> */}
+         
+
+
+          {/* 
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>

@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {ImageBackground, Pressable, Text, View} from 'react-native';
+import {ImageBackground, Pressable, ScrollView, Text, View} from 'react-native';
 // styles
 import {layouts} from '../../../constants/styles';
 import styles from './LoginScreen.style';
@@ -36,7 +36,7 @@ const LoginScreen = () => {
     <ImageBackground
       source={LoginBackgroundImage}
       resizeMode="cover"
-      style={[layouts.flexed]}>
+      style={[layouts.fullHeight]}>
       <View style={[styles.container, layouts.flexed]}>
         <View style={[layouts.flexed, layouts.px.xxl]}>
           <View style={[layouts.row, layouts.mt.xl]}>

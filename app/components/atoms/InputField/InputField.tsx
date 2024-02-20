@@ -25,6 +25,14 @@ interface InputProps {
   label?: string;
   placeholder?: string;
   variant?: 'primary' | 'outline' | 'transparent';
+  keyboardType?:
+    | 'default'
+    | 'number-pad'
+    | 'decimal-pad'
+    | 'numeric'
+    | 'email-address'
+    | 'phone-pad'
+    | 'url';
   // styles
   outerContainerStyle?: StyleProp<ViewStyle> | Array<ViewStyle> | null;
   innerContainerStyle?: StyleProp<ViewStyle> | Array<ViewStyle> | null;
@@ -36,6 +44,7 @@ interface InputProps {
   // boolean props
   disabled?: boolean;
   isPassword?: boolean;
+  showErrors?: boolean;
   // functions
   onChangeText?: (text: string) => void;
 }
@@ -45,6 +54,7 @@ const InputField: React.FC<InputProps> = ({
   label,
   placeholder,
   variant = 'primary',
+  keyboardType = 'default',
   outerContainerStyle = null,
   innerContainerStyle = null,
   labelStyle = null,
@@ -53,6 +63,7 @@ const InputField: React.FC<InputProps> = ({
   leftIconColor = '#B7B7B7',
   disabled = false,
   isPassword = false,
+  showErrors = true,
   onChangeText,
 }) => {
   const finalInnerContainerStyle = useMemo(() => {
@@ -102,13 +113,15 @@ const InputField: React.FC<InputProps> = ({
   };
 
   const {values, errors, touched} = useFormikContext<FormikValues>();
-  const isError = errors[name] && touched[name];
+  const isError = errors[name] && touched[name] && showErrors;
 
   useEffect(() => {
     if (isPassword) {
       setIsPasswordVisible(false);
     }
   }, [isPassword]);
+
+  const [isFocus, setIsFocus] = useState(false);
 
   return (
     <View style={[outerContainerStyle]}>
@@ -118,7 +131,7 @@ const InputField: React.FC<InputProps> = ({
           layouts.allCentered,
           layouts.px.xl,
           styles.innerContainer,
-          finalInnerContainerStyle,
+          isFocus ? styles.outlineContainer : finalInnerContainerStyle,
           isError ? finalErrorInnerContainerStyle : null,
           innerContainerStyle,
         ]}>
@@ -127,7 +140,7 @@ const InputField: React.FC<InputProps> = ({
             <FontAwesomeIcon
               icon={leftIcon as IconProp}
               size={leftIconSize}
-              color={leftIconColor}
+              color={isFocus ? '#B7B7B7' : leftIconColor}
             />
           </View>
         )}
@@ -137,7 +150,7 @@ const InputField: React.FC<InputProps> = ({
               style={[
                 styles.label,
                 layouts.mt.lg,
-                finalLabelStyle,
+                isFocus ? null : finalLabelStyle,
                 isError ? styles.errorTextColor : null,
                 labelStyle,
               ]}>
@@ -148,6 +161,7 @@ const InputField: React.FC<InputProps> = ({
             <Field name={name}>
               {({field}) => (
                 <TextInput
+                  keyboardType={keyboardType}
                   style={[styles.input, layouts.flexed]}
                   placeholder={placeholder}
                   secureTextEntry={isPasswordVisible ? false : true}
@@ -165,6 +179,8 @@ const InputField: React.FC<InputProps> = ({
                   }}
                   onBlur={field.onBlur(name)}
                   value={values[name]}
+                  onFocus={() => setIsFocus(true)}
+                  onEndEditing={() => setIsFocus(false)}
                 />
               )}
             </Field>
@@ -176,7 +192,7 @@ const InputField: React.FC<InputProps> = ({
                 <FontAwesomeIcon
                   icon={isPasswordVisible ? faEye : faEyeSlash}
                   size={23}
-                  color={variant === 'transparent' ? '#fff' : '#B7B7B7'}
+                  color={isFocus ? '#B7B7B7' : '#fff'}
                 />
               </Pressable>
             )}

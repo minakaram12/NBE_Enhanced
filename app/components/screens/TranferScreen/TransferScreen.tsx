@@ -13,6 +13,8 @@ import TopNavImg from '../../atoms/TopNavImg/TopNavImg';
 import MenuTogglerSvg from '../../../assets/svgs/MenuTogglerSvg';
 import TopNavigator from '../../molecules/TopNavigator/TopNavigator';
 
+import OTPScreen from '../OTPScreen/OTPScreen';
+
 const transferType = [
   {key: '1', value: 'Between your accounts'},
   {key: '2', value: 'from your account to different account'},
@@ -61,9 +63,9 @@ const TrasferScreen = () => {
         name="AHMAD SAMI AL-SAYED"
         date="08/25"
         cvv="352"
-        imgName="green_card"
-      />
-    */}
+        accType="premium"
+      /> */}
+   
 
       <Text
         style={{

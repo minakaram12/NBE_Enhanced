@@ -7,6 +7,9 @@ import {Formik, FormikProps} from 'formik';
 import * as Yup from 'yup';
 import MainBtn from '../../atoms/MainBtn/MainBtn';
 import {validationList} from '../../../Faker';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {faLock} from '@fortawesome/free-solid-svg-icons/faLock';
+library.add(faLock);
 
 interface FormValues {
   password: string;
@@ -73,20 +76,22 @@ const PasswordForm = () => {
             </View>
             <View style={[layouts.flexed, layouts.my.lg]}>
               <InputField
+                name="password"
                 placeholder="Write your password here"
                 label="Password"
                 isPassword
-                value={formikProps.values.password}
+                leftIcon="lock"
                 onChangeText={value => {
                   passwordChangeHandler(formikProps, 'password', value);
                 }}
-                outerContainerStyle={layouts.mt.lg}
+                outerContainerStyle={[layouts.mt.lg]}
               />
               <InputField
+                name="confirmPassword"
                 placeholder="Re-Write your password here"
                 label="Confirm Password"
                 isPassword
-                value={formikProps.values.confirmPassword}
+                leftIcon="lock"
                 onChangeText={formikProps.handleChange('confirmPassword')}
                 outerContainerStyle={layouts.my.xl}
               />

@@ -6,16 +6,23 @@ import IconCard from '../atoms/IconCard/IconCard';
 import BellSvg from '../../assets/svgs/BellSvg';
 import shadows from './../../constants/styles/shadows';
 import ArSvg from '../../assets/svgs/ArSvg';
+import WhiteLogoSvg from '../../assets/svgs/WhiteLogoSvg';
+import GreenLogoSvg from '../../assets/svgs/GreenLogoSvg';
 
 interface HeaderProps {
-  back: boolean;
-  addBeneficiar: boolean;
-  login: boolean;
-  onBack(): void;
+  back?: boolean;
+  addBeneficiar?: boolean;
+  login?: boolean;
+  onBack?(): void;
 }
-const Header = (props: HeaderProps) => {
+const Header = ({
+  back = false,
+  addBeneficiar = false,
+  login = true,
+  onBack,
+}: HeaderProps) => {
   const backHandler = () => {
-    props.onBack();
+    if (onBack) onBack();
   };
 
   const beneficiarHandler = () => {
@@ -26,9 +33,6 @@ const Header = (props: HeaderProps) => {
     console.log('Change Language');
   };
 
-  let logo = require('../../assets/images/GreenLogo.png');
-  if (!props.back) logo = require('../../assets/images/WhiteLogo.png');
-
   return (
     <View
       style={[
@@ -37,38 +41,50 @@ const Header = (props: HeaderProps) => {
         {height: 60, alignItems: 'center'},
       ]}>
       <View style={[layouts.row]}>
-        {props.login && (
+        {login && (
           <Pressable onPress={langHandler}>
             <IconCard
               icon={ArSvg}
               containerstyle={[
-                {backgroundColor: '#FFFFFF', borderRadius: 10},
+                {
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: 10,
+                  marginLeft: px(0),
+                },
                 shadows(),
               ]}
             />
           </Pressable>
         )}
-        {props.back && (
+        {back && (
           <View>
             <Pressable onPress={backHandler}>
               <IconCard
                 icon={BackSvg}
-                containerstyle={{backgroundColor: '#007236', borderRadius: 10}}
+                containerstyle={{
+                  backgroundColor: '#007236',
+                  borderRadius: 10,
+                  marginLeft: px(0),
+                }}
               />
             </Pressable>
           </View>
         )}
-        {props.addBeneficiar && (
+        {addBeneficiar && (
           <Pressable onPress={beneficiarHandler}>
             <IconCard
               icon={BellSvg}
-              containerstyle={{backgroundColor: '#E5E5E5', borderRadius: 10}}
+              containerstyle={{
+                backgroundColor: '#E5E5E5',
+                borderRadius: 10,
+                marginLeft: px(0),
+              }}
             />
           </Pressable>
         )}
       </View>
       <View style={[layouts.row, layouts.justifyEnd]}>
-        <Image source={logo} resizeMode="contain" />
+        {login ? <WhiteLogoSvg /> : <GreenLogoSvg />}
       </View>
     </View>
   );

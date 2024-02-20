@@ -2,7 +2,7 @@ import React from 'react';
 import TransactionCard from '../../atoms/Transactioncard/TransactionCard.component';
 import {TransactionCardProp} from '../../atoms/Transactioncard/TransactionCard.component';
 import {FlatList, StyleSheet, View} from 'react-native';
-interface TransactionListProps {
+export interface TransactionListProps {
   transactions: Array<TransactionCardProp>;
 }
 function TransactionList({transactions}: TransactionListProps) {

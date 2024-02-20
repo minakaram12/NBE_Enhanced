@@ -4,15 +4,15 @@ import { SvgProps } from 'react-native-svg';
 import styles from '../IconCard/IconCard.style';
 
 interface IconProps {
-  icon: React.FC<SvgProps>,
-  customContainerstyle?: StyleProp<ViewStyle>,
+  icon: React.FC<SvgProps>|any,
+  containerstyle?: StyleProp<ViewStyle>,
   Type?:'back'|'Notification',
-  iconProps?: SvgProps;
+  iconProps?: SvgProps|any;
 }
 
 const IconCard: React.FC<IconProps> = ({
   icon: IconComponent,
-  customContainerstyle,
+  containerstyle,
   Type="General",
   iconProps,
 }) => {
@@ -25,7 +25,7 @@ const IconCard: React.FC<IconProps> = ({
       // case 'Customize':
       //   return [styles.defaultContainer, customContainerstyle]
       default:
-        return [styles.defaultContainer, customContainerstyle]
+        return [styles.defaultContainer, containerstyle]
     }
   };
   

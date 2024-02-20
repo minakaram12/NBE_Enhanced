@@ -1,121 +1,120 @@
 import React, { useRef, useState } from 'react';
-import { Animated, Image, ImageProps, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Animated, Image, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 import MenuContent from './MenuContent';
 import IconCard from '../../atoms/IconCard/IconCard';
 import MenuTogglerSvg from '../../../assets/svgs/MenuTogglerSvg';
+import TopNavigator from '../../molecules/TopNavigator/TopNavigator';
+import TopNavImg from '../../atoms/TopNavImg/TopNavImg';
+import BellSvg from '../../../assets/svgs/BellSvg';
 
-const DrawerMenu = ()=>{
 
-  // const menu = require('../../../assets/svgs/MenuTogglerSvg');
+
+
+const DrawerMenu = () => {
   const close = require('../../../assets/images/close.png');
 
-
-
-  // const [currentTab, setCurrentTab] = useState("Home");
-  // To get the curretn Status of menu ...
   const [showMenu, setShowMenu] = useState(false);
 
-  // Animated Properties...
-
   const offsetValue = useRef(new Animated.Value(0)).current;
-  // Scale Intially must be One...
   const scaleValue = useRef(new Animated.Value(1)).current;
   const closeButtonOffset = useRef(new Animated.Value(0)).current;
-  return(
 
-  <View style={styles.container} >
+  const handleMenuPress = () => {
+    Animated.timing(scaleValue, {
+      toValue: showMenu ? 1 : 0.88,
+      duration: 300,
+      useNativeDriver: true
+    }).start();
 
-    <MenuContent userName={'Ahmed'} phoneNumber={123456789}></MenuContent>
+    Animated.timing(offsetValue, {
+      toValue: showMenu ? 0 : 340,
+      duration: 300,
+      useNativeDriver: true
+    }).start();
 
-    {
-      // Over lay View...
-    }
+    Animated.timing(closeButtonOffset, {
+      toValue: !showMenu ? -30 : 0,
+      duration: 300,
+      useNativeDriver: true
+    }).start();
 
-    <Animated.View style={{
-      flexGrow: 1,
-      backgroundColor: 'white',
-      position: 'absolute',
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0,
-      paddingHorizontal: 15,
-      paddingVertical: 20,
-      borderRadius: showMenu ? 15 : 0,
-      // Transforming View...
-      transform: [
-        { scale: scaleValue },
-        { translateX: offsetValue }
-      ]
-    }}>
+    setShowMenu(!showMenu);
 
-      {
-        // Menu Button...
-      }
-
-      <Animated.View style={{
-        transform: [{
-          translateY: closeButtonOffset
-        }]
-      }}>
-        <TouchableOpacity onPress={() => {
-          // Do Actions Here....
-          // Scaling the view...
-          Animated.timing(scaleValue, {
-            toValue: showMenu ? 1 : 0.88,
-            duration: 300,
-            useNativeDriver: true
-          })
-            .start()
-
-          Animated.timing(offsetValue, {
-            // YOur Random Value...
-            toValue: showMenu ? 0 : 340,
-            duration: 300,
-            useNativeDriver: true
-          })
-            .start()
-
-          Animated.timing(closeButtonOffset, {
-            // YOur Random Value...
-            toValue: !showMenu ? -30 : 0,
-            duration: 300,
-            useNativeDriver: true
-          })
-          //   .start()
-
-          setShowMenu(!showMenu);
-        }}>
-          {showMenu && <Image source={close} style={{
-            width: 20,
-            height: 20,
-            tintColor: 'black',
-            marginTop: 40,
-
-          }}></Image> }
-          {!showMenu&&<IconCard icon={MenuTogglerSvg}></IconCard>}
-          
-        </TouchableOpacity>
+  };
 
 
-      {/* homeScreen content */}
-     <Text style={{fontSize:50}}>helllllllo</Text>
-      
+  let contentLeft:any = <IconCard icon={MenuTogglerSvg}></IconCard>
+  if(showMenu){
+    contentLeft = <Image
+    source={close}
+    style={{
+      width: 20,
+      height: 20,
+      tintColor: 'black',
+      margin:10,
+    }}
+  />
+  }
+
+  return (
+    <View style={styles.container}>
+      {/* MenuItem */}
+      <MenuContent userName={'Ahmed'} phoneNumber={123456789} />
+
+      <Animated.View
+        style={{
+          flexGrow: 1,
+          backgroundColor: 'white',
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          paddingHorizontal: showMenu ? 15 : 0,
+          paddingVertical: showMenu ? 20 : 0,
+          borderRadius: showMenu ? 15 : 0,
+          transform: [
+            { scale: scaleValue },
+            { translateX: offsetValue },
+          ]
+        }}
+      >
+        <Animated.View
+          style={{
+            transform: [{ translateY: closeButtonOffset }]
+          }}
+        >
+          <TopNavigator
+            onPressLeft={handleMenuPress}
+            contentLeft={contentLeft}
+            contentMiddle={
+              <TopNavImg
+                name="Ahmed"
+                imgUrl={require('../../../assets/images/dummyUser.png')}
+              />
+            }
+            contentRight={
+              <IconCard
+                icon={BellSvg}
+                Type='Notification'
+              />
+            }
+          /> 
+
+          {/* homeScreen content */}
+          <Text style={{ fontSize: 50 }}>hello</Text>
+        </Animated.View>
       </Animated.View>
-
-    </Animated.View>
-
-  </View>
-  )
-
-}
-export default DrawerMenu ;
-
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    backgroundColor:"#F1F3FB",
-  },
+    backgroundColor: '#F1F3FB'
+  }
 });
+
+export default DrawerMenu;

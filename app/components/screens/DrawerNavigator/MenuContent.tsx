@@ -19,7 +19,6 @@ const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber }) => {
             {/* AR button and logo */}
             <View style={styles.header}>
                 <Image source={logo}></Image>
-
                 <Image source={AR}></Image>
             </View>
             {/* sidebar menu */}
@@ -29,7 +28,7 @@ const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber }) => {
                 <View style={styles.container}>
                     <IconCard
                         icon={LogoutSvg}
-                        customContainerstyle={styles.icon}>
+                        containerstyle={styles.icon}>
                     </IconCard>
                     <Text style={styles.textStyle}>Log out </Text>
                 </View>
@@ -76,8 +75,6 @@ const styles = StyleSheet.create({
     },
     icon: {
         backgroundColor: '#EED1D4',
-        padding: px(2),
-        margin: px(3),
     },
     userCard: {
         width: px(250),

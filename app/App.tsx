@@ -117,7 +117,6 @@ function App(): React.JSX.Element {
           </View> */}
 
 
-          {/* <TopNavImg name={"rawan"} imgUrl={}></TopNavImg> */}
           <DrawerMenu></DrawerMenu>
 
           {/* <IconCard icon={BackSvg} Type='back'/>
@@ -126,30 +125,26 @@ function App(): React.JSX.Element {
           icon={MenuTogglerSvg} 
           customContainerstyle={{ width: 60, height: 60, backgroundColor: 'black' }} 
           iconProps={{ fill: 'red' }}/>
-          <IconCard icon={MenuTogglerSvg} iconProps={{ fill: 'red'}} /> */}
+          <IconCard icon={MenuTogglerSvg} iconProps={{ fill: 'red'}} />  */}
+           {/* <IconCard icon={Logo} iconProps={{width: 20, height: 60}}></IconCard>
+
           {/* <TopNavigator
-        contentLeft={<MenuTogglerSvg />}
-        contentMiddle={
-          <TopNavImg
-            name="Ahmed"
-            imgUrl={require('../../../assets/images/dummyUser.png')}
-          />
-        }
-        contentRight={
-          <IconCard
-            icon={BellSvg}
-            containerstyle={[
-              {
-                borderRadius: 10,
-                width: 45,
-                height: 45,
-                backgroundColor: '#FFFFFF',
-              },
-              shadows(),
-            ]}
-          />
-        }
-      /> */}
+            contentLeft={<IconCard icon={MenuTogglerSvg}/> }
+            contentMiddle={
+              <TopNavImg
+                name="Ahmed"
+                imgUrl={require('./assets/images/dummyUser.png')}
+              />
+            }
+            contentRight={
+              <IconCard
+                icon={BellSvg}
+                Type='Notification'
+              />
+            }
+          /> */}
+         
+
 
           {/* 
           <Section title="See Your Changes">

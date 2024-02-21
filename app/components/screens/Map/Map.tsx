@@ -1,34 +1,33 @@
 import {StyleSheet} from 'react-native';
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
-
-const styles = StyleSheet.create({
-  container: {
-    ...StyleSheet.absoluteFillObject,
-    flex:1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-  },
-});
+import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import {markers} from '../../../Faker';
 
 const Map = () => {
   return (
     <MapView
       provider={PROVIDER_GOOGLE} // remove if not using Google Maps
       style={styles.map}
-      showsCompass={true}
-      compassOffset={{x: 0, y: 0}}
-      showsUserLocation={true}
       region={{
-        latitude: 37.78825,
-        longitude: -122.4324,
-        latitudeDelta: 0.015,
-        longitudeDelta: 0.0121,
-      }}
-    />
+        latitude: 20.066974205840264,
+        longitude: 21.336983717513284,
+        latitudeDelta: 20.066974205840264,
+        longitudeDelta: 31.336983717513284,
+      }}>
+      {markers.map((marker, index) => (
+        <Marker key={index} coordinate={marker} />
+      ))}
+    </MapView>
   );
 };
 
 export default Map;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  map: {
+    width: '100%',
+    height: '100%',
+  },
+});

@@ -99,3 +99,18 @@ export const transferTo = [
   {key: '2', value: '055-32154875423 - $523.48'},
   {key: '3', value: '057-32154875423 - $10,523.48'},
 ];
+
+export const markers = [
+  {
+    latitude: 30.066974205840264,
+    longitude: 31.336983717513284,
+  },
+  {
+    latitude: 30.068640962863853,
+    longitude: 31.344582905246888,
+  },
+  {
+    latitude: 30.067383242717057,
+    longitude: 31.330059911548595,
+  },
+];

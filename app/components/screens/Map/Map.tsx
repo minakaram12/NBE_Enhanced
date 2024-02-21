@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Image} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import {markers} from '../../../Faker';
 
@@ -14,7 +14,12 @@ const Map = () => {
         longitudeDelta: 0.1,
       }}>
       {markers.map((marker, index) => (
-        <Marker key={index} coordinate={marker} />
+        <Marker key={index} coordinate={marker}>
+          <Image
+            source={require('../../../assets/images/MapMarker.png')}
+            style={styles.markerImage}
+          />
+        </Marker>
       ))}
     </MapView>
   );
@@ -29,5 +34,9 @@ const styles = StyleSheet.create({
   map: {
     width: '100%',
     height: '100%',
+  },
+  markerImage: {
+    width: 17,
+    height: 21,
   },
 });

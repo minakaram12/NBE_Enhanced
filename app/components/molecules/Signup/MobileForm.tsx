@@ -38,6 +38,7 @@ const MobileForm = () => {
               label="Mobile number"
               leftIcon="mobile"
               isPassword={false}
+              showErrors={false}
             />
           </View>
           <View>

@@ -6,11 +6,15 @@ import MenuTogglerSvg from '../../../assets/svgs/MenuTogglerSvg';
 import TopNavigator from '../../molecules/TopNavigator/TopNavigator';
 import TopNavImg from '../../atoms/TopNavImg/TopNavImg';
 import BellSvg from '../../../assets/svgs/BellSvg';
+import{theme} from '../../../theme/theme'
 
 
+interface DrawerMenuProps{
+  isEnabledDark:boolean;
+  toggleSwitch:()=>void;
+}
 
-
-const DrawerMenu = () => {
+const DrawerMenu : React.FC<DrawerMenuProps> = ({ isEnabledDark, toggleSwitch }) => {
   const close = require('../../../assets/images/close.png');
 
   const [showMenu, setShowMenu] = useState(false);
@@ -59,7 +63,7 @@ const DrawerMenu = () => {
   return (
     <View style={styles.container}>
       {/* MenuItem */}
-      <MenuContent userName={'Ahmed'} phoneNumber={123456789} />
+      <MenuContent userName={'Ahmed'} phoneNumber={123456789} isEnabledDark={isEnabledDark} toggleSwitch={toggleSwitch} />
 
       <Animated.View
         style={{
@@ -113,7 +117,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    backgroundColor: '#F1F3FB',
+    backgroundColor: theme?.bg,
     flex:1,
   }
 });

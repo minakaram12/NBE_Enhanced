@@ -7,9 +7,12 @@ import {
     View,
     Image,
   } from 'react-native';
+  interface SidebarProps{
+    isEnabledDark:boolean;
+    toggleSwitch:()=>void;
+  }
 
-
-  const Sidebar: React.FC = () => {
+  const Sidebar: React.FC <SidebarProps> = ({ isEnabledDark, toggleSwitch }) => {
  
     return (
         <View>
@@ -18,7 +21,7 @@ import {
             {item.text === 'Dark Mode' ? (
               <View style={styles.DarkModeContainer}>
                 <MenuItem iconName={item.icon} itemTitle={item.text} />
-                <SwitchBtn/>
+                <SwitchBtn isEnabledDark={isEnabledDark} toggleSwitch={toggleSwitch}/>
               </View>
             ) : (
               <MenuItem iconName={item.icon} itemTitle={item.text} />

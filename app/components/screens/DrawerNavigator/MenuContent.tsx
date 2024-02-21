@@ -9,8 +9,10 @@ import LogoutSvg from '../../../assets/svgs/LogoutSvg';
 interface userInfo {
     userName: string,
     phoneNumber: number,
+    isEnabledDark: boolean;
+    toggleSwitch: () => void;
 }
-const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber }) => {
+const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber, isEnabledDark, toggleSwitch }) => {
     const logo = require('../../../assets/images/logoGreen.png');
     const AR = require('../../../assets/images/AR.png');
 
@@ -22,7 +24,7 @@ const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber }) => {
                 <Image source={AR}></Image>
             </View>
             {/* sidebar menu */}
-            <Sidebar />
+            <Sidebar isEnabledDark={isEnabledDark} toggleSwitch={toggleSwitch} />
             {/* LOGOOUT AND BOTTOM NAV */}
             <View style={styles.outerContainer}>
                 <View style={styles.container}>

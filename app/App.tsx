@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import type { PropsWithChildren } from 'react';
 import Layouts from './constants/styles/layouts';
 import {
@@ -40,6 +40,9 @@ import MenuTogglerSvg from './assets/svgs/MenuTogglerSvg';
 import { width } from '@fortawesome/free-solid-svg-icons/faEye';
 import Logo from './assets/svgs/Logo';
 import TopNavigator from './components/molecules/TopNavigator/TopNavigator';
+import { theme } from './theme/theme'
+import { getTheme, setTheme  } from './storage/mmkv';
+import { colors } from './theme/colors';
 function Section({ children, title }: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
@@ -66,17 +69,40 @@ function Section({ children, title }: SectionProps): React.JSX.Element {
   );
 }
 
+
+
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
+
+
+  const [isEnabled, setIsEnabled] = useState(getTheme()=='Dark');
+
+  
+  
+  const toggleSwitch = () => {
+    setIsEnabled((previousState) => !previousState);
+    const newTheme = isEnabled ? 'Light' : 'Dark';
+    setTheme(newTheme);
+  };
+
+  useEffect(() => {
+    // Perform any side effect when themeTmp changes
+    
+  }, [getTheme()]); // Dependency array ensures the effect runs when themeTmp changes
+
+
+  console.log("inAPP.TSX" + getTheme());
+  console.log(theme?.bg);
+
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: theme?.bg,
   };
 
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        barStyle={isEnabled ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView
@@ -117,7 +143,7 @@ function App(): React.JSX.Element {
           </View> */}
 
 
-          <DrawerMenu></DrawerMenu>
+          <DrawerMenu isEnabledDark={isEnabled} toggleSwitch={toggleSwitch}></DrawerMenu>
 
           {/* <IconCard icon={BackSvg} Type='back'/>
           <IconCard icon={BellSvg} Type="Notification" />
@@ -126,7 +152,7 @@ function App(): React.JSX.Element {
           customContainerstyle={{ width: 60, height: 60, backgroundColor: 'black' }} 
           iconProps={{ fill: 'red' }}/>
           <IconCard icon={MenuTogglerSvg} iconProps={{ fill: 'red'}} />  */}
-           {/* <IconCard icon={Logo} iconProps={{width: 20, height: 60}}></IconCard>
+          {/* <IconCard icon={Logo} iconProps={{width: 20, height: 60}}></IconCard>
 
           {/* <TopNavigator
             contentLeft={<IconCard icon={MenuTogglerSvg}/> }
@@ -143,7 +169,7 @@ function App(): React.JSX.Element {
               />
             }
           /> */}
-         
+
 
 
           {/* 

@@ -112,6 +112,7 @@ const TransferScreen = () => {
           amount: '',
           reason: '',
         }}
+        
         validationSchema={transferValidationSchema}
         onSubmit={values => {
           handleFormChange(values);

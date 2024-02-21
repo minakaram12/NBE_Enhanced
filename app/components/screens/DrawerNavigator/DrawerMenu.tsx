@@ -10,7 +10,7 @@ import BellSvg from '../../../assets/svgs/BellSvg';
 
 
 
-const DrawerMenu = ({children}) => {
+const DrawerMenu = () => {
   const close = require('../../../assets/images/close.png');
 
   const [showMenu, setShowMenu] = useState(false);
@@ -102,7 +102,7 @@ const DrawerMenu = ({children}) => {
           /> 
 
           {/* homeScreen content */}
-          {children}
+         <Text>hello</Text>
         </Animated.View>
       </Animated.View>
     </View>

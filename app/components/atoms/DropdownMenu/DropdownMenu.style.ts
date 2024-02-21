@@ -35,5 +35,11 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderStyle: 'dotted',
   },
+  FocusStyle: {
+    borderColor: '#007236',
+  },
+  BlurStyle: {
+    borderColor: '#eeeeee',
+  },
 });
 export default styles;

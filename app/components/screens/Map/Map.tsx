@@ -8,10 +8,10 @@ const Map = () => {
       provider={PROVIDER_GOOGLE} // remove if not using Google Maps
       style={styles.map}
       region={{
-        latitude: 20.066974205840264,
-        longitude: 21.336983717513284,
-        latitudeDelta: 20.066974205840264,
-        longitudeDelta: 31.336983717513284,
+        latitude: 30.062981,
+        longitude: 31.34597,
+        latitudeDelta: 0.1,
+        longitudeDelta: 0.1,
       }}>
       {markers.map((marker, index) => (
         <Marker key={index} coordinate={marker} />

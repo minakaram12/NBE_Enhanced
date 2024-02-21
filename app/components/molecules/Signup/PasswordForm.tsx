@@ -85,6 +85,7 @@ const PasswordForm = () => {
                   passwordChangeHandler(formikProps, 'password', value);
                 }}
                 outerContainerStyle={[layouts.mt.lg]}
+                showErrors={false}
               />
               <InputField
                 name="confirmPassword"
@@ -94,6 +95,7 @@ const PasswordForm = () => {
                 leftIcon="lock"
                 onChangeText={formikProps.handleChange('confirmPassword')}
                 outerContainerStyle={layouts.my.xl}
+                showErrors={false}
               />
               <ValidationList validationList={validationListState} />
             </View>

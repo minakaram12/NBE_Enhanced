@@ -8,20 +8,6 @@ import {shadows} from '../../../constants/styles';
 import {Image} from 'react-native';
 
 interface TopNavProps {
-  // onPress(): void;
-  // onLongPress?: () => void;
-  // buttonText: string;
-  // variant?: 'primary' | 'secondary' | 'outline';
-  // isLoading?: boolean;
-  // disabled?: boolean;
-  // buttonStyle?: StyleProp<ViewStyle> | null;
-  // textStyle?: StyleProp<TextStyle> | null;
-  // indicatorColor?: string | null;
-  // indicatorSize?: 'small' | 'large' | number;
-  // disabledStyle?: StyleProp<ViewStyle> | null;
-  // disabledTextStyle?: StyleProp<TextStyle> | null;
-  // iconLeft?: any;
-  // iconRight?: any;
   onPressLeft?: () => void;
   onPressMiddle?: () => void;
   onPressRight?: () => void;
@@ -44,10 +30,8 @@ const TopNavigator: React.FC<TopNavProps> = ({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-       // marginHorizontal: 15,
+        // marginHorizontal: 15,
         marginVertical: 25,
-    
-        
       }}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <TouchableOpacity onPress={onPressLeft}>
@@ -66,31 +50,13 @@ const TopNavigator: React.FC<TopNavProps> = ({
             ]}
           /> */}
         </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={onPressMiddle}>
-          {/* <IconCard
-          icon={BellSvg}
-          containerstyle={[
-            {
-              borderRadius: 10,
-              width: 45,
-              height: 45,
-              backgroundColor: '#FFFFFF',
-            },
-            shadows(),
-          ]}
-        /> */}
-
-          {/* <TopNavImg
-            name="Ahmed"
-            imgUrl={require('../../../assets/images/dummyUser.png')}
-          /> */}
-          {contentMiddle}
-        </TouchableOpacity>
+        {contentMiddle && (
+          <TouchableOpacity onPress={onPressMiddle}>
+            {contentMiddle}
+          </TouchableOpacity>
+        )}
       </View>
-      <TouchableOpacity
-        onPress={onPressRight}>
+      <TouchableOpacity onPress={onPressRight}>
         {/* <IconCard
           icon={BellSvg}
           containerstyle={[
@@ -103,7 +69,7 @@ const TopNavigator: React.FC<TopNavProps> = ({
             shadows(),
           ]}
         /> */}
-       {contentRight}
+        {contentRight}
         {/* <Image source={require('../../../assets/images/GreenLogo.png')}></Image> */}
       </TouchableOpacity>
     </View>

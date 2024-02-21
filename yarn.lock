@@ -6006,6 +6006,11 @@ react-native-dropdown-select-list@^2.0.5:
   resolved "https://registry.npmjs.org/react-native-dropdown-select-list/-/react-native-dropdown-select-list-2.0.5.tgz"
   integrity sha512-TepbcagQVUMB6nLuIlVU2ghRpQHAECOeZWe8K04ymW6NqbKbxuczZSDFfdCiABiiQ2dFD+8Dz65y4K7/uUEqGg==
 
+react-native-otp-entry@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.npmjs.org/react-native-otp-entry/-/react-native-otp-entry-1.4.1.tgz"
+  integrity sha512-AAZLgEX1fWcYVE7XVxkHbSbp9VtsUqvzJmC9PzQAEVPENNh9+BT0uTWq7O21hMdMFo3lSugCzyG/H4OR9zR3ug==
+
 react-native-safe-area-context@^4.9.0, "react-native-safe-area-context@>= 3.0.0":
   version "4.9.0"
   resolved "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-4.9.0.tgz"

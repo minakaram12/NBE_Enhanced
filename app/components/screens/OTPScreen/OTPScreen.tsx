@@ -1,5 +1,5 @@
-import { OtpInput } from 'react-native-otp-entry';
-import React, { useState, useEffect } from 'react';
+import {OtpInput} from 'react-native-otp-entry';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Alert,
@@ -9,17 +9,30 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import MainBtn from '../../atoms/MainBtn/MainBtn';
-import { shadows } from '../../../constants/styles';
+import {shadows} from '../../../constants/styles';
 import TopNavigator from '../../molecules/TopNavigator/TopNavigator';
 import IconCard from '../../atoms/IconCard/IconCard';
 import BackSvg from '../../../assets/svgs/BackSvg';
 import styles from './OTPScreen.style';
+import AppModal from '../../atoms/AppModal/AppModal';
 
-const OTPScreen = ({otpTitle, phoneNum}) => {
+interface OTPProps {
+  otpTitle: string;
+  phoneNum: number;
+  displaySuccessModal: boolean;
+}
+
+const OTPScreen: React.FC<OTPProps> = ({
+  otpTitle,
+  phoneNum,
+  displaySuccessModal,
+}) => {
   const [otp, setOTP] = useState('');
   const [timer, setTimer] = useState<number>(120);
   const [resendDisabled, setResendDisabled] = useState<boolean>(true);
   const [submitDisabled, setSubmitDisabled] = useState(true);
+  const [showSuccesModal, setShowSuccessModal] = useState(false);
+  const [showFailedModal, setShowFailedModal] = useState(false);
 
   // Start the countdown when the screen load
   useEffect(() => {
@@ -71,46 +84,36 @@ const OTPScreen = ({otpTitle, phoneNum}) => {
   };
 
   const handleVerifyOTP = (otp: string) => {
-    // Your logic to verify OTP
-    // For example, you can send the entered OTP to your backend and verify it
+    
     if (otp === '12345') {
-      Alert.alert('Success', 'OTP Verified Successfully');
+      setShowSuccessModal(true);
       // navigation by rawan here
     } else {
-      Alert.alert('Error', 'Invalid OTP');
-      // modal by Abd-ALRAHMAN here
+      
+      setShowFailedModal(true);
+     
     }
   };
 
   const handleSubmit = () => {
     handleVerifyOTP(otp);
-    //navigation next step by rawan
   };
   return (
     <View style={styles.OuterContainer}>
       <View>
         <TopNavigator
-          contentLeft={
-            <IconCard
-              icon={BackSvg}
-              containerstyle={[
-                {
-                  borderRadius: 10,
-                  width: 45,
-                  height: 45,
-                  backgroundColor: '#007236',
-                },
-                shadows(),
-              ]}
-            />
-          }
+          contentLeft={<IconCard icon={BackSvg} Type="back" />}
           contentRight={
             <Image
               source={require('../../../assets/images/GreenLogo.png')}></Image>
-          } />
+          }
+        />
         <Text style={[styles.timerText, styles.otpTitle]}> {otpTitle}</Text>
 
-        <Text style={styles.infoText}> Enter 5 digit code we sent to +{phoneNum}</Text>
+        <Text style={styles.infoText}>
+          {' '}
+          Enter 5 digit code we sent to +{phoneNum}
+        </Text>
         <OtpInput
           numberOfDigits={5}
           onTextChange={(code: string) => handleOTPChange(code)}
@@ -124,11 +127,36 @@ const OTPScreen = ({otpTitle, phoneNum}) => {
             focusedPinCodeContainerStyle: styles.activePinCodeContainer,
           }}
         />
+        {displaySuccessModal && (
+          <AppModal
+            modalVisible={showSuccesModal}
+            setModalVisible={setShowSuccessModal}
+            imageSource={require('../../../assets/images/tranferSuccess.png')}
+            titleText={'Mission Complete'}
+            descriptionText={'Transfer to Jasmine Robert was successful'}
+            confirmButtonText={'Finish'}
+            onConfirmPress={() => setShowSuccessModal(false)}
+          />
+        )}
+
+        <AppModal
+          modalVisible={showFailedModal}
+          setModalVisible={setShowFailedModal}
+          errorTitle={true}
+          titleText='Ooops...'
+          descriptionText={'Seems like you entered invalid OTP'}
+          confirmButtonText={'Try Again'}
+          onConfirmPress={() => setShowFailedModal(false)}
+          cancelButtonText='Cancel'
+          onCancelPress={() => setShowFailedModal(false)}
+        />
 
         <View>
           <Text style={styles.infoText}> Didn't receive the code?</Text>
           {resendDisabled && (
-            <Text style={styles.timerText}> Request new one in: {formatTime(timer)}
+            <Text style={styles.timerText}>
+              {' '}
+              Request new one in: {formatTime(timer)}
             </Text>
           )}
 

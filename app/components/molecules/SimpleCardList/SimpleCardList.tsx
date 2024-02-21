@@ -19,7 +19,7 @@ const SimpleCardList: React.FC<SimpleCardListProp> = ({cards}) => {
       keyExtractor={keyExtractor}
       renderItem={renderItem}
       numColumns={4}
-      style={[layouts.px.sm, {backgroundColor: '#F1F3FB'}]}
+      style={[layouts.px.sm, {backgroundColor: '#F1F3FB',height:'100%'}]}
     />
   );
 };

@@ -10,7 +10,7 @@ import BellSvg from '../../../assets/svgs/BellSvg';
 
 
 
-const DrawerMenu = () => {
+const DrawerMenu = ({children}) => {
   const close = require('../../../assets/images/close.png');
 
   const [showMenu, setShowMenu] = useState(false);
@@ -102,7 +102,7 @@ const DrawerMenu = () => {
           /> 
 
           {/* homeScreen content */}
-          <Text style={{ fontSize: 50 }}>hello</Text>
+          {children}
         </Animated.View>
       </Animated.View>
     </View>
@@ -113,7 +113,8 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    backgroundColor: '#F1F3FB'
+    backgroundColor: '#F1F3FB',
+    flex:1,
   }
 });
 

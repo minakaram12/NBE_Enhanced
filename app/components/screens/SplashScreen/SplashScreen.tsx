@@ -1,11 +1,17 @@
 import React, {useRef, useEffect} from 'react';
-import {View, Animated, Easing} from 'react-native';
+import {View, Animated, Easing, StatusBar} from 'react-native';
 import {layouts} from '../../../constants/styles';
 import styles from './SplashScreen.style';
 import Logo from '../../../assets/svgs/Logo';
 import NamedLogo from '../../../assets/svgs/NamedLogo';
+import {
+  getPassword,
+  getRememberMe,
+  getUsername,
+  logout,
+} from '../../../storage/mmkv';
 
-const SplashScreen = () => {
+const SplashScreen = ({navigation}: {navigation: any}) => {
   const bounceValue = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -15,17 +21,31 @@ const SplashScreen = () => {
       easing: Easing.inOut(Easing.ease),
       useNativeDriver: true,
     }).start();
-  }, [bounceValue]);
+
+    const timer = setTimeout(() => {
+      logout();
+      if (getRememberMe() && getUsername() && getPassword()) {
+        navigation.replace('home');
+      } else {
+        navigation.replace('loginScreen');
+      }
+    }, 1550);
+
+    return () => clearTimeout(timer);
+  }, [bounceValue, navigation]);
 
   return (
-    <View style={[layouts.flexed, layouts.allCentered, styles.container]}>
-      <View style={[layouts.flexed, layouts.allCentered]}>
-        <Animated.View style={{transform: [{scale: bounceValue}]}}>
-          <Logo width={119} height={136} />
-        </Animated.View>
+    <>
+      <StatusBar hidden />
+      <View style={[layouts.flexed, layouts.allCentered, styles.container]}>
+        <View style={[layouts.flexed, layouts.allCentered]}>
+          <Animated.View style={{transform: [{scale: bounceValue}]}}>
+            <Logo width={119} height={136} />
+          </Animated.View>
+        </View>
+        <NamedLogo width={130} height={40} style={[layouts.my.xxl]} />
       </View>
-      <NamedLogo width={130} height={40} style={[layouts.my.xxl]} />
-    </View>
+    </>
   );
 };
 

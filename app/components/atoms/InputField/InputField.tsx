@@ -19,6 +19,7 @@ import {faCircleExclamation} from '@fortawesome/free-solid-svg-icons/faCircleExc
 import {IconProp} from '@fortawesome/fontawesome-svg-core';
 import styles from './InputField.style';
 import {Field, FormikValues, useFormikContext} from 'formik';
+import {TextInputMask} from 'react-native-masked-text';
 
 interface InputProps {
   name: string;
@@ -33,6 +34,7 @@ interface InputProps {
     | 'email-address'
     | 'phone-pad'
     | 'url';
+  mask?: string | undefined;
   // styles
   outerContainerStyle?: StyleProp<ViewStyle> | Array<ViewStyle> | null;
   innerContainerStyle?: StyleProp<ViewStyle> | Array<ViewStyle> | null;
@@ -55,6 +57,7 @@ const InputField: React.FC<InputProps> = ({
   placeholder,
   variant = 'primary',
   keyboardType = 'default',
+  mask,
   outerContainerStyle = null,
   innerContainerStyle = null,
   labelStyle = null,
@@ -159,30 +162,59 @@ const InputField: React.FC<InputProps> = ({
           )}
           <View style={[layouts.row, layouts.allCentered]}>
             <Field name={name}>
-              {({field}) => (
-                <TextInput
-                  keyboardType={keyboardType}
-                  style={[styles.input, layouts.flexed]}
-                  placeholder={placeholder}
-                  secureTextEntry={isPasswordVisible ? false : true}
-                  editable={disabled ? false : true}
-                  selectTextOnFocus={disabled ? false : true}
-                  placeholderTextColor={
-                    variant === 'transparent' ? '#cfcfcf' : '#B7B7B7'
-                  }
-                  onChangeText={text => {
-                    field.onChange(name)(text);
-                    setValue(text);
-                    if (onChangeText) {
-                      onChangeText(value);
+              {({field}) =>
+                mask ? (
+                  <TextInputMask
+                    type={'custom'}
+                    options={{
+                      mask: mask ? mask : '',
+                    }}
+                    keyboardType={keyboardType}
+                    style={[styles.input, layouts.flexed]}
+                    placeholder={placeholder}
+                    secureTextEntry={isPasswordVisible ? false : true}
+                    editable={disabled ? false : true}
+                    selectTextOnFocus={disabled ? false : true}
+                    placeholderTextColor={
+                      variant === 'transparent' ? '#cfcfcf' : '#B7B7B7'
                     }
-                  }}
-                  onBlur={field.onBlur(name)}
-                  value={values[name]}
-                  onFocus={() => setIsFocus(true)}
-                  onEndEditing={() => setIsFocus(false)}
-                />
-              )}
+                    onChangeText={text => {
+                      field.onChange(name)(text);
+                      setValue(text);
+                      if (onChangeText) {
+                        onChangeText(value);
+                      }
+                    }}
+                    onBlur={field.onBlur(name)}
+                    value={values[name]}
+                    onFocus={() => setIsFocus(true)}
+                    onEndEditing={() => setIsFocus(false)}
+                  />
+                ) : (
+                  <TextInput
+                    keyboardType={keyboardType}
+                    style={[styles.input, layouts.flexed]}
+                    placeholder={placeholder}
+                    secureTextEntry={isPasswordVisible ? false : true}
+                    editable={disabled ? false : true}
+                    selectTextOnFocus={disabled ? false : true}
+                    placeholderTextColor={
+                      variant === 'transparent' ? '#cfcfcf' : '#B7B7B7'
+                    }
+                    onChangeText={text => {
+                      field.onChange(name)(text);
+                      setValue(text);
+                      if (onChangeText) {
+                        onChangeText(value);
+                      }
+                    }}
+                    onBlur={field.onBlur(name)}
+                    value={values[name]}
+                    onFocus={() => setIsFocus(true)}
+                    onEndEditing={() => setIsFocus(false)}
+                  />
+                )
+              }
             </Field>
             {isPassword && (
               <Pressable

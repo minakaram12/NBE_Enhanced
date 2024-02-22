@@ -90,7 +90,7 @@ const TransferScreen = () => {
       />
 
       <Text style={styles.headrStyle}>Transfer</Text>
-      <View style={[layouts.px.lg, layouts.py.md]}>
+      <View style={[layouts.px.md, layouts.py.md]}>
         <DropdownMenu
           options={transferType}
           title="Type of transfer"

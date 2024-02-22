@@ -12,10 +12,11 @@ const styles = StyleSheet.create({
   },
 
   content: {
-    padding: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
   },
   title: {
-    fontSize: 17,
+    fontSize: 15,
     fontFamily: 'Roboto-Black',
     color: '#1C2437',
     paddingTop: 5,
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
   },
   dropList: {
     fontFamily: 'Roboto-Regular',
-    fontSize: 17,
+    fontSize: 15,
     color: '#1C2437',
   },
 

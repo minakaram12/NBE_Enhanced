@@ -43,7 +43,7 @@ const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber, isEnabledDark,
                         <Text style={styles.userPhone}>{phoneNumber}</Text>
                     </View>
                     <Image source={require("../../../assets/images/threeDots.png")} 
-                    style={styles.Dots}></Image>
+                    style={styles.dots}></Image>
 
                 </View>
             </View>
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
         fontSize: px(14),
 
     },
-    Dots:{
+    dots:{
         marginLeft:px(120),
     }
 

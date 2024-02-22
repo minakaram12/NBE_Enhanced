@@ -10,17 +10,26 @@ const silver = '#B7B7B7';
 const Battleshipgray = '#848484';
 const Gray = "#808080";
 const SeasaltWhite = '#F7F7F7';
-const Ghostwhite = '#ffffff';
-const orangeWeb = '#F6A721';
+
+//bgscreen
+const Ghostwhite = '#F1F3FB';
+
 const OxfordBlue = '#1C2437';
 
-const EmeraldGreen = '#00C974';
-const PictonBlue = '#00ADF8';
+
+const EmeraldGreen='#00CD74';
+const PictonBlue ='#0ca9eb';
+const orangeWeb = '#f8a819';
+const ImperialRed ='#f50832';
+
+//nav
+const greyLight='#333333'
+
 const PolynesianBlue = '#004E9F';
 const AliceBlue = '#DFEAFB'
 const DunRose = '#DDCBAC';
 const OldRose = '#B47980';
-const ImperialRed = '#FF002E';
+
 const RedCMYK = '#E3000D';
 const OrchidPink = '#E5B8C0';
 const Licorice = '#231912';
@@ -29,12 +38,38 @@ const LicoriceBlack = '#231912';
 const Eerieblack = '#1B1B1B';
 const white = '#FFFFFF';
 const blue = '#3B82F6';
-const black = '#222222';
+const black = '#000000';
 
 
 
 export default {
     name: 'Dark',
+
+
+    //basicChange
+     bg:white,
+    //icon
+     EmeraldGreen,
+     PictonBlue ,
+     orangeWeb ,
+     ImperialRed ,
+
+   //Top &bottom navigation
+   BackgroundNav:greyLight,
+
+    //drawer
+    BackgroundMenu:black,
+    itemColor:white,
+
+    //statueBar
+    BackgroundStatus:black,
+
+    //Text
+    textColor:white,
+    textColorGrey:silver,
+    textColorBlue:OxfordBlue,
+    textColorGreen:DarkSpringGreen,
+
     DarkSpringGreen,
     PakistanGreen,
     AureolinYellow,
@@ -43,21 +78,14 @@ export default {
     Battleshipgray,
     Gray,
     SeasaltWhite,
-    bg: Ghostwhite,
-    orangeWeb,
     OxfordBlue,
-
-    EmeraldGreen,
-    PictonBlue,
     PolynesianBlue,
     AliceBlue,
     DunRose,
     OldRose,
-    ImperialRed,
     RedCMYK,
     OrchidPink,
     Licorice,
-
     LicoriceBlack,
     Eerieblack,
     white,

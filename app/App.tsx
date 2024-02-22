@@ -75,21 +75,21 @@ function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
 
-
   const [isEnabled, setIsEnabled] = useState(getTheme()=='Dark');
+  const [DarkMode, setIsDarkMode] = useState(getTheme());
 
   
   
   const toggleSwitch = () => {
     setIsEnabled((previousState) => !previousState);
     const newTheme = isEnabled ? 'Light' : 'Dark';
-    setTheme(newTheme);
+    setIsDarkMode(newTheme);
+    
   };
 
   useEffect(() => {
-    // Perform any side effect when themeTmp changes
-    
-  }, [getTheme()]); // Dependency array ensures the effect runs when themeTmp changes
+   setTheme(DarkMode);
+  }, [DarkMode ,getTheme()]); 
 
 
   console.log("inAPP.TSX" + getTheme());
@@ -107,8 +107,11 @@ function App(): React.JSX.Element {
       />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
+        style={[backgroundStyle]}>
         {/* <Header /> */}
+
+        <DrawerMenu isEnabledDark={isEnabled} toggleSwitch={toggleSwitch} children={<></>}></DrawerMenu>
+           {/* <Test isEnabledDark={isEnabled} toggleSwitch={toggleSwitch} /> */}
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
@@ -143,7 +146,7 @@ function App(): React.JSX.Element {
           </View> */}
 
 
-          <DrawerMenu isEnabledDark={isEnabled} toggleSwitch={toggleSwitch}></DrawerMenu>
+          {/* <DrawerMenu isEnabledDark={isEnabled} toggleSwitch={toggleSwitch}></DrawerMenu> */}
 
           {/* <IconCard icon={BackSvg} Type='back'/>
           <IconCard icon={BellSvg} Type="Notification" />

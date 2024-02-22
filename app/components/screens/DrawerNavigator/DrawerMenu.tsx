@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { ReactNode, useRef, useState } from 'react';
 import { Animated, Image, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 import MenuContent from './MenuContent';
 import IconCard from '../../atoms/IconCard/IconCard';
@@ -12,9 +12,10 @@ import{theme} from '../../../theme/theme'
 interface DrawerMenuProps{
   isEnabledDark:boolean;
   toggleSwitch:()=>void;
+  children: ReactNode;
 }
 
-const DrawerMenu : React.FC<DrawerMenuProps> = ({ isEnabledDark, toggleSwitch }) => {
+const DrawerMenu : React.FC<DrawerMenuProps> = ({ isEnabledDark, toggleSwitch ,children}) => {
   const close = require('../../../assets/images/close.png');
 
   const [showMenu, setShowMenu] = useState(false);
@@ -31,7 +32,7 @@ const DrawerMenu : React.FC<DrawerMenuProps> = ({ isEnabledDark, toggleSwitch })
     }).start();
 
     Animated.timing(offsetValue, {
-      toValue: showMenu ? 0 : 340,
+      toValue: showMenu ? 0 : 380,
       duration: 300,
       useNativeDriver: true
     }).start();
@@ -77,6 +78,7 @@ const DrawerMenu : React.FC<DrawerMenuProps> = ({ isEnabledDark, toggleSwitch })
           paddingHorizontal: showMenu ? 15 : 0,
           paddingVertical: showMenu ? 20 : 0,
           borderRadius: showMenu ? 15 : 0,
+          overflow:"hidden",
           transform: [
             { scale: scaleValue },
             { translateX: offsetValue },
@@ -105,8 +107,8 @@ const DrawerMenu : React.FC<DrawerMenuProps> = ({ isEnabledDark, toggleSwitch })
             }
           /> 
 
-          {/* homeScreen content */}
-         <Text>hello</Text>
+          {/* Screen content */}
+                {children}
         </Animated.View>
       </Animated.View>
     </View>
@@ -115,10 +117,11 @@ const DrawerMenu : React.FC<DrawerMenuProps> = ({ isEnabledDark, toggleSwitch })
 
 const styles = StyleSheet.create({
   container: {
+    flex:1,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    backgroundColor: theme?.bg,
-    flex:1,
+    backgroundColor: theme?.BackgroundMenu,
+    
   }
 });
 

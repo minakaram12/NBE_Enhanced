@@ -42,6 +42,9 @@ const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber, isEnabledDark,
                         <Text style={styles.userText}>{userName}</Text>
                         <Text style={styles.userPhone}>{phoneNumber}</Text>
                     </View>
+                    <Image source={require("../../../assets/images/threeDots.png")} 
+                    style={styles.Dots}></Image>
+
                 </View>
             </View>
 
@@ -79,9 +82,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#EED1D4',
     },
     userCard: {
-        width: px(250),
-        height: px(80),
-        borderRadius: px(30),
+        width: px(296),
+        height: px(89),
+        borderRadius: px(29),
         backgroundColor: "white",
         padding: px(10),
         marginLeft: px(10),
@@ -102,11 +105,17 @@ const styles = StyleSheet.create({
     },
     userText: {
         color: "black",
-        fontSize: px(25),
+        fontSize: px(18),
+        fontWeight:"500",
+
     },
     userPhone: {
-        fontSize: px(15),
+        fontSize: px(14),
+
     },
+    Dots:{
+        marginLeft:px(120),
+    }
 
 });
 

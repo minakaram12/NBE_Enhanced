@@ -14,8 +14,12 @@ const Ghostwhite='#F1F3FB';
 const orangeWeb ='#F6A721';
 const OxfordBlue='#1C2437';
 
-const EmeraldGreen='#00C974';
-const PictonBlue ='#00ADF8';
+const EmeraldGreen = '#00C974';
+const PictonBlue = '#00ADF8';
+
+
+const greyLight='#333333'
+
 const PolynesianBlue ='#004E9F';
 const AliceBlue='#DFEAFB'
 const DunRose ='#DDCBAC';
@@ -246,25 +250,50 @@ const black = '#222222';
 
 export default{
     name: 'Light',
+
+
+    //basicChange
+    bg:black,
+
+     //icon
+     EmeraldGreen,
+     PictonBlue ,
+     orangeWeb ,
+     ImperialRed ,
+
+    //Top &bottom navigation
+    BackgroundNav:Ghostwhite,
+
+    //drawer
+    BackgroundMenu:Ghostwhite,
+    itemColor:Eerieblack,
+
+     //Text
+     textColor:black,
+     textColorGrey:silver,
+     textColorBlue:OxfordBlue,
+     textColorGreen:DarkSpringGreen,
+
+     //statueBar
+    BackgroundStatus:white,
+
+     greyLight,
      DarkSpringGreen,
      PakistanGreen,
-    AureolinYellow,
+     AureolinYellow,
      CanaryYellow,
      silver ,
      Battleshipgray,
      Gray,
      SeasaltWhite,
      bg:Ghostwhite,
-     orangeWeb,
-     OxfordBlue,
     
-     EmeraldGreen,
-     PictonBlue,
+     OxfordBlue,
+
      PolynesianBlue ,
      AliceBlue,
      DunRose,
      OldRose,
-     ImperialRed ,
      RedCMYK,
      OrchidPink,
      Licorice,

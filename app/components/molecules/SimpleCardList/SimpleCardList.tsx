@@ -4,6 +4,7 @@ import SimpleCard, {
 } from '../../atoms/SimpleCard/SimpleCard.component';
 import {FlatList} from 'react-native';
 import {layouts} from '../../../constants/styles';
+import NoBeneficiary from '../../atoms/NoBeneficiaries/NoBeneficiaries';
 interface SimpleCardListProp {
   cards: Array<SimpleCardProp>;
 }
@@ -13,14 +14,16 @@ const SimpleCardList: React.FC<SimpleCardListProp> = ({cards}) => {
     return <SimpleCard image={item.image} name={item.name} />;
   };
 
-  return (
+  const iscardsExists = cards.length > 0;
+  return iscardsExists ? (
     <FlatList
       data={cards}
       keyExtractor={keyExtractor}
       renderItem={renderItem}
       numColumns={4}
       style={[layouts.px.sm, {backgroundColor: '#F1F3FB'}]}
-    />
+    /> :
+    <NoBeneficiary />
   );
 };
 export default SimpleCardList;

@@ -1,0 +1,42 @@
+export const visaCards = [
+  {
+    amount: '18,631.15',
+    card_num: '8154',
+    name: 'AHMAD SAMI AL-SAYED',
+    date: '08/25',
+    cvv: '352',
+    imgName: 'red_card',
+  },
+  {
+    amount: '20,000.00',
+    card_num: '1234',
+    name: 'AHMAD SAMI AL-SAYED',
+    date: '12/23',
+    cvv: '456',
+    imgName: 'green_card',
+  },
+  {
+    amount: '15,500.75',
+    card_num: '5678',
+    name: 'AHMAD SAMI AL-SAYED',
+    date: '09/24',
+    cvv: '789',
+    imgName: 'green_card',
+  },
+  {
+    amount: '12,345.67',
+    card_num: '9876',
+    name: 'AHMAD SAMI AL-SAYED',
+    date: '03/27',
+    cvv: '123',
+    imgName: 'red_card',
+  },
+  {
+    amount: '25,000.00',
+    card_num: '2468',
+    name: 'AHMAD SAMI AL-SAYED',
+    date: '07/22',
+    cvv: '987',
+    imgName: 'green_card',
+  },
+];

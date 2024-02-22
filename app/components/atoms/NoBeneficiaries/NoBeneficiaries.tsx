@@ -5,7 +5,7 @@ import {layouts} from '../../../constants/styles';
 function NoBeneficiary() {
   const navigateToAddScreen = () => {}; // Declare it with const
   return (
-    <View style={[layouts.xCentered, layouts.yCentered, layouts.fullHeight]}>
+    <View style={[{marginTop:140}, layouts.yCentered, layouts.fullHeight]}>
       <Pressable onPress={navigateToAddScreen} >
         <Image
           source={require('../../../assets/images/noBeneficiaries.png')}

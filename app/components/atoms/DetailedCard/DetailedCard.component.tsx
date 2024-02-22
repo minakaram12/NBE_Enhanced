@@ -43,7 +43,9 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
         styles.cardRadious,
         layouts.bordered,
         viewStyle,
+        layouts.my.lg,
         {backgroundColor: viewBgColor},
+        
       ]}>
       <Image
         source={image}

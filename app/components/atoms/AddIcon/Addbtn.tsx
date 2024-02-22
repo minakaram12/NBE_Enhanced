@@ -2,7 +2,7 @@ import {View, Text, StyleSheet, Pressable} from 'react-native';
 import AddSvg from '../../../assets/svgs/AddSvg';
 import {layouts} from '../../../constants/styles';
 
-function AddButton() {
+function AddButton({addBeneficiary}) {
   return (
     <Pressable>
       <View style={[styles.container, layouts.row, layouts.justifyAround]}>

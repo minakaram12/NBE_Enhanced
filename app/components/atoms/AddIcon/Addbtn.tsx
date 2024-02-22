@@ -17,6 +17,6 @@ function AddButton() {
   );
 }
 const styles = StyleSheet.create({
-  container: {width: 63, backgroundColor: 'red', borderRadius: 15},
+  container: {width: 63, height: 30,backgroundColor:'white', borderRadius: 15},
 });
 export default AddButton;

@@ -9,7 +9,7 @@ export interface DetailedCardProps {
   readonly name: string;
   mobileNumber: string; //mobile number isn't read only because we concat + to it later
   balance: string; //balance isn't read only because we concat $ later to it
-  readonly image: string;
+  readonly image: number;
   color?: string;
   viewStyle?: ViewStyle;
 }
@@ -46,7 +46,7 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
         {backgroundColor: viewBgColor},
       ]}>
       <Image
-        source={{uri: image}}
+        source={image}
         style={[styles.detailedCardImage, layouts.me.md]}
         onError={() => {
           console.log('====================================');

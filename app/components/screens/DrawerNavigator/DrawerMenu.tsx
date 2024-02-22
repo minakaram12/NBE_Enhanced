@@ -102,7 +102,7 @@ const DrawerMenu = () => {
           /> 
 
           {/* homeScreen content */}
-          <Text style={{ fontSize: 50 }}>hello</Text>
+         <Text>hello</Text>
         </Animated.View>
       </Animated.View>
     </View>
@@ -113,7 +113,8 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    backgroundColor: '#F1F3FB'
+    backgroundColor: '#F1F3FB',
+    flex:1,
   }
 });
 

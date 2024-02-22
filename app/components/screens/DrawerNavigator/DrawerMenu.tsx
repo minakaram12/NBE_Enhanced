@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { ReactNode, useRef, useState } from 'react';
 import { Animated, Image, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 import MenuContent from './MenuContent';
 import IconCard from '../../atoms/IconCard/IconCard';
@@ -7,10 +7,12 @@ import TopNavigator from '../../molecules/TopNavigator/TopNavigator';
 import TopNavImg from '../../atoms/TopNavImg/TopNavImg';
 import BellSvg from '../../../assets/svgs/BellSvg';
 
+interface DrawerMenuProps{
+  children: ReactNode;
+}
 
 
-
-const DrawerMenu = () => {
+const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
   const close = require('../../../assets/images/close.png');
 
   const [showMenu, setShowMenu] = useState(false);
@@ -73,6 +75,7 @@ const DrawerMenu = () => {
           paddingHorizontal: showMenu ? 15 : 0,
           paddingVertical: showMenu ? 20 : 0,
           borderRadius: showMenu ? 15 : 0,
+          overflow:"hidden",
           transform: [
             { scale: scaleValue },
             { translateX: offsetValue },
@@ -102,7 +105,7 @@ const DrawerMenu = () => {
           /> 
 
           {/* homeScreen content */}
-         <Text>hello</Text>
+          {children}
         </Animated.View>
       </Animated.View>
     </View>

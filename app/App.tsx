@@ -40,6 +40,7 @@ import MenuTogglerSvg from './assets/svgs/MenuTogglerSvg';
 import { width } from '@fortawesome/free-solid-svg-icons/faEye';
 import Logo from './assets/svgs/Logo';
 import TopNavigator from './components/molecules/TopNavigator/TopNavigator';
+import LoginScreen from './components/screens/LoginScreen/LoginScreen';
 function Section({ children, title }: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
@@ -117,7 +118,7 @@ function App(): React.JSX.Element {
           </View> */}
 
 
-          <DrawerMenu></DrawerMenu>
+          <DrawerMenu children={<></>}></DrawerMenu>
 
           {/* <IconCard icon={BackSvg} Type='back'/>
           <IconCard icon={BellSvg} Type="Notification" />

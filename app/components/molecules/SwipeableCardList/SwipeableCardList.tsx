@@ -1,21 +1,20 @@
-import {useState} from 'react';
 import {SwipeListView} from 'react-native-swipe-list-view';
-import DetailedCard, {
-  DetailedCardProps,
-} from '../../atoms/DetailedCard/DetailedCard.component';
-import {detailedCardPropsArray} from './SwipeableCardListFaker';
+import DetailedCard from '../../atoms/DetailedCard/DetailedCard.component';
 import {Pressable} from 'react-native';
 import HiddenItemWithActions from '../../atoms/hiddenItemWithActions/HiddenItemWithActions';
 
 import {ExtendedCardProps} from './SwipeableCardListFaker';
-//i am using a faker if there is no input
+import {Dispatch, SetStateAction} from 'react';
+
 interface SwipeableCardListProps {
-  data?: Array<ExtendedCardProps>;
+  cards: Array<ExtendedCardProps>;
+  cardsSetter: Dispatch<SetStateAction<Array<ExtendedCardProps>>>;
 }
 
-const SwipeableCardList: React.FC<SwipeableCardListProps> = () => {
-  const [listData, setListData] = useState(detailedCardPropsArray);
-
+const SwipeableCardList: React.FC<SwipeableCardListProps> = ({
+  cards,
+  cardsSetter,
+}) => {
   const renderItem = (data, rowMap) => {
     return (
       <Pressable>
@@ -30,6 +29,7 @@ const SwipeableCardList: React.FC<SwipeableCardListProps> = () => {
       </Pressable>
     );
   };
+
   const renderHiddenItem = (data, rowMap) => {
     return (
       <HiddenItemWithActions
@@ -40,25 +40,29 @@ const SwipeableCardList: React.FC<SwipeableCardListProps> = () => {
       />
     );
   };
+
   const deleteRow = (rowMap, id) => {
     closeSpecificRow(rowMap, id);
-    const newData = [...listData];
+    const newData = [...cards];
     const prevIndex = newData.findIndex(item => item.key === id);
     console.log('the index of the deleted item is ' + prevIndex);
     newData.splice(prevIndex, 1);
-    setListData(newData);
+    cardsSetter(newData);
   };
+
   const closeSpecificRow = (rowMap, id) => {
     if (rowMap[id]) {
       rowMap[id].closeRow();
     }
   };
-  const editRow = (rowMap,id)=>{
-    // do it latter
-}
+
+  const editRow = (rowMap, id) => {
+    // do it later
+  };
+
   return (
     <SwipeListView
-      data={listData}
+      data={cards} // Use the cards prop here
       renderItem={renderItem}
       renderHiddenItem={renderHiddenItem}
       rightOpenValue={-100}
@@ -66,4 +70,5 @@ const SwipeableCardList: React.FC<SwipeableCardListProps> = () => {
     />
   );
 };
+
 export default SwipeableCardList;

@@ -65,11 +65,14 @@ function AddBeneficiaries() {
                 outerContainerStyle={[layouts.flexed, layouts.ms.sm,{height:65,elevation:15}]}
               />
             </View>
+            
             <DropdownMenu
               onChange={formikProps.handleChange('dropdownValue')}
-              title="fewhvf"
+              title="Bank Branch"
               options={transferType}
             />
+            
+
             <InputField label="Account number" name="accountNumber" outerContainerStyle={[layouts.my.lg,{height:65,elevation:15}]}/>
             <InputField label="Phone number" name="phoneNumber" outerContainerStyle={[layouts.my.lg,{height:65,elevation:15}]} />
             <InputField label="Email" name="email" outerContainerStyle={[layouts.my.lg,{height:65,elevation:15}]} />

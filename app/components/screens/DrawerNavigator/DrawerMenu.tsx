@@ -9,6 +9,9 @@ import BellSvg from '../../../assets/svgs/BellSvg';
 import{theme} from '../../../theme/theme'
 import { useTheme } from '../../../ContextAPI/ThemeContext';
 
+interface DrawerMenuProps{
+  children: ReactNode;
+}
 
 interface DrawerMenuProps{
   // isEnabledDark:boolean;
@@ -17,8 +20,7 @@ interface DrawerMenuProps{
   children: ReactNode;
 }
 
-
-const DrawerMenu : React.FC<DrawerMenuProps> = ({children}) => {
+const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
   const close = require('../../../assets/images/close.png');
 
   const [showMenu, setShowMenu] = useState(false);
@@ -112,8 +114,8 @@ const DrawerMenu : React.FC<DrawerMenuProps> = ({children}) => {
             }
           /> 
 
-          {/* Screen content */}
-                {children}
+          {/* homeScreen content */}
+          {children}
         </Animated.View>
       </Animated.View>
     </View>

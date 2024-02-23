@@ -5,16 +5,16 @@ import IconCard from '../../atoms/IconCard/IconCard';
 import {Image, View} from 'react-native';
 import { layouts } from '../../../constants/styles';
 
-function Beneficiary() {
+function Beneficiary({route}) {
   return (
-    <View style={layouts.px.lg}>
+    <View style={[layouts.px.lg,{paddingBottom: 125}]}>
       <TopNavigator
         contentLeft={<IconCard icon={BackSvg} Type="back" />}
         contentRight={
           <Image source={require('../../../assets/images/GreenLogo.png')} />
         }
       />
-      <AddBeneficiaries />
+      <AddBeneficiaries route={route}/>
     </View>
   );
 }

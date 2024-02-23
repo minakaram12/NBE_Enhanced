@@ -29,7 +29,7 @@ function SimpleOrDetailedList({navigation}) {
       />
 
       {isempty ? (
-        <NoBeneficiary />
+        <NoBeneficiary addBeneficiary={addBeneficiary} />
       ) : colView ? (
         <SimpleCardList cards={beneficiaries} />
       ) : (

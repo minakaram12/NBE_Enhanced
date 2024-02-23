@@ -30,7 +30,7 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
     !mobileNumberRegex.test(mobileNumber) ||
     !accountBalanceRegex.test(balance)
   ) {
-    throw new Error('Invalid mobile or account balance format');
+    throw new Error('Invalid mobile or account balance format' + mobileNumber);
   }
   const viewBgColor: string = color ? color : '#ffffff';
 

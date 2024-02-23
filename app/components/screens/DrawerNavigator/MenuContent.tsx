@@ -4,15 +4,16 @@ import Sidebar from '../../molecules/SidebarMenu/SidebarMenu';
 import IconCard from '../../atoms/IconCard/IconCard';
 import { px } from '../../../constants/styles/layouts';
 import LogoutSvg from '../../../assets/svgs/LogoutSvg';
+import { useTheme } from '../../../ContextAPI/ThemeContext';
 
 
 interface userInfo {
     userName: string,
     phoneNumber: number,
-    isEnabledDark: boolean;
-    toggleSwitch: () => void;
+    // isEnabledDark: boolean;
+    // toggleSwitch: () => void;
 }
-const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber, isEnabledDark, toggleSwitch }) => {
+const MenuContent: React.FC<userInfo> = ({userName , phoneNumber}) => {
     const logo = require('../../../assets/images/logoGreen.png');
     const AR = require('../../../assets/images/AR.png');
 
@@ -24,7 +25,7 @@ const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber, isEnabledDark,
                 <Image source={AR}></Image>
             </View>
             {/* sidebar menu */}
-            <Sidebar isEnabledDark={isEnabledDark} toggleSwitch={toggleSwitch} />
+            <Sidebar  />
             {/* LOGOOUT AND BOTTOM NAV */}
             <View style={styles.outerContainer}>
                 <View style={styles.container}>

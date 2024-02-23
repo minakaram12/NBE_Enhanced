@@ -7,22 +7,27 @@ import TopNavigator from '../../molecules/TopNavigator/TopNavigator';
 import TopNavImg from '../../atoms/TopNavImg/TopNavImg';
 import BellSvg from '../../../assets/svgs/BellSvg';
 import{theme} from '../../../theme/theme'
+import { useTheme } from '../../../ContextAPI/ThemeContext';
 
 
 interface DrawerMenuProps{
-  isEnabledDark:boolean;
-  toggleSwitch:()=>void;
+  // isEnabledDark:boolean;
+  // toggleSwitch:()=>void;
+  
   children: ReactNode;
 }
 
-const DrawerMenu : React.FC<DrawerMenuProps> = ({ isEnabledDark, toggleSwitch ,children}) => {
+
+const DrawerMenu : React.FC<DrawerMenuProps> = ({children}) => {
   const close = require('../../../assets/images/close.png');
 
   const [showMenu, setShowMenu] = useState(false);
+  const { isDarkMode, toggleSwitch } = useTheme();
 
   const offsetValue = useRef(new Animated.Value(0)).current;
   const scaleValue = useRef(new Animated.Value(1)).current;
   const closeButtonOffset = useRef(new Animated.Value(0)).current;
+
 
   const handleMenuPress = () => {
     Animated.timing(scaleValue, {
@@ -62,9 +67,9 @@ const DrawerMenu : React.FC<DrawerMenuProps> = ({ isEnabledDark, toggleSwitch ,c
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container,{backgroundColor:isDarkMode.BackgroundMenu}]}>
       {/* MenuItem */}
-      <MenuContent userName={'Ahmed'} phoneNumber={123456789} isEnabledDark={isEnabledDark} toggleSwitch={toggleSwitch} />
+      <MenuContent userName={'Ahmed'} phoneNumber={123456789} />
 
       <Animated.View
         style={{

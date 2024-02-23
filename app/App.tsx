@@ -43,6 +43,7 @@ import TopNavigator from './components/molecules/TopNavigator/TopNavigator';
 import { theme } from './theme/theme'
 import { getTheme, setTheme  } from './storage/mmkv';
 import { colors } from './theme/colors';
+import { ThemeProvider } from './ContextAPI/ThemeContext';
 function Section({ children, title }: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
@@ -72,28 +73,28 @@ function Section({ children, title }: SectionProps): React.JSX.Element {
 
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+  // const isDarkMode = useColorScheme() === 'dark';
 
 
-  const [isEnabled, setIsEnabled] = useState(getTheme()=='Dark');
-  const [DarkMode, setIsDarkMode] = useState(getTheme());
+  // const [isEnabled, setIsEnabled] = useState(getTheme()=='Dark');
+  // const [DarkMode, setIsDarkMode] = useState(getTheme());
 
   
   
-  const toggleSwitch = () => {
-    setIsEnabled((previousState) => !previousState);
-    const newTheme = isEnabled ? 'Light' : 'Dark';
-    setIsDarkMode(newTheme);
+  // const toggleSwitch = () => {
+  //   setIsEnabled((previousState) => !previousState);
+  //   const newTheme = isEnabled ? 'Light' : 'Dark';
+  //   setIsDarkMode(newTheme);
     
-  };
+  // };
 
-  useEffect(() => {
-   setTheme(DarkMode);
-  }, [DarkMode ,getTheme()]); 
+  // useEffect(() => {
+  //  setTheme(DarkMode);
+  // }, [DarkMode ,getTheme()]); 
 
 
-  console.log("inAPP.TSX" + getTheme());
-  console.log(theme?.bg);
+  // console.log("inAPP.TSX" + getTheme());
+  // console.log(theme?.bg);
 
   const backgroundStyle = {
     backgroundColor: theme?.bg,
@@ -102,20 +103,24 @@ function App(): React.JSX.Element {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
-        barStyle={isEnabled ? 'light-content' : 'dark-content'}
+        // barStyle={isEnabled ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
+        // contentInsetAdjustmentBehavior="automatic"
         style={[backgroundStyle]}>
         {/* <Header /> */}
-
-        <DrawerMenu isEnabledDark={isEnabled} toggleSwitch={toggleSwitch} children={<></>}></DrawerMenu>
-           {/* <Test isEnabledDark={isEnabled} toggleSwitch={toggleSwitch} /> */}
+        <ThemeProvider>
+           <DrawerMenu children={<></>}></DrawerMenu>
+       </ThemeProvider> 
+              
+       
+         {/* <Test isEnabledDark={isEnabled} toggleSwitch={toggleSwitch} /> */}
         <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
+          // style={{
+          //   backgroundColor: isDarkMode ? Colors.black : Colors.white,
+          // }}
+        >
           {/* <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.

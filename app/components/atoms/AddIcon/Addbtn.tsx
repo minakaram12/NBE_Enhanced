@@ -1,10 +1,15 @@
 import {View, Text, StyleSheet, Pressable} from 'react-native';
 import AddSvg from '../../../assets/svgs/AddSvg';
 import {layouts} from '../../../constants/styles';
+import { useNavigation } from '@react-navigation/native';
 
 function AddButton({addBeneficiary}) {
+  const navigation = useNavigation();
+  const addnewBenefHandler = ()=>{
+    navigation.navigate('AddBeneficiaries',addBeneficiary);
+  }
   return (
-    <Pressable>
+    <Pressable onPress={addnewBenefHandler}>
       <View style={[styles.container, layouts.row, layouts.justifyAround]}>
         <View style={[layouts.xCentered, layouts.yCentered]}>
           <AddSvg />
@@ -17,6 +22,11 @@ function AddButton({addBeneficiary}) {
   );
 }
 const styles = StyleSheet.create({
-  container: {width: 63, height: 30,backgroundColor:'white', borderRadius: 15},
+  container: {
+    width: 63,
+    height: 30,
+    backgroundColor: 'white',
+    borderRadius: 15,
+  },
 });
 export default AddButton;

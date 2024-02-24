@@ -22,7 +22,8 @@ const SimpleCardList: React.FC<SimpleCardListProp> = ({cards}) => {
       renderItem={renderItem}
       numColumns={4}
       style={[layouts.px.sm, {backgroundColor: '#F1F3FB'}]}
-    /> :
+    />
+  ) : (
     <NoBeneficiary />
   );
 };

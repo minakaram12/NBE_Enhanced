@@ -4,7 +4,7 @@ import {layouts} from '../../../constants/styles';
 
 function NoHistory() {
   return (
-    <View style={[layouts.xCentered, layouts.yCentered, layouts.flexed]}>
+    <View style={[layouts.xCentered, layouts.yCentered,{marginTop:100}]}>
       <View style={[styles.imageContainer]}>
         <Image source={require('../../../assets/images/Group.png')} />
       </View>

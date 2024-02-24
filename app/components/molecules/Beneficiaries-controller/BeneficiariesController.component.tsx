@@ -3,7 +3,7 @@ import Toggler from '../../atoms/Toggler/Toogler.component';
 import AddButton from '../../atoms/AddIcon/Addbtn';
 import {layouts} from '../../../constants/styles';
 
-function BeneficiariesController({style,changeViewSetter}) {
+function BeneficiariesController({style,changeViewSetter,addBeneficiary}) {
   return (
     <View style={[layouts.row, layouts.justifyBetween, {backgroundColor:'#F1F3FB'},style]}>
       <View>
@@ -11,7 +11,7 @@ function BeneficiariesController({style,changeViewSetter}) {
       </View>
       <View style={[layouts.row]}>
         <Toggler changeViewSetter={changeViewSetter}/>
-        <AddButton />
+        <AddButton addBeneficiary={addBeneficiary} />
       </View>
     </View>
   );

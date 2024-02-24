@@ -1,12 +1,16 @@
 import {Image, StyleSheet, View} from 'react-native';
 import {Pressable} from 'react-native';
 import {layouts} from '../../../constants/styles';
+import {useNavigation} from '@react-navigation/native';
 
-function NoBeneficiary() {
-  const navigateToAddScreen = () => {}; // Declare it with const
+function NoBeneficiary({addBeneficiary}) {
+  const navigation = useNavigation();
+  const navigateToAddScreen = () => {
+    navigation.navigate('AddBeneficiaries',addBeneficiary);
+  }; // Declare it with const
   return (
-    <View style={[layouts.xCentered, layouts.yCentered, layouts.fullHeight]}>
-      <Pressable onPress={navigateToAddScreen} >
+    <View style={[{marginTop: 140}, layouts.yCentered, layouts.fullHeight]}>
+      <Pressable onPress={navigateToAddScreen}>
         <Image
           source={require('../../../assets/images/noBeneficiaries.png')}
           style={styles.noBenfImg}

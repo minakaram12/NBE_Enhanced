@@ -9,21 +9,28 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 import {transferType} from '../../Faker';
 import {useNavigation} from '@react-navigation/native';
+import { useTheme } from '../../ContextAPI/ThemeContext';
 
 const validationsSchema = yup.object().shape({
-  firstName: yup.string(),
-  lastName: yup.string(),
-  accountNumber: yup.string(),
-  phoneNumber: yup.string(),
-  email: yup.string(),
+  firstName: yup.string().required('first name is required'),
+  lastName: yup.string().required('last name is required'),
+  accountNumber: yup
+    .string()
+    .required('account number is required')
+    .min(10, 'minimum 10 numbers')
+    .max(14, "you can't exeed 14 number"),
+  phoneNumber: yup.string().required('phone number is required'),
+  email: yup
+    .string()
+    .email('invalid email address')
+    .required('Email is required'),
 });
 //
 
 function AddBeneficiaries({route}) {
   const {item, edit, cardsSetter, prevIndex} = route.params;
-  if (edit) {
-    const addNewBeneficiary = route.params;
-  }
+
+  const addNewBeneficiary = route.params;
   const navigation = useNavigation();
 
   return (
@@ -38,6 +45,7 @@ function AddBeneficiaries({route}) {
                 accountNumber: '', // You may need to update this based on the actual property in your `item`
                 phoneNumber: item.mobileNumber || '',
                 email: '', // You may need to update this based on the actual property in your `item`
+                branch: '',
               }
             : {
                 firstName: '',
@@ -45,6 +53,7 @@ function AddBeneficiaries({route}) {
                 accountNumber: '',
                 phoneNumber: '',
                 email: '',
+                branch: '',
               }
         }
         onSubmit={values => {
@@ -83,7 +92,7 @@ function AddBeneficiaries({route}) {
               layouts.flexed,
               //   layouts.yCentered,
               //   layouts.fullWidth,
-              {backgroundColor: '#F1F3FB'},
+              {backgroundColor: useTheme().isDarkMode.BackgroundMenu},
             ]}>
             <ScrollView contentContainerStyle={styles.scrollViewContent}>
               <View style={layouts.yCentered}>
@@ -121,10 +130,10 @@ function AddBeneficiaries({route}) {
               </View>
 
               <DropdownMenu
-                onChange={formikProps.handleChange('dropdownValue')}
                 title="Bank Branch"
                 options={transferType}
-                style={[]}
+                onSelectOption={(value)=>formikProps.setFieldValue('branch',value)}
+                style={[{marginTop:10,marginLeft:0,marginRight:0}]}
               />
 
               <InputField

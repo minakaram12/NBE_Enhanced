@@ -4,13 +4,14 @@ import TranactionHistory from '../../templets/TransactionHistory/TransactionHist
 import DrawerMenu from '../DrawerNavigator/DrawerMenu';
 import {View} from 'react-native';
 import { layouts } from '../../../constants/styles';
+import { useTheme } from '../../../ContextAPI/ThemeContext';
 
 function BeneficiaryTransactionScreenComponent({route}) {
   const {transactions, user} = route.params;
   return (
     <>
       <DrawerMenu>
-        <View style={layouts.fullHeight}>
+        <View style={[layouts.fullHeight,layouts.px.lg,{backgroundColor:useTheme().isDarkMode.BackgroundMenu}]}>
           <DetailedCard
             name={user.name}
             balance={user.balance}
@@ -22,6 +23,7 @@ function BeneficiaryTransactionScreenComponent({route}) {
           />
           <TranactionHistory
             transactionitems={transactions ? transactions : []}
+            header="Transaction History"
           />
         </View>
       </DrawerMenu>

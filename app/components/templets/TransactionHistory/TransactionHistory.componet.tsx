@@ -4,15 +4,17 @@ import NoHistory from '../../atoms/NoHistory/NoHistory.component';
 import {TransactionCardProp} from '../../atoms/Transactioncard/TransactionCard.component';
 import TransactionList from '../../molecules/TransactionList/TransactionList.component';
 import {layouts} from '../../../constants/styles';
+import { useTheme } from '../../../ContextAPI/ThemeContext';
 interface TrasactionHistoryProps {
   transactionitems: Array<TransactionCardProp>;
+  header?: string;
 }
-function TranactionHistory({transactionitems}: TrasactionHistoryProps) {
+function TranactionHistory({transactionitems, header}: TrasactionHistoryProps) {
   const isEmpty = transactionitems.length <= 0;
   return (
     <View style={[layouts.flexed]}>
       <View>
-        <Text style={[styles.title]}>Transactions History</Text>
+        <Text style={[styles.title,{color:useTheme().isDarkMode.itemColor}]}>{header}</Text>
       </View>
       <View style={layouts.flexed}>
         {isEmpty ? (

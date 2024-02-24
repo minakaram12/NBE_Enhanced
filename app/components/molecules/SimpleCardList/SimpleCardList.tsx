@@ -22,7 +22,7 @@ const SimpleCardList: React.FC<SimpleCardListProp> = ({cards}) => {
       {isCardsExists ? (
         <FlatList
           data={cards}
-
+          
           renderItem={renderItem}
           numColumns={4}
           style={[layouts.px.sm, { backgroundColor: useTheme().isDarkMode.BackgroundMenu }]}

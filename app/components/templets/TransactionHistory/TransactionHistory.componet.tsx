@@ -10,7 +10,7 @@ interface TrasactionHistoryProps {
 function TranactionHistory({transactionitems}: TrasactionHistoryProps) {
   const isEmpty = transactionitems.length <= 0;
   return (
-    <View style={layouts.flexed}>
+    <View style={[layouts.flexed]}>
       <View>
         <Text style={[styles.title]}>Transactions History</Text>
       </View>

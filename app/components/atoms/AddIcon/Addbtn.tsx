@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 function AddButton({addBeneficiary}) {
   const navigation = useNavigation();
   const addnewBenefHandler = ()=>{
-    navigation.navigate('AddBeneficiaries',addBeneficiary);
+    navigation.navigate('AddBeneficiaries', addBeneficiary);
   }
   return (
     <Pressable onPress={addnewBenefHandler}>

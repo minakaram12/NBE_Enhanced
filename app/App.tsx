@@ -4,9 +4,10 @@
  *
  * @format
  */
-import 'react-native-gesture-handler';
-import React from 'react';
-import type {PropsWithChildren} from 'react';
+
+import React, { useEffect, useState } from 'react';
+import type { PropsWithChildren } from 'react';
+import Layouts from './constants/styles/layouts';
 import {
   SafeAreaView,
   ScrollView,
@@ -54,12 +55,14 @@ import Mobile from './components/screens/Signup/Mobile';
 // }
 const Stack = createStackNavigator();
 
+
+
 function App(): React.JSX.Element {
   // const isDarkMode = useColorScheme() === 'dark';
 
   // const backgroundStyle = {
   //   backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  // };
+   //};
 
   return (
     // <SafeAreaView style={backgroundStyle}>

@@ -8,7 +8,7 @@ import {Formik} from 'formik';
 
 import * as yup from 'yup';
 import {transferType} from '../../Faker';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 const validationsSchema = yup.object().shape({
   firstName: yup.string(),
@@ -17,33 +17,64 @@ const validationsSchema = yup.object().shape({
   phoneNumber: yup.string(),
   email: yup.string(),
 });
+//
 
 function AddBeneficiaries({route}) {
-  const addNewBeneficiary = route.params;
+  const {item, edit, cardsSetter, prevIndex} = route.params;
+  if (edit) {
+    const addNewBeneficiary = route.params;
+  }
   const navigation = useNavigation();
+
   return (
     <View style={[layouts.fullHeight, {paddingBottom: 80}]}>
       <Formik
         validationSchema={validationsSchema}
-        initialValues={{
-          firstName: '',
-          lastName: '',
-          accountNumber: '',
-          phoneNumber: '',
-          email: '',
-        }}
+        initialValues={
+          edit
+            ? {
+                firstName: item.name.split(' ')[0] || '',
+                lastName: item.name.split(' ')[1] || '',
+                accountNumber: '', // You may need to update this based on the actual property in your `item`
+                phoneNumber: item.mobileNumber || '',
+                email: '', // You may need to update this based on the actual property in your `item`
+              }
+            : {
+                firstName: '',
+                lastName: '',
+                accountNumber: '',
+                phoneNumber: '',
+                email: '',
+              }
+        }
         onSubmit={values => {
           // Handle form submission with the values
 
-          addNewBeneficiary({
-            name: values.firstName + ' ' + values.lastName,
-            mobileNumber: values.phoneNumber,
-            balance: '999',
-            image: require('../../assets/images/profimg.jpg'),
-            color: '#ffffff',
-          });
+          if (!edit) {
+            addNewBeneficiary({
+              name: values.firstName + ' ' + values.lastName,
+              mobileNumber: values.phoneNumber,
+              balance: '999',
+              image: require('../../assets/images/profimg.jpg'),
+              color: '#ffffff',
+            });
+          } else {
+            //aktb al code bta3 al add beneficiary
+
+            cardsSetter(prevCards => {
+              const newArray = [...prevCards];
+              newArray[prevIndex] = {
+                name: values.firstName + ' ' + values.lastName,
+                mobileNumber: values.phoneNumber,
+                balance: '999',
+                image: require('../../assets/images/profimg.jpg'),
+                color: '#ffffff',
+              };
+              return newArray;
+            });
+          }
           navigation.goBack();
-          
+
           console.log(values);
         }}>
         {formikProps => (

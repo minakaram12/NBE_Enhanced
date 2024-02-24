@@ -76,7 +76,7 @@ const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
       <Animated.View
         style={{
           flexGrow: 1,
-          backgroundColor: 'white',
+          backgroundColor: useTheme().isDarkMode.BackgroundNav,
           position: 'absolute',
           top: 0,
           bottom: 0,

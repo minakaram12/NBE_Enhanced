@@ -11,6 +11,10 @@ import IconFingerPrint from 'react-native-vector-icons/FontAwesome5';
 
 import {layouts} from '../../../constants/styles';
 import {px} from '../../../constants/styles/layouts';
+import Beneficiary from '../../screens/Benificiary/Benificiary';
+import BenefiiciaryListScreen from '../../screens/BeneficiaryListScreen/BeneficiaryListScreen';
+import DrawerMenu from '../../screens/DrawerNavigator/DrawerMenu';
+import BeneficiaryStack from '../BeneficiaryStack/BeneficiaryStack';
 
 function BottomTabsNavigation() {
   const Tab = createBottomTabNavigator();
@@ -121,6 +125,7 @@ function BottomTabsNavigation() {
       backgroundColor: 'blue',
     },
     tabBarShowLabel: false,
+    headerShown: false,
   };
 
   const tabBarStyle = {
@@ -139,8 +144,8 @@ function BottomTabsNavigation() {
         options={{...addTransfer}}
       />
       <Tab.Screen
-        name="Screen3"
-        component={Screen3}
+        name="Beneficiary"
+        component={BeneficiaryStack}
         options={{...addBeneficiariesIcon}}
       />
       <Tab.Screen name="Screen4" component={Screen4} options={{...addAtms}} />

@@ -7,22 +7,27 @@ import {Formik, FormikProps} from 'formik';
 import * as Yup from 'yup';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faMobile} from '@fortawesome/free-solid-svg-icons/faMobile';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import { setPhoneNumber } from '../../../storage/mmkv';
 library.add(faMobile);
 
 const MobileForm = () => {
   //todo: use react-native-phone-number-input
+  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+
   const mobileSchema = Yup.object().shape({
-    mobileNumber: Yup.string()
-      .required()
-      .length(13)
-      .matches(/^\+201[0-9]{9}$/),
+    mobileNumber: Yup.string().required().length(16),
   });
 
   return (
     <Formik
       initialValues={{mobileNumber: ''}}
       validationSchema={mobileSchema}
-      onSubmit={values => console.log(values)}>
+      onSubmit={values => {
+        setPhoneNumber(values.mobileNumber);
+        navigation.navigate('OtpScreen');
+      }}>
       {formikProps => (
         <View style={[layouts.flexed]}>
           <View style={[layouts.mt.xl]}>
@@ -34,11 +39,13 @@ const MobileForm = () => {
           <View style={[layouts.flexed, layouts.my.xxl]}>
             <InputField
               name="mobileNumber"
-              placeholder="ex. +201..."
+              placeholder="Enter your mobile number"
               label="Mobile number"
               leftIcon="mobile"
               isPassword={false}
               showErrors={false}
+              mask="+20 999 999 9999"
+              keyboardType="phone-pad"
             />
           </View>
           <View>

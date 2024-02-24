@@ -24,6 +24,7 @@ import SplashScreen from './components/screens/SplashScreen/SplashScreen';
 import LoginScreen from './components/screens/LoginScreen/LoginScreen';
 import BottomTabsNavigation from './components/atoms/BottomTabsNavigation/BottomTabNavigation.component';
 import Mobile from './components/screens/Signup/Mobile';
+import Signup from './components/screens/Signup/Signup';
 // type SectionProps = PropsWithChildren<{
 //   title: string;
 // }>;
@@ -150,7 +151,7 @@ function App(): React.JSX.Element {
         screenOptions={{headerShown: false}}>
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="loginScreen" component={LoginScreen} />
-        <Stack.Screen name="signupScreen" component={Mobile} />
+        <Stack.Screen name="signupScreen" component={Signup} />
         <Stack.Screen name="home" component={BottomTabsNavigation} />
       </Stack.Navigator>
     </NavigationContainer>

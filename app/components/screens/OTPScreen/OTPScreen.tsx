@@ -15,18 +15,14 @@ import IconCard from '../../atoms/IconCard/IconCard';
 import BackSvg from '../../../assets/svgs/BackSvg';
 import styles from './OTPScreen.style';
 import AppModal from '../../atoms/AppModal/AppModal';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {getPhoneNumber} from '../../../storage/mmkv';
 
-interface OTPProps {
-  otpTitle: string;
-  phoneNum: number;
-  displaySuccessModal: boolean;
-}
-
-const OTPScreen: React.FC<OTPProps> = ({
-  otpTitle,
-  phoneNum,
-  displaySuccessModal,
-}) => {
+const OTPScreen = ({route}: {route: any}) => {
+  const {otpTitle, displaySuccessModal} = route.params;
+  const phoneNum = getPhoneNumber();
+  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
   const [otp, setOTP] = useState('');
   const [timer, setTimer] = useState<number>(120);
   const [resendDisabled, setResendDisabled] = useState<boolean>(true);
@@ -84,19 +80,17 @@ const OTPScreen: React.FC<OTPProps> = ({
   };
 
   const handleVerifyOTP = (otp: string) => {
-    
     if (otp === '12345') {
       setShowSuccessModal(true);
       // navigation by rawan here
     } else {
-      
       setShowFailedModal(true);
-     
     }
   };
 
   const handleSubmit = () => {
     handleVerifyOTP(otp);
+    navigation.navigate('PasswordScreen');
   };
   return (
     <View style={styles.OuterContainer}>
@@ -112,7 +106,7 @@ const OTPScreen: React.FC<OTPProps> = ({
 
         <Text style={styles.infoText}>
           {' '}
-          Enter 5 digit code we sent to +{phoneNum}
+          Enter 5 digit code we sent to {phoneNum}
         </Text>
         <OtpInput
           numberOfDigits={5}
@@ -143,11 +137,11 @@ const OTPScreen: React.FC<OTPProps> = ({
           modalVisible={showFailedModal}
           setModalVisible={setShowFailedModal}
           errorTitle={true}
-          titleText='Ooops...'
+          titleText="Ooops..."
           descriptionText={'Seems like you entered invalid OTP'}
           confirmButtonText={'Try Again'}
           onConfirmPress={() => setShowFailedModal(false)}
-          cancelButtonText='Cancel'
+          cancelButtonText="Cancel"
           onCancelPress={() => setShowFailedModal(false)}
         />
 

@@ -23,7 +23,6 @@ const SplashScreen = ({navigation}: {navigation: any}) => {
     }).start();
 
     const timer = setTimeout(() => {
-      logout();
       if (getRememberMe() && getUsername() && getPassword()) {
         navigation.replace('home');
       } else {

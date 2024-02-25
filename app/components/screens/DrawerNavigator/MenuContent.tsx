@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Pressable } from 'react-native';
 import Sidebar from '../../molecules/SidebarMenu/SidebarMenu';
 import IconCard from '../../atoms/IconCard/IconCard';
 import { px } from '../../../constants/styles/layouts';
 import LogoutSvg from '../../../assets/svgs/LogoutSvg';
 import { useTheme } from '../../../ContextAPI/ThemeContext';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 
 interface userInfo {
@@ -16,7 +18,11 @@ interface userInfo {
 const MenuContent: React.FC<userInfo> = ({userName , phoneNumber}) => {
     const logo = require('../../../assets/images/logoGreen.png');
     const AR = require('../../../assets/images/AR.png');
-
+    const navigate=useNavigation<StackNavigationProp<ParamListBase>>();
+    const LogOut =()=>{
+        navigate.navigate('loginScreen')  
+        // console.log("goneeeeee");
+      }
     return (
         <View >
             {/* AR button and logo */}
@@ -28,6 +34,7 @@ const MenuContent: React.FC<userInfo> = ({userName , phoneNumber}) => {
             <Sidebar  />
             {/* LOGOOUT AND BOTTOM NAV */}
             <View style={styles.outerContainer}>
+                <Pressable onPress={LogOut}>
                 <View style={styles.container}>
                     <IconCard
                         icon={LogoutSvg}
@@ -35,6 +42,9 @@ const MenuContent: React.FC<userInfo> = ({userName , phoneNumber}) => {
                     </IconCard>
                     <Text style={styles.textStyle}>Log out </Text>
                 </View>
+
+                </Pressable>
+               
 
                 {/* <bottom navbar/> */}
                 <View style={styles.userCard}>

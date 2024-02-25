@@ -152,7 +152,7 @@ const InputField: React.FC<InputProps> = ({
             <Text
               style={[
                 styles.label,
-                layouts.mt.lg,
+                layouts.mt.md,
                 isFocus ? null : finalLabelStyle,
                 isError ? styles.errorTextColor : null,
                 labelStyle,
@@ -182,7 +182,7 @@ const InputField: React.FC<InputProps> = ({
                       field.onChange(name)(text);
                       setValue(text);
                       if (onChangeText) {
-                        onChangeText(value);
+                        onChangeText(text);
                       }
                     }}
                     onBlur={field.onBlur(name)}
@@ -193,7 +193,15 @@ const InputField: React.FC<InputProps> = ({
                 ) : (
                   <TextInput
                     keyboardType={keyboardType}
-                    style={[styles.input, layouts.flexed]}
+                    style={[
+                      styles.input,
+                      layouts.flexed,
+                      variant === 'transparent'
+                        ? isFocus
+                          ? styles.blackTextColor
+                          : styles.whiteTextColor
+                        : null,
+                    ]}
                     placeholder={placeholder}
                     secureTextEntry={isPasswordVisible ? false : true}
                     editable={disabled ? false : true}
@@ -205,7 +213,7 @@ const InputField: React.FC<InputProps> = ({
                       field.onChange(name)(text);
                       setValue(text);
                       if (onChangeText) {
-                        onChangeText(value);
+                        onChangeText(text);
                       }
                     }}
                     onBlur={field.onBlur(name)}

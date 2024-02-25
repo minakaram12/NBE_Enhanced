@@ -25,8 +25,12 @@ import SplashScreen from './components/screens/SplashScreen/SplashScreen';
 import LoginScreen from './components/screens/LoginScreen/LoginScreen';
 import BottomTabsNavigation from './components/atoms/BottomTabsNavigation/BottomTabNavigation.component';
 import Mobile from './components/screens/Signup/Mobile';
-import {ThemeProvider} from './ContextAPI/ThemeContext';
+
 import HomeScreen from './components/screens/HomeScreen/HomeScreen';
+import Signup from './components/screens/Signup/Signup';
+import OTPScreen from './components/screens/OTPScreen/OTPScreen';
+import TransferScreen from './components/screens/TranferScreen/TransferScreen';
+import { ThemeContext, ThemeProvider } from './ContextAPI/ThemeContext';
 // type SectionProps = PropsWithChildren<{
 //   title: string;
 // }>;
@@ -158,8 +162,6 @@ function App(): React.JSX.Element {
           <Stack.Screen name="home" component={BottomTabsNavigation} />
         </Stack.Navigator>
       </NavigationContainer>
-      {/* <DrawerMenu children={<HomeScreen />} /> */}
-      {/* <HomeScreen /> */}
     </ThemeProvider>
   );
 }

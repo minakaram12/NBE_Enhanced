@@ -17,6 +17,7 @@ import DrawerMenu from '../../screens/DrawerNavigator/DrawerMenu';
 import BeneficiaryStack from '../BeneficiaryStack/BeneficiaryStack';
 import HomeScreen from '../../screens/HomeScreen/HomeScreen';
 import TransferScreen from '../../screens/TranferScreen/TransferScreen';
+import AirPayScreen from '../../screens/AirPay/AirPayScreen';
 
 function BottomTabsNavigation() {
   const Tab = createBottomTabNavigator();
@@ -153,7 +154,7 @@ function BottomTabsNavigation() {
       <Tab.Screen name="Screen4" component={Screen4} options={{...addAtms}} />
       <Tab.Screen
         name="Screen5"
-        component={Screen5}
+        component={AirPayScreen}
         options={{...addAirPlay}}
       />
     </Tab.Navigator>

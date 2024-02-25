@@ -9,10 +9,10 @@ const AppProviders = () => {
     // <ThemeProvider>
     //   <LoginProvider>
     //     <LanguageProvider>
-          <App />
+    <App />
     //      </LanguageProvider>
     //   </LoginProvider>
-    // </ThemeProvider> 
+    // </ThemeProvider>
   );
 };
 

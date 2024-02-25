@@ -7,13 +7,14 @@ import {StyleSheet, View} from 'react-native';
 import {layouts} from '../../../constants/styles';
 import {ExtendedCardProps, detailedCardPropsArray} from '../SwipeableCardList/SwipeableCardListFaker';
 import NoBeneficiary from '../../atoms/NoBeneficiaries/NoBeneficiaries';
+import { useTheme } from '../../../ContextAPI/ThemeContext';
 
 function SimpleOrDetailedList({navigation}) {
   const [colView, setterColView] = useState(true);
   const [beneficiaries, setBeneficiaries] = useState<Array<ExtendedCardProps>>(
     detailedCardPropsArray,
   );
-  const addBeneficiary = (beneficiary: ExtendedCardProps) => {
+   const addBeneficiary = (beneficiary: ExtendedCardProps) => {
     setBeneficiaries(oldBeneficiaries => [...oldBeneficiaries, beneficiary]);
   };
 
@@ -21,7 +22,7 @@ function SimpleOrDetailedList({navigation}) {
 
   return (
     <View
-      style={[layouts.px.lg, {backgroundColor: '#F1F3FB'}, layouts.fullHeight]}>
+      style={[layouts.px.lg, {backgroundColor: useTheme().isDarkMode.BackgroundMenu}, layouts.fullHeight]}>
       <BeneficiariesController
         style={styles.controller}
         changeViewSetter={setterColView}

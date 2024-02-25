@@ -15,12 +15,11 @@ import TopNavImg from '../../atoms/TopNavImg/TopNavImg';
 import BellSvg from '../../../assets/svgs/BellSvg';
 import {theme} from '../../../theme/theme';
 import {useTheme} from '../../../ContextAPI/ThemeContext';
+import {ScrollView} from 'react-native-gesture-handler';
 
 interface DrawerMenuProps {
   children: ReactNode;
 }
-
-
 
 const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   const close = require('../../../assets/images/close.png');
@@ -62,55 +61,64 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
         style={{
           width: 20,
           height: 20,
-          tintColor: 'black',
+          // eslint-disable-next-line react-hooks/rules-of-hooks
+          tintColor: useTheme().isDarkMode.BasicColor,
           margin: 10,
         }}
       />
     );
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    console.log('tintColor' + useTheme().isDarkMode.BasicColor);
   }
 
   return (
-    <View
-      style={[styles.container, {backgroundColor: isDarkMode.BackgroundMenu}]}>
-      {/* MenuItem */}
-      <MenuContent userName={'Ahmed'} phoneNumber={123456789} />
+    <ScrollView>
+      <View
+        style={[
+          styles.container,
+          {backgroundColor: isDarkMode.BackgroundMenu},
+        ]}>
+        {/* MenuItem */}
+        <MenuContent userName={'Ahmed'} phoneNumber={123456789} />
 
-      <Animated.View
-        style={{
-          flexGrow: 1,
-          backgroundColor: useTheme().isDarkMode.BackgroundMenu,
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          left: 0,
-          right: 0,
-          paddingHorizontal: showMenu ? 15 : 0,
-          paddingVertical: showMenu ? 20 : 0,
-          borderRadius: showMenu ? 15 : 0,
-          overflow: 'hidden',
-          transform: [{scale: scaleValue}, {translateX: offsetValue}],
-        }}>
         <Animated.View
           style={{
-            transform: [{translateY: closeButtonOffset}],
+            flexGrow: 1,
+            backgroundColor: useTheme().isDarkMode.white,
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            // paddingHorizontal: showMenu ? 0 : 0,
+            paddingVertical: showMenu ? 20 : 0,
+            borderRadius: showMenu ? 15 : 0,
+            overflow: 'hidden',
+            transform: [{scale: scaleValue}, {translateX: offsetValue}],
           }}>
-          <TopNavigator
-            onPressLeft={handleMenuPress}
-            contentLeft={contentLeft}
-            contentMiddle={
-              <TopNavImg
-                name="Ahmed"
-                imgUrl={require('../../../assets/images/dummyUser.png')}
-              />
-            }
-            contentRight={<IconCard icon={BellSvg} Type="Notification" />}
-          />
+          <Animated.View
+            style={{
+              transform: [{translateY: closeButtonOffset}],
+              backgroundColor: useTheme().isDarkMode.BackgroundMenu,
+            }}>
+            <TopNavigator
+              onPressLeft={handleMenuPress}
+              contentLeft={contentLeft}
+              contentMiddle={
+                <TopNavImg
+                  name="Ahmed"
+                  imgUrl={require('../../../assets/images/dummyUser.png')}
+                />
+              }
+              contentRight={<IconCard icon={BellSvg} Type="Notification" />}
+            />
 
-          {/* homeScreen content */}
-          {children}
+            {/* homeScreen content */}
+            {children}
+          </Animated.View>
         </Animated.View>
-      </Animated.View>
-    </View>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -119,7 +127,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    // backgroundColor: theme?.BackgroundMenu,
+    // backgroundColor: useTheme().isDarkMode.BackgroundMenu,
   },
 });
 

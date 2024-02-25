@@ -10,7 +10,7 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
     mobileNumber: '1234567890',
     balance: '100.00',
     image: require('../../../assets/images/profimg.jpg'),
-    color: 'blue',
+    color: 'white',
     key: '1',
   },
   {
@@ -26,7 +26,7 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
     mobileNumber: '5555555555',
     balance: '75.50',
     image: require('../../../assets/images/profimg.jpg'),
-    color: 'green',
+    color: 'white',
     key: '3',
   },
   {
@@ -34,7 +34,7 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
     mobileNumber: '9998887777',
     balance: '120.75',
     image: require('../../../assets/images/profimg.jpg'),
-    color: 'red',
+    color: 'white',
     key: '4',
   },
   {
@@ -50,7 +50,7 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
     mobileNumber: '4444444444',
     balance: '60.80',
     image: require('../../../assets/images/profimg.jpg'),
-    color: 'purple',
+    color: 'white',
     key: '6',
   },
   {
@@ -58,7 +58,7 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
     mobileNumber: '7777777777',
     balance: '150.50',
     image: require('../../../assets/images/profimg.jpg'),
-    color: 'orange',
+    color: 'white',
     key: '7',
   },
   {
@@ -74,7 +74,7 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
     mobileNumber: '2222222222',
     balance: '95.75',
     image: require('../../../assets/images/profimg.jpg'),
-    color: 'pink',
+    color: 'white',
     key: '9',
   },
   {
@@ -82,7 +82,7 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
     mobileNumber: '1111111111',
     balance: '110.00',
     image: require('../../../assets/images/profimg.jpg'),
-    color: 'yellow',
+    color: 'white',
     key: '10',
   },
 ];

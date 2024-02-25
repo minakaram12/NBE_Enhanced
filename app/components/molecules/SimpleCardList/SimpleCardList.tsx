@@ -6,6 +6,7 @@ import { FlatList } from 'react-native';
 import { layouts } from '../../../constants/styles';
 import NoBeneficiary from '../../atoms/NoBeneficiaries/NoBeneficiaries';
 import { ExtendedCardProps } from '../SwipeableCardList/SwipeableCardListFaker';
+import { useTheme } from '../../../ContextAPI/ThemeContext';
 
 interface SimpleCardListProp {
   cards: Array<ExtendedCardProps>;
@@ -21,10 +22,10 @@ const SimpleCardList: React.FC<SimpleCardListProp> = ({cards}) => {
       {isCardsExists ? (
         <FlatList
           data={cards}
-
+          
           renderItem={renderItem}
           numColumns={4}
-          style={[layouts.px.sm, { backgroundColor: '#F1F3FB' }]}
+          style={[layouts.px.sm, { backgroundColor: useTheme().isDarkMode.BackgroundMenu }]}
         />
       ) : (
         <NoBeneficiary />

@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {layouts} from '../../../constants/styles';
+import { useTheme } from '../../../ContextAPI/ThemeContext';
 export interface TransactionCardProp {
   transactionItem: String;
   date: Date;
@@ -12,9 +13,9 @@ const TransactionCard: React.FC<TransactionCardProp> = ({
   transactionValue,
 }) => {
   return (
-    <View style={[layouts.row, layouts.justifyBetween, styles.container]}>
+    <View style={[layouts.row, layouts.justifyBetween, styles.container,{backgroundColor:useTheme().isDarkMode.BackgroundMenu}]}>
       <View style={layouts.xCentered}>
-        <Text style={[styles.transactionItemStyle, layouts.mb.lg]}>
+        <Text style={[styles.transactionItemStyle, layouts.mb.lg, {color:useTheme().isDarkMode.itemColor}]}>
           {transactionItem}
         </Text>
         <Text style={styles.dateStyle}>{`${date.getDate()}-${
@@ -22,7 +23,7 @@ const TransactionCard: React.FC<TransactionCardProp> = ({
         }-${date.getFullYear()}`}</Text>
       </View>
       <View style={layouts.xCentered}>
-        <Text style={[styles.transactionValue]}>{`$${transactionValue}`}</Text>
+        <Text style={[styles.transactionValue,{color:useTheme().isDarkMode.itemColor}]}>{`$${transactionValue}`}</Text>
       </View>
     </View>
   );

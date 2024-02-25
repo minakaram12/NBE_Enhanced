@@ -1,5 +1,5 @@
-import React from 'react';
-import {Image, StyleSheet, View, ScrollView} from 'react-native';
+import React, { useState } from 'react';
+import {Image, StyleSheet, View, ScrollView, TouchableOpacity} from 'react-native';
 import {layouts} from '../../constants/styles';
 import InputField from '../atoms/InputField/InputField';
 import DropdownMenu from '../atoms/DropdownMenu/DropdownMenu';
@@ -9,7 +9,8 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 import {transferType} from '../../Faker';
 import {useNavigation} from '@react-navigation/native';
-import { useTheme } from '../../ContextAPI/ThemeContext';
+import {useTheme} from '../../ContextAPI/ThemeContext';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 const validationsSchema = yup.object().shape({
   firstName: yup.string().required('first name is required'),
@@ -28,6 +29,31 @@ const validationsSchema = yup.object().shape({
 //
 
 function AddBeneficiaries({route}) {
+  const [imageUri, setImageUri] = useState(null);
+  const openCamera = () => {
+    launchCamera(
+      {
+        mediaType: 'photo',
+        includeBase64: false,
+        maxHeight: 200,
+        maxWidth: 200,
+      },
+      (response) => {
+        if (response.didCancel) {
+          console.log('User cancelled camera');
+        } else if (response.errorCode) {
+          console.error('Camera Error:', response.errorCode, response.errorMessage);
+        } else {
+          setImageUri(response.assets[0].uri);
+          console.log('====================================');
+          console.log("the uri is "+ response.assets[0].uri);
+          console.log('====================================');
+          // Use the response.uri as the image source
+        }
+      }
+    );
+  };
+
   const {item, edit, cardsSetter, prevIndex} = route.params;
 
   const addNewBeneficiary = route.params;
@@ -95,19 +121,26 @@ function AddBeneficiaries({route}) {
               {backgroundColor: useTheme().isDarkMode.BackgroundMenu},
             ]}>
             <ScrollView contentContainerStyle={styles.scrollViewContent}>
-              <View style={layouts.yCentered}>
+              <TouchableOpacity style={layouts.yCentered} onPress={openCamera}>
                 <View
                   style={[
                     styles.cameraView,
                     layouts.allCentered,
                     {backgroundColor: 'white'},
                   ]}>
-                  <Image
-                    source={require('../../assets/images/cam.png')}
-                    style={styles.camImg}
-                  />
+                  {imageUri ? (
+                    <Image
+                      source={{uri: imageUri}}
+                      style={{ width: 138, height: 138, borderRadius: 30 }}
+                    />
+                  ) : (
+                    <Image
+                      source={require('../../assets/images/cam.png')}
+                      style={styles.camImg}
+                    />
+                  )}
                 </View>
-              </View>
+              </TouchableOpacity>
               <View style={[layouts.row, {marginTop: 20}]}>
                 <InputField
                   label="First Name"

@@ -99,7 +99,7 @@ const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
         <Animated.View
           style={{
             transform: [{translateY: closeButtonOffset}],
-            backgroundColor:useTheme().isDarkMode.BackgroundNav,
+            backgroundColor:useTheme().isDarkMode.BackgroundMenu,
           }}>
           <TopNavigator
             onPressLeft={handleMenuPress}

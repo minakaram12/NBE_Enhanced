@@ -10,6 +10,7 @@ const HiddenItemWithActions = ({onDelete, onEdit}) => {
         layouts.row,
         layouts.justifyBetween,
         layouts.my.lg,
+        {backgroundColor:'red'}
       ]}>
       <Pressable onPress={onEdit}>
         <View
@@ -21,7 +22,7 @@ const HiddenItemWithActions = ({onDelete, onEdit}) => {
             styles.curved,
             layouts.yCentered,
           ]}>
-          <Text>hidden</Text>
+          <Text>Edit</Text>
         </View>
       </Pressable>
       <Pressable onPress={onDelete}>

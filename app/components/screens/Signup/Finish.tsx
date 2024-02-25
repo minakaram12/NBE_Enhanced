@@ -2,11 +2,15 @@ import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
 import Header from '../../molecules/Header';
 import layouts, {px} from '../../../constants/styles/layouts';
 import MainBtn from '../../atoms/MainBtn/MainBtn';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 const Finish = () => {
   const handleBack = () => {
     console.log('Test');
   };
+  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+
   return (
     <View style={[layouts.flexed, {backgroundColor: '#007236'}]}>
       <View style={[layouts.mx.xl, layouts.my.xl]}>
@@ -27,7 +31,9 @@ const Finish = () => {
             <MainBtn
               buttonText="Finish"
               variant="secondary"
-              onPress={() => console.log('Continue')}
+              onPress={() => {
+                navigation.navigate('home');
+              }}
             />
           </View>
         </View>

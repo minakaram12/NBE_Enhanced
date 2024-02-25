@@ -9,6 +9,9 @@ import MainBtn from '../../atoms/MainBtn/MainBtn';
 import {validationList} from '../../../Faker';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faLock} from '@fortawesome/free-solid-svg-icons/faLock';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+
 library.add(faLock);
 
 interface FormValues {
@@ -19,6 +22,8 @@ interface FormValues {
 const PasswordForm = () => {
   const [validationListState, setValidationListState] =
     React.useState(validationList);
+
+  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
   const passwordSchema = Yup.object().shape({
     password: Yup.string()
@@ -33,12 +38,7 @@ const PasswordForm = () => {
       .required(),
   });
 
-  const passwordChangeHandler = (
-    formikProps: FormikProps<FormValues>,
-    fieldName: string,
-    value: string,
-  ) => {
-    formikProps.setFieldValue(fieldName, value);
+  const passwordChangeHandler = (value: string) => {
     const validations = [
       {regex: /^(?=.*[a-z])/, text: 'Lower case letter'},
       {regex: /.{8,}/, text: 'Minimum 8 characters'},
@@ -55,6 +55,10 @@ const PasswordForm = () => {
       };
     });
 
+    console.log(value);
+
+    console.log(updatedValidationListState);
+
     setValidationListState(updatedValidationListState);
   };
 
@@ -62,7 +66,9 @@ const PasswordForm = () => {
     <Formik
       initialValues={{password: '', confirmPassword: ''}}
       validationSchema={passwordSchema}
-      onSubmit={values => console.log(values)}>
+      onSubmit={values => {
+        navigation.navigate('FinishScreen');
+      }}>
       {formikProps => (
         <View style={[layouts.flexed]}>
           <View style={[layouts.flexed]}>
@@ -81,9 +87,7 @@ const PasswordForm = () => {
                 label="Password"
                 isPassword
                 leftIcon="lock"
-                onChangeText={value => {
-                  passwordChangeHandler(formikProps, 'password', value);
-                }}
+                onChangeText={passwordChangeHandler}
                 outerContainerStyle={[layouts.mt.lg]}
                 showErrors={false}
               />
@@ -93,7 +97,6 @@ const PasswordForm = () => {
                 label="Confirm Password"
                 isPassword
                 leftIcon="lock"
-                onChangeText={formikProps.handleChange('confirmPassword')}
                 outerContainerStyle={layouts.my.xl}
                 showErrors={false}
               />

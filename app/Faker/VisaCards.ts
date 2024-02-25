@@ -5,7 +5,7 @@ export const visaCards = [
     name: 'AHMAD SAMI AL-SAYED',
     date: '08/25',
     cvv: '352',
-    imgName: 'red_card',
+    accType: 'premium',
   },
   {
     amount: '20,000.00',
@@ -13,7 +13,7 @@ export const visaCards = [
     name: 'AHMAD SAMI AL-SAYED',
     date: '12/23',
     cvv: '456',
-    imgName: 'green_card',
+    accType: 'normal',
   },
   {
     amount: '15,500.75',
@@ -21,7 +21,7 @@ export const visaCards = [
     name: 'AHMAD SAMI AL-SAYED',
     date: '09/24',
     cvv: '789',
-    imgName: 'green_card',
+    accType: 'normal',
   },
   {
     amount: '12,345.67',
@@ -29,7 +29,7 @@ export const visaCards = [
     name: 'AHMAD SAMI AL-SAYED',
     date: '03/27',
     cvv: '123',
-    imgName: 'red_card',
+    accType: 'premium',
   },
   {
     amount: '25,000.00',
@@ -37,6 +37,6 @@ export const visaCards = [
     name: 'AHMAD SAMI AL-SAYED',
     date: '07/22',
     cvv: '987',
-    imgName: 'green_card',
+    accType: 'normal',
   },
 ];

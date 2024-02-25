@@ -1,35 +1,36 @@
-import React, { ReactNode, useRef, useState } from 'react';
-import { Animated, Image, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import React, {ReactNode, useRef, useState} from 'react';
+import {
+  Animated,
+  Image,
+  TouchableOpacity,
+  View,
+  Text,
+  StyleSheet,
+} from 'react-native';
 import MenuContent from './MenuContent';
 import IconCard from '../../atoms/IconCard/IconCard';
 import MenuTogglerSvg from '../../../assets/svgs/MenuTogglerSvg';
 import TopNavigator from '../../molecules/TopNavigator/TopNavigator';
 import TopNavImg from '../../atoms/TopNavImg/TopNavImg';
 import BellSvg from '../../../assets/svgs/BellSvg';
-import{theme} from '../../../theme/theme'
-import { useTheme } from '../../../ContextAPI/ThemeContext';
+import {theme} from '../../../theme/theme';
+import {useTheme} from '../../../ContextAPI/ThemeContext';
 
-interface DrawerMenuProps{
+interface DrawerMenuProps {
   children: ReactNode;
 }
 
-interface DrawerMenuProps{
-  // isEnabledDark:boolean;
-  // toggleSwitch:()=>void;
-  
-  children: ReactNode;
-}
 
-const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
+
+const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   const close = require('../../../assets/images/close.png');
 
   const [showMenu, setShowMenu] = useState(false);
-  const { isDarkMode, toggleSwitch } = useTheme();
+  const {isDarkMode, toggleSwitch} = useTheme();
 
   const offsetValue = useRef(new Animated.Value(0)).current;
   const scaleValue = useRef(new Animated.Value(1)).current;
   const closeButtonOffset = useRef(new Animated.Value(0)).current;
-
 
   const handleMenuPress = () => {
     Animated.timing(scaleValue, {
@@ -69,14 +70,15 @@ const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
   }
 
   return (
-    <View style={[styles.container,{backgroundColor:isDarkMode.BackgroundMenu}]}>
+    <View
+      style={[styles.container, {backgroundColor: isDarkMode.BackgroundMenu}]}>
       {/* MenuItem */}
       <MenuContent userName={'Ahmed'} phoneNumber={123456789} />
 
       <Animated.View
         style={{
           flexGrow: 1,
-          backgroundColor: 'white',
+          backgroundColor: useTheme().isDarkMode.BackgroundMenu,
           position: 'absolute',
           top: 0,
           bottom: 0,
@@ -85,13 +87,9 @@ const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
           paddingHorizontal: showMenu ? 15 : 0,
           paddingVertical: showMenu ? 20 : 0,
           borderRadius: showMenu ? 15 : 0,
-          overflow:"hidden",
-          transform: [
-            { scale: scaleValue },
-            { translateX: offsetValue },
-          ]
-        }}
-      >
+          overflow: 'hidden',
+          transform: [{scale: scaleValue}, {translateX: offsetValue}],
+        }}>
         <Animated.View
           style={{
             transform: [{translateY: closeButtonOffset}],
@@ -118,12 +116,11 @@ const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    backgroundColor: theme?.BackgroundMenu,
-    
-  }
+    // backgroundColor: theme?.BackgroundMenu,
+  },
 });
 
 export default DrawerMenu;

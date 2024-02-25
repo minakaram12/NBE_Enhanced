@@ -15,6 +15,8 @@ import Beneficiary from '../../screens/Benificiary/Benificiary';
 import BenefiiciaryListScreen from '../../screens/BeneficiaryListScreen/BeneficiaryListScreen';
 import DrawerMenu from '../../screens/DrawerNavigator/DrawerMenu';
 import BeneficiaryStack from '../BeneficiaryStack/BeneficiaryStack';
+import HomeScreen from '../../screens/HomeScreen/HomeScreen';
+import TransferScreen from '../../screens/TranferScreen/TransferScreen';
 
 function BottomTabsNavigation() {
   const Tab = createBottomTabNavigator();
@@ -135,12 +137,12 @@ function BottomTabsNavigation() {
     <Tab.Navigator initialRouteName="screen1" screenOptions={globalStyle}>
       <Tab.Screen
         name="Screen1"
-        component={Screen1}
+        component={HomeScreen}
         options={{...addHomeIcon}}
       />
       <Tab.Screen
         name="Screen2"
-        component={Screen2}
+        component={TransferScreen}
         options={{...addTransfer}}
       />
       <Tab.Screen

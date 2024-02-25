@@ -24,7 +24,7 @@ const VisaCardList: React.FC<VisaCardListProps> = ({
   onPress,
 }) => {
   const renderVisaCard: ListRenderItem<VisaCardData> = ({item}) => (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress} style={{paddingHorizontal: 5}}>
       <VisaCard
         amount={item.amount}
         card_num={item.card_num}

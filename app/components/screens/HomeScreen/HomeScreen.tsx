@@ -219,6 +219,67 @@ import {GestureHandlerRootView, ScrollView} from 'react-native-gesture-handler';
 import SimpleCardList from '../../molecules/SimpleCardList/SimpleCardList';
 import {simpleCardsArray} from '../../molecules/SimpleCardList/simpleCardListFaker';
 import SendMoneyList from '../../molecules/SendMoneyList/SendMoneyList';
+import DrawerMenu from '../DrawerNavigator/DrawerMenu';
+import TransactionCard from '../../atoms/Transactioncard/TransactionCard.component';
+import {ThemeProvider, useTheme} from '../../../ContextAPI/ThemeContext';
+// import {useTheme} from '../../../ContextAPI/ThemeContext';
+const historyWithImg = [
+  {
+    transactionItem: 'Carrefour',
+    date: new Date('2024-02-20'),
+    transactionValue: 50.25,
+    image: require('../../../assets/images/carrefour.png'),
+  },
+  {
+    transactionItem: 'Amazon',
+    date: new Date('2024-02-18'),
+    transactionValue: 35.8,
+    image: require('../../../assets/images/amazon.png'),
+  },
+  {
+    transactionItem: 'Dinner',
+    date: new Date('2024-02-15'),
+    transactionValue: 70.5,
+    image: require('../../../assets/images/profimg.jpg'),
+  },
+  {
+    transactionItem: 'Jumia',
+    date: new Date('2024-02-15'),
+    transactionValue: 70.5,
+    image: require('../../../assets/images/jumia.png'),
+  },
+  {
+    transactionItem: 'Hala',
+    date: new Date('2024-02-15'),
+    transactionValue: 70.5,
+    image: require('../../../assets/images/profimg.jpg'),
+  },
+  {
+    transactionItem: 'Hala',
+    date: new Date('2024-02-15'),
+    transactionValue: 70.5,
+    image: require('../../../assets/images/hala.png'),
+  },
+  {
+    transactionItem: 'Hala',
+    date: new Date('2024-02-15'),
+    transactionValue: 70.5,
+    image: require('../../../assets/images/profimg.jpg'),
+  },
+  {
+    transactionItem: 'Hala',
+    date: new Date('2024-02-15'),
+    transactionValue: 70.5,
+    image: require('../../../assets/images/profimg.jpg'),
+  },
+  {
+    transactionItem: 'roshdy',
+    date: new Date('2024-02-15'),
+    transactionValue: 70.5,
+    image: require('../../../assets/images/profimg.jpg'),
+  },
+];
+
 const history = [
   {
     transactionItem: 'Carrefour',
@@ -269,129 +330,129 @@ const history = [
 
 const HomeScreen = () => {
   const [showVisaCards, setShowVisaCards] = useState(false);
-
+  // const {isDarkMode, toggleSwitch} = useTheme();
   return (
-    <View style={{flex: 1, backgroundColor: '#F1F3FB'}}>
-      <TopNavigator
-        contentLeft={<MenuTogglerSvg />}
-        contentMiddle={
-          <TopNavImg
-            name="Ahmed"
-            imgUrl={require('../../../assets/images/dummyUser.png')}
-          />
-        }
-        contentRight={<IconCard icon={BellSvg} Type="Notification" />}
-      />
-
-      {!showVisaCards && (
-        <View>
-          {/* balaance */}
-          <TouchableOpacity onPress={() => setShowVisaCards(true)}>
-            <ImageBackground
-              source={require('../../../assets/images/green_card.png')} // Replace 'visa_card_bg.jpg' with the path to your image
-              style={styles.cardBackground}
-              imageStyle={styles.cardImage}>
-              <View style={styles.cardView}>
-                <View style={styles.cardContent}>
-                  <Text style={styles.CreditText}>Balance</Text>
-                  <View style={styles.svgView}>
-                    <OutlinedFingerPrintSvg />
+    <DrawerMenu
+      children={
+        <View
+          style={[
+            {
+              backgroundColor: useTheme().isDarkMode.BackgroundMenu,
+              height: '100%',
+            },
+          ]}>
+          {!showVisaCards && (
+            <View>
+              {/* balaance */}
+              <TouchableOpacity onPress={() => setShowVisaCards(true)}>
+                <ImageBackground
+                  source={require('../../../assets/images/green_card.png')} // Replace 'visa_card_bg.jpg' with the path to your image
+                  style={styles.cardBackground}
+                  imageStyle={styles.cardImage}>
+                  <View style={styles.cardView}>
+                    <View style={styles.cardContent}>
+                      <Text style={styles.CreditText}>Balance</Text>
+                      <View style={styles.svgView}>
+                        <OutlinedFingerPrintSvg />
+                      </View>
+                    </View>
+                    <View style={styles.cardContent}>
+                      <Text style={[styles.CreditText, {textAlign: 'center'}]}>
+                        $1,568,983.25
+                      </Text>
+                    </View>
                   </View>
-                </View>
-                <View style={styles.cardContent}>
-                  <Text style={[styles.CreditText, {textAlign: 'center'}]}>
-                    $1,568,983.25
-                  </Text>
-                </View>
+                </ImageBackground>
+              </TouchableOpacity>
+              {/* services */}
+              <View style={[layouts.justifyAround, layouts.row]}>
+                <TouchableOpacity style={[layouts.allCentered]}>
+                  <IconCard
+                    icon={AccountsSvg}
+                    containerstyle={[
+                      {
+                        backgroundColor: '#00C974',
+                      },
+                      shadows(),
+                      styles.containerstyle,
+                    ]}
+                  />
+                  <Text style={styles.servicesText}>Accounts</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[layouts.allCentered]}>
+                  <IconCard
+                    icon={CardsSvg}
+                    containerstyle={[
+                      {
+                        backgroundColor: '#00ADF8',
+                      },
+                      shadows(),
+                      styles.containerstyle,
+                    ]}
+                  />
+                  <Text style={styles.servicesText}>Cards</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[layouts.allCentered]}>
+                  <IconCard
+                    icon={UtilitiesSvg}
+                    containerstyle={[
+                      {
+                        backgroundColor: '#F6A721',
+                      },
+                      shadows(),
+                      styles.containerstyle,
+                    ]}
+                  />
+                  <Text style={styles.servicesText}>Utilities</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[layouts.allCentered]}>
+                  <IconCard
+                    icon={HistorySvg}
+                    containerstyle={[
+                      {
+                        backgroundColor: '#FF002E',
+                      },
+                      shadows(),
+                      styles.containerstyle,
+                    ]}
+                  />
+                  <Text style={styles.servicesText}>History</Text>
+                </TouchableOpacity>
               </View>
-            </ImageBackground>
-          </TouchableOpacity>
-          {/* services */}
-          <View style={[layouts.justifyAround, layouts.row]}>
-            <TouchableOpacity style={[layouts.allCentered]}>
-              <IconCard
-                icon={AccountsSvg}
-                containerstyle={[
-                  {
-                    backgroundColor: '#00C974',
-                  },
-                  shadows(),
-                  styles.containerstyle,
-                ]}
-              />
-              <Text style={styles.servicesText}>Accounts</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[layouts.allCentered]}>
-              <IconCard
-                icon={CardsSvg}
-                containerstyle={[
-                  {
-                    backgroundColor: '#00ADF8',
-                  },
-                  shadows(),
-                  styles.containerstyle,
-                ]}
-              />
-              <Text style={styles.servicesText}>Cards</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[layouts.allCentered]}>
-              <IconCard
-                icon={UtilitiesSvg}
-                containerstyle={[
-                  {
-                    backgroundColor: '#F6A721',
-                  },
-                  shadows(),
-                  styles.containerstyle,
-                ]}
-              />
-              <Text style={styles.servicesText}>Utilities</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[layouts.allCentered]}>
-              <IconCard
-                icon={HistorySvg}
-                containerstyle={[
-                  {
-                    backgroundColor: '#FF002E',
-                  },
-                  shadows(),
-                  styles.containerstyle,
-                ]}
-              />
-              <Text style={styles.servicesText}>History</Text>
-            </TouchableOpacity>
-          </View>
-          {/* {marginTop: 30,marginLeft:10} */}
-          <View style={[layouts.mt.xxxl, layouts.ms.sm, layouts.px.mlg]}>
-            <Text style={styles.titleText}>Send Money</Text>
-            {/* <SimpleCardList cards={simpleCardsArray} /> */}
-            {/* <SendMoneyList cards={simpleCardsArray} /> */}
-          </View>
-        </View>
-      )}
-
-      {showVisaCards && (
-        <View>
-          <VisaCardList
-            onPress={() => setShowVisaCards(false)}
-            VisaCardsData={visaCardsData}
-          />
-        </View>
-      )}
-      
-          {/* <View style={[layouts.mt.xxxl, layouts.ms.sm, layouts.px.mlg]}>
-          <Text style={styles.titleText}>History</Text>
-        </View> */}
-        <GestureHandlerRootView style={{flex: 1}}>
-          <ScrollView>
-            <View style={[layouts.mt.xxxl, layouts.mx.xl]}>
-              
-              <TranactionHistory transactionitems={history} />
+              {/* {marginTop: 30,marginLeft:10} */}
+              <View style={[layouts.mt.xxxl, layouts.ms.sm, layouts.px.mlg]}>
+                <Text style={styles.titleText}>Send Money</Text>
+                {/* <SimpleCardList cards={simpleCardsArray} />  */}
+                {/* <SendMoneyList cards={simpleCardsArray} /> */}
+              </View>
             </View>
-          </ScrollView>
-        </GestureHandlerRootView>
-      
-    </View>
+          )}
+
+          {showVisaCards && (
+            <View>
+              <VisaCardList
+                onPress={() => setShowVisaCards(false)}
+                VisaCardsData={visaCardsData}
+              />
+            </View>
+          )}
+
+          {/* <View style={[layouts.mt.xxxl, layouts.ms.sm, layouts.px.mlg]}>
+  <Text style={styles.titleText}>History</Text>
+</View> */}
+          {/* <GestureHandlerRootView style={{flex: 1}}>
+        <ScrollView> */}
+          <View style={[[layouts.mt.xxxl, layouts.mx.xl], {height: '100%'}]}>
+            <TranactionHistory
+              transactionitems={historyWithImg}
+              displayImage={true}
+            />
+          </View>
+          {/* </ScrollView>
+      </GestureHandlerRootView> */}
+        </View>
+      }
+    />
   );
 };
 

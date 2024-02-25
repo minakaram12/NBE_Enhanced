@@ -47,6 +47,9 @@ const styles = StyleSheet.create({
   whiteTextColor: {
     color: 'white',
   },
+  blackTextColor: {
+    color: 'black',
+  },
 });
 
 export default styles;

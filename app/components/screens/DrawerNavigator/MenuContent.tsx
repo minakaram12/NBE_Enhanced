@@ -4,13 +4,16 @@ import Sidebar from '../../molecules/SidebarMenu/SidebarMenu';
 import IconCard from '../../atoms/IconCard/IconCard';
 import { px } from '../../../constants/styles/layouts';
 import LogoutSvg from '../../../assets/svgs/LogoutSvg';
+import { useTheme } from '../../../ContextAPI/ThemeContext';
 
 
 interface userInfo {
     userName: string,
     phoneNumber: number,
+    // isEnabledDark: boolean;
+    // toggleSwitch: () => void;
 }
-const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber }) => {
+const MenuContent: React.FC<userInfo> = ({userName , phoneNumber}) => {
     const logo = require('../../../assets/images/logoGreen.png');
     const AR = require('../../../assets/images/AR.png');
 
@@ -22,7 +25,7 @@ const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber }) => {
                 <Image source={AR}></Image>
             </View>
             {/* sidebar menu */}
-            <Sidebar />
+            <Sidebar  />
             {/* LOGOOUT AND BOTTOM NAV */}
             <View style={styles.outerContainer}>
                 <View style={styles.container}>
@@ -40,6 +43,9 @@ const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber }) => {
                         <Text style={styles.userText}>{userName}</Text>
                         <Text style={styles.userPhone}>{phoneNumber}</Text>
                     </View>
+                    <Image source={require("../../../assets/images/threeDots.png")} 
+                    style={styles.dots}></Image>
+
                 </View>
             </View>
 
@@ -77,9 +83,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#EED1D4',
     },
     userCard: {
-        width: px(250),
-        height: px(80),
-        borderRadius: px(30),
+        width: px(296),
+        height: px(89),
+        borderRadius: px(29),
         backgroundColor: "white",
         padding: px(10),
         marginLeft: px(10),
@@ -100,11 +106,17 @@ const styles = StyleSheet.create({
     },
     userText: {
         color: "black",
-        fontSize: px(25),
+        fontSize: px(18),
+        fontWeight:"500",
+
     },
     userPhone: {
-        fontSize: px(15),
+        fontSize: px(14),
+
     },
+    dots:{
+        marginLeft:px(120),
+    }
 
 });
 

@@ -7,9 +7,9 @@ import {
     View,
     Image,
   } from 'react-native';
+ 
 
-
-  const Sidebar: React.FC = () => {
+  const Sidebar: React.FC  = () => {
  
     return (
         <View>
@@ -18,7 +18,7 @@ import {
             {item.text === 'Dark Mode' ? (
               <View style={styles.DarkModeContainer}>
                 <MenuItem iconName={item.icon} itemTitle={item.text} />
-                <SwitchBtn/>
+                <SwitchBtn />
               </View>
             ) : (
               <MenuItem iconName={item.icon} itemTitle={item.text} />

@@ -4,9 +4,10 @@
  *
  * @format
  */
-import 'react-native-gesture-handler';
-import React from 'react';
-import type {PropsWithChildren} from 'react';
+
+import React, { useEffect, useState } from 'react';
+import type { PropsWithChildren } from 'react';
+import Layouts from './constants/styles/layouts';
 import {
   SafeAreaView,
   ScrollView,
@@ -24,6 +25,7 @@ import SplashScreen from './components/screens/SplashScreen/SplashScreen';
 import LoginScreen from './components/screens/LoginScreen/LoginScreen';
 import BottomTabsNavigation from './components/atoms/BottomTabsNavigation/BottomTabNavigation.component';
 import Mobile from './components/screens/Signup/Mobile';
+import Signup from './components/screens/Signup/Signup';
 // type SectionProps = PropsWithChildren<{
 //   title: string;
 // }>;
@@ -54,12 +56,14 @@ import Mobile from './components/screens/Signup/Mobile';
 // }
 const Stack = createStackNavigator();
 
+
+
 function App(): React.JSX.Element {
   // const isDarkMode = useColorScheme() === 'dark';
 
   // const backgroundStyle = {
   //   backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  // };
+   //};
 
   return (
     // <SafeAreaView style={backgroundStyle}>
@@ -150,7 +154,7 @@ function App(): React.JSX.Element {
         screenOptions={{headerShown: false}}>
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="loginScreen" component={LoginScreen} />
-        <Stack.Screen name="signupScreen" component={Mobile} />
+        <Stack.Screen name="signupScreen" component={Signup} />
         <Stack.Screen name="home" component={BottomTabsNavigation} />
       </Stack.Navigator>
     </NavigationContainer>

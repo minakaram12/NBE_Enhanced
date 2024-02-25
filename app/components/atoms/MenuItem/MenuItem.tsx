@@ -5,6 +5,7 @@ import styles from './MenuItem.styles';
 import { useState } from 'react';
 import { SvgProps } from 'react-native-svg';
 import IconCard  from '../IconCard/IconCard';
+import { useTheme } from '../../../ContextAPI/ThemeContext';
 
 interface MyComponentProps {
   iconName: React.FC<SvgProps>;
@@ -14,6 +15,8 @@ interface MyComponentProps {
 const MenuItem: React.FC<MyComponentProps> = ({ iconName:IconName, itemTitle }) => {
 
   const [isHovered, setIsHovered] = useState(false);
+  const { isDarkMode, toggleSwitch } = useTheme();
+
 
   const handlePressIn = () => {
     setIsHovered(true);
@@ -31,7 +34,7 @@ const MenuItem: React.FC<MyComponentProps> = ({ iconName:IconName, itemTitle }) 
         <IconName/>
        </View> */}
        <IconCard icon={IconName} containerstyle={{backgroundColor:"#DFD8D8"}}></IconCard>
-       <Text style={styles.text}>{itemTitle}</Text>
+       <Text style={[styles.text ,{color:isDarkMode.textColor}]}>{itemTitle}</Text>
     </TouchableOpacity>
   );
 };

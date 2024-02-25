@@ -9,6 +9,7 @@ const HiddenItemWithActions = ({onDelete, onEdit}) => {
         layouts.yCentered,
         layouts.row,
         layouts.justifyBetween,
+        layouts.my.lg,
       ]}>
       <Pressable onPress={onEdit}>
         <View

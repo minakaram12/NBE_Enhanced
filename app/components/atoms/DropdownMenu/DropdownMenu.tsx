@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, ViewStyle} from 'react-native';
 import {SelectList} from 'react-native-dropdown-select-list';
 
 import Layouts from '../../../constants/styles/layouts';
@@ -11,11 +11,13 @@ interface DropdownMenuProps {
   options: Array<object>;
   title: string;
   onSelectOption?: (value: string) => void;
+  style?: Array<ViewStyle>;
 }
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
   options,
   title,
   onSelectOption,
+  style,
 }) => {
   const [selected, setSelected] = useState('');
   //const [isSelectListOpen, setIsSelectListOpen] = useState(false);
@@ -31,6 +33,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
         shadows(),
         Layouts.my.md,
         Layouts.mx.lg,
+        ...style,
         //isSelectListOpen && styles.FocusStyle,
         //!isSelectListOpen && styles.BlurStyle,
       ]}>

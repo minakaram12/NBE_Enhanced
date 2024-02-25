@@ -182,7 +182,7 @@ const InputField: React.FC<InputProps> = ({
                       field.onChange(name)(text);
                       setValue(text);
                       if (onChangeText) {
-                        onChangeText(value);
+                        onChangeText(text);
                       }
                     }}
                     onBlur={field.onBlur(name)}
@@ -213,7 +213,7 @@ const InputField: React.FC<InputProps> = ({
                       field.onChange(name)(text);
                       setValue(text);
                       if (onChangeText) {
-                        onChangeText(value);
+                        onChangeText(text);
                       }
                     }}
                     onBlur={field.onBlur(name)}

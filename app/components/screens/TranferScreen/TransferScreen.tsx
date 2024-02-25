@@ -16,6 +16,8 @@ import {transferFrom, transferTo, transferType} from '../../../Faker';
 //svg
 import BackSvg from '../../../assets/svgs/BackSvg';
 import {transferValidationSchema} from '../../../validations/Transfer';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 interface FormValues {
   amount: string;
@@ -28,6 +30,8 @@ const TransferScreen = () => {
   const [showFailedModal, setShowFailedModal] = useState(false);
   const [selectedType, setSelectedType] = useState('');
   const [selectedTransferTo, setSelectedTransferTo] = useState('');
+  
+  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
   const textChangeHandler = (
     formikProps: FormikProps<FormValues>,
@@ -75,13 +79,18 @@ const TransferScreen = () => {
       setShowFailedModal(true);
     } else {
       // go to otp
-      console.log('go to otp screen');
+     // console.log('go to otp screen');
+     navigation.navigate('OtpScreen');
     }
   };
+  const HandleGoBack=()=>{
+    navigation.goBack();
+   };
 
   return (
     <View style={styles.container}>
       <TopNavigator
+       onPressLeft={HandleGoBack}
         contentLeft={<IconCard icon={BackSvg} Type="back" />}
         contentRight={
           <Image

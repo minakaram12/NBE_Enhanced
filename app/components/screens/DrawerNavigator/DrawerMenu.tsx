@@ -8,6 +8,7 @@ import TopNavImg from '../../atoms/TopNavImg/TopNavImg';
 import BellSvg from '../../../assets/svgs/BellSvg';
 import{theme} from '../../../theme/theme'
 import { useTheme } from '../../../ContextAPI/ThemeContext';
+import { ScrollView } from 'react-native-gesture-handler';
 
 interface DrawerMenuProps{
   children: ReactNode;
@@ -61,14 +62,17 @@ const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
         style={{
           width: 20,
           height: 20,
-          tintColor: 'black',
+          tintColor: useTheme().isDarkMode.BasicColor,
           margin: 10,
         }}
       />
     );
+    console.log("tintColor"+useTheme().isDarkMode.BasicColor);
+
   }
 
   return (
+    <ScrollView>
     <View style={[styles.container,{backgroundColor:isDarkMode.BackgroundMenu}]}>
       {/* MenuItem */}
       <MenuContent userName={'Ahmed'} phoneNumber={123456789} />
@@ -76,13 +80,13 @@ const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
       <Animated.View
         style={{
           flexGrow: 1,
-          backgroundColor: 'white',
+          backgroundColor: useTheme().isDarkMode.white,
           position: 'absolute',
           top: 0,
           bottom: 0,
           left: 0,
           right: 0,
-          paddingHorizontal: showMenu ? 15 : 0,
+          // paddingHorizontal: showMenu ? 0 : 0,
           paddingVertical: showMenu ? 20 : 0,
           borderRadius: showMenu ? 15 : 0,
           overflow:"hidden",
@@ -95,6 +99,7 @@ const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
         <Animated.View
           style={{
             transform: [{translateY: closeButtonOffset}],
+            backgroundColor:useTheme().isDarkMode.BackgroundNav,
           }}>
           <TopNavigator
             onPressLeft={handleMenuPress}
@@ -113,6 +118,7 @@ const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
         </Animated.View>
       </Animated.View>
     </View>
+    </ScrollView>
   );
 };
 
@@ -121,7 +127,7 @@ const styles = StyleSheet.create({
     flex:1,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    backgroundColor: theme?.BackgroundMenu,
+    // backgroundColor: useTheme().isDarkMode.BackgroundMenu,
     
   }
 });

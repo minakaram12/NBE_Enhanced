@@ -33,7 +33,7 @@ const LicoriceBlack='#231912';
 const Eerieblack ='#1B1B1B';
 const white = '#FFFFFF';
 const blue = '#3B82F6';
-const black = '#222222';
+const black = '#000000';
 
 
 
@@ -253,7 +253,7 @@ export default{
 
 
     //basicChange
-    bg:black,
+    BasicColor:black,
 
      //icon
      EmeraldGreen,

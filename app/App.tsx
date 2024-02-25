@@ -26,6 +26,9 @@ import LoginScreen from './components/screens/LoginScreen/LoginScreen';
 import BottomTabsNavigation from './components/atoms/BottomTabsNavigation/BottomTabNavigation.component';
 import Mobile from './components/screens/Signup/Mobile';
 import Signup from './components/screens/Signup/Signup';
+import OTPScreen from './components/screens/OTPScreen/OTPScreen';
+import TransferScreen from './components/screens/TranferScreen/TransferScreen';
+import { ThemeContext, ThemeProvider } from './ContextAPI/ThemeContext';
 // type SectionProps = PropsWithChildren<{
 //   title: string;
 // }>;
@@ -148,7 +151,9 @@ function App(): React.JSX.Element {
     //     </View>
     //   </ScrollView>
     // </SafeAreaView>
-    <NavigationContainer>
+  <ThemeProvider>
+
+      <NavigationContainer>
       <Stack.Navigator
         initialRouteName="SplashScreen"
         screenOptions={{headerShown: false}}>
@@ -157,8 +162,16 @@ function App(): React.JSX.Element {
         <Stack.Screen name="signupScreen" component={Signup} />
         <Stack.Screen name="home" component={BottomTabsNavigation} />
       </Stack.Navigator>
-    </NavigationContainer>
-  );
+
+    </NavigationContainer> 
+   
+
+
+  </ThemeProvider>
+
+
+
+);
 }
 
 const styles = StyleSheet.create({

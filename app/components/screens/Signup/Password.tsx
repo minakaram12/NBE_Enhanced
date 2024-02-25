@@ -3,13 +3,18 @@ import {ScrollView, View} from 'react-native';
 import layouts from '../../../constants/styles/layouts';
 import Header from '../../molecules/Header';
 import PasswordForm from '../../molecules/Signup/PasswordForm';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 
 const Password = () => {
-  const backHandler = () => {
-    console.log('Go to Login Screen');
-  };
+  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
+  const backHandler = () => {
+    //console.log('Go to Login Screen');
+    navigation.goBack();
+  };
+   
   return (
     <ScrollView
       contentContainerStyle={[layouts.flexGrow, layouts.mx.xl, layouts.my.xl]}>
@@ -19,7 +24,7 @@ const Password = () => {
         login={false}
         onBack={backHandler}
       />
-      <PasswordForm />
+      <PasswordForm navigation={navigation}/>
     </ScrollView>
   );
 };

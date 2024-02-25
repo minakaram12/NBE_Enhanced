@@ -92,10 +92,15 @@ const OTPScreen = ({route}: {route: any}) => {
     handleVerifyOTP(otp);
     navigation.navigate('PasswordScreen');
   };
+
+  const HandleGoBack=()=>{
+   navigation.goBack();
+  };
   return (
     <View style={styles.OuterContainer}>
       <View>
         <TopNavigator
+          onPressLeft={HandleGoBack}
           contentLeft={<IconCard icon={BackSvg} Type="back" />}
           contentRight={
             <Image

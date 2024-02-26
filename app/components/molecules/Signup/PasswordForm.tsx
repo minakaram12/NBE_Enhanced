@@ -11,6 +11,7 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {faLock} from '@fortawesome/free-solid-svg-icons/faLock';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import { setPassword, setUsername } from '../../../storage/mmkv';
 
 library.add(faLock);
 
@@ -26,6 +27,7 @@ const PasswordForm = ({navigation}) => {
   // const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
   const passwordSchema = Yup.object().shape({
+    username: Yup.string().required(),
     password: Yup.string()
       .min(8)
       .max(50)
@@ -55,18 +57,16 @@ const PasswordForm = ({navigation}) => {
       };
     });
 
-    console.log(value);
-
-    console.log(updatedValidationListState);
-
     setValidationListState(updatedValidationListState);
   };
 
   return (
     <Formik
-      initialValues={{password: '', confirmPassword: ''}}
+      initialValues={{username: '', password: '', confirmPassword: ''}}
       validationSchema={passwordSchema}
       onSubmit={values => {
+        setUsername(values.username);
+        setPassword(values.password);
         navigation.navigate('FinishScreen');
       }}>
       {formikProps => (
@@ -81,6 +81,14 @@ const PasswordForm = ({navigation}) => {
               </Text>
             </View>
             <View style={[layouts.flexed, layouts.my.lg]}>
+              <InputField
+                name="username"
+                placeholder="Write your username here"
+                label="Username"
+                leftIcon="at"
+                outerContainerStyle={[layouts.mt.lg]}
+                showErrors={false}
+              />
               <InputField
                 name="password"
                 placeholder="Write your password here"

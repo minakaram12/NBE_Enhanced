@@ -29,7 +29,7 @@ import OutlinedFingerPrintSvg from '../../../assets/svgs/OutlinedFingerPrintSvg'
 import TextButton from '../../atoms/TextButton/TextButton';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import {px} from '../../../constants/styles/layouts';
-import {setLoginData} from '../../../storage/mmkv';
+import {setLoginData, setUsername} from '../../../storage/mmkv';
 import {SafeAreaView} from 'react-native';
 
 library.add(fab, faAt, faLock);
@@ -78,6 +78,7 @@ const LoginScreen = ({navigation}: {navigation: any}) => {
                 validationSchema={loginValidationsSchema}
                 onSubmit={values => {
                   console.log(values, 'Remember me: ', isRememberMe);
+                  setUsername(values.username);
                   if (isRememberMe) {
                     setLoginData(
                       values.username,

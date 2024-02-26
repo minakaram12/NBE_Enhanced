@@ -33,6 +33,7 @@ function Toggler({
         layouts.yCentered,
         layouts.xCentered,
         layouts.mx.lg,
+       
       ]}>
       <Pressable
         style={[
@@ -40,7 +41,7 @@ function Toggler({
           layouts.xCentered,
           styles.container,
           layouts.row,
-          {backgroundColor: backgroundColor},
+          {backgroundColor: backgroundColor,padding:5},
           layouts.justifyBetween,
         ]}
         onPress={toggleView}>

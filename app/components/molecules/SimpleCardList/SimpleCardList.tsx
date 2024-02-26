@@ -28,7 +28,7 @@ const SimpleCardList: React.FC<SimpleCardListProp> = ({cards}) => {
           style={[layouts.px.sm, { backgroundColor: useTheme().isDarkMode.BackgroundMenu }]}
         />
       ) : (
-        <NoBeneficiary />
+        <NoBeneficiary addBeneficiary={undefined} />
       )}
     </>
   );

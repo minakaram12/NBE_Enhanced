@@ -64,7 +64,8 @@ const SwipeableCardList: React.FC<SwipeableCardListProps> = ({
     const newData = [...cards];
     const prevIndex = newData.findIndex(item => item.key === id);
     const item = newData[prevIndex];
-    navigation.navigate('AddBeneficiaries', {item, edit: true,cardsSetter,prevIndex});//item is extended card
+    navigation.setOptions({cardsSetter:cardsSetter});
+    navigation.navigate('AddBeneficiaries', {item, edit: true,prevIndex});//item is extended card
   };
 
   return (

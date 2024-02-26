@@ -5,18 +5,26 @@ import IconCard from '../../atoms/IconCard/IconCard';
 import { px } from '../../../constants/styles/layouts';
 import LogoutSvg from '../../../assets/svgs/LogoutSvg';
 import { useTheme } from '../../../ContextAPI/ThemeContext';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { logout } from '../../../storage/mmkv';
 
 
 interface userInfo {
     userName: string,
-    phoneNumber: number,
+    phoneNumber: string,
     // isEnabledDark: boolean;
     // toggleSwitch: () => void;
 }
 const MenuContent: React.FC<userInfo> = ({userName , phoneNumber}) => {
     const logo = require('../../../assets/images/logoGreen.png');
     const AR = require('../../../assets/images/AR.png');
-
+    const navigate=useNavigation<StackNavigationProp<ParamListBase>>();
+    const LogOut =()=>{
+        logout();
+        navigate.navigate('loginScreen')
+        // console.log("goneeeeee");
+      }
     return (
         <View >
             {/* AR button and logo */}

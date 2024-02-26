@@ -15,6 +15,12 @@ import Beneficiary from '../../screens/Benificiary/Benificiary';
 import BenefiiciaryListScreen from '../../screens/BeneficiaryListScreen/BeneficiaryListScreen';
 import DrawerMenu from '../../screens/DrawerNavigator/DrawerMenu';
 import BeneficiaryStack from '../BeneficiaryStack/BeneficiaryStack';
+import HomeScreen from '../../screens/HomeScreen/HomeScreen';
+import TransferScreen from '../../screens/TranferScreen/TransferScreen';
+import AirPayScreen from '../../screens/AirPay/AirPayScreen';
+import CashTransfer from '../../screens/TranferScreen/CashTransfer';
+import {useTheme} from '../../../ContextAPI/ThemeContext';
+import Map from '../../screens/Map/Map';
 
 function BottomTabsNavigation() {
   const Tab = createBottomTabNavigator();
@@ -148,7 +154,7 @@ function BottomTabsNavigation() {
         component={BeneficiaryStack}
         options={{...addBeneficiariesIcon}}
       />
-      <Tab.Screen name="Screen4" component={Screen4} options={{...addAtms}} />
+      <Tab.Screen name="Screen4" component={Map} options={{...addAtms}} />
       <Tab.Screen
         name="Screen5"
         component={Screen5}

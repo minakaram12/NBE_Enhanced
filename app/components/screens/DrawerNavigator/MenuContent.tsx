@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Pressable } from 'react-native';
 import Sidebar from '../../molecules/SidebarMenu/SidebarMenu';
 import IconCard from '../../atoms/IconCard/IconCard';
 import { px } from '../../../constants/styles/layouts';
@@ -36,6 +36,7 @@ const MenuContent: React.FC<userInfo> = ({userName , phoneNumber}) => {
             <Sidebar  />
             {/* LOGOOUT AND BOTTOM NAV */}
             <View style={styles.outerContainer}>
+                <Pressable onPress={LogOut}>
                 <View style={styles.container}>
                     <IconCard
                         icon={LogoutSvg}
@@ -43,6 +44,9 @@ const MenuContent: React.FC<userInfo> = ({userName , phoneNumber}) => {
                     </IconCard>
                     <Text style={styles.textStyle}>Log out </Text>
                 </View>
+
+                </Pressable>
+               
 
                 {/* <bottom navbar/> */}
                 <View style={styles.userCard}>

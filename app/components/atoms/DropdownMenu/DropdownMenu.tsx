@@ -33,7 +33,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
         shadows(),
         Layouts.my.md,
         Layouts.mx.lg,
-        ...style,
+        style,
         //isSelectListOpen && styles.FocusStyle,
         //!isSelectListOpen && styles.BlurStyle,
       ]}>

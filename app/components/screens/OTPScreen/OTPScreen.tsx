@@ -18,6 +18,7 @@ import AppModal from '../../atoms/AppModal/AppModal';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {getPhoneNumber} from '../../../storage/mmkv';
+import {useTheme} from '../../../ContextAPI/ThemeContext';
 
 const OTPScreen = ({route}: {route: any}) => {
   const {otpTitle, displaySuccessModal} = route.params;
@@ -83,6 +84,9 @@ const OTPScreen = ({route}: {route: any}) => {
     if (otp === '12345') {
       setShowSuccessModal(true);
       // navigation by rawan here
+      if (!displaySuccessModal) {
+        navigation.navigate('PasswordScreen');
+      }
     } else {
       setShowFailedModal(true);
     }
@@ -90,19 +94,36 @@ const OTPScreen = ({route}: {route: any}) => {
 
   const handleSubmit = () => {
     handleVerifyOTP(otp);
-    navigation.navigate('PasswordScreen');
+    // navigation.navigate('PasswordScreen');
+  };
+
+  const HandleGoBack = () => {
+    navigation.goBack();
   };
   return (
-    <View style={styles.OuterContainer}>
+    <View
+      style={[
+        styles.OuterContainer,
+        {backgroundColor: useTheme().isDarkMode.BackgroundMenu},
+      ]}>
       <View>
         <TopNavigator
+          onPressLeft={HandleGoBack}
           contentLeft={<IconCard icon={BackSvg} Type="back" />}
           contentRight={
             <Image
               source={require('../../../assets/images/GreenLogo.png')}></Image>
           }
         />
-        <Text style={[styles.timerText, styles.otpTitle]}> {otpTitle}</Text>
+        <Text
+          style={[
+            styles.timerText,
+            styles.otpTitle,
+            {color: useTheme().isDarkMode.textColor},
+          ]}>
+          {' '}
+          {otpTitle}
+        </Text>
 
         <Text style={styles.infoText}>
           {' '}
@@ -129,7 +150,11 @@ const OTPScreen = ({route}: {route: any}) => {
             titleText={'Mission Complete'}
             descriptionText={'Transfer to Jasmine Robert was successful'}
             confirmButtonText={'Finish'}
-            onConfirmPress={() => setShowSuccessModal(false)}
+            onConfirmPress={() => {
+              setShowSuccessModal(false);
+              navigation.navigate('TransferScreen');
+              navigation.navigate('HomeScreen');
+            }}
           />
         )}
 
@@ -148,7 +173,12 @@ const OTPScreen = ({route}: {route: any}) => {
         <View>
           <Text style={styles.infoText}> Didn't receive the code?</Text>
           {resendDisabled && (
-            <Text style={styles.timerText}>
+            <Text
+              style={[
+                styles.timerText,
+                // eslint-disable-next-line react-hooks/rules-of-hooks
+                {color: useTheme().isDarkMode.textColor},
+              ]}>
               {' '}
               Request new one in: {formatTime(timer)}
             </Text>

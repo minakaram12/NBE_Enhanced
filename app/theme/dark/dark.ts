@@ -45,9 +45,8 @@ const black = '#000000';
 export default {
     name: 'Dark',
 
-
     //basicChange
-     bg:white,
+    BasicColor:white,
     //icon
      EmeraldGreen,
      PictonBlue ,
@@ -79,6 +78,7 @@ export default {
     Gray,
     SeasaltWhite,
     OxfordBlue,
+    Ghostwhite,
     PolynesianBlue,
     AliceBlue,
     DunRose,
@@ -91,6 +91,5 @@ export default {
     white,
     blue,
     black,
-
 
 };

@@ -12,9 +12,9 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import { setPhoneNumber } from '../../../storage/mmkv';
 library.add(faMobile);
 
-const MobileForm = () => {
+const MobileForm = ({navigation}) => {
   //todo: use react-native-phone-number-input
-  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+  // const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
   const mobileSchema = Yup.object().shape({
     mobileNumber: Yup.string().required().length(16),

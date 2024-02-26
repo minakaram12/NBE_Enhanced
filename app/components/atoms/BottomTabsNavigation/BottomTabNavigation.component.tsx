@@ -138,15 +138,15 @@ function BottomTabsNavigation() {
     style: {backgroundColor: '#e4e4e4'},
   };
   return (
-    <Tab.Navigator initialRouteName="screen1" screenOptions={globalStyle}>
+    <Tab.Navigator initialRouteName="HomeScreen" screenOptions={globalStyle}>
       <Tab.Screen
-        name="Screen1"
-        component={Screen1}
+        name="HomeScreen"
+        component={HomeScreen}
         options={{...addHomeIcon}}
       />
       <Tab.Screen
-        name="Screen2"
-        component={Screen2}
+        name="CashTransfer"
+        component={CashTransfer}
         options={{...addTransfer}}
       />
       <Tab.Screen
@@ -157,7 +157,7 @@ function BottomTabsNavigation() {
       <Tab.Screen name="Screen4" component={Map} options={{...addAtms}} />
       <Tab.Screen
         name="Screen5"
-        component={Screen5}
+        component={AirPayScreen}
         options={{...addAirPlay}}
       />
     </Tab.Navigator>

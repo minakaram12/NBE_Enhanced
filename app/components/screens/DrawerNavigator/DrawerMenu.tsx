@@ -1,5 +1,12 @@
-import React, { ReactNode, useRef, useState } from 'react';
-import { Animated, Image, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import React, {ReactNode, useRef, useState} from 'react';
+import {
+  Animated,
+  Image,
+  TouchableOpacity,
+  View,
+  Text,
+  StyleSheet,
+} from 'react-native';
 import MenuContent from './MenuContent';
 import IconCard from '../../atoms/IconCard/IconCard';
 import MenuTogglerSvg from '../../../assets/svgs/MenuTogglerSvg';
@@ -12,27 +19,19 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {getUsername} from '../../../storage/mmkv';
 import {getPhoneNumber} from './../../../storage/mmkv';
 
-interface DrawerMenuProps{
+interface DrawerMenuProps {
   children: ReactNode;
 }
 
-interface DrawerMenuProps{
-  // isEnabledDark:boolean;
-  // toggleSwitch:()=>void;
-  
-  children: ReactNode;
-}
-
-const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
+const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   const close = require('../../../assets/images/close.png');
 
   const [showMenu, setShowMenu] = useState(false);
-  const { isDarkMode, toggleSwitch } = useTheme();
+  const {isDarkMode, toggleSwitch} = useTheme();
 
   const offsetValue = useRef(new Animated.Value(0)).current;
   const scaleValue = useRef(new Animated.Value(1)).current;
   const closeButtonOffset = useRef(new Animated.Value(0)).current;
-
 
   const handleMenuPress = () => {
     Animated.timing(scaleValue, {
@@ -64,11 +63,14 @@ const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
         style={{
           width: 20,
           height: 20,
-          tintColor: 'black',
+          // eslint-disable-next-line react-hooks/rules-of-hooks
+          tintColor: useTheme().isDarkMode.BasicColor,
           margin: 10,
         }}
       />
     );
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    console.log('tintColor' + useTheme().isDarkMode.BasicColor);
   }
 
   return (
@@ -113,8 +115,8 @@ const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
             contentRight={<IconCard icon={BellSvg} Type="Notification" />}
           />
 
-          {/* homeScreen content */}
-          {children}
+            {/* homeScreen content */}
+            {children}
         </Animated.View>
       </Animated.View>
     </View>
@@ -124,12 +126,11 @@ const DrawerMenu :React.FC<DrawerMenuProps>= ({children}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    backgroundColor: theme?.BackgroundMenu,
-    
-  }
+    // backgroundColor: useTheme().isDarkMode.BackgroundMenu,
+  },
 });
 
 export default DrawerMenu;

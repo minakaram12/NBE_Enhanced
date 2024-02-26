@@ -20,11 +20,11 @@ interface FormValues {
   confirmPassword: string;
 }
 
-const PasswordForm = () => {
+const PasswordForm = ({navigation}) => {
   const [validationListState, setValidationListState] =
     React.useState(validationList);
 
-  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+  // const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
   const passwordSchema = Yup.object().shape({
     username: Yup.string().required(),

@@ -5,6 +5,7 @@ import HiddenItemWithActions from '../../atoms/hiddenItemWithActions/HiddenItemW
 
 import {ExtendedCardProps} from './SwipeableCardListFaker';
 import {Dispatch, SetStateAction} from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 interface SwipeableCardListProps {
   cards: Array<ExtendedCardProps>;
@@ -41,6 +42,7 @@ const SwipeableCardList: React.FC<SwipeableCardListProps> = ({
     );
   };
 
+  const navigation = useNavigation();
   const deleteRow = (rowMap, id) => {
     closeSpecificRow(rowMap, id);
     const newData = [...cards];
@@ -58,6 +60,11 @@ const SwipeableCardList: React.FC<SwipeableCardListProps> = ({
 
   const editRow = (rowMap, id) => {
     // do it later
+    rowMap[id].closeRow();
+    const newData = [...cards];
+    const prevIndex = newData.findIndex(item => item.key === id);
+    const item = newData[prevIndex];
+    navigation.navigate('AddBeneficiaries', {item, edit: true,cardsSetter,prevIndex});//item is extended card
   };
 
   return (

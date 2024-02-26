@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     },
 
     OuterContainer: {
-        backgroundColor: '#F1F3FB',
+        // backgroundColor: '#F1F3FB',
         paddingHorizontal: 10,
         justifyContent: 'space-between',
         flexGrow: 1,
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 
     activePinCodeContainer: {
         borderColor: '#007236',
-        borderWidth: 2,
+        borderWidth: 3,
     },
 
     pinCodeText: {
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     timerText: {
-        color: '#1C2437',
+        // color: '#1C2437',
         fontFamily: 'Roboto',
         fontWeight: 'bold',
         fontSize: 17,

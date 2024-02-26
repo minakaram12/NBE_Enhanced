@@ -5,8 +5,8 @@
  * @format
  */
 
-import React, { useEffect, useState } from 'react';
-import type { PropsWithChildren } from 'react';
+import React, {useEffect, useState} from 'react';
+import type {PropsWithChildren} from 'react';
 import Layouts from './constants/styles/layouts';
 import {
   SafeAreaView,
@@ -25,7 +25,12 @@ import SplashScreen from './components/screens/SplashScreen/SplashScreen';
 import LoginScreen from './components/screens/LoginScreen/LoginScreen';
 import BottomTabsNavigation from './components/atoms/BottomTabsNavigation/BottomTabNavigation.component';
 import Mobile from './components/screens/Signup/Mobile';
+
+import HomeScreen from './components/screens/HomeScreen/HomeScreen';
 import Signup from './components/screens/Signup/Signup';
+import OTPScreen from './components/screens/OTPScreen/OTPScreen';
+import TransferScreen from './components/screens/TranferScreen/TransferScreen';
+import { ThemeContext, ThemeProvider } from './ContextAPI/ThemeContext';
 // type SectionProps = PropsWithChildren<{
 //   title: string;
 // }>;
@@ -56,14 +61,12 @@ import Signup from './components/screens/Signup/Signup';
 // }
 const Stack = createStackNavigator();
 
-
-
 function App(): React.JSX.Element {
   // const isDarkMode = useColorScheme() === 'dark';
 
   // const backgroundStyle = {
   //   backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-   //};
+  //};
 
   return (
     // <SafeAreaView style={backgroundStyle}>
@@ -148,16 +151,18 @@ function App(): React.JSX.Element {
     //     </View>
     //   </ScrollView>
     // </SafeAreaView>
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="SplashScreen"
-        screenOptions={{headerShown: false}}>
-        <Stack.Screen name="SplashScreen" component={SplashScreen} />
-        <Stack.Screen name="loginScreen" component={LoginScreen} />
-        <Stack.Screen name="signupScreen" component={Signup} />
-        <Stack.Screen name="home" component={BottomTabsNavigation} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <ThemeProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="SplashScreen"
+          screenOptions={{headerShown: false}}>
+          <Stack.Screen name="SplashScreen" component={SplashScreen} />
+          <Stack.Screen name="loginScreen" component={LoginScreen} />
+          <Stack.Screen name="signupScreen" component={Signup} />
+          <Stack.Screen name="home" component={BottomTabsNavigation} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
 

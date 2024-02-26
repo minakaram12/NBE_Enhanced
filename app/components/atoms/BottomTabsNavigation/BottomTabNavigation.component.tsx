@@ -18,6 +18,8 @@ import BeneficiaryStack from '../BeneficiaryStack/BeneficiaryStack';
 import HomeScreen from '../../screens/HomeScreen/HomeScreen';
 import TransferScreen from '../../screens/TranferScreen/TransferScreen';
 import AirPayScreen from '../../screens/AirPay/AirPayScreen';
+import CashTransfer from '../../screens/TranferScreen/CashTransfer';
+import { useTheme } from '../../../ContextAPI/ThemeContext';
 
 function BottomTabsNavigation() {
   const Tab = createBottomTabNavigator();
@@ -135,15 +137,15 @@ function BottomTabsNavigation() {
     style: {backgroundColor: '#e4e4e4'},
   };
   return (
-    <Tab.Navigator initialRouteName="screen1" screenOptions={globalStyle}>
+    <Tab.Navigator initialRouteName="HomeScreen" screenOptions={globalStyle}>
       <Tab.Screen
-        name="Screen1"
+        name="HomeScreen"
         component={HomeScreen}
         options={{...addHomeIcon}}
       />
       <Tab.Screen
-        name="Screen2"
-        component={TransferScreen}
+        name="CashTransfer"
+        component={CashTransfer}
         options={{...addTransfer}}
       />
       <Tab.Screen

@@ -72,7 +72,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   }
 
   return (
-    <ScrollView>
+    // <ScrollView>
       <View
         style={[
           styles.container,
@@ -118,7 +118,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
           </Animated.View>
         </Animated.View>
       </View>
-    </ScrollView>
+    // </ScrollView>
   );
 };
 

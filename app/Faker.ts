@@ -132,7 +132,7 @@ export const visaCardsData = [
     name: 'AHMAD SAMI AL-SAYED',
     date: '12/23',
     cvv: '456',
-    accType: 'normal',
+    accType: 'premium',
   },
   {
     id: '3',

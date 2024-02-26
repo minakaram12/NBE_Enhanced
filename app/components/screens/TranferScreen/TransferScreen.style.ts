@@ -1,12 +1,12 @@
 import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#F1F3FB',
+    // backgroundColor: '#F1F3FB',
     paddingHorizontal: 10,
     flex: 1,
   },
-  headrStyle: {
-    color: '#1C2437',
+  headerStyle: {
+    // color: '#1C2437',
     fontFamily: 'Roboto',
     fontWeight: 'bold',
     fontSize: 30,

@@ -4,7 +4,7 @@ import NoHistory from '../../atoms/NoHistory/NoHistory.component';
 import {TransactionCardProp} from '../../atoms/Transactioncard/TransactionCard.component';
 import TransactionList from '../../molecules/TransactionList/TransactionList.component';
 import {layouts} from '../../../constants/styles';
-import { useTheme } from '../../../ContextAPI/ThemeContext';
+import {useTheme} from '../../../ContextAPI/ThemeContext';
 
 interface TrasactionHistoryProps {
   transactionitems: Array<TransactionCardProp>;
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     lineHeight: 23,
     letterSpacing: 0,
     color: '#1C2437',
+    marginBottom: 15,
   },
 });
 

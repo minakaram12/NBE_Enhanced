@@ -53,21 +53,20 @@ const styles = StyleSheet.create({
   containerstyle: {
     width: 60,
     height: 60,
-    opacity: 0.5,
   },
   servicesText: {
-    color: '#1C2437',
+    // color: '#1C2437',
     fontSize: 17,
     fontFamily: 'Roboto',
     includeFontPadding: false,
   },
   titleText: {
-    color: '#1C2437',
+    // color: '#1C2437',
     fontSize: 20,
     fontFamily: 'Roboto',
     includeFontPadding: false,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 0,
   },
 });
 export default styles;

@@ -158,7 +158,7 @@ function App(): React.JSX.Element {
           screenOptions={{headerShown: false}}>
           <Stack.Screen name="SplashScreen" component={SplashScreen} />
           <Stack.Screen name="loginScreen" component={LoginScreen} />
-          <Stack.Screen name="signupScreen" component={Mobile} />
+          <Stack.Screen name="signupScreen" component={Signup} />
           <Stack.Screen name="home" component={BottomTabsNavigation} />
         </Stack.Navigator>
       </NavigationContainer>

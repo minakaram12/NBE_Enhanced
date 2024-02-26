@@ -30,6 +30,8 @@ import SendMoneyList from '../../molecules/SendMoneyList/SendMoneyList';
 import DrawerMenu from '../DrawerNavigator/DrawerMenu';
 import TransactionCard from '../../atoms/Transactioncard/TransactionCard.component';
 import {ThemeProvider, useTheme} from '../../../ContextAPI/ThemeContext';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 // import {useTheme} from '../../../ContextAPI/ThemeContext';
 const historyWithImg = [
   {
@@ -66,7 +68,7 @@ const historyWithImg = [
     transactionItem: 'Hala',
     date: new Date('2024-02-15'),
     transactionValue: 70.5,
-    image: require('../../../assets/images/hala.png'),
+    image: require('../../../assets/images/carrefour.png'),
   },
   {
     transactionItem: 'Hala',
@@ -138,6 +140,8 @@ const history = [
 
 const HomeScreen = () => {
   const [showVisaCards, setShowVisaCards] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
   // const {isDarkMode, toggleSwitch} = useTheme();
   return (
     <DrawerMenu
@@ -161,7 +165,7 @@ const HomeScreen = () => {
                     <View style={styles.cardContent}>
                       <Text style={styles.CreditText}>Balance</Text>
                       <View style={styles.svgView}>
-                        <OutlinedFingerPrintSvg />
+                        <OutlinedFingerPrintSvg width={50} height={50} />
                       </View>
                     </View>
                     <View style={styles.cardContent}>
@@ -174,62 +178,109 @@ const HomeScreen = () => {
               </TouchableOpacity>
               {/* services */}
               <View style={[layouts.justifyAround, layouts.row]}>
-                <TouchableOpacity style={[layouts.allCentered]}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('Beneficiary');
+                  }}
+                  style={[layouts.allCentered]}>
                   <IconCard
                     icon={AccountsSvg}
                     containerstyle={[
                       {
-                        backgroundColor: '#00C974',
+                        backgroundColor: '#cdede7',
                       },
-                      shadows(),
                       styles.containerstyle,
                     ]}
                   />
-                  <Text style={styles.servicesText}>Accounts</Text>
+                  <Text
+                    style={[
+                      styles.servicesText,
+                      // eslint-disable-next-line react-hooks/rules-of-hooks
+                      {color: useTheme().isDarkMode.itemColor},
+                    ]}>
+                    Accounts
+                  </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[layouts.allCentered]}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('Beneficiary');
+                  }}
+                  style={[layouts.allCentered]}>
                   <IconCard
                     icon={CardsSvg}
                     containerstyle={[
                       {
-                        backgroundColor: '#00ADF8',
+                        backgroundColor: '#cde9fb',
                       },
-                      shadows(),
                       styles.containerstyle,
                     ]}
                   />
-                  <Text style={styles.servicesText}>Cards</Text>
+                  <Text
+                    style={[
+                      styles.servicesText,
+                      // eslint-disable-next-line react-hooks/rules-of-hooks
+                      {color: useTheme().isDarkMode.itemColor},
+                    ]}>
+                    Cards
+                  </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[layouts.allCentered]}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('Beneficiary');
+                  }}
+                  style={[layouts.allCentered]}>
                   <IconCard
                     icon={UtilitiesSvg}
                     containerstyle={[
                       {
-                        backgroundColor: '#F6A721',
+                        backgroundColor: '#f2e8db',
                       },
-                      shadows(),
                       styles.containerstyle,
                     ]}
                   />
-                  <Text style={styles.servicesText}>Utilities</Text>
+                  <Text
+                    style={[
+                      styles.servicesText,
+                      // eslint-disable-next-line react-hooks/rules-of-hooks
+                      {color: useTheme().isDarkMode.itemColor},
+                    ]}>
+                    Utilities
+                  </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[layouts.allCentered]}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('Beneficiary');
+                  }}
+                  style={[layouts.allCentered]}>
                   <IconCard
                     icon={HistorySvg}
                     containerstyle={[
                       {
-                        backgroundColor: '#FF002E',
+                        backgroundColor: '#f3cfdd',
                       },
-                      shadows(),
                       styles.containerstyle,
                     ]}
                   />
-                  <Text style={styles.servicesText}>History</Text>
+                  <Text
+                    style={[
+                      styles.servicesText,
+                      // eslint-disable-next-line react-hooks/rules-of-hooks
+                      {color: useTheme().isDarkMode.itemColor},
+                    ]}>
+                    History
+                  </Text>
                 </TouchableOpacity>
               </View>
               {/* {marginTop: 30,marginLeft:10} */}
               <View style={[layouts.mt.xxxl, layouts.ms.sm, layouts.px.mlg]}>
-                <Text style={styles.titleText}>Send Money</Text>
+                <Text
+                  style={[
+                    styles.titleText,
+                    // eslint-disable-next-line react-hooks/rules-of-hooks
+                    {color: useTheme().isDarkMode.itemColor},
+                  ]}>
+                  Send Money
+                </Text>
                 {/* <SimpleCardList cards={simpleCardsArray} />  */}
                 {/* <SendMoneyList cards={simpleCardsArray} /> */}
               </View>
@@ -248,16 +299,30 @@ const HomeScreen = () => {
           {/* <View style={[layouts.mt.xxxl, layouts.ms.sm, layouts.px.mlg]}>
   <Text style={styles.titleText}>History</Text>
 </View> */}
+
+          {/* <Text
+            style={[
+              styles.titleText,
+              // eslint-disable-next-line react-hooks/rules-of-hooks
+              {color: useTheme().isDarkMode.itemColor},
+              layouts.mt.xxxl,
+              layouts.mx.xl,
+              {marginBottom: 0},
+            ]}>
+            History
+          </Text> */}
+
           {/* <GestureHandlerRootView style={{flex: 1}}>
-        <ScrollView> */}
-          <View style={[[layouts.mt.xxxl, layouts.mx.xl], {height: '100%'}]}>
+            <ScrollView> */}
+          <View style={[[layouts.mx.xl, layouts.mt.xxxl], {height: '100%'}]}>
             <TranactionHistory
               transactionitems={historyWithImg}
               displayImage={true}
+              header="History"
             />
           </View>
           {/* </ScrollView>
-      </GestureHandlerRootView> */}
+          </GestureHandlerRootView> */}
         </View>
       }
     />

@@ -1,96 +1,79 @@
-// import {px} from '@app/constants/styles/layouts';
-// import {theme} from '@app/theme/theme';
-import {screenHeight} from '../../../constants/styles/layouts';
-import shadows from '../../../constants/styles/shadows';
 import {StyleSheet} from 'react-native';
+import {px} from '../../../constants/styles/layouts';
 
 const styles = StyleSheet.create({
   cardBackground: {
-    width: '100%',
-    height: screenHeight * 0.3,
-    borderRadius: 20,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    marginLeft: 'auto', // Set left margin to auto
-    overflow: 'hidden',
-    marginRight: 'auto', // Set right margin to auto
+    padding: px(16),
+    width: px(326),
+    height: px(196),
   },
   cardImage: {
     resizeMode: 'cover',
-    width: '100%',
-    height: '100%',
+    width: px(326),
+    height: px(196),
   },
 
   cardContent: {
-    paddingVertical: 40,
-    paddingHorizontal: 40,
+    alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'center', // Center the items horizontally
-    alignItems: 'stretch', // Align items vertically
-    marginVertical: 15,
-    marginHorizontal: 10,
+    marginVertical: px(15),
+    marginHorizontal: px(10),
   },
   cardText: {
-    fontSize: 16,
-    marginBottom: 10,
-    flex: 1, // Make each text element take up equal space horizontally
-    textAlign: 'center', // Center the text horizontally
+    flex: 1,
+    fontSize: px(14),
+    marginBottom: px(10),
+    textAlign: 'center',
   },
   CreditText: {
+    flex: 1,
     color: 'white',
-    fontSize: 20,
+    fontSize: px(25),
     fontFamily: 'Roboto-Bold',
     includeFontPadding: false,
-    flex: 1, // Make each text element take up equal space horizontally
   },
 
   CreditText2: {
+    flex: 1,
     color: 'white',
-    fontSize: 20,
-    fontFamily: 'Roboto-Bold',
+    fontSize: px(23),
+    fontFamily: 'Gemunu-Libre',
     includeFontPadding: false,
-    flex: 1, // Make each text element take up equal space horizontally
-    letterSpacing: 2,
+    letterSpacing: px(2),
   },
 
   svgView: {
-    marginRight: 30,
+    marginRight: 0,
   },
 
   simView: {
-    marginRight: 5,
+    marginRight: px(5),
   },
 
   cardView: {
-    paddingVertical: 30,
-    width: '100%',
-    height: '100%',
     justifyContent: 'space-around',
-    alignItems: 'center',
   },
 
   detailsView: {
-    flexDirection: 'column',
-
-    alignItems: 'baseline',
-    marginRight: 15,
+    marginRight: px(25),
   },
   detailsText: {
+    fontSize: 14,
     color: 'white',
-    fontSize: 15,
-    fontFamily: 'Roboto-Bold',
+    fontWeight: 'bold',
+    fontFamily: 'Gemunu-Libre',
     includeFontPadding: false,
   },
   greyText: {
     color: '#848484',
-    fontFamily: 'Roboto-Bold',
-    fontSize: 15,
+    fontWeight: 'bold',
+    fontFamily: 'Gemunu-Libre',
+    fontSize: px(14),
   },
 
   simWithSignalView: {
     flexDirection: 'row',
-    marginRight: 20,
-    alignItems: 'center',
+    marginStart: px(7),
   },
 });
 export default styles;

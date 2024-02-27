@@ -1,10 +1,11 @@
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
-import { screenHeight } from '../../../constants/styles/layouts';
-import shadows from '../../../constants/styles/shadows';
+import {View, Text, ImageBackground} from 'react-native';
 import VisaSvg from '../../../assets/svgs/VisaSvg';
 import SimSvg from '../../../assets/svgs/SimSvg';
 import styles from './VisaCard.style';
 import SignalsSvg from '../../../assets/svgs/SignalsSvg';
+
+import GreenCard from '../../../assets/images/green_card.png';
+import RedCard from '../../../assets/images/red_card.png';
 
 interface VisaCardProps {
   amount: string;
@@ -15,26 +16,17 @@ interface VisaCardProps {
   cvv: string;
 }
 
-// eslint-disable-next-line prettier/prettier
 const VisaCard: React.FC<VisaCardProps> = ({
   amount,
   card_num,
   name,
-  accType,
+  accType = 'normal',
   date,
   cvv,
 }) => {
-  let imgUrl = require('../../../assets/images/green_card.png');
-  if (accType === 'premium') {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    imgUrl = require('../../../assets/images/red_card.png');
-  } else if (accType === 'normal') {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    imgUrl = require('../../../assets/images/green_card.png');
-  }
   return (
     <ImageBackground
-      source={imgUrl} // Replace 'visa_card_bg.jpg' with the path to your image
+      source={accType === 'normal' ? GreenCard : RedCard}
       style={styles.cardBackground}
       imageStyle={styles.cardImage}>
       <View style={styles.cardView}>
@@ -42,7 +34,6 @@ const VisaCard: React.FC<VisaCardProps> = ({
           <Text style={styles.CreditText}>${amount}</Text>
           <View style={styles.svgView}>
             <VisaSvg />
-
           </View>
         </View>
         <View style={styles.cardContent}>
@@ -70,7 +61,5 @@ const VisaCard: React.FC<VisaCardProps> = ({
     </ImageBackground>
   );
 };
-
-
 
 export default VisaCard;

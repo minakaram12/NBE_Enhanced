@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { SvgProps } from 'react-native-svg';
 import IconCard  from '../IconCard/IconCard';
 import { useTheme } from '../../../ContextAPI/ThemeContext';
+import { px } from '../../../constants/styles/layouts';
 
 interface MyComponentProps {
   iconName: React.FC<SvgProps>;
@@ -33,7 +34,7 @@ const MenuItem: React.FC<MyComponentProps> = ({ iconName:IconName, itemTitle }) 
        {/* <View style={styles.iconContainer}>
         <IconName/>
        </View> */}
-       <IconCard icon={IconName} containerstyle={{backgroundColor:"#DFD8D8"}}></IconCard>
+       <IconCard icon={IconName} containerstyle={{backgroundColor:"#DFD8D8", width: px(30), height: px(30), marginRight: px(8)}}></IconCard>
        <Text style={[styles.text ,{color:isDarkMode.textColor}]}>{itemTitle}</Text>
     </TouchableOpacity>
   );

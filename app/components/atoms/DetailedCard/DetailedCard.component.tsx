@@ -60,7 +60,7 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
       for (let i = 0; i < 10; i++) {
         filledArray.push({
           transactionItem: `Item ${i + 1}`,
-          date: new Date(),
+          date: new Date().toISOString(),
           transactionValue: Math.random() * 1000,
         });
       }

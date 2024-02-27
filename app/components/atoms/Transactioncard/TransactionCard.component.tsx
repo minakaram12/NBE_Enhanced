@@ -4,7 +4,7 @@ import {layouts} from '../../../constants/styles';
 import {useTheme} from '../../../ContextAPI/ThemeContext';
 export interface TransactionCardProp {
   transactionItem: String;
-  date: Date;
+  date: Date | string;
   transactionValue: number;
   image?: number; // Optional image prop
 }

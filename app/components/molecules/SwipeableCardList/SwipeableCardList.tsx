@@ -1,3 +1,4 @@
+import React from 'react';
 import {SwipeListView} from 'react-native-swipe-list-view';
 import DetailedCard from '../../atoms/DetailedCard/DetailedCard.component';
 import {Pressable} from 'react-native';
@@ -5,7 +6,7 @@ import HiddenItemWithActions from '../../atoms/hiddenItemWithActions/HiddenItemW
 
 import {ExtendedCardProps} from './SwipeableCardListFaker';
 import {Dispatch, SetStateAction} from 'react';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 interface SwipeableCardListProps {
   cards: Array<ExtendedCardProps>;
@@ -16,7 +17,7 @@ const SwipeableCardList: React.FC<SwipeableCardListProps> = ({
   cards,
   cardsSetter,
 }) => {
-  const renderItem = (data, rowMap) => {
+  const renderItem = data => {
     return (
       <Pressable>
         <DetailedCard
@@ -64,7 +65,13 @@ const SwipeableCardList: React.FC<SwipeableCardListProps> = ({
     const newData = [...cards];
     const prevIndex = newData.findIndex(item => item.key === id);
     const item = newData[prevIndex];
-    navigation.navigate('AddBeneficiaries', {item, edit: true,cardsSetter,prevIndex});//item is extended card
+    cards = newData;
+    navigation.navigate('AddBeneficiaries', {
+      item,
+      edit: true,
+      prevIndex,
+      cards,
+    }); //item is extended card
   };
 
   return (

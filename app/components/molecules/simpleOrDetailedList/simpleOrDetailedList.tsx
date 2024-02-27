@@ -1,20 +1,30 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useState} from 'react';
 import SimpleCardList from '../SimpleCardList/SimpleCardList';
 import SwipeableCardList from '../SwipeableCardList/SwipeableCardList';
 import BeneficiariesController from '../Beneficiaries-controller/BeneficiariesController.component';
 import {StyleSheet, View} from 'react-native';
 import {layouts} from '../../../constants/styles';
-import {ExtendedCardProps, detailedCardPropsArray} from '../SwipeableCardList/SwipeableCardListFaker';
+import {
+  ExtendedCardProps,
+  detailedCardPropsArray,
+} from '../SwipeableCardList/SwipeableCardListFaker';
 import NoBeneficiary from '../../atoms/NoBeneficiaries/NoBeneficiaries';
-import { useTheme } from '../../../ContextAPI/ThemeContext';
+import {useTheme} from '../../../ContextAPI/ThemeContext';
 
-function SimpleOrDetailedList({navigation}) {
+function SimpleOrDetailedList({newCards}) {
   const [colView, setterColView] = useState(true);
-  const [beneficiaries, setBeneficiaries] = useState<Array<ExtendedCardProps>>(
-    detailedCardPropsArray,
-  );
-   const addBeneficiary = (beneficiary: ExtendedCardProps) => {
+  const [beneficiaries, setBeneficiaries] =
+    useState<Array<ExtendedCardProps>>(newCards);
+
+  useEffect(() => {
+    setBeneficiaries(newCards);
+  }, [newCards]);
+  console.log('====================================simple or de');
+  console.log(beneficiaries);
+  console.log('====================================');
+
+  const addBeneficiary = (beneficiary: ExtendedCardProps) => {
     setBeneficiaries(oldBeneficiaries => [...oldBeneficiaries, beneficiary]);
   };
 
@@ -22,15 +32,21 @@ function SimpleOrDetailedList({navigation}) {
 
   return (
     <View
-      style={[layouts.px.lg, {backgroundColor: useTheme().isDarkMode.BackgroundMenu}, layouts.fullHeight]}>
+      style={[
+        layouts.px.lg,
+        {backgroundColor: useTheme().isDarkMode.BackgroundMenu},
+        layouts.fullHeight,
+        layouts.px.lg,
+      ]}>
       <BeneficiariesController
         style={styles.controller}
         changeViewSetter={setterColView}
         addBeneficiary={addBeneficiary}
+        cards={beneficiaries}
       />
 
       {isempty ? (
-        <NoBeneficiary addBeneficiary={addBeneficiary} />
+        <NoBeneficiary addBeneficiary={addBeneficiary} newCards={newCards} />
       ) : colView ? (
         <SimpleCardList cards={beneficiaries} />
       ) : (

@@ -13,7 +13,7 @@ function TransactionList({transactions, showImage}: TransactionListProps) {
     return (
       <TransactionCard
         transactionItem={item.transactionItem}
-        date={item.date}
+        date={new Date(item.date)}
         transactionValue={item.transactionValue}
         // Conditionally pass the image prop based on displayImage prop
         image={showImage ? item.image : undefined}

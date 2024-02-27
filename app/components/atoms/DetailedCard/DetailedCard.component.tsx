@@ -13,7 +13,7 @@ import IconDollar from 'react-native-vector-icons/FontAwesome';
 import IconTelephone from 'react-native-vector-icons/Foundation';
 import {useNavigation} from '@react-navigation/native';
 import {TransactionCardProp} from '../Transactioncard/TransactionCard.component';
-import { useTheme } from '../../../ContextAPI/ThemeContext';
+import {useTheme} from '../../../ContextAPI/ThemeContext';
 
 export interface DetailedCardProps {
   readonly name: string;
@@ -60,7 +60,7 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
       for (let i = 0; i < 10; i++) {
         filledArray.push({
           transactionItem: `Item ${i + 1}`,
-          date: new Date(),
+          date: new Date().toISOString(),
           transactionValue: Math.random() * 1000,
         });
       }
@@ -94,7 +94,7 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
         layouts.bordered,
         viewStyle,
         layouts.my.lg,
-        {borderColor:'white'},
+        {borderColor: 'white'},
         {backgroundColor: useTheme().isDarkMode.BackgroundStatus},
       ]}>
       <Pressable onPress={detailedCardPressedHandler} style={layouts.row}>
@@ -108,14 +108,24 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
           }}
         />
         <View>
-          <Text style={[styles.cardTitle,{color:useTheme().isDarkMode.itemColor}]}>{name}</Text>
+          <Text
+            style={[
+              styles.cardTitle,
+              {color: useTheme().isDarkMode.itemColor},
+            ]}>
+            {name}
+          </Text>
           <View style={[layouts.row, layouts.yCentered]}>
             <IconTelephone name="telephone" style={styles.innerIcon} />
-            <Text style={{color:useTheme().isDarkMode.itemColor}}>{mobileNumber}</Text>
+            <Text style={{color: useTheme().isDarkMode.itemColor}}>
+              {mobileNumber}
+            </Text>
           </View>
           <View style={[layouts.row, layouts.yCentered]}>
             <IconDollar name="dollar" style={styles.innerIcon} />
-            <Text style={{color:useTheme().isDarkMode.itemColor}}>{balance}</Text>
+            <Text style={{color: useTheme().isDarkMode.itemColor}}>
+              {balance}
+            </Text>
           </View>
         </View>
       </Pressable>

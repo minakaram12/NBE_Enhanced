@@ -3,10 +3,11 @@ import {Pressable} from 'react-native';
 import {layouts} from '../../../constants/styles';
 import {useNavigation} from '@react-navigation/native';
 
-function NoBeneficiary({addBeneficiary}) {
+function NoBeneficiary() {
   const navigation = useNavigation();
+  const cards = [];
   const navigateToAddScreen = () => {
-    navigation.navigate('AddBeneficiaries',addBeneficiary);
+    navigation.navigate('AddBeneficiaries', {cards});
   }; // Declare it with const
   return (
     <View style={[{marginTop: 140}, layouts.yCentered, layouts.fullHeight]}>

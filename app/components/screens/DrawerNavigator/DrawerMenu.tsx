@@ -18,8 +18,16 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {getUsername} from '../../../storage/mmkv';
 import {getPhoneNumber} from './../../../storage/mmkv';
 import BottomTabsNavigation from '../../atoms/BottomTabsNavigation/BottomTabNavigation.component';
-import { NavigationContext, ParamListBase, getFocusedRouteNameFromRoute, useNavigation, useNavigationState, useRoute } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
+import {
+  NavigationContext,
+  ParamListBase,
+  getFocusedRouteNameFromRoute,
+  useNavigation,
+  useNavigationState,
+  useRoute,
+} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {colors, layouts} from '../../../constants/styles';
 
 interface DrawerMenuProps {
   children: ReactNode;
@@ -33,7 +41,7 @@ interface DrawerMenuProps {
 //   return route.name;
 // };
 
-const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
+const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   const close = require('../../../assets/images/close.png');
 
   const [showMenu, setShowMenu] = useState(false);
@@ -41,29 +49,27 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
   const navigation = useNavigation();
   // const currentScreenName = navigation.getState().routeNames[navigation.getState().index];
   const route = useRoute();
-  const routeName = getFocusedRouteNameFromRoute(route)??'HomeScreen';
+  const routeName = getFocusedRouteNameFromRoute(route) ?? 'HomeScreen';
 
-  
-    // const stackNavigatorState = navigation.getState().routes.find(route => route.name === 'home')?.state;
-    
-    // // Get the current screen name within the stack navigator
-    // const currentScreenName = stackNavigatorState ? stackNavigatorState.routes[2].name : '';
-    // const hasNestedStack = stackNavigatorState?.routes[2]?.state ===undefined ;
-    // console.log('nested', currentScreenName, 'hasNestedStack', hasNestedStack);
+  // const stackNavigatorState = navigation.getState().routes.find(route => route.name === 'home')?.state;
 
-    // if(!hasNestedStack){
-    //   const hasBeneficiaryStack= stackNavigatorState?.routes[2]?.state ;
-    //   const Addbenef =hasBeneficiaryStack?.routes[1].name;
-    //   console.log(Addbenef);
-    // }
-    // else{
+  // // Get the current screen name within the stack navigator
+  // const currentScreenName = stackNavigatorState ? stackNavigatorState.routes[2].name : '';
+  // const hasNestedStack = stackNavigatorState?.routes[2]?.state ===undefined ;
+  // console.log('nested', currentScreenName, 'hasNestedStack', hasNestedStack);
 
-    // }
-    // const Addbenef =hasNestedStack?.routes[1].name
- 
+  // if(!hasNestedStack){
+  //   const hasBeneficiaryStack= stackNavigatorState?.routes[2]?.state ;
+  //   const Addbenef =hasBeneficiaryStack?.routes[1].name;
+  //   console.log(Addbenef);
+  // }
+  // else{
+
+  // }
+  // const Addbenef =hasNestedStack?.routes[1].name
+
   console.log(routeName);
- 
- 
+
   //  const stackNavigatorState = navigation.getState().routes.find(route => route.name === 'home')?.state;
 
   //   // Get the current route within the stack navigator
@@ -74,38 +80,31 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
 
   //   // Check if the current route has a nested stack navigator
   //   const hasNestedStack = currentRoute?.state !== undefined;
-    
-  //   console.log('nested', currentScreenName, 'hasNestedStack', hasNestedStack);
-   
-  
 
- 
+  //   console.log('nested', currentScreenName, 'hasNestedStack', hasNestedStack);
 
   const offsetValue = useRef(new Animated.Value(0)).current;
   const scaleValue = useRef(new Animated.Value(1)).current;
   const closeButtonOffset = useRef(new Animated.Value(0)).current;
   const ScaleBottomNav = useRef(new Animated.Value(0)).current;
 
-  useEffect(()=>{
-  
-        // const stackNavigatorState = navigation.getState().routes.find(route => route.name === 'home')?.state;
+  useEffect(() => {
+    // const stackNavigatorState = navigation.getState().routes.find(route => route.name === 'home')?.state;
 
-        // const currentRoute = stackNavigatorState?.routes.find(route=>route.name==='Beneficiary')?.state
-  
-          // if (currentRoute?.routes[1]?.name === 'AddBeneficiaries') {
-          //   setShowTopNav(false);
-          // } else {
-          //   setShowTopNav(true);
-          // }
+    // const currentRoute = stackNavigatorState?.routes.find(route=>route.name==='Beneficiary')?.state
+
+    // if (currentRoute?.routes[1]?.name === 'AddBeneficiaries') {
+    //   setShowTopNav(false);
+    // } else {
+    //   setShowTopNav(true);
+    // }
     // console.log("nested "+ currentRoute?.routes[1].name);
-    if(routeName==="CashTransfer"){
+    if (routeName === 'CashTransfer') {
       setShowTopNav(false);
-     }
-     else{
+    } else {
       setShowTopNav(true);
-     }
-  },[routeName ,navigation]);
- 
+    }
+  }, [routeName, navigation]);
 
   const handleMenuPress = () => {
     Animated.parallel([
@@ -130,10 +129,9 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
         useNativeDriver: true,
       }),
     ]).start();
-  
+
     setShowMenu(!showMenu);
   };
-  
 
   let contentLeft: any = <IconCard icon={MenuTogglerSvg}></IconCard>;
   if (showMenu) {
@@ -155,21 +153,19 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
 
   return (
     //<ScrollView>
-    <View
-      style={styles.container}>
+    <View style={styles.container}>
       {/* MenuItem */}
       <ScrollView>
-      <MenuContent
-        userName={getUsername() || 'Ahmed'}
-        phoneNumber={getPhoneNumber() || '123456789'}
-      />
+        <MenuContent
+          userName={getUsername() || 'Ahmed'}
+          phoneNumber={getPhoneNumber() || '123456789'}
+        />
       </ScrollView>
-     
 
       <Animated.View
         style={{
           flexGrow: 1,
-          backgroundColor: theme?.white,
+          // backgroundColor: theme?.white,
           position: 'absolute',
           top: 0,
           bottom: 0,
@@ -179,47 +175,44 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
           // paddingVertical: showMenu ? 20 : 0,
           borderRadius: showMenu ? 15 : 0,
           overflow: 'hidden',
-          transform: [{scale: scaleValue}, {translateX: offsetValue} ],
+          transform: [{scale: scaleValue}, {translateX: offsetValue}],
         }}>
         <Animated.View
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{
-            transform: [{translateY: closeButtonOffset},{translateY: ScaleBottomNav}],
-            backgroundColor:theme?.BackgroundMenu,
-            height:'100%',
+            transform: [
+              {translateY: closeButtonOffset},
+              {translateY: ScaleBottomNav},
+            ],
+            backgroundColor: theme?.BackgroundMenu,
+            height: '100%',
           }}>
-           
-         {
-          showTopNav && (  <TopNavigator
-            onPressLeft={handleMenuPress}
-            contentLeft={contentLeft}
-            contentMiddle={
-              <TopNavImg
-                name={getUsername() || 'Ahmed'}
-                imgUrl={require('../../../assets/images/dummyUser.png')}
-              />
-            }
-            contentRight={<IconCard icon={BellSvg} Type="Notification" />}
-          />)
-         } 
-       
-         
+          {showTopNav && (
+            <TopNavigator
+              onPressLeft={handleMenuPress}
+              contentLeft={contentLeft}
+              contentMiddle={
+                <TopNavImg
+                  name={getUsername() || 'Ahmed'}
+                  imgUrl={require('../../../assets/images/dummyUser.png')}
+                />
+              }
+              contentRight={<IconCard icon={BellSvg} Type="Notification" />}
+            />
+          )}
 
-
-         
-
-            {/* homeScreen content */}
-            {children}
+          {/* homeScreen content */}
+          {children}
         </Animated.View>
       </Animated.View>
     </View>
-  // </ScrollView>
+    // </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-
-  flex:1,
+    flex: 1,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     backgroundColor: theme?.BackgroundMenu,

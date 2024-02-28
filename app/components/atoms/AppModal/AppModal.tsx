@@ -82,7 +82,6 @@ const AppModal: React.FC<AppModalProps> = ({
           {titleText && (
             <Text
               style={[
-                styles.blackText,
                 styles.modalTitle,
                 layouts.my.lg,
                 errorTitle ? styles.errorText : null,

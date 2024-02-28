@@ -32,6 +32,7 @@ import TransactionCard from '../../atoms/Transactioncard/TransactionCard.compone
 import {ThemeProvider, useTheme} from '../../../ContextAPI/ThemeContext';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import { px } from '../../../constants/styles/layouts';
 // import {useTheme} from '../../../ContextAPI/ThemeContext';
 const historyWithImg = [
   {
@@ -314,7 +315,7 @@ const HomeScreen = () => {
 
           {/* <GestureHandlerRootView style={{flex: 1}}>
             <ScrollView> */}
-          <View style={[[layouts.mx.xl, layouts.mt.xxxl], {height: '100%'}]}>
+          <View style={[[layouts.mx.xl, layouts.mt.xxxl], {height: px(200)}]}>
             <TranactionHistory
               transactionitems={historyWithImg}
               displayImage={true}

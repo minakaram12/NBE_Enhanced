@@ -1,7 +1,6 @@
 import React from 'react';
 import DetailedCard from '../../atoms/DetailedCard/DetailedCard.component';
 import TranactionHistory from '../../templets/TransactionHistory/TransactionHistory.componet';
-import DrawerMenu from '../DrawerNavigator/DrawerMenu';
 import {View} from 'react-native';
 import {layouts} from '../../../constants/styles';
 import {theme} from '../../../theme/theme';
@@ -11,12 +10,7 @@ function BeneficiaryTransactionScreenComponent({route}) {
   return (
     <>
       {/* <DrawerMenu> */}
-      <View
-        style={[
-          layouts.fullHeight,
-          layouts.px.lg,
-          {backgroundColor: theme?.BackgroundScreen},
-        ]}>
+      <View style={[layouts.fullHeight, layouts.px.lg, styles.outerView]}>
         <DetailedCard
           name={user.name}
           balance={user.balance}
@@ -36,5 +30,9 @@ function BeneficiaryTransactionScreenComponent({route}) {
     </>
   );
 }
-
+const styles = {
+  outerView:{
+    backgroundColor: theme?.BackgroundScreen,
+  }
+}
 export default BeneficiaryTransactionScreenComponent;

@@ -4,14 +4,13 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: theme?.BackgroundMenu,
     paddingHorizontal: 10,
-    flex: 1,
+    height: '100%',
   },
   headerStyle: {
     color: theme?.textColor,
     fontFamily: 'Roboto',
     fontWeight: 'bold',
     fontSize: 30,
-    // paddingVertical: 5,
     paddingHorizontal: 15,
   },
 });

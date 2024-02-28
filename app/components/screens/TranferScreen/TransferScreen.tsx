@@ -19,7 +19,8 @@ import {transferValidationSchema} from '../../../validations/Transfer';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {ScrollView} from 'react-native-gesture-handler';
-import { theme } from '../../../theme/theme';
+import {theme} from '../../../theme/theme';
+import {height} from '@fortawesome/free-solid-svg-icons/faEye';
 
 interface FormValues {
   amount: string;
@@ -90,11 +91,7 @@ const TransferScreen = () => {
 
   return (
     <ScrollView>
-      <View
-        style={[
-          styles.container,
-          // {backgroundColor: theme?.BackgroundMenu},
-        ]}>
+      <View style={[styles.container]}>
         <TopNavigator
           onPressLeft={HandleGoBack}
           contentLeft={<IconCard icon={BackSvg} Type="back" />}
@@ -104,13 +101,7 @@ const TransferScreen = () => {
           }
         />
 
-        <Text
-          style={[
-            styles.headerStyle,
-            // {color: theme?.textColor},
-          ]}>
-          Transfer
-        </Text>
+        <Text style={[styles.headerStyle]}>Transfer</Text>
 
         <Formik
           initialValues={{
@@ -124,7 +115,7 @@ const TransferScreen = () => {
           }}>
           {formikProps => (
             <View>
-              <View style={{paddingBottom:23}}>
+              <View style={{paddingBottom: 23}}>
                 <View style={[layouts.px.md, layouts.py.md]}>
                   <DropdownMenu
                     options={transferType}
@@ -186,7 +177,7 @@ const TransferScreen = () => {
                 <MainBtn
                   buttonText="Transfer"
                   onPress={formikProps.handleSubmit}
-                  buttonStyle={[layouts.flexed, layouts.px.md]}
+                  buttonStyle={[layouts.flexed, layouts.px.md, layouts.mb.lg]}
                   disabled={submitDisabled}
                 />
               </View>

@@ -1,22 +1,31 @@
-
 import {colors} from '../colors';
 
+const DarkSpringGreen = '#007236';
+const PakistanGreen = '#003D1D';
+const AureolinYellow = '#FBED1F';
+const CanaryYellow = '#FFEB00';
+const silver = '#B7B7B7';
+const Battleshipgray = '#848484';
+const Gray = '#808080';
+const SeasaltWhite = '#F7F7F7';
+const Ghostwhite = '#F1F3FB';
+const orangeWeb = '#f2e8db';
+const OxfordBlue = '#1C2437';
+const cardBorder = '#eeeeee';
 
-const DarkSpringGreen='#007236';
-const PakistanGreen='#003D1D';
-const AureolinYellow='#FBED1F';
-const CanaryYellow='#FFEB00';
-const silver ='#B7B7B7';
-const Battleshipgray='#848484';
-const Gray="#808080";
-const SeasaltWhite='#F7F7F7';
-const Ghostwhite='#F1F3FB';
-const orangeWeb ='#F6A721';
-const OxfordBlue='#1C2437';
+const EmeraldGreen = '#cdede7';
+const PictonBlue = '#cde9fb';
 
-const EmeraldGreen = '#00C974';
-const PictonBlue = '#00ADF8';
+const greyLight = '#333333';
 
+const PolynesianBlue = '#004E9F';
+const AliceBlue = '#DFEAFB';
+const DunRose = '#DDCBAC';
+const OldRose = '#B47980';
+const ImperialRed = '#f3cfdd';
+const RedCMYK = '#E3000D';
+const OrchidPink = '#E5B8C0';
+const Licorice = '#231912';
 
 const greyLight='#333333';
 
@@ -31,6 +40,8 @@ const Licorice='#231912';
 
 const LicoriceBlack='#231912';
 const Eerieblack ='#1B1B1B';
+const LicoriceBlack = '#231912';
+const Eerieblack = '#1B1B1B';
 const white = '#FFFFFF';
 const blue = '#3B82F6';
 const black = '#000000';
@@ -46,9 +57,9 @@ const ModalOverlay = 'rgba(0, 0, 0, 0.6)';
 
 // export default {
 //   name: 'Light',
-  
+
 //   screen: white,
- 
+
 //   //icons
 //   icon: primary,
 //   tableIcon: primary,
@@ -250,35 +261,35 @@ const ModalOverlay = 'rgba(0, 0, 0, 0.6)';
 //   internationalSecondCard: sanMarino,
 // };
 
-export default{
-    name: 'Light',
+export default {
+  name: 'Light',
 
-    //screen background
-     BackgroundScreen:Ghostwhite,
-    //basicChange
-    BasicColor:black,
+  //screen background
+  BackgroundScreen: Ghostwhite,
+  //basicChange
+  BasicColor: black,
 
-     //icon
-     EmeraldGreen,
-     PictonBlue ,
-     orangeWeb ,
-     ImperialRed ,
+  //icon
+  EmeraldGreen,
+  PictonBlue,
+  orangeWeb,
+  ImperialRed,
 
-    //Top &bottom navigation
-    BackgroundNav:Ghostwhite,
+  //Top &bottom navigation
+  BackgroundNav: Ghostwhite,
 
-    //drawer
-    BackgroundMenu:Ghostwhite,
-    itemColor:Eerieblack,
+  //drawer
+  BackgroundMenu: Ghostwhite,
+  itemColor: Eerieblack,
 
-     //Text
-     textColor:black,
-     textColorGrey:silver,
-     textColorBlue:OxfordBlue,
-     textColorGreen:DarkSpringGreen,
+  //Text
+  textColor: black,
+  textColorGrey: silver,
+  textColorBlue: OxfordBlue,
+  textColorGreen: DarkSpringGreen,
 
-     //statueBar
-    BackgroundStatus:white,
+  //statueBar
+  BackgroundStatus: white,
 
     // Modal
     ModalOverlay,
@@ -303,20 +314,31 @@ export default{
      bg:Ghostwhite,
     
      OxfordBlue,
+  greyLight,
+  DarkSpringGreen,
+  PakistanGreen,
+  AureolinYellow,
+  CanaryYellow,
+  silver,
+  Battleshipgray,
+  Gray,
+  SeasaltWhite,
+  bg: Ghostwhite,
+  cardBorder,
 
-     PolynesianBlue ,
-     AliceBlue,
-     DunRose,
-     OldRose,
-     RedCMYK,
-     OrchidPink,
-     Licorice,
-    
-     LicoriceBlack,
-     Eerieblack ,
-     white,
-     blue ,
-     black,
+  OxfordBlue,
 
+  PolynesianBlue,
+  AliceBlue,
+  DunRose,
+  OldRose,
+  RedCMYK,
+  OrchidPink,
+  Licorice,
 
+  LicoriceBlack,
+  Eerieblack,
+  white,
+  blue,
+  black,
 };

@@ -1,13 +1,13 @@
 // import {px} from '@app/constants/styles/layouts';
 // import {theme} from '@app/theme/theme';
 import {StyleSheet} from 'react-native';
-
+import { theme } from '../../../theme/theme';
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#ffffff',
+    backgroundColor: theme?.white,
     borderRadius: 15,
     borderWidth: 1,
-    borderColor: '#eeeeee',
+    borderColor: theme?.cardBorder,
     overflow: 'hidden',
   },
 
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 15,
     fontFamily: 'Roboto-Black',
-    color: '#1C2437',
+    color: theme?.OxfordBlue,
     paddingTop: 5,
   },
   dropBorder: {
@@ -28,19 +28,19 @@ const styles = StyleSheet.create({
   dropList: {
     fontFamily: 'Roboto-Regular',
     fontSize: 15,
-    color: '#1C2437',
+    color: theme?.OxfordBlue,
   },
 
   dropStyle: {
-    borderColor: '#007236',
+    borderColor: theme?.DarkSpringGreen,
     borderWidth: 3,
     borderStyle: 'solid',
   },
   FocusStyle: {
-    borderColor: '#007236',
+    borderColor: theme?.DarkSpringGreen,
   },
   BlurStyle: {
-    borderColor: '#eeeeee',
+    borderColor: theme?.cardBorder,
   },
 });
 export default styles;

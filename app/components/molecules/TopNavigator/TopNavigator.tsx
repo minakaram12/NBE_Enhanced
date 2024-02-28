@@ -34,7 +34,7 @@ const TopNavigator: React.FC<TopNavProps> = ({
         alignItems: 'center',
         // marginHorizontal: 15,
         marginVertical: 25,
-        backgroundColor:theme.BackgroundMenu,
+        // backgroundColor:theme.BackgroundMenu,
       }}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <TouchableOpacity onPress={onPressLeft}>

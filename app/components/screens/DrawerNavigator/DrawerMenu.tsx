@@ -20,6 +20,7 @@ import {getPhoneNumber} from './../../../storage/mmkv';
 import BottomTabsNavigation from '../../atoms/BottomTabsNavigation/BottomTabNavigation.component';
 import { NavigationContext, ParamListBase, getFocusedRouteNameFromRoute, useNavigation, useNavigationState, useRoute } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { colors } from '../../../constants/styles';
 
 interface DrawerMenuProps {
   children: ReactNode;
@@ -92,11 +93,11 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
 
         // const currentRoute = stackNavigatorState?.routes.find(route=>route.name==='Beneficiary')?.state
   
-          // if (currentRoute?.routes[1]?.name === 'AddBeneficiaries') {
-          //   setShowTopNav(false);
-          // } else {
-          //   setShowTopNav(true);
-          // }
+        //   if (currentRoute?.routes[1]?.name === 'AddBeneficiaries') {
+        //     setShowTopNav(false);
+        //   } else {
+        //     setShowTopNav(true);
+        //   }
     // console.log("nested "+ currentRoute?.routes[1].name);
     if(routeName==="CashTransfer"){
       setShowTopNav(false);
@@ -165,7 +166,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
       <Animated.View
         style={{
           flexGrow: 1,
-          backgroundColor: theme?.white,
+          //backgroundColor:theme?.Ghostwhite,
           position: 'absolute',
           top: 0,
           bottom: 0,
@@ -178,7 +179,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
         <Animated.View
           style={{
             transform: [{translateY: closeButtonOffset},{translateY: ScaleBottomNav}],
-            backgroundColor:theme?.BackgroundMenu,
+            backgroundColor: theme?.BackgroundMenu,
             height:'100%',
           }}>
            

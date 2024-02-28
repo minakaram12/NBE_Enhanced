@@ -288,7 +288,7 @@ export default{
      Battleshipgray,
      Gray,
      SeasaltWhite,
-     bg:Ghostwhite,
+     Ghostwhite,
     
      OxfordBlue,
 

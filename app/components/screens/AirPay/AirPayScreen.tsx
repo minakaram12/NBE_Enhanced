@@ -34,7 +34,7 @@ const AirPayScreen = () => {
   const [receiverCardIndex, setReceiverCardIndex] = useState(-1);
 
   return (
-    <DrawerMenu>
+    // <DrawerMenu>
       <View style={[styles.pageContainer]}>
         {/* <View style={[layouts.mx.lg]}>
         <TopNavigator
@@ -96,7 +96,7 @@ const AirPayScreen = () => {
           setModalVisible={setShowModal}
         />
       </View>
-    </DrawerMenu>
+    // </DrawerMenu>
   );
 };
 

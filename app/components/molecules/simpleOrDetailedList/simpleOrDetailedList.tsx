@@ -9,7 +9,7 @@ import {ExtendedCardProps, detailedCardPropsArray} from '../SwipeableCardList/Sw
 import NoBeneficiary from '../../atoms/NoBeneficiaries/NoBeneficiaries';
 import { useTheme } from '../../../ContextAPI/ThemeContext';
 
-function SimpleOrDetailedList({navigation}) {
+function SimpleOrDetailedList() {
   const [colView, setterColView] = useState(true);
   const [beneficiaries, setBeneficiaries] = useState<Array<ExtendedCardProps>>(
     detailedCardPropsArray,

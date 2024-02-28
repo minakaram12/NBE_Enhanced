@@ -9,7 +9,6 @@ import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { logout } from '../../../storage/mmkv';
 
-
 interface userInfo {
     userName: string,
     phoneNumber: string,
@@ -21,8 +20,8 @@ const MenuContent: React.FC<userInfo> = ({userName , phoneNumber}) => {
     const AR = require('../../../assets/images/AR.png');
     const navigate=useNavigation<StackNavigationProp<ParamListBase>>();
     const LogOut =()=>{
-        logout();
-        navigate.navigate('loginScreen')
+        navigate.navigate('loginScreen')  
+         logout();
         // console.log("goneeeeee");
       }
     return (

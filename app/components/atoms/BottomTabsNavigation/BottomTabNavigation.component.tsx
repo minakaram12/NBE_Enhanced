@@ -126,6 +126,7 @@ function BottomTabsNavigation() {
     tabBarInactiveBackgroundColor: '#ffffff',
     tabBarActiveTintColor: '#ffffff',
     tabBarInactiveTintColor: '#B7B7B7',
+    
     tabBarStyle: {
       height: 80,
       backgroundColor: 'blue',

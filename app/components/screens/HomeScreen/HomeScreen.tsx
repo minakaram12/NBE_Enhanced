@@ -30,7 +30,7 @@ import SendMoneyList from '../../molecules/SendMoneyList/SendMoneyList';
 import DrawerMenu from '../DrawerNavigator/DrawerMenu';
 import TransactionCard from '../../atoms/Transactioncard/TransactionCard.component';
 import {ThemeProvider, useTheme} from '../../../ContextAPI/ThemeContext';
-import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {ParamListBase, useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 // import {useTheme} from '../../../ContextAPI/ThemeContext';
 const historyWithImg = [
@@ -142,10 +142,12 @@ const HomeScreen = () => {
   const [showVisaCards, setShowVisaCards] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+  const route = useRoute();
+  // const currentRouteName = route.name;
   // const {isDarkMode, toggleSwitch} = useTheme();
   return (
-    <DrawerMenu
-      children={
+    // <DrawerMenu
+    //   children={
         <View
           style={[
             {
@@ -281,7 +283,7 @@ const HomeScreen = () => {
                   ]}>
                   Send Money
                 </Text>
-                {/* <SimpleCardList cards={simpleCardsArray} />  */}
+                {/* <SimpleCardList cards ={simpleCardsArray} />  */}
                 {/* <SendMoneyList cards={simpleCardsArray} /> */}
               </View>
             </View>
@@ -324,8 +326,8 @@ const HomeScreen = () => {
           {/* </ScrollView>
           </GestureHandlerRootView> */}
         </View>
-      }
-    />
+    //   }
+    // />
   );
 };
 

@@ -10,7 +10,7 @@ function BeneficiaryTransactionScreenComponent({route}) {
   const {transactions, user} = route.params;
   return (
     <>
-      <DrawerMenu>
+      {/* <DrawerMenu> */}
         <View
           style={[
             layouts.fullHeight,
@@ -32,7 +32,7 @@ function BeneficiaryTransactionScreenComponent({route}) {
             displayImage={false}
           />
         </View>
-      </DrawerMenu>
+      {/* </DrawerMenu> */}
     </>
   );
 }

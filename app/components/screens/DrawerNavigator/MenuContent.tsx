@@ -110,6 +110,9 @@ const styles = StyleSheet.create({
   },
   icon: {
     backgroundColor: '#EED1D4',
+    width: px(30),
+    height: px(30),
+    marginRight: px(10),
   },
   userCard: {
     width: px(296),

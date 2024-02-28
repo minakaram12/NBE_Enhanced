@@ -16,13 +16,9 @@ const DraggableCard = ({item, index, setReceiverCardIndex}) => {
         styles.draggableCardContainer,
       ]}
       dragPayload={index}
-      // longPressDelay={150}
       key={index}
       onDragStart={() => {
         setReceiverCardIndex(-1);
-      }}
-      onDragEnd={({dragged}) => {
-        console.log(dragged.payload);
       }}>
       <VisaCard {...item} />
     </DraxView>

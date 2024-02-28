@@ -40,8 +40,6 @@ const black = '#000000';
 
 const ModalOverlay = 'rgba(255, 255, 255, 0.4)';
 
-
-
 export default {
   name: 'Dark',
 
@@ -65,45 +63,22 @@ export default {
   //statueBar
   BackgroundStatus: black,
 
-    //Text
-    textColor:white,
-    textColorGrey:silver,
-    textColorBlue:white,
-    textColorGreen:DarkSpringGreen,
+  //Text
+  textColor: white,
+  textColorGrey: silver,
+  textColorBlue: white,
+  textColorGreen: DarkSpringGreen,
 
-    // Modal
-    ModalOverlay,
+  // Modal
+  ModalOverlay,
 
-    // InputField
-    InputBackgroundColor: '#393939',
-    InputLabelColor: EmeraldGreen,
-    InputPlaceholderColor: silver,
-    InputTextColor: white,
-    InputIconsColor: white,
-    InputError: ImperialRed,
-    
-    DarkSpringGreen,
-    PakistanGreen,
-    AureolinYellow,
-    CanaryYellow,
-    silver,
-    Battleshipgray,
-    Gray,
-    SeasaltWhite,
-    OxfordBlue,
-    Ghostwhite,
-    PolynesianBlue,
-    AliceBlue,
-    DunRose,
-    OldRose,
-    RedCMYK,
-    OrchidPink,
-    Licorice,
-    LicoriceBlack,
-    Eerieblack,
-    white,
-    blue,
-    black,
+  // InputField
+  InputBackgroundColor: '#393939',
+  InputLabelColor: EmeraldGreen,
+  InputPlaceholderColor: silver,
+  InputTextColor: white,
+  InputIconsColor: white,
+  InputError: ImperialRed,
 
   DarkSpringGreen,
   PakistanGreen,
@@ -127,5 +102,6 @@ export default {
   white,
   blue,
   black,
+
   cardBorder,
 };

@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   CreditText2: {
     flex: 1,
     color: 'white',
-    fontSize: px(23),
+    fontSize: px(20),
     fontFamily: 'Gemunu-Libre',
     includeFontPadding: false,
     letterSpacing: px(2),

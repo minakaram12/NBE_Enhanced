@@ -1,14 +1,15 @@
 import {StyleSheet} from 'react-native';
 import {px} from '../../../constants/styles/layouts';
+import { theme } from '../../../theme/theme';
 
 const styles = StyleSheet.create({
   pageContainer: {
-    backgroundColor: '#F1F3FB',
+    backgroundColor: theme.BackgroundMenu,
   },
   cardsTitle: {
     fontSize: px(20),
     fontFamily: 'Roboto-Bold',
-    color: '#1C2437',
+    color: theme?.textColorBlue,
   },
   draggableCardContainer: {
     height: px(280),

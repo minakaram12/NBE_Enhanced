@@ -1,12 +1,13 @@
 import {StyleSheet} from 'react-native';
+import { theme } from '../../../theme/theme';
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: '#F1F3FB',
+    backgroundColor: theme?.BackgroundMenu,
     paddingHorizontal: 10,
     flex: 1,
   },
   headerStyle: {
-    // color: '#1C2437',
+    color: theme?.textColor,
     fontFamily: 'Roboto',
     fontWeight: 'bold',
     fontSize: 30,

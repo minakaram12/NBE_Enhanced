@@ -1,11 +1,12 @@
 import { StyleSheet } from "react-native";
+import { theme } from "../../../theme/theme";
 const styles = StyleSheet.create({
     container: {
         padding: 10,
     },
 
     OuterContainer: {
-        // backgroundColor: '#F1F3FB',
+        backgroundColor: theme?.BackgroundScreen,
         paddingHorizontal: 10,
         justifyContent: 'space-between',
         flexGrow: 1,
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     timerText: {
-        // color: '#1C2437',
+        color: theme?.textColor,
         fontFamily: 'Roboto',
         fontWeight: 'bold',
         fontSize: 17,

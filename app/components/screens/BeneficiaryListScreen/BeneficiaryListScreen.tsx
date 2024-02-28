@@ -8,9 +8,9 @@ import DrawerMenu from '../DrawerNavigator/DrawerMenu';
 function BenefiiciaryListScreen() {
   return (
     <>
-      <DrawerMenu>
+      {/* <DrawerMenu> */}
         <SimpleOrDetailedList />
-      </DrawerMenu>
+      {/* </DrawerMenu> */}
     </>
   );
 }

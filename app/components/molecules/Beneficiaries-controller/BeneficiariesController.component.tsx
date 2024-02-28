@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import Toggler from '../../atoms/Toggler/Toogler.component';
 import AddButton from '../../atoms/AddIcon/Addbtn';
 import {layouts} from '../../../constants/styles';
-import {useTheme} from '../../../ContextAPI/ThemeContext';
+import {theme} from '../../../theme/theme';
 
 function BeneficiariesController({
   style,
@@ -13,16 +13,9 @@ function BeneficiariesController({
 }) {
   return (
     <View
-      style={[
-        layouts.row,
-        layouts.justifyBetween,
-        {backgroundColor: useTheme().isDarkMode.BackgroundMenu},
-        style,
-      ]}>
+      style={[layouts.row, layouts.justifyBetween, styles.outerView, style]}>
       <View style={layouts.xCentered}>
-        <Text style={{color: useTheme().isDarkMode.itemColor}}>
-          Beneficiaries
-        </Text>
+        <Text style={styles.textStyle}>Beneficiaries</Text>
       </View>
       <View style={[layouts.row]}>
         <Toggler changeViewSetter={changeViewSetter} />
@@ -33,12 +26,15 @@ function BeneficiariesController({
 }
 
 const styles = StyleSheet.create({
+  outerView:{
+    backgroundColor: theme?.BackgroundMenu,
+  },
   textStyle: {
     fontFamily: 'Roboto',
     fontWeight: '700',
     fontSize: 20,
     lineHeight: 24,
-    color: '#1C2437',
+    color: theme.itemColor,
   },
 });
 export default BeneficiariesController;

@@ -1,29 +1,35 @@
+import {View, FlatList, ListRenderItem, TouchableOpacity} from 'react-native';
+import VisaCard from '../../atoms/VisaCard/VisaCard';
+
+import layouts from '../../../constants/styles/layouts';
 import React from 'react';
-import SimpleCard, {
-  SimpleCardProp,
-} from '../../atoms/SimpleCard/SimpleCard.component';
-import {FlatList, View} from 'react-native';
-import {layouts} from '../../../constants/styles';
+import {ExtendedCardProps} from '../SwipeableCardList/SwipeableCardListFaker';
+import SimpleCard from '../../atoms/SimpleCard/SimpleCard.component';
 interface SimpleCardListProp {
-  cards: Array<SimpleCardProp>;
+  cardsData: Array<ExtendedCardProps>;
 }
-const SendMoneyList: React.FC<SimpleCardListProp> = ({cards}) => {
-  const keyExtractor = (item: SimpleCardProp) =>
-    item.image + item.name + Math.random().toString();
-  const renderItem = ({item}: {item: SimpleCardProp}) => {
-    return <SimpleCard image={item.image} name={item.name} />;
-  };
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const SendMoneyList: React.FC<SimpleCardListProp> = ({cardsData}) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const renderSimpleCard: ListRenderItem<ExtendedCardProps> = ({item}) => (
+    <SimpleCard image={item.image} name={item.name} />
+  );
+
+  // const keyExtractor = (item: ExtendedCardProps) => {
+  //  Math.random().toString();
+  // };
 
   return (
-    <View style={[layouts.allCentered, {paddingHorizontal: 5, height:100, width:'100%'},]}>
+    <View style={[layouts.allCentered, {paddingHorizontal: 5}]}>
       <FlatList
-        data={cards}
+        data={cardsData}
         horizontal
         showsHorizontalScrollIndicator={false}
-        keyExtractor={keyExtractor}
-        renderItem={renderItem}
+        renderItem={renderSimpleCard}
+       
       />
     </View>
   );
 };
+
 export default SendMoneyList;

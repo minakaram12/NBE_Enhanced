@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
     fontWeight: 'bold',
     fontSize: 30,
-    paddingVertical: 8,
+    // paddingVertical: 5,
     paddingHorizontal: 15,
   },
 });

@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   dropStyle: {
     borderColor: '#007236',
     borderWidth: 3,
-    borderStyle: 'dotted',
+    borderStyle: 'solid',
   },
   FocusStyle: {
     borderColor: '#007236',

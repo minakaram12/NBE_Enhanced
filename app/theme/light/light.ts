@@ -18,7 +18,7 @@ const EmeraldGreen = '#00C974';
 const PictonBlue = '#00ADF8';
 
 
-const greyLight='#333333'
+const greyLight='#333333';
 
 const PolynesianBlue ='#004E9F';
 const AliceBlue='#DFEAFB'
@@ -34,6 +34,8 @@ const Eerieblack ='#1B1B1B';
 const white = '#FFFFFF';
 const blue = '#3B82F6';
 const black = '#000000';
+
+const ModalOverlay = 'rgba(0, 0, 0, 0.6)';
 
 
 
@@ -278,6 +280,17 @@ export default{
      //statueBar
     BackgroundStatus:white,
 
+    // Modal
+    ModalOverlay,
+
+    // InputField
+    InputBackgroundColor: white,
+    InputLabelColor: DarkSpringGreen,
+    InputPlaceholderColor: silver,
+    InputTextColor: black,
+    InputIconsColor: greyLight,
+    InputError: RedCMYK,
+    
      greyLight,
      DarkSpringGreen,
      PakistanGreen,

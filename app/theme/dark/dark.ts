@@ -23,7 +23,7 @@ const orangeWeb = '#f8a819';
 const ImperialRed ='#f50832';
 
 //nav
-const greyLight='#333333'
+const greyLight='#333333';
 
 const PolynesianBlue = '#004E9F';
 const AliceBlue = '#DFEAFB'
@@ -39,6 +39,8 @@ const Eerieblack = '#1B1B1B';
 const white = '#FFFFFF';
 const blue = '#3B82F6';
 const black = '#000000';
+
+const ModalOverlay = 'rgba(255, 255, 255, 0.4)';
 
 
 
@@ -71,6 +73,17 @@ export default {
     textColorBlue:white,
     textColorGreen:DarkSpringGreen,
 
+    // Modal
+    ModalOverlay,
+
+    // InputField
+    InputBackgroundColor: '#393939',
+    InputLabelColor: EmeraldGreen,
+    InputPlaceholderColor: silver,
+    InputTextColor: white,
+    InputIconsColor: white,
+    InputError: ImperialRed,
+    
     DarkSpringGreen,
     PakistanGreen,
     AureolinYellow,

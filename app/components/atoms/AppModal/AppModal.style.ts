@@ -1,26 +1,26 @@
 import {StyleSheet} from 'react-native';
 import {px} from '../../../constants/styles/layouts';
+import {theme} from '../../../theme/theme';
 
 const styles = StyleSheet.create({
   overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    backgroundColor: theme?.ModalOverlay,
     width: '100%',
     height: '100%',
   },
   modalContent: {
     width: '90%',
-    backgroundColor: '#fff',
+    backgroundColor: theme?.BackgroundScreen,
     borderRadius: 30,
   },
-  blackText: {
-    color: 'black',
-  },
+
   imageContainer: {
     width: px(230.18),
     height: px(181.42),
   },
 
   modalTitle: {
+    color: theme?.textColor,
     fontSize: px(20),
     fontWeight: 'bold',
   },
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   modalMony: {
     fontSize: px(40),
     fontWeight: 'bold',
-    color: '#1C2437',
+    color: theme?.textColorBlue,
   },
   boldFont: {
     fontWeight: 'bold',

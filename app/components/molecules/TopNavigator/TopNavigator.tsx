@@ -7,6 +7,7 @@ import BackSvg from '../../../assets/svgs/BackSvg';
 import {shadows} from '../../../constants/styles';
 import {Image} from 'react-native';
 import { useTheme } from '../../../ContextAPI/ThemeContext';
+import { theme } from '../../../theme/theme';
 
 interface TopNavProps {
   onPressLeft?: () => void;
@@ -33,7 +34,7 @@ const TopNavigator: React.FC<TopNavProps> = ({
         alignItems: 'center',
         // marginHorizontal: 15,
         marginVertical: 25,
-        backgroundColor:useTheme().isDarkMode.BackgroundMenu
+        backgroundColor:theme.BackgroundMenu,
       }}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <TouchableOpacity onPress={onPressLeft}>

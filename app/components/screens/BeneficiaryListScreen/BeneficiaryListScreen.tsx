@@ -5,9 +5,9 @@ function BenefiiciaryListScreen({route}) {
   const {newCards = []} = route.params || {};
   return (
     <>
-      <DrawerMenu>
-        <SimpleOrDetailedList newCards={newCards} />
-      </DrawerMenu>
+      {/* <DrawerMenu> */}
+        <SimpleOrDetailedList />
+      {/* </DrawerMenu> */}
     </>
   );
 }

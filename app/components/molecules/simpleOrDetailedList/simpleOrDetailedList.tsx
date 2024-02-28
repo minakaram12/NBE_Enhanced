@@ -10,9 +10,9 @@ import {
   detailedCardPropsArray,
 } from '../SwipeableCardList/SwipeableCardListFaker';
 import NoBeneficiary from '../../atoms/NoBeneficiaries/NoBeneficiaries';
-import {useTheme} from '../../../ContextAPI/ThemeContext';
+import { theme } from '../../../theme/theme';
 
-function SimpleOrDetailedList({newCards}) {
+function SimpleOrDetailedList() {
   const [colView, setterColView] = useState(true);
   const [beneficiaries, setBeneficiaries] =
     useState<Array<ExtendedCardProps>>(newCards);
@@ -32,12 +32,7 @@ function SimpleOrDetailedList({newCards}) {
 
   return (
     <View
-      style={[
-        layouts.px.lg,
-        {backgroundColor: useTheme().isDarkMode.BackgroundMenu},
-        layouts.fullHeight,
-        layouts.px.lg,
-      ]}>
+      style={[layouts.px.lg, {backgroundColor: theme?.BackgroundScreen}, layouts.fullHeight]}>
       <BeneficiariesController
         style={styles.controller}
         changeViewSetter={setterColView}

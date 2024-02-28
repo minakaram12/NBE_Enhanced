@@ -4,18 +4,18 @@ import TranactionHistory from '../../templets/TransactionHistory/TransactionHist
 import DrawerMenu from '../DrawerNavigator/DrawerMenu';
 import {View} from 'react-native';
 import {layouts} from '../../../constants/styles';
-import {useTheme} from '../../../ContextAPI/ThemeContext';
+import { theme } from '../../../theme/theme';
 
 function BeneficiaryTransactionScreenComponent({route}) {
   const {transactions, user} = route.params;
   return (
     <>
-      <DrawerMenu>
+      {/* <DrawerMenu> */}
         <View
           style={[
             layouts.fullHeight,
             layouts.px.lg,
-            {backgroundColor: useTheme().isDarkMode.BackgroundMenu},
+            {backgroundColor: theme?.BackgroundScreen},
           ]}>
           <DetailedCard
             name={user.name}
@@ -32,7 +32,7 @@ function BeneficiaryTransactionScreenComponent({route}) {
             displayImage={false}
           />
         </View>
-      </DrawerMenu>
+      {/* </DrawerMenu> */}
     </>
   );
 }

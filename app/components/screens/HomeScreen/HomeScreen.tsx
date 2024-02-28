@@ -30,8 +30,9 @@ import SendMoneyList from '../../molecules/SendMoneyList/SendMoneyList';
 import DrawerMenu from '../DrawerNavigator/DrawerMenu';
 import TransactionCard from '../../atoms/Transactioncard/TransactionCard.component';
 import {ThemeProvider, useTheme} from '../../../ContextAPI/ThemeContext';
-import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {ParamListBase, useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import { theme } from '../../../theme/theme';
 // import {useTheme} from '../../../ContextAPI/ThemeContext';
 const historyWithImg = [
   {
@@ -142,14 +143,16 @@ const HomeScreen = () => {
   const [showVisaCards, setShowVisaCards] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+  const route = useRoute();
+  // const currentRouteName = route.name;
   // const {isDarkMode, toggleSwitch} = useTheme();
   return (
-    <DrawerMenu
-      children={
+    // <DrawerMenu
+    //   children={
         <View
           style={[
             {
-              backgroundColor: useTheme().isDarkMode.BackgroundMenu,
+              backgroundColor: theme?.BackgroundScreen,
               height: '100%',
             },
           ]}>
@@ -196,7 +199,7 @@ const HomeScreen = () => {
                     style={[
                       styles.servicesText,
                       // eslint-disable-next-line react-hooks/rules-of-hooks
-                      {color: useTheme().isDarkMode.itemColor},
+                      {color: theme?.itemColor},
                     ]}>
                     Accounts
                   </Text>
@@ -281,9 +284,10 @@ const HomeScreen = () => {
                   ]}>
                   Send Money
                 </Text>
-                {/* <SimpleCardList cards={simpleCardsArray} />  */}
+                {/* <SimpleCardList cards ={simpleCardsArray} />  */}
                 {/* <SendMoneyList cards={simpleCardsArray} /> */}
               </View>
+              <SendMoneyList cardsData={simpleCardsArray} />
             </View>
           )}
 
@@ -324,8 +328,8 @@ const HomeScreen = () => {
           {/* </ScrollView>
           </GestureHandlerRootView> */}
         </View>
-      }
-    />
+    //   }
+    // />
   );
 };
 

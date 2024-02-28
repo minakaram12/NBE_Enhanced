@@ -6,7 +6,7 @@ import DrawerMenu from '../DrawerNavigator/DrawerMenu';
 
 const Map = () => {
   return (
-    <DrawerMenu>
+    // <DrawerMenu>
       <View style={[layouts.fullHeight, layouts.fullWidth, layouts.relative]}>
         <MapView
           provider={PROVIDER_GOOGLE} // remove if not using Google Maps
@@ -45,7 +45,7 @@ const Map = () => {
           />
         </View> */}
       </View>
-    </DrawerMenu>
+    // </DrawerMenu>
   );
 };
 

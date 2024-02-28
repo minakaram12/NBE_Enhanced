@@ -19,7 +19,7 @@ import {transferValidationSchema} from '../../../validations/Transfer';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {ScrollView} from 'react-native-gesture-handler';
-import {useTheme} from '../../../ContextAPI/ThemeContext';
+import { theme } from '../../../theme/theme';
 
 interface FormValues {
   amount: string;
@@ -93,7 +93,7 @@ const TransferScreen = () => {
       <View
         style={[
           styles.container,
-          {backgroundColor: useTheme().isDarkMode.BackgroundMenu},
+          // {backgroundColor: theme?.BackgroundMenu},
         ]}>
         <TopNavigator
           onPressLeft={HandleGoBack}
@@ -107,27 +107,11 @@ const TransferScreen = () => {
         <Text
           style={[
             styles.headerStyle,
-            {color: useTheme().isDarkMode.textColor},
+            // {color: theme?.textColor},
           ]}>
           Transfer
         </Text>
-        <View style={[layouts.px.md, layouts.py.md]}>
-          <DropdownMenu
-            options={transferType}
-            title="Type of transfer"
-            onSelectOption={(value: string) => setSelectedType(value)}
-          />
-          <DropdownMenu
-            options={transferFrom}
-            title="Transfer from "
-            onSelectOption={handleTransferFromChange}
-          />
-          <DropdownMenu
-            options={transferTo}
-            title="Transfer to"
-            onSelectOption={(value: string) => setSelectedTransferTo(value)}
-          />
-        </View>
+
         <Formik
           initialValues={{
             amount: '',
@@ -140,29 +124,50 @@ const TransferScreen = () => {
           }}>
           {formikProps => (
             <View>
-              <View style={[layouts.px.xl, layouts.py.md]}>
-                <InputField
-                  name="amount"
-                  label="Amount to transfer"
-                  placeholder="$"
-                  outerContainerStyle={[layouts.mb.xl]}
-                  innerContainerStyle={shadows()}
-                  keyboardType="numeric"
-                  onChangeText={text => {
-                    formikProps.setFieldValue('amount', text);
-                    textChangeHandler(formikProps, 'amount', text);
-                  }}
-                />
-                <InputField
-                  name="reason"
-                  placeholder="Reason of transfer"
-                  outerContainerStyle={[layouts.mb.xxl]}
-                  innerContainerStyle={shadows()}
-                  onChangeText={text => {
-                    formikProps.setFieldValue('reason', text);
-                    textChangeHandler(formikProps, 'reason', text);
-                  }}
-                />
+              <View style={{paddingBottom:23}}>
+                <View style={[layouts.px.md, layouts.py.md]}>
+                  <DropdownMenu
+                    options={transferType}
+                    title="Type of transfer"
+                    onSelectOption={(value: string) => setSelectedType(value)}
+                  />
+                  <DropdownMenu
+                    options={transferFrom}
+                    title="Transfer from "
+                    onSelectOption={handleTransferFromChange}
+                  />
+                  <DropdownMenu
+                    options={transferTo}
+                    title="Transfer to"
+                    onSelectOption={(value: string) =>
+                      setSelectedTransferTo(value)
+                    }
+                  />
+                </View>
+                <View style={[layouts.px.xl, layouts.py.md]}>
+                  <InputField
+                    name="amount"
+                    label="Amount to transfer"
+                    placeholder="$"
+                    outerContainerStyle={[layouts.mb.xl]}
+                    innerContainerStyle={shadows()}
+                    keyboardType="numeric"
+                    onChangeText={text => {
+                      formikProps.setFieldValue('amount', text);
+                      textChangeHandler(formikProps, 'amount', text);
+                    }}
+                  />
+                  <InputField
+                    name="reason"
+                    placeholder="Reason of transfer"
+                    outerContainerStyle={[layouts.mb.xxl]}
+                    innerContainerStyle={shadows()}
+                    onChangeText={text => {
+                      formikProps.setFieldValue('reason', text);
+                      textChangeHandler(formikProps, 'reason', text);
+                    }}
+                  />
+                </View>
               </View>
               <View style={[layouts.row, layouts.allCentered, layouts.px.xl]}>
                 <AppModal

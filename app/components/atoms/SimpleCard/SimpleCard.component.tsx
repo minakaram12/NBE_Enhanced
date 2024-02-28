@@ -1,11 +1,13 @@
 import React from 'react';
-import {View, Image, Text, StyleSheet} from 'react-native';
+import {View, Image, Text, StyleSheet, ViewStyle} from 'react-native';
 import {layouts} from '../../../constants/styles';
+
 export interface SimpleCardProp {
   image: number; //number not string as we are passing require(string name). require funciton returns a number
   name: string;
+  style?: ViewStyle;
 }
-const SimpleCard: React.FC<SimpleCardProp> = ({image, name}) => {
+const SimpleCard: React.FC<SimpleCardProp> = ({image, name, style}) => {
   return (
     <View
       style={[
@@ -13,6 +15,7 @@ const SimpleCard: React.FC<SimpleCardProp> = ({image, name}) => {
         layouts.xCentered,
         layouts.yCentered,
         {backgroundColor: 'white'},
+        style,
       ]}>
       <Image source={image} style={styles.simpleCardImage} />
       <Text style={styles.simpleCardText}>{name.split(' ')[0]}</Text>
@@ -24,8 +27,8 @@ export default SimpleCard;
 const styles = StyleSheet.create({
   simpleCardContainer: {
     aspectRatio: 0.89,
-    width: '23%',
-    margin: '1%',
+    width: 90,
+    margin: 5,
     backgroundColor: '#ffffff',
     borderRadius: 18,
   },

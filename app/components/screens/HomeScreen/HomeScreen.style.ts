@@ -3,6 +3,7 @@
 import {screenHeight} from '../../../constants/styles/layouts';
 import shadows from '../../../constants/styles/shadows';
 import {StyleSheet} from 'react-native';
+import { theme } from '../../../theme/theme';
 
 const styles = StyleSheet.create({
   cardBackground: {
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
   },
 
   CreditText: {
-    color: '#F7F7F7',
+    color: theme?.SeasaltWhite,
     fontSize: 20,
     fontFamily: 'Roboto',
     includeFontPadding: false,
@@ -55,13 +56,13 @@ const styles = StyleSheet.create({
     height: 60,
   },
   servicesText: {
-    // color: '#1C2437',
+    color: theme?.textColorBlue,
     fontSize: 17,
     fontFamily: 'Roboto',
     includeFontPadding: false,
   },
   titleText: {
-    // color: '#1C2437',
+    color: theme?.textColorBlue,
     fontSize: 20,
     fontFamily: 'Roboto',
     includeFontPadding: false,

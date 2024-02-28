@@ -19,8 +19,8 @@ import HomeScreen from '../../screens/HomeScreen/HomeScreen';
 import TransferScreen from '../../screens/TranferScreen/TransferScreen';
 import AirPayScreen from '../../screens/AirPay/AirPayScreen';
 import CashTransfer from '../../screens/TranferScreen/CashTransfer';
-import {useTheme} from '../../../ContextAPI/ThemeContext';
 import Map from '../../screens/Map/Map';
+import { theme } from '../../../theme/theme';
 
 function BottomTabsNavigation() {
   const Tab = createBottomTabNavigator();
@@ -122,8 +122,8 @@ function BottomTabsNavigation() {
   };
 
   const globalStyle = {
-    tabBarActiveBackgroundColor: '#ffffff',
-    tabBarInactiveBackgroundColor: '#ffffff',
+    tabBarActiveBackgroundColor: theme?.BackgroundNav,
+    tabBarInactiveBackgroundColor: theme?.BackgroundNav,
     tabBarActiveTintColor: '#ffffff',
     tabBarInactiveTintColor: '#B7B7B7',
     

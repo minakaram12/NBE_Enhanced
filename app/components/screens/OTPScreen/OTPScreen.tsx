@@ -19,6 +19,7 @@ import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {getPhoneNumber} from '../../../storage/mmkv';
 import {useTheme} from '../../../ContextAPI/ThemeContext';
+import { theme } from '../../../theme/theme';
 
 const OTPScreen = ({route}: {route: any}) => {
   const {otpTitle, displaySuccessModal} = route.params;
@@ -104,7 +105,7 @@ const OTPScreen = ({route}: {route: any}) => {
     <View
       style={[
         styles.OuterContainer,
-        {backgroundColor: useTheme().isDarkMode.BackgroundMenu},
+        // {backgroundColor: theme?.BackgroundMenu},
       ]}>
       <View>
         <TopNavigator
@@ -119,7 +120,7 @@ const OTPScreen = ({route}: {route: any}) => {
           style={[
             styles.timerText,
             styles.otpTitle,
-            {color: useTheme().isDarkMode.textColor},
+            // {color: useTheme().isDarkMode.textColor},
           ]}>
           {' '}
           {otpTitle}

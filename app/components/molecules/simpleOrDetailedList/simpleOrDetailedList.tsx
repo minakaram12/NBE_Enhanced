@@ -7,7 +7,7 @@ import {StyleSheet, View} from 'react-native';
 import {layouts} from '../../../constants/styles';
 import {ExtendedCardProps, detailedCardPropsArray} from '../SwipeableCardList/SwipeableCardListFaker';
 import NoBeneficiary from '../../atoms/NoBeneficiaries/NoBeneficiaries';
-import { useTheme } from '../../../ContextAPI/ThemeContext';
+import { theme } from '../../../theme/theme';
 
 function SimpleOrDetailedList() {
   const [colView, setterColView] = useState(true);
@@ -22,7 +22,7 @@ function SimpleOrDetailedList() {
 
   return (
     <View
-      style={[layouts.px.lg, {backgroundColor: useTheme().isDarkMode.BackgroundMenu}, layouts.fullHeight]}>
+      style={[layouts.px.lg, {backgroundColor: theme?.BackgroundScreen}, layouts.fullHeight]}>
       <BeneficiariesController
         style={styles.controller}
         changeViewSetter={setterColView}

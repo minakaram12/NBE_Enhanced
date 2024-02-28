@@ -45,6 +45,8 @@ const black = '#000000';
 export default {
     name: 'Dark',
 
+    //screen background
+    BackgroundScreen:black,
     //basicChange
     BasicColor:white,
     //icon
@@ -66,7 +68,7 @@ export default {
     //Text
     textColor:white,
     textColorGrey:silver,
-    textColorBlue:OxfordBlue,
+    textColorBlue:white,
     textColorGreen:DarkSpringGreen,
 
     DarkSpringGreen,

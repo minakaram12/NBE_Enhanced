@@ -19,7 +19,7 @@ import {transferValidationSchema} from '../../../validations/Transfer';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {ScrollView} from 'react-native-gesture-handler';
-import {useTheme} from '../../../ContextAPI/ThemeContext';
+import { theme } from '../../../theme/theme';
 
 interface FormValues {
   amount: string;
@@ -93,7 +93,7 @@ const TransferScreen = () => {
       <View
         style={[
           styles.container,
-          {backgroundColor: useTheme().isDarkMode.BackgroundMenu},
+          // {backgroundColor: theme?.BackgroundMenu},
         ]}>
         <TopNavigator
           onPressLeft={HandleGoBack}
@@ -107,7 +107,7 @@ const TransferScreen = () => {
         <Text
           style={[
             styles.headerStyle,
-            {color: useTheme().isDarkMode.textColor},
+            // {color: theme?.textColor},
           ]}>
           Transfer
         </Text>

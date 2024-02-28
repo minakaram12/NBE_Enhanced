@@ -6,7 +6,7 @@ import {Image, View} from 'react-native';
 import { layouts } from '../../../constants/styles';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { useTheme } from '../../../ContextAPI/ThemeContext';
+import { theme } from '../../../theme/theme';
 
 function Beneficiary({route}) {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
@@ -15,7 +15,7 @@ function Beneficiary({route}) {
     navigation.goBack();
    };
   return (
-    <View style={[layouts.px.lg,{paddingBottom: 125,backgroundColor:useTheme().isDarkMode.BackgroundMenu}]}>
+    <View style={[layouts.px.lg,{paddingBottom: 125,backgroundColor:theme.BackgroundScreen}]}>
       <TopNavigator
        onPressLeft={HandleGoBack}
         contentLeft={<IconCard icon={BackSvg} Type="back" />}

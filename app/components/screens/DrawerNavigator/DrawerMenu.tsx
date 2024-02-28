@@ -14,7 +14,6 @@ import TopNavigator from '../../molecules/TopNavigator/TopNavigator';
 import TopNavImg from '../../atoms/TopNavImg/TopNavImg';
 import BellSvg from '../../../assets/svgs/BellSvg';
 import {theme} from '../../../theme/theme';
-import {useTheme} from '../../../ContextAPI/ThemeContext';
 import {ScrollView} from 'react-native-gesture-handler';
 import {getUsername} from '../../../storage/mmkv';
 import {getPhoneNumber} from './../../../storage/mmkv';
@@ -39,7 +38,6 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
 
   const [showMenu, setShowMenu] = useState(false);
   const [showTopNav, setShowTopNav] = useState(true);
-  const {isDarkMode, toggleSwitch} = useTheme();
   const navigation = useNavigation();
   // const currentScreenName = navigation.getState().routeNames[navigation.getState().index];
   const route = useRoute();
@@ -90,17 +88,17 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
 
   useEffect(()=>{
   
-        const stackNavigatorState = navigation.getState().routes.find(route => route.name === 'home')?.state;
+        // const stackNavigatorState = navigation.getState().routes.find(route => route.name === 'home')?.state;
 
-        const currentRoute = stackNavigatorState?.routes.find(route=>route.name==='Beneficiary')?.state
+        // const currentRoute = stackNavigatorState?.routes.find(route=>route.name==='Beneficiary')?.state
   
           // if (currentRoute?.routes[1]?.name === 'AddBeneficiaries') {
           //   setShowTopNav(false);
           // } else {
           //   setShowTopNav(true);
           // }
-    console.log("nested "+ currentRoute?.routes[1].name);
-    if(routeName==="CashTransfer"||currentRoute?.routes[1]?.name === 'AddBeneficiaries'){
+    // console.log("nested "+ currentRoute?.routes[1].name);
+    if(routeName==="CashTransfer"){
       setShowTopNav(false);
      }
      else{
@@ -145,7 +143,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
         style={{
           width: 20,
           height: 20,
-          tintColor: isDarkMode.BasicColor,
+          tintColor: theme?.BasicColor,
           // cant call usetheme(hooks)inside condition as it should always be called at the top level of your component
           // 'tintColor' : useTheme().isDarkMode.BasicColor
           margin: 10,
@@ -158,7 +156,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
   return (
     //<ScrollView>
     <View
-      style={[styles.container, {backgroundColor: isDarkMode.BackgroundMenu }]}>
+      style={styles.container}>
       {/* MenuItem */}
       <ScrollView>
       <MenuContent
@@ -171,7 +169,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
       <Animated.View
         style={{
           flexGrow: 1,
-          backgroundColor: useTheme().isDarkMode.white,
+          backgroundColor: theme?.white,
           position: 'absolute',
           top: 0,
           bottom: 0,
@@ -186,7 +184,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
         <Animated.View
           style={{
             transform: [{translateY: closeButtonOffset},{translateY: ScaleBottomNav}],
-            backgroundColor: useTheme().isDarkMode.BackgroundMenu,
+            backgroundColor:theme?.BackgroundMenu,
             height:'100%',
           }}>
            
@@ -224,7 +222,7 @@ const styles = StyleSheet.create({
   flex:1,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    // backgroundColor: useTheme().isDarkMode.BackgroundMenu,
+    backgroundColor: theme?.BackgroundMenu,
   },
 });
 

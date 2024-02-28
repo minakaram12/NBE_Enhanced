@@ -32,6 +32,7 @@ import TransactionCard from '../../atoms/Transactioncard/TransactionCard.compone
 import {ThemeProvider, useTheme} from '../../../ContextAPI/ThemeContext';
 import {ParamListBase, useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import { theme } from '../../../theme/theme';
 // import {useTheme} from '../../../ContextAPI/ThemeContext';
 const historyWithImg = [
   {
@@ -151,7 +152,7 @@ const HomeScreen = () => {
         <View
           style={[
             {
-              backgroundColor: useTheme().isDarkMode.BackgroundMenu,
+              backgroundColor: theme?.BackgroundScreen,
               height: '100%',
             },
           ]}>
@@ -198,7 +199,7 @@ const HomeScreen = () => {
                     style={[
                       styles.servicesText,
                       // eslint-disable-next-line react-hooks/rules-of-hooks
-                      {color: useTheme().isDarkMode.itemColor},
+                      {color: theme?.itemColor},
                     ]}>
                     Accounts
                   </Text>

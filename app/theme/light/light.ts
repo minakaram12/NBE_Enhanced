@@ -251,7 +251,8 @@ const black = '#000000';
 export default{
     name: 'Light',
 
-
+    //screen background
+     BackgroundScreen:Ghostwhite,
     //basicChange
     BasicColor:black,
 

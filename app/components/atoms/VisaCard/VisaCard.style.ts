@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {px} from '../../../constants/styles/layouts';
-
+import { theme } from '../../../theme/theme';
 const styles = StyleSheet.create({
   cardBackground: {
     padding: px(16),
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   CreditText: {
     flex: 1,
-    color: 'white',
+    color: theme?.white,
     fontSize: px(25),
     fontFamily: 'Roboto-Bold',
     includeFontPadding: false,
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 
   CreditText2: {
     flex: 1,
-    color: 'white',
+    color: theme?.white,
     fontSize: px(20),
     fontFamily: 'Gemunu-Libre',
     includeFontPadding: false,
@@ -59,13 +59,13 @@ const styles = StyleSheet.create({
   },
   detailsText: {
     fontSize: 14,
-    color: 'white',
+    color: theme?.white,
     fontWeight: 'bold',
     fontFamily: 'Gemunu-Libre',
     includeFontPadding: false,
   },
   greyText: {
-    color: '#848484',
+    color: theme?.Battleshipgray,
     fontWeight: 'bold',
     fontFamily: 'Gemunu-Libre',
     fontSize: px(14),

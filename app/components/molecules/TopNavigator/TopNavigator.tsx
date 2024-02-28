@@ -4,10 +4,10 @@ import TopNavImg from '../../atoms/TopNavImg/TopNavImg';
 import MenuTogglerSvg from '../../../assets/svgs/MenuTogglerSvg';
 import BellSvg from '../../../assets/svgs/BellSvg';
 import BackSvg from '../../../assets/svgs/BackSvg';
-import {shadows} from '../../../constants/styles';
+import {colors, shadows} from '../../../constants/styles';
 import {Image} from 'react-native';
-import { useTheme } from '../../../ContextAPI/ThemeContext';
-import { theme } from '../../../theme/theme';
+import {useTheme} from '../../../ContextAPI/ThemeContext';
+import {theme} from '../../../theme/theme';
 
 interface TopNavProps {
   onPressLeft?: () => void;
@@ -27,6 +27,7 @@ const TopNavigator: React.FC<TopNavProps> = ({
   contentRight,
 }) => {
   return (
+    // eslint-disable-next-line react/react-in-jsx-scope
     <View
       style={{
         flexDirection: 'row',
@@ -34,7 +35,7 @@ const TopNavigator: React.FC<TopNavProps> = ({
         alignItems: 'center',
         // marginHorizontal: 15,
         marginVertical: 25,
-        backgroundColor:theme.BackgroundMenu,
+        // backgroundColor: colors.transparent,
       }}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <TouchableOpacity onPress={onPressLeft}>

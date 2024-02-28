@@ -160,7 +160,7 @@ const HomeScreen = () => {
               {/* balaance */}
               <TouchableOpacity onPress={() => setShowVisaCards(true)}>
                 <ImageBackground
-                  source={require('../../../assets/images/green_card.png')} // Replace 'visa_card_bg.jpg' with the path to your image
+                  source={require('../../../assets/images/home_card.png')} // Replace 'visa_card_bg.jpg' with the path to your image
                   style={styles.cardBackground}
                   imageStyle={styles.cardImage}>
                   <View style={styles.cardView}>

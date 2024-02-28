@@ -11,23 +11,19 @@ import {DraxList, DraxProvider} from 'react-native-drax';
 
 // Components
 import MainBtn from '../../atoms/MainBtn/MainBtn';
-import OutlinedFingerPrintSvg from '../../../assets/svgs/OutlinedFingerPrintSvg';
 
 import {visaCards} from '../../../Faker/VisaCards';
 import {px} from '../../../constants/styles/layouts';
 
 // Components
 import AppModal from '../../atoms/AppModal/AppModal';
-import TopNavImg from '../../atoms/TopNavImg/TopNavImg';
-import TopNavigator from '../../molecules/TopNavigator/TopNavigator';
-import IconCard from '../../atoms/IconCard/IconCard';
 
 // Icons
-import MenuTogglerSvg from '../../../assets/svgs/MenuTogglerSvg';
-import BellSvg from '../../../assets/svgs/BellSvg';
 import DraggableCard from '../../molecules/DraggableCard/DraggableCard';
 import ReceivingZone from '../../molecules/ReceivingZone/ReceivingZone';
 import DrawerMenu from '../DrawerNavigator/DrawerMenu';
+import {visaCardsData} from '../../../Faker';
+import SmallOutlinedFingerPrintSvg from '../../../assets/svgs/SmallOutlinedFingerPrintSvg';
 
 const AirPayScreen = () => {
   const [showModal, setShowModal] = useState(false);
@@ -36,37 +32,26 @@ const AirPayScreen = () => {
   return (
     // <DrawerMenu>
       <View style={[styles.pageContainer]}>
-        {/* <View style={[layouts.mx.lg]}>
-        <TopNavigator
-          contentLeft={<MenuTogglerSvg />}
-          contentMiddle={
-            <TopNavImg
-              name="AHMAD SAMI AL-SAYED"
-              imgUrl={require('../../../assets/images/dummyUser.png')}
-            />
-          }
-          contentRight={<IconCard icon={BellSvg} Type="Notification" />}
-        />
-      </View> */}
-
         <Text style={[styles.cardsTitle, layouts.px.xxl]}>Cards</Text>
 
         <GestureHandlerRootView>
           <DraxProvider style={[layouts.allCentered]}>
-            <DraxList
-              style={[styles.draggableCardContainer]}
-              data={visaCards}
-              renderItemContent={({item, index}) => (
-                <DraggableCard
-                  item={item}
-                  index={index}
-                  setReceiverCardIndex={setReceiverCardIndex}
-                />
-              )}
-              keyExtractor={(item, index: number) => index.toString()}
-              horizontal={true}
-              scrollEnabled={true}
-            />
+            <View style={[styles.draggableCardContainer]}>
+              <DraxList
+                data={visaCardsData}
+                renderItemContent={({item, index}) => (
+                  <DraggableCard
+                    item={item}
+                    index={index}
+                    setReceiverCardIndex={setReceiverCardIndex}
+                  />
+                )}
+                keyExtractor={(item, index: number) => index.toString()}
+                horizontal={true}
+                scrollEnabled={true}
+              />
+            </View>
+
             <ReceivingZone
               receiverCardIndex={receiverCardIndex}
               setReceiverCardIndex={setReceiverCardIndex}
@@ -76,7 +61,9 @@ const AirPayScreen = () => {
 
         <MainBtn
           buttonText="Pay Now"
-          iconRight={<OutlinedFingerPrintSvg />}
+          iconRight={
+            <SmallOutlinedFingerPrintSvg width={px(32.83)} height={px(32)} />
+          }
           onPress={() => setShowModal(prev => !prev)}
           buttonStyle={[layouts.my.xxl, layouts.mx.xl]}
           indicatorSize={'large'}

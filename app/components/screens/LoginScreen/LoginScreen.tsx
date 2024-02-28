@@ -1,13 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {
-  ImageBackground,
-  Pressable,
-  ScrollView,
-  StatusBar,
-  Text,
-  View,
-} from 'react-native';
+import {ImageBackground, Pressable, StatusBar, Text, View} from 'react-native';
 // styles
 import {layouts} from '../../../constants/styles';
 import styles from './LoginScreen.style';
@@ -77,7 +70,6 @@ const LoginScreen = ({navigation}: {navigation: any}) => {
                 }}
                 validationSchema={loginValidationsSchema}
                 onSubmit={values => {
-                  console.log(values, 'Remember me: ', isRememberMe);
                   setUsername(values.username);
                   if (isRememberMe) {
                     setLoginData(

@@ -1,3 +1,4 @@
+import React from 'react';
 import {View, Text, StyleSheet, Pressable} from 'react-native';
 import AddSvg from '../../../assets/svgs/AddSvg';
 import {layouts} from '../../../constants/styles';

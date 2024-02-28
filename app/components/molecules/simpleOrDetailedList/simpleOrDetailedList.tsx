@@ -12,23 +12,19 @@ import {
 import NoBeneficiary from '../../atoms/NoBeneficiaries/NoBeneficiaries';
 import { theme } from '../../../theme/theme';
 
-function SimpleOrDetailedList() {
+function SimpleOrDetailedList({newCards}) {
   const [colView, setterColView] = useState(true);
-  const [beneficiaries, setBeneficiaries] =
-    useState<Array<ExtendedCardProps>>(newCards);
+  const [beneficiaries, setBeneficiaries] = useState<Array<ExtendedCardProps>>([]);
 
   useEffect(() => {
     setBeneficiaries(newCards);
   }, [newCards]);
-  console.log('====================================simple or de');
-  console.log(beneficiaries);
-  console.log('====================================');
 
   const addBeneficiary = (beneficiary: ExtendedCardProps) => {
     setBeneficiaries(oldBeneficiaries => [...oldBeneficiaries, beneficiary]);
   };
 
-  const isempty = beneficiaries.length <= 0;
+  const isempty = beneficiaries?.length <= 0 || beneficiaries?.length === 0;
 
   return (
     <View

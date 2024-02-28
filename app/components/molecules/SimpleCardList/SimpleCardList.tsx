@@ -1,19 +1,16 @@
 import React from 'react';
-import SimpleCard, {
-  SimpleCardProp,
-} from '../../atoms/SimpleCard/SimpleCard.component';
+import SimpleCard from '../../atoms/SimpleCard/SimpleCard.component';
 import {FlatList} from 'react-native';
 import {layouts} from '../../../constants/styles';
 import NoBeneficiary from '../../atoms/NoBeneficiaries/NoBeneficiaries';
 import {ExtendedCardProps} from '../SwipeableCardList/SwipeableCardListFaker';
 import {useTheme} from '../../../ContextAPI/ThemeContext';
-import {width} from '@fortawesome/free-solid-svg-icons/faEye';
 
 interface SimpleCardListProp {
   cards: Array<ExtendedCardProps>;
 }
 
-const SimpleCardList: React.FC<SimpleCardListProp> = ({cards}) => {
+const SimpleCardList: React.FC<SimpleCardListProp> = ({cards = []}) => {
   const renderItem = ({item}: {item: ExtendedCardProps}) => {
     return (
       <SimpleCard

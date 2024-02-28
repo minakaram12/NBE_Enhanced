@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
 import {layouts} from '../../../constants/styles';
-import {useTheme} from '../../../ContextAPI/ThemeContext';
+import {theme} from '../../../theme/theme';
 export interface TransactionCardProp {
   transactionItem: String;
   date: Date | string;
@@ -15,28 +15,13 @@ const TransactionCard: React.FC<TransactionCardProp> = ({
   image,
 }) => {
   return (
-    <View
-      style={[
-        layouts.row,
-        layouts.justifyBetween,
-        styles.container,
-        {backgroundColor: useTheme().isDarkMode.BackgroundMenu},
-      ]}>
+    <View style={[layouts.row, layouts.justifyBetween, styles.container]}>
       <View style={[layouts.row, layouts.allCentered]}>
         {image !== undefined && (
-          <Image
-            source={image}
-            style={{borderRadius: 10, width: 50, height: 50, marginRight: 10}}
-          />
+          <Image source={image} style={styles.imageStyle} />
         )}
         <View style={layouts.xCentered}>
-          {/* Render image if provided */}
-          <Text
-            style={[
-              styles.transactionItemStyle,
-              layouts.mb.lg,
-              {color: useTheme().isDarkMode.itemColor},
-            ]}>
+          <Text style={[styles.transactionItemStyle, layouts.mb.lg]}>
             {transactionItem}
           </Text>
           <Text style={styles.dateStyle}>{`${date.getDate()}-${
@@ -45,11 +30,7 @@ const TransactionCard: React.FC<TransactionCardProp> = ({
         </View>
       </View>
       <View style={layouts.xCentered}>
-        <Text
-          style={[
-            styles.transactionValue,
-            {color: useTheme().isDarkMode.itemColor},
-          ]}>{`$${transactionValue}`}</Text>
+        <Text style={[styles.transactionValue]}>{`$${transactionValue}`}</Text>
       </View>
     </View>
   );
@@ -58,14 +39,15 @@ const TransactionCard: React.FC<TransactionCardProp> = ({
 const styles = StyleSheet.create({
   container: {
     height: 69,
-    backgroundColor: '#F1F3FB',
+    backgroundColor: theme?.BackgroundMenu,
   },
+  imageStyle: {borderRadius: 10, width: 50, height: 50, marginRight: 10},
   transactionItemStyle: {
     fontFamily: 'Roboto',
     fontSize: 18,
     lineHeight: 21.09,
     fontWeight: '400',
-    color: '#1C2437',
+    color: theme?.itemColor,
   },
   dateStyle: {
     fontFamily: 'Roboto',
@@ -79,7 +61,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 18,
     lineHeight: 21.09,
-    color: '#1C2437',
+    color: theme?.itemColor,
   },
 });
 export default TransactionCard;

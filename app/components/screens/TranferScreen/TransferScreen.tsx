@@ -11,7 +11,7 @@ import InputField from '../../atoms/InputField/InputField';
 import AppModal from '../../atoms/AppModal/AppModal';
 import TopNavigator from '../../molecules/TopNavigator/TopNavigator';
 import {Formik, FormikProps} from 'formik';
-import {transferFrom, transferTo, transferType} from '../../../Faker';
+import {transferFrom, transferTo, transferType} from '../../../Faker/Faker';
 
 //svg
 import BackSvg from '../../../assets/svgs/BackSvg';

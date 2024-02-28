@@ -7,7 +7,7 @@ import MainBtn from '../atoms/MainBtn/MainBtn';
 import {Formik} from 'formik';
 
 import * as yup from 'yup';
-import {transferType} from '../../Faker';
+import {transferType} from '../../Faker/Faker';
 import {useNavigation} from '@react-navigation/native';
 import {useTheme} from '../../ContextAPI/ThemeContext';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';

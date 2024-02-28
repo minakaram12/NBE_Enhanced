@@ -6,7 +6,7 @@ import ValidationList from '../../atoms/Validation/ValidationList';
 import {Formik, FormikProps} from 'formik';
 import * as Yup from 'yup';
 import MainBtn from '../../atoms/MainBtn/MainBtn';
-import {validationList} from '../../../Faker';
+import {validationList} from '../../../Faker/Faker';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faLock} from '@fortawesome/free-solid-svg-icons/faLock';
 import {ParamListBase, useNavigation} from '@react-navigation/native';

@@ -22,7 +22,7 @@ import AppModal from '../../atoms/AppModal/AppModal';
 import DraggableCard from '../../molecules/DraggableCard/DraggableCard';
 import ReceivingZone from '../../molecules/ReceivingZone/ReceivingZone';
 import DrawerMenu from '../DrawerNavigator/DrawerMenu';
-import {visaCardsData} from '../../../Faker';
+import {visaCardsData} from '../../../Faker/Faker';
 import SmallOutlinedFingerPrintSvg from '../../../assets/svgs/SmallOutlinedFingerPrintSvg';
 
 const AirPayScreen = () => {

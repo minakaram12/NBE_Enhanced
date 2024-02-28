@@ -3,7 +3,7 @@ import {Pressable, Text, View} from 'react-native';
 import {DraxView} from 'react-native-drax';
 import {layouts} from '../../../constants/styles';
 import styles from './ReceivingZone.style';
-import {visaCardsData} from '../../../Faker';
+import {visaCardsData} from '../../../Faker/Faker';
 import VisaCard from '../../atoms/VisaCard/VisaCard';
 
 const ReceivingZone = ({receiverCardIndex, setReceiverCardIndex}) => {

@@ -22,7 +22,7 @@ import HistorySvg from '../../../assets/svgs/HistorySvg';
 import TranactionHistory from '../../templets/TransactionHistory/TransactionHistory.componet';
 import styles from './HomeScreen.style';
 
-import {visaCardsData} from '../../../Faker';
+import {visaCardsData} from '../../../Faker/Faker';
 import {GestureHandlerRootView, ScrollView} from 'react-native-gesture-handler';
 import SimpleCardList from '../../molecules/SimpleCardList/SimpleCardList';
 import {simpleCardsArray} from '../../molecules/SimpleCardList/simpleCardListFaker';

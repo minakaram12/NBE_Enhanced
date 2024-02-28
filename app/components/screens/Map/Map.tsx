@@ -1,6 +1,6 @@
 import {StyleSheet, Image, View, Text} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
-import {markers} from '../../../Faker';
+import {markers} from '../../../Faker/Faker';
 import layouts from './../../../constants/styles/layouts';
 import DrawerMenu from '../DrawerNavigator/DrawerMenu';
 

@@ -287,6 +287,7 @@ const HomeScreen = () => {
                 {/* <SimpleCardList cards ={simpleCardsArray} />  */}
                 {/* <SendMoneyList cards={simpleCardsArray} /> */}
               </View>
+              <SendMoneyList cardsData={simpleCardsArray} />
             </View>
           )}
 

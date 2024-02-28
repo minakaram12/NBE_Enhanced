@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Pressable } from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    Image,
+    TouchableOpacity,
+    Pressable,
+} from 'react-native';
 import Sidebar from '../../molecules/SidebarMenu/SidebarMenu';
 import IconCard from '../../atoms/IconCard/IconCard';
 import { px } from '../../../constants/styles/layouts';
@@ -11,20 +18,20 @@ import { logout } from '../../../storage/mmkv';
 import { theme } from '../../../theme/theme';
 
 interface userInfo {
-    userName: string,
-    phoneNumber: string,
+    userName: string;
+    phoneNumber: string;
     // isEnabledDark: boolean;
     // toggleSwitch: () => void;
 }
-const MenuContent: React.FC<userInfo> = ({userName , phoneNumber}) => {
+const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber }) => {
     const logo = require('../../../assets/images/logoGreen.png');
     const AR = require('../../../assets/images/AR.png');
-    const navigate=useNavigation<StackNavigationProp<ParamListBase>>();
-    const LogOut =()=>{
-        navigate.navigate('loginScreen')  
-         logout();
+    const navigate = useNavigation<StackNavigationProp<ParamListBase>>();
+    const LogOut = () => {
+        logout();
+        navigate.navigate('loginScreen')
         // console.log("goneeeeee");
-      }
+    }
     return (
         <View >
             {/* AR button and logo */}
@@ -33,36 +40,39 @@ const MenuContent: React.FC<userInfo> = ({userName , phoneNumber}) => {
                 <Image source={AR}></Image>
             </View>
             {/* sidebar menu */}
-            <Sidebar  />
+            <Sidebar />
             {/* LOGOOUT AND BOTTOM NAV */}
             <View style={styles.outerContainer}>
                 <Pressable onPress={LogOut}>
-                <View style={styles.container}>
-                    <IconCard
-                        icon={LogoutSvg}
-                        containerstyle={styles.icon}>
-                    </IconCard>
-                    <Text style={styles.textStyle}>Log out </Text>
-                </View>
+                    <View style={styles.container}>
+                        <IconCard
+                            icon={LogoutSvg}
+                            containerstyle={styles.icon}>
+                        </IconCard>
+                        <Text style={styles.textStyle}>Log out </Text>
+                    </View>
 
                 </Pressable>
-               
+
 
                 {/* <bottom navbar/> */}
                 <View style={styles.userCard}>
-                    <Image source={require("../../../assets/images/userImg.png")} style={styles.image}></Image>
+                    <Image
+                        source={require('../../../assets/images/userImg.png')}
+                        style={styles.image}></Image>
                     <View style={styles.userinfo}>
                         <Text style={styles.userText}>{userName}</Text>
                         <Text style={styles.userPhone}>{phoneNumber}</Text>
                     </View>
-                    <Image source={require("../../../assets/images/threeDots.png")} 
-                    style={styles.dots}></Image>
-
+                    <Image
+                        source={require('../../../assets/images/threeDots.png')}
+                        style={styles.dots}></Image>
                 </View>
             </View>
 
+            
         </View>
-    );
+  );
 };
 
 const styles = StyleSheet.create({
@@ -71,7 +81,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         marginTop: px(8),
         marginBottom: px(5),
-        marginLeft:px(10),
+        marginLeft: px(10),
     },
     outerContainer: {
         marginTop: px(40),
@@ -86,13 +96,13 @@ const styles = StyleSheet.create({
         fontSize: px(18),
         flexDirection: "row",
         fontFamily: "Roboto-bold",
-        color: theme?.RedCMYK,
+        color: "#EB001B",
         fontWeight: "bold",
 
 
     },
     icon: {
-        backgroundColor: theme?.DunRose,
+        backgroundColor: '#EED1D4',
         width: px(30),
         height: px(30),
         marginRight: px(10),
@@ -101,7 +111,7 @@ const styles = StyleSheet.create({
         width: px(296),
         height: px(89),
         borderRadius: px(29),
-        backgroundColor: theme?.white,
+        backgroundColor: "white",
         padding: px(10),
         marginLeft: px(10),
         marginVertical: px(10),
@@ -120,17 +130,17 @@ const styles = StyleSheet.create({
 
     },
     userText: {
-        color: theme?.black,
+        color: "black",
         fontSize: px(18),
-        fontWeight:"500",
+        fontWeight: "500",
 
     },
     userPhone: {
         fontSize: px(14),
 
     },
-    dots:{
-        marginLeft:px(120),
+    dots: {
+        marginLeft: px(120),
     }
 
 });

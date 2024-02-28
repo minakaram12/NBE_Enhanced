@@ -1,12 +1,12 @@
 // MyComponent.tsx
-import React, { ReactNode } from 'react';
-import { View, Text, Image, ImageBackground, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 import styles from './MenuItem.styles';
 import { useState } from 'react';
 import { SvgProps } from 'react-native-svg';
 import IconCard  from '../IconCard/IconCard';
-import { useTheme } from '../../../ContextAPI/ThemeContext';
 import { px } from '../../../constants/styles/layouts';
+import { theme } from '../../../theme/theme';
 
 interface MyComponentProps {
   iconName: React.FC<SvgProps>;
@@ -16,7 +16,6 @@ interface MyComponentProps {
 const MenuItem: React.FC<MyComponentProps> = ({ iconName:IconName, itemTitle }) => {
 
   const [isHovered, setIsHovered] = useState(false);
-  const { isDarkMode, toggleSwitch } = useTheme();
 
 
   const handlePressIn = () => {
@@ -31,11 +30,8 @@ const MenuItem: React.FC<MyComponentProps> = ({ iconName:IconName, itemTitle }) 
     onPressIn={handlePressIn}
     onPressOut={handlePressOut}
 >
-       {/* <View style={styles.iconContainer}>
-        <IconName/>
-       </View> */}
-       <IconCard icon={IconName} containerstyle={{backgroundColor:"#DFD8D8", width: px(30), height: px(30), marginRight: px(8)}}></IconCard>
-       <Text style={[styles.text ,{color:isDarkMode.textColor}]}>{itemTitle}</Text>
+       <IconCard icon={IconName} containerstyle={{backgroundColor:theme?.greylighter, width: px(30), height: px(30), marginRight: px(8)}}></IconCard>
+       <Text style={styles.text}>{itemTitle}</Text>
     </TouchableOpacity>
   );
 };

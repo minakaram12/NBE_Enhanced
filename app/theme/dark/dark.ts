@@ -23,7 +23,9 @@ const orangeWeb = '#f8a819';
 const ImperialRed ='#f50832';
 
 //nav
-const greyLight='#333333'
+const greyLight='#333333';
+const greylighter="#B3B3B3";
+
 
 const PolynesianBlue = '#004E9F';
 const AliceBlue = '#DFEAFB'
@@ -78,6 +80,8 @@ export default {
     silver,
     Battleshipgray,
     Gray,
+    greylighter,
+    greyLight,
     SeasaltWhite,
     OxfordBlue,
     Ghostwhite,

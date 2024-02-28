@@ -18,8 +18,8 @@ const EmeraldGreen = '#00C974';
 const PictonBlue = '#00ADF8';
 
 
-const greyLight='#333333'
-
+const greyLight='#333333';
+const greylighter="#B3B3B3";
 const PolynesianBlue ='#004E9F';
 const AliceBlue='#DFEAFB'
 const DunRose ='#DDCBAC';
@@ -279,6 +279,7 @@ export default{
     BackgroundStatus:white,
 
      greyLight,
+     greylighter,
      DarkSpringGreen,
      PakistanGreen,
      AureolinYellow,

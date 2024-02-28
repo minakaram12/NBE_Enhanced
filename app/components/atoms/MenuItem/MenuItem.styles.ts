@@ -20,11 +20,11 @@ export default StyleSheet.create({
         borderRadius: 16,
         padding: 16,
         margin:6,
-        backgroundColor:'#e8e8e8',
+        backgroundColor:theme?.greylighter,
         width:40, 
         height: 40
     },
     hoveredItem: {
-        backgroundColor: '#007236',
+        backgroundColor: theme?.DarkSpringGreen,
       },
 });

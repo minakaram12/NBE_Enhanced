@@ -144,17 +144,13 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
           width: 20,
           height: 20,
           tintColor: theme?.BasicColor,
-          // cant call usetheme(hooks)inside condition as it should always be called at the top level of your component
-          // 'tintColor' : useTheme().isDarkMode.BasicColor
           margin: 10,
         }}
       />
     );
-    // console.log('tintColor' + useTheme().isDarkMode.BasicColor);
   }
 
   return (
-    //<ScrollView>
     <View
       style={styles.container}>
       {/* MenuItem */}
@@ -175,8 +171,6 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
           bottom: 0,
           left: 0,
           right: 0,
-          // paddingHorizontal: showMenu ? 0 : 0,
-          // paddingVertical: showMenu ? 20 : 0,
           borderRadius: showMenu ? 15 : 0,
           overflow: 'hidden',
           transform: [{scale: scaleValue}, {translateX: offsetValue} ],
@@ -201,18 +195,11 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children }) => {
             contentRight={<IconCard icon={BellSvg} Type="Notification" />}
           />)
          } 
-       
-         
-
-
-         
-
             {/* homeScreen content */}
             {children}
         </Animated.View>
       </Animated.View>
     </View>
-  // </ScrollView>
   );
 };
 

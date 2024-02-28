@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { View, Text, Switch, StyleSheet,useColorScheme } from 'react-native';
+import React, { useState } from 'react';
+import { View, Switch} from 'react-native';
 import { getTheme, setTheme } from '../../../storage/mmkv';
 import { GetTheme } from '../../../theme/themes';
 import RNRestart from 'react-native-restart'; // Import package from node modules
@@ -8,7 +8,7 @@ import { theme } from '../../../theme/theme';
 const SwitchBtn: React.FC = () => {
   
    const [isDarkMode ,setIsDarkMode]=useState(theme);
-    //const { isDarkMode, toggleSwitch } = theme();
+
     const setSelectedTheme=()=>{
       RNRestart.Restart();
     }
@@ -19,15 +19,14 @@ const SwitchBtn: React.FC = () => {
       setTheme(newTheme);
     };
 
-    // console.log("inSwitch.TSX" + getTheme());
-    // console.log(isDarkMode?.bg);
+    
 
 
     return (
       <View>
           <Switch
-            trackColor={{ false: '#767577', true: '#81b0ff' }}
-            thumbColor={isDarkMode? '#007236' : '#f4f3f4'}
+            trackColor={{ false:theme?.white , true:theme?.greylighter }}
+            thumbColor={isDarkMode? theme?.DarkSpringGreen : theme?.white }
             onValueChange={() => {
               toggleSwitch();
               setSelectedTheme();

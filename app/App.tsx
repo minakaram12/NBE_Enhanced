@@ -152,7 +152,7 @@ function App(): React.JSX.Element {
     //     </View>
     //   </ScrollView>
     // </SafeAreaView>
-    <ThemeProvider>
+   
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="SplashScreen"
@@ -164,7 +164,7 @@ function App(): React.JSX.Element {
         </Stack.Navigator>
       </NavigationContainer>
   
-    </ThemeProvider>
+   
 
   );
 }

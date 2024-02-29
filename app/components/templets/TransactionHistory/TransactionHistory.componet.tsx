@@ -4,8 +4,7 @@ import NoHistory from '../../atoms/NoHistory/NoHistory.component';
 import {TransactionCardProp} from '../../atoms/Transactioncard/TransactionCard.component';
 import TransactionList from '../../molecules/TransactionList/TransactionList.component';
 import {layouts} from '../../../constants/styles';
-import {useTheme} from '../../../ContextAPI/ThemeContext';
-import { theme } from '../../../theme/theme';
+import {theme} from '../../../theme/theme';
 
 interface TrasactionHistoryProps {
   transactionitems: Array<TransactionCardProp>;
@@ -23,9 +22,7 @@ function TranactionHistory({
   return (
     <View style={[layouts.flexed]}>
       <View>
-        <Text style={[styles.title, {color: useTheme().isDarkMode.itemColor}]}>
-          {header}
-        </Text>
+        <Text style={[styles.title]}>{header}</Text>
       </View>
       <View style={[layouts.flexed]}>
         {isEmpty ? (

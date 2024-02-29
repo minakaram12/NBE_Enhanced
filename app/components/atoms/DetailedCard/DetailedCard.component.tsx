@@ -13,7 +13,7 @@ import IconDollar from 'react-native-vector-icons/FontAwesome';
 import IconTelephone from 'react-native-vector-icons/Foundation';
 import {useNavigation} from '@react-navigation/native';
 import {TransactionCardProp} from '../Transactioncard/TransactionCard.component';
-import {useTheme} from '../../../ContextAPI/ThemeContext';
+import {theme} from '../../../theme/theme';
 
 export interface DetailedCardProps {
   readonly name: string;
@@ -90,42 +90,28 @@ const DetailedCard: React.FC<DetailedCardProps> = ({
         layouts.row,
         layouts.px.mmlg,
         layouts.py.mmlg,
-        styles.cardRadious,
         layouts.bordered,
+        styles.cardRadious,
         viewStyle,
         layouts.my.lg,
-        {borderColor: 'white'},
-        {backgroundColor: useTheme().isDarkMode.BackgroundStatus},
       ]}>
       <Pressable onPress={detailedCardPressedHandler} style={layouts.row}>
         <Image
           source={image}
           style={[styles.detailedCardImage, layouts.me.md]}
           onError={() => {
-            console.log('====================================');
             console.log('failed to load');
-            console.log('====================================');
           }}
         />
         <View>
-          <Text
-            style={[
-              styles.cardTitle,
-              {color: useTheme().isDarkMode.itemColor},
-            ]}>
-            {name}
-          </Text>
+          <Text style={[styles.cardTitle, styles.itemColor]}>{name}</Text>
           <View style={[layouts.row, layouts.yCentered]}>
             <IconTelephone name="telephone" style={styles.innerIcon} />
-            <Text style={{color: useTheme().isDarkMode.itemColor}}>
-              {mobileNumber}
-            </Text>
+            <Text style={styles.itemColor}>{mobileNumber}</Text>
           </View>
           <View style={[layouts.row, layouts.yCentered]}>
             <IconDollar name="dollar" style={styles.innerIcon} />
-            <Text style={{color: useTheme().isDarkMode.itemColor}}>
-              {balance}
-            </Text>
+            <Text style={styles.itemColor}>{balance}</Text>
           </View>
         </View>
       </Pressable>
@@ -157,6 +143,9 @@ const styles = StyleSheet.create({
   },
   cardRadious: {
     borderRadius: 18,
+    backgroundColor: theme.BackgroundStatus,
+    borderColor: 'white',
   },
+  itemColor: {color: theme?.itemColor},
 });
 export default DetailedCard;

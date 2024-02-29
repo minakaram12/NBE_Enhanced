@@ -1,10 +1,8 @@
-import React, {ReactNode, useContext, useEffect, useRef, useState} from 'react';
+import React, {ReactNode, useEffect, useRef, useState} from 'react';
 import {
   Animated,
   Image,
-  TouchableOpacity,
   View,
-  Text,
   StyleSheet,
 } from 'react-native';
 import MenuContent from './MenuContent';
@@ -17,29 +15,16 @@ import {theme} from '../../../theme/theme';
 import {ScrollView} from 'react-native-gesture-handler';
 import {getUsername} from '../../../storage/mmkv';
 import {getPhoneNumber} from './../../../storage/mmkv';
-import BottomTabsNavigation from '../../atoms/BottomTabsNavigation/BottomTabNavigation.component';
 import {
-  NavigationContext,
-  ParamListBase,
   getFocusedRouteNameFromRoute,
   useNavigation,
-  useNavigationState,
   useRoute,
 } from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {colors, layouts} from '../../../constants/styles';
+import { screenWidth } from '../../../constants/styles/layouts';
 
 interface DrawerMenuProps {
   children: ReactNode;
 }
-// const getActiveRouteName :string= (route) => {
-//   if (route.state) {
-//     // Dive into the nested navigator
-//     return getActiveRouteName(route.state.routes[route.state.index]);
-//   }
-//   // Return the name of the current screen
-//   return route.name;
-// };
 
 const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   const close = require('../../../assets/images/close.png');
@@ -47,41 +32,12 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showTopNav, setShowTopNav] = useState(true);
   const navigation = useNavigation();
-  // const currentScreenName = navigation.getState().routeNames[navigation.getState().index];
   const route = useRoute();
   const routeName = getFocusedRouteNameFromRoute(route) ?? 'HomeScreen';
 
-  // const stackNavigatorState = navigation.getState().routes.find(route => route.name === 'home')?.state;
-
-  // // Get the current screen name within the stack navigator
-  // const currentScreenName = stackNavigatorState ? stackNavigatorState.routes[2].name : '';
-  // const hasNestedStack = stackNavigatorState?.routes[2]?.state ===undefined ;
-  // console.log('nested', currentScreenName, 'hasNestedStack', hasNestedStack);
-
-  // if(!hasNestedStack){
-  //   const hasBeneficiaryStack= stackNavigatorState?.routes[2]?.state ;
-  //   const Addbenef =hasBeneficiaryStack?.routes[1].name;
-  //   console.log(Addbenef);
-  // }
-  // else{
-
-  // }
-  // const Addbenef =hasNestedStack?.routes[1].name
 
   console.log(routeName);
 
-  //  const stackNavigatorState = navigation.getState().routes.find(route => route.name === 'home')?.state;
-
-  //   // Get the current route within the stack navigator
-  //   const currentRoute = stackNavigatorState?.routes[2];
-
-  //   // Get the current screen name within the stack navigator
-  //   const currentScreenName = currentRoute ? currentRoute.name : '';
-
-  //   // Check if the current route has a nested stack navigator
-  //   const hasNestedStack = currentRoute?.state !== undefined;
-
-  //   console.log('nested', currentScreenName, 'hasNestedStack', hasNestedStack);
 
   const offsetValue = useRef(new Animated.Value(0)).current;
   const scaleValue = useRef(new Animated.Value(1)).current;
@@ -89,22 +45,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   const ScaleBottomNav = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // const stackNavigatorState = navigation.getState().routes.find(route => route.name === 'home')?.state;
-
-    // const currentRoute = stackNavigatorState?.routes.find(route=>route.name==='Beneficiary')?.state
-
-    // if (currentRoute?.routes[1]?.name === 'AddBeneficiaries') {
-    //   setShowTopNav(false);
-    // } else {
-    //   setShowTopNav(true);
-    // }
-    // console.log("nested "+ currentRoute?.routes[1].name);
-    // if (routeName === 'CashTransfer') {
-    //   setShowTopNav(false);
-    // } else {
-    //   setShowTopNav(true);
-    // }
-
+  
     const unsubscribe = navigation.addListener('state', () => {
       // Accessing the nested stack navigator named 'Beneficiary' within the 'home' stack navigator
       const stackNavigatorState = navigation
@@ -129,6 +70,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   }, [routeName, navigation]);
 
   const handleMenuPress = () => {
+    
     Animated.parallel([
       Animated.timing(scaleValue, {
         toValue: showMenu ? 1 : 0.88,
@@ -136,7 +78,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
         useNativeDriver: true,
       }),
       Animated.timing(offsetValue, {
-        toValue: showMenu ? 0 : 380,
+        toValue: showMenu ? 0 : screenWidth*0.9,
         duration: 300,
         useNativeDriver: true,
       }),

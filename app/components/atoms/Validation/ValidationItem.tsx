@@ -1,6 +1,7 @@
 import {View, Text} from 'react-native';
 import styles from './ValidationItem.styles';
 import ValidationSvg from '../../../assets/svgs/ValidationSvg';
+import {theme} from '../../../theme/theme';
 
 interface ValidationItemProps {
   text: string;
@@ -10,7 +11,9 @@ interface ValidationItemProps {
 const ValidationItem = (props: ValidationItemProps) => {
   return (
     <View style={styles.container}>
-      <ValidationSvg fill={props.state ? '#007236' : '#B7B7B7'} />
+      <ValidationSvg
+        fill={props.state ? theme.DarkSpringGreen : theme.textColorGrey}
+      />
       <Text style={styles.text}>{props.text}</Text>
     </View>
   );

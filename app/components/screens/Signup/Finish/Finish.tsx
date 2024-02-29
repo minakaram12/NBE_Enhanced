@@ -1,7 +1,8 @@
-import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
-import Header from '../../molecules/Header';
-import layouts, {px} from '../../../constants/styles/layouts';
-import MainBtn from '../../atoms/MainBtn/MainBtn';
+import {ImageBackground, Text, View} from 'react-native';
+import Header from '../../../molecules/Header';
+import layouts from '../../../../constants/styles/layouts';
+import MainBtn from '../../../atoms/MainBtn/MainBtn';
+import styles from './Finish.style';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 
@@ -17,7 +18,7 @@ const Finish = () => {
         <Header />
       </View>
       <ImageBackground
-        source={require('../../../assets/images/Finish.jpg')}
+        source={require('../../../../assets/images/Finish.jpg')}
         resizeMode="cover"
         style={[layouts.flexed]}>
         <View style={[layouts.flexed, layouts.justifyBetween]}>
@@ -42,18 +43,3 @@ const Finish = () => {
   );
 };
 export default Finish;
-
-const styles = StyleSheet.create({
-  title: {
-    fontFamily: 'Roboto-Bold',
-    fontSize: px(30),
-    color: '#F7F7F7',
-    lineHeight: px(35.16),
-  },
-  caption: {
-    fontFamily: 'Roboto-Regular',
-    fontSize: px(16),
-    color: '#F7F7F7',
-    lineHeight: px(18.75),
-  },
-});

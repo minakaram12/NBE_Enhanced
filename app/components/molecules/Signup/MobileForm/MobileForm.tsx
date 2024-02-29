@@ -1,21 +1,17 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import layouts, {px} from '../../../constants/styles/layouts';
-import InputField from '../../atoms/InputField/InputField';
-import MainBtn from '../../atoms/MainBtn/MainBtn';
-import {Formik, FormikProps} from 'formik';
+import {View, Text} from 'react-native';
+import layouts from '../../../../constants/styles/layouts';
+import InputField from '../../../atoms/InputField/InputField';
+import MainBtn from '../../../atoms/MainBtn/MainBtn';
+import {Formik} from 'formik';
+import styles from './MobileForm.style';
 import * as Yup from 'yup';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faMobile} from '@fortawesome/free-solid-svg-icons/faMobile';
-import {ParamListBase, useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import { setPhoneNumber } from '../../../storage/mmkv';
+import {setPhoneNumber} from '../../../../storage/mmkv';
 library.add(faMobile);
 
 const MobileForm = ({navigation}) => {
-  //todo: use react-native-phone-number-input
-  // const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
-
   const mobileSchema = Yup.object().shape({
     mobileNumber: Yup.string().required().length(16),
   });
@@ -68,32 +64,3 @@ const MobileForm = ({navigation}) => {
 };
 
 export default MobileForm;
-
-const styles = StyleSheet.create({
-  title: {
-    fontFamily: 'Roboto-Bold',
-    fontSize: px(20),
-    color: '#1C2437',
-    lineHeight: px(23.44),
-  },
-  caption: {
-    fontFamily: 'Roboto-Regular',
-    fontSize: px(16),
-    color: '#B7B7B7',
-    lineHeight: px(18.75),
-  },
-  highlight: {
-    fontFamily: 'Roboto-Bold',
-    fontSize: px(14),
-    color: '#1C2437',
-    lineHeight: px(16.41),
-    textAlign: 'center',
-  },
-  text: {
-    fontFamily: 'Roboto-Regular',
-    fontSize: px(14),
-    color: '#808080',
-    lineHeight: px(16.41),
-    textAlign: 'center',
-  },
-});

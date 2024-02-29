@@ -9,7 +9,7 @@ import {
   Pressable,
 } from 'react-native';
 
-import {layouts} from '../../../constants/styles';
+import {layouts, shadows} from '../../../constants/styles';
 
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faEye} from '@fortawesome/free-solid-svg-icons/faEye';
@@ -39,6 +39,7 @@ interface InputProps {
   outerContainerStyle?: StyleProp<ViewStyle> | Array<ViewStyle> | null;
   innerContainerStyle?: StyleProp<ViewStyle> | Array<ViewStyle> | null;
   labelStyle?: StyleProp<TextStyle> | Array<TextStyle> | null;
+  shadow?: boolean;
   // left icon
   leftIcon?: string;
   leftIconSize?: number;
@@ -61,6 +62,7 @@ const InputField: React.FC<InputProps> = ({
   outerContainerStyle = null,
   innerContainerStyle = null,
   labelStyle = null,
+  shadow = false,
   leftIcon,
   leftIconSize = 20,
   leftIconColor = '#B7B7B7',
@@ -108,8 +110,6 @@ const InputField: React.FC<InputProps> = ({
     }
   }, [variant]);
 
-  const [value, setValue] = useState('');
-
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(prevState => !prevState);
@@ -137,6 +137,7 @@ const InputField: React.FC<InputProps> = ({
           isFocus ? styles.outlineContainer : finalInnerContainerStyle,
           isError ? finalErrorInnerContainerStyle : null,
           innerContainerStyle,
+          shadow ? shadows() : null,
         ]}>
         {leftIcon && (
           <View style={[layouts.me.xl]}>
@@ -180,7 +181,6 @@ const InputField: React.FC<InputProps> = ({
                     }
                     onChangeText={text => {
                       field.onChange(name)(text);
-                      setValue(text);
                       if (onChangeText) {
                         onChangeText(text);
                       }
@@ -211,7 +211,6 @@ const InputField: React.FC<InputProps> = ({
                     }
                     onChangeText={text => {
                       field.onChange(name)(text);
-                      setValue(text);
                       if (onChangeText) {
                         onChangeText(text);
                       }
@@ -226,7 +225,7 @@ const InputField: React.FC<InputProps> = ({
             </Field>
             {isPassword && (
               <Pressable
-                style={[styles.icon]}
+                style={[layouts.my.md]}
                 onPress={togglePasswordVisibility}>
                 {/* <ClosedEye /> */}
                 <FontAwesomeIcon

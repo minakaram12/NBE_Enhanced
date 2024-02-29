@@ -1,16 +1,10 @@
-import TopNavigator from '../../molecules/TopNavigator/TopNavigator';
-import BackSvg from '../../../assets/svgs/BackSvg';
-import IconCard from '../../atoms/IconCard/IconCard';
-import {Image, View} from 'react-native';
+import React from 'react';
 import SimpleOrDetailedList from '../../molecules/simpleOrDetailedList/simpleOrDetailedList';
-import {layouts} from '../../../constants/styles';
-import DrawerMenu from '../DrawerNavigator/DrawerMenu';
-function BenefiiciaryListScreen() {
+function BenefiiciaryListScreen({route}) {
+  const {newCards = []} = route.params || {};
   return (
     <>
-      {/* <DrawerMenu> */}
-        <SimpleOrDetailedList />
-      {/* </DrawerMenu> */}
+      <SimpleOrDetailedList newCards={newCards} />
     </>
   );
 }

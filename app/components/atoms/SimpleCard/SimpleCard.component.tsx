@@ -18,7 +18,7 @@ const SimpleCard: React.FC<SimpleCardProp> = ({image, name, style}) => {
         style,
       ]}>
       <Image source={image} style={styles.simpleCardImage} />
-      <Text style={styles.simpleCardText}>{name}</Text>
+      <Text style={styles.simpleCardText}>{name.split(' ')[0]}</Text>
     </View>
   );
 };
@@ -33,11 +33,12 @@ const styles = StyleSheet.create({
     borderRadius: 18,
   },
   simpleCardImage: {
-    width: '43.3%',
+    width: '50%',
     height: undefined,
     aspectRatio: 1,
     borderRadius: 8,
     resizeMode: 'contain',
+    marginBottom: 4,
   },
   simpleCardText: {
     fontFamily: 'Roboto',

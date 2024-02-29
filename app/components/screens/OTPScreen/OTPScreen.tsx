@@ -18,8 +18,6 @@ import AppModal from '../../atoms/AppModal/AppModal';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {getPhoneNumber} from '../../../storage/mmkv';
-import {useTheme} from '../../../ContextAPI/ThemeContext';
-import { theme } from '../../../theme/theme';
 
 const OTPScreen = ({route}: {route: any}) => {
   const {otpTitle, displaySuccessModal} = route.params;
@@ -102,11 +100,7 @@ const OTPScreen = ({route}: {route: any}) => {
     navigation.goBack();
   };
   return (
-    <View
-      style={[
-        styles.OuterContainer,
-        // {backgroundColor: theme?.BackgroundMenu},
-      ]}>
+    <View style={[styles.OuterContainer]}>
       <View>
         <TopNavigator
           onPressLeft={HandleGoBack}
@@ -116,15 +110,7 @@ const OTPScreen = ({route}: {route: any}) => {
               source={require('../../../assets/images/GreenLogo.png')}></Image>
           }
         />
-        <Text
-          style={[
-            styles.timerText,
-            styles.otpTitle,
-            // {color: useTheme().isDarkMode.textColor},
-          ]}>
-          {' '}
-          {otpTitle}
-        </Text>
+        <Text style={[styles.timerText, styles.otpTitle]}> {otpTitle}</Text>
 
         <Text style={styles.infoText}>
           {' '}
@@ -174,12 +160,7 @@ const OTPScreen = ({route}: {route: any}) => {
         <View>
           <Text style={styles.infoText}> Didn't receive the code?</Text>
           {resendDisabled && (
-            <Text
-              style={[
-                styles.timerText,
-                // eslint-disable-next-line react-hooks/rules-of-hooks
-                {color: useTheme().isDarkMode.textColor},
-              ]}>
+            <Text style={[styles.timerText]}>
               {' '}
               Request new one in: {formatTime(timer)}
             </Text>

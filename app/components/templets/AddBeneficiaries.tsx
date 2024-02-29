@@ -1,5 +1,11 @@
-import React, { useState } from 'react';
-import {Image, StyleSheet, View, ScrollView, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {
+  Image,
+  StyleSheet,
+  View,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import {layouts} from '../../constants/styles';
 import InputField from '../atoms/InputField/InputField';
 import DropdownMenu from '../atoms/DropdownMenu/DropdownMenu';
@@ -9,8 +15,8 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 import {transferType} from '../../Faker/Faker';
 import {useNavigation} from '@react-navigation/native';
-import {useTheme} from '../../ContextAPI/ThemeContext';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {launchCamera} from 'react-native-image-picker';
+import {theme} from '../../theme/theme';
 
 const validationsSchema = yup.object().shape({
   firstName: yup.string().required('first name is required'),
@@ -38,25 +44,24 @@ function AddBeneficiaries({route}) {
         maxHeight: 200,
         maxWidth: 200,
       },
-      (response) => {
+      response => {
         if (response.didCancel) {
           console.log('User cancelled camera');
         } else if (response.errorCode) {
-          console.error('Camera Error:', response.errorCode, response.errorMessage);
+          console.error(
+            'Camera Error:',
+            response.errorCode,
+            response.errorMessage,
+          );
         } else {
           setImageUri(response.assets[0].uri);
-          console.log('====================================');
-          console.log("the uri is "+ response.assets[0].uri);
-          console.log('====================================');
-          // Use the response.uri as the image source
         }
-      }
+      },
     );
   };
 
-  const {item, edit, cardsSetter, prevIndex} = route.params;
-
-  const addNewBeneficiary = route.params;
+  const {cards, edit} = route.params;
+  const {item, prevIndex} = route.params;
   const navigation = useNavigation();
 
   return (
@@ -86,40 +91,38 @@ function AddBeneficiaries({route}) {
           // Handle form submission with the values
 
           if (!edit) {
-            addNewBeneficiary({
-              name: values.firstName + ' ' + values.lastName,
-              mobileNumber: values.phoneNumber,
-              balance: '999',
-              image: require('../../assets/images/profimg.jpg'),
-              color: '#ffffff',
-            });
-          } else {
-            //aktb al code bta3 al add beneficiary
-
-            cardsSetter(prevCards => {
-              const newArray = [...prevCards];
-              newArray[prevIndex] = {
+            const newCards = [
+              ...cards,
+              {
                 name: values.firstName + ' ' + values.lastName,
                 mobileNumber: values.phoneNumber,
                 balance: '999',
                 image: require('../../assets/images/profimg.jpg'),
                 color: '#ffffff',
-              };
-              return newArray;
-            });
-          }
-          navigation.goBack();
+              },
+            ];
+            console.log('====================================n');
+            console.log(newCards);
+            console.log('====================================n');
+            navigation.navigate('BenefiiciaryListScreen', {newCards});
+          } else {
+            //aktb al code bta3 al add beneficiary
 
-          console.log(values);
+            const newCards = [...cards];
+            console.log(newCards);
+            console.log(prevIndex);
+            newCards[prevIndex] = {
+              name: values.firstName + ' ' + values.lastName,
+              mobileNumber: values.phoneNumber,
+              balance: '999',
+              image: require('../../assets/images/profimg.jpg'),
+              color: '#ffffff',
+            };
+            navigation.navigate('BenefiiciaryListScreen', {newCards});
+          }
         }}>
         {formikProps => (
-          <View
-            style={[
-              layouts.flexed,
-              //   layouts.yCentered,
-              //   layouts.fullWidth,
-              {backgroundColor: useTheme().isDarkMode.BackgroundMenu},
-            ]}>
+          <View style={[layouts.flexed, styles.formicContainer]}>
             <ScrollView contentContainerStyle={styles.scrollViewContent}>
               <TouchableOpacity style={layouts.yCentered} onPress={openCamera}>
                 <View
@@ -131,7 +134,7 @@ function AddBeneficiaries({route}) {
                   {imageUri ? (
                     <Image
                       source={{uri: imageUri}}
-                      style={{ width: 138, height: 138, borderRadius: 30 }}
+                      style={{width: 138, height: 138, borderRadius: 30}}
                     />
                   ) : (
                     <Image
@@ -165,8 +168,10 @@ function AddBeneficiaries({route}) {
               <DropdownMenu
                 title="Bank Branch"
                 options={transferType}
-                onSelectOption={(value)=>formikProps.setFieldValue('branch',value)}
-                style={[{marginTop:10,marginLeft:0,marginRight:0}]}
+                onSelectOption={value =>
+                  formikProps.setFieldValue('branch', value)
+                }
+                style={[{marginTop: 10, marginLeft: 0, marginRight: 0}]}
               />
 
               <InputField
@@ -193,11 +198,19 @@ function AddBeneficiaries({route}) {
                   {height: 65, elevation: 15},
                 ]}
               />
-              <MainBtn
-                buttonStyle={{marginTop: 30, height: 50}}
-                buttonText="Add Beneficiar"
-                onPress={formikProps.handleSubmit}
-              />
+              {edit ? (
+                <MainBtn
+                  buttonStyle={{marginTop: 30, height: 50}}
+                  buttonText="Edit Beneficiar"
+                  onPress={formikProps.handleSubmit}
+                />
+              ) : (
+                <MainBtn
+                  buttonStyle={{marginTop: 30, height: 50}}
+                  buttonText="Add Beneficiar"
+                  onPress={formikProps.handleSubmit}
+                />
+              )}
             </ScrollView>
           </View>
         )}
@@ -210,6 +223,6 @@ const styles = StyleSheet.create({
   cameraView: {width: 138, height: 138, borderRadius: 30},
   camImg: {width: 40, height: 40},
   scrollViewContent: {flexGrow: 1},
+  formicContainer: {backgroundColor: theme.BackgroundMenu},
 });
-
 export default AddBeneficiaries;

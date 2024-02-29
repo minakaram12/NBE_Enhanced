@@ -3,9 +3,13 @@
 import {screenHeight} from '../../../constants/styles/layouts';
 import shadows from '../../../constants/styles/shadows';
 import {StyleSheet} from 'react-native';
-import { theme } from '../../../theme/theme';
+import {theme} from '../../../theme/theme';
 
 const styles = StyleSheet.create({
+  outerContainer: {
+    backgroundColor: theme?.BackgroundScreen,
+    height: '100%',
+  },
   cardBackground: {
     width: '100%',
     height: screenHeight * 0.25,
@@ -56,13 +60,13 @@ const styles = StyleSheet.create({
     height: 60,
   },
   servicesText: {
-    color: theme?.textColorBlue,
+    color: theme?.itemColor,
     fontSize: 17,
     fontFamily: 'Roboto',
     includeFontPadding: false,
   },
   titleText: {
-    color: theme?.textColorBlue,
+    color: theme?.itemColor,
     fontSize: 20,
     fontFamily: 'Roboto',
     includeFontPadding: false,

@@ -1,12 +1,13 @@
+import React from 'react';
 import {View, Text, StyleSheet, Pressable} from 'react-native';
 import AddSvg from '../../../assets/svgs/AddSvg';
 import {layouts} from '../../../constants/styles';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
-function AddButton({addBeneficiary}) {
+function AddButton({cards = []}) {
   const navigation = useNavigation();
   const addnewBenefHandler = ()=>{
-    navigation.navigate('AddBeneficiaries', addBeneficiary);
+    navigation.navigate('AddBeneficiaries', {cards});
   }
   return (
     <Pressable onPress={addnewBenefHandler}>

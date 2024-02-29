@@ -1,11 +1,12 @@
 import {StyleSheet} from 'react-native';
 import {px} from '../../../constants/styles/layouts';
+import {theme} from '../../../theme/theme';
 
 const styles = StyleSheet.create({
   innerContainer: {
     height: px(65),
     borderRadius: px(10),
-    backgroundColor: '#fff',
+    backgroundColor: theme?.InputBackgroundColor,
   },
   outlineContainer: {
     borderWidth: px(1.5),
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
   },
   outlineErrorContainer: {
     borderWidth: px(1.5),
-    borderColor: 'red',
+    borderColor: theme?.InputError,
   },
   transparentContainer: {
     borderWidth: px(1.5),
@@ -22,12 +23,12 @@ const styles = StyleSheet.create({
   },
   transparentErrorContainer: {
     borderWidth: px(1.5),
-    borderColor: 'red',
+    borderColor: theme?.InputError,
   },
   label: {
     fontSize: px(14),
     fontWeight: 'bold',
-    color: '#007236',
+    color: theme?.InputLabelColor,
   },
 
   input: {
@@ -35,20 +36,21 @@ const styles = StyleSheet.create({
     padding: 0,
     paddingVertical: px(5),
     fontSize: px(16),
+    color: theme?.InputTextColor,
   },
 
   icon: {
-    marginVertical: px(5),
+    color: theme?.InputIconsColor,
   },
 
   errorTextColor: {
-    color: 'red',
+    color: theme?.InputError,
   },
   whiteTextColor: {
     color: 'white',
   },
   blackTextColor: {
-    color: 'black',
+    color: theme?.textColor,
   },
 });
 

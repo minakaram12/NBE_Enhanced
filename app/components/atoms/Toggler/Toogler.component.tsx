@@ -1,7 +1,7 @@
-import {Pressable, StyleSheet, View, Image} from 'react-native';
+import React from 'react';
+import {Pressable, StyleSheet, View} from 'react-native';
 import {layouts} from '../../../constants/styles';
 import {useState} from 'react';
-import {Svg} from 'react-native-svg';
 import ColViewSvg from '../../../assets/svgs/ColViewSvg';
 import RowView from '../../../assets/svgs/RowViewSvg';
 
@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     width: 61,
     borderRadius: 15,
     height: 30,
+    padding: 5,
   },
 });
 

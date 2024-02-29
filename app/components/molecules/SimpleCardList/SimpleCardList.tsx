@@ -1,10 +1,10 @@
 import React from 'react';
 import SimpleCard from '../../atoms/SimpleCard/SimpleCard.component';
-import {FlatList} from 'react-native';
+import {FlatList, StyleSheet} from 'react-native';
 import {layouts} from '../../../constants/styles';
 import NoBeneficiary from '../../atoms/NoBeneficiaries/NoBeneficiaries';
 import {ExtendedCardProps} from '../SwipeableCardList/SwipeableCardListFaker';
-import {useTheme} from '../../../ContextAPI/ThemeContext';
+import {theme} from '../../../theme/theme';
 
 interface SimpleCardListProp {
   cards: Array<ExtendedCardProps>;
@@ -28,10 +28,7 @@ const SimpleCardList: React.FC<SimpleCardListProp> = ({cards = []}) => {
           data={cards}
           renderItem={renderItem}
           numColumns={4}
-          style={[
-            layouts.px.sm,
-            {backgroundColor: useTheme().isDarkMode.BackgroundMenu},
-          ]}
+          style={[layouts.px.sm, styles.flasListStyle]}
         />
       ) : (
         <NoBeneficiary />
@@ -39,5 +36,7 @@ const SimpleCardList: React.FC<SimpleCardListProp> = ({cards = []}) => {
     </>
   );
 };
-
+const styles = StyleSheet.create({
+  flasListStyle: {backgroundColor: theme?.BackgroundMenu},
+})
 export default SimpleCardList;

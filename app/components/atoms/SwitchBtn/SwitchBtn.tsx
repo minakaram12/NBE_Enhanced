@@ -10,7 +10,7 @@ const SwitchBtn: React.FC = () => {
    const [isDarkMode ,setIsDarkMode]=useState(theme);
 
     const setSelectedTheme=()=>{
-      RNRestart.Restart();
+      RNRestart.restart();
     }
 
     const toggleSwitch = () => {

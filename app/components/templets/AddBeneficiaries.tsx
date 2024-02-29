@@ -15,8 +15,8 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 import {transferType} from '../../Faker';
 import {useNavigation} from '@react-navigation/native';
-import {useTheme} from '../../ContextAPI/ThemeContext';
 import {launchCamera} from 'react-native-image-picker';
+import {theme} from '../../theme/theme';
 
 const validationsSchema = yup.object().shape({
   firstName: yup.string().required('first name is required'),
@@ -122,11 +122,7 @@ function AddBeneficiaries({route}) {
           }
         }}>
         {formikProps => (
-          <View
-            style={[
-              layouts.flexed,
-              {backgroundColor: useTheme().isDarkMode.BackgroundMenu},
-            ]}>
+          <View style={[layouts.flexed, styles.formicContainer]}>
             <ScrollView contentContainerStyle={styles.scrollViewContent}>
               <TouchableOpacity style={layouts.yCentered} onPress={openCamera}>
                 <View
@@ -227,6 +223,6 @@ const styles = StyleSheet.create({
   cameraView: {width: 138, height: 138, borderRadius: 30},
   camImg: {width: 40, height: 40},
   scrollViewContent: {flexGrow: 1},
+  formicContainer: {backgroundColor: theme.BackgroundMenu},
 });
-
 export default AddBeneficiaries;

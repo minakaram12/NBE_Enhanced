@@ -99,11 +99,33 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
     //   setShowTopNav(true);
     // }
     // console.log("nested "+ currentRoute?.routes[1].name);
-    if (routeName === 'CashTransfer') {
-      setShowTopNav(false);
-    } else {
-      setShowTopNav(true);
-    }
+    // if (routeName === 'CashTransfer') {
+    //   setShowTopNav(false);
+    // } else {
+    //   setShowTopNav(true);
+    // }
+
+    const unsubscribe = navigation.addListener('state', () => {
+      // Accessing the nested stack navigator named 'Beneficiary' within the 'home' stack navigator
+      const stackNavigatorState = navigation
+        .getState()
+        .routes.find(route => route.name === 'home')?.state;
+      const currentRoute = stackNavigatorState?.routes.find(
+        route => route.name === 'Beneficiary',
+      )?.state;
+
+      // Check if the current route within the nested stack navigator is 'AddBeneficiaries'
+      if (
+        routeName === 'CashTransfer' ||
+        currentRoute?.routes[1]?.name === 'AddBeneficiaries'
+      ) {
+        setShowTopNav(false); // Hide the top navigation
+      } else {
+        setShowTopNav(true); // Show the top navigation
+      }
+    });
+
+    return unsubscribe;
   }, [routeName, navigation]);
 
   const handleMenuPress = () => {

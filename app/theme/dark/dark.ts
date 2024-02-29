@@ -8,7 +8,7 @@ const silver = '#B7B7B7';
 const Battleshipgray = '#848484';
 const Gray = '#808080';
 const SeasaltWhite = '#F7F7F7';
-const cardBorder = '#eeeeee';
+const cardBorder = 'transparent';
 
 //bgscreen
 const Ghostwhite = '#F1F3FB';
@@ -21,9 +21,8 @@ const orangeWeb = '#f2e8db';
 const ImperialRed = '#f3cfdd';
 
 //nav
-const greyLight='#333333';
-const greylighter="#B3B3B3";
-
+const greyLight = '#333333';
+const greylighter = '#B3B3B3';
 
 const PolynesianBlue = '#004E9F';
 const AliceBlue = '#DFEAFB';
@@ -71,30 +70,30 @@ export default {
   textColorBlue: white,
   textColorGreen: DarkSpringGreen,
 
-    DarkSpringGreen,
-    PakistanGreen,
-    AureolinYellow,
-    CanaryYellow,
-    silver,
-    Battleshipgray,
-    Gray,
-    greylighter,
-    greyLight,
-    SeasaltWhite,
-    OxfordBlue,
-    Ghostwhite,
-    PolynesianBlue,
-    AliceBlue,
-    DunRose,
-    OldRose,
-    RedCMYK,
-    OrchidPink,
-    Licorice,
-    LicoriceBlack,
-    Eerieblack,
-    white,
-    blue,
-    black,
+  DarkSpringGreen,
+  PakistanGreen,
+  AureolinYellow,
+  CanaryYellow,
+  silver,
+  Battleshipgray,
+  Gray,
+  greylighter,
+  greyLight,
+  SeasaltWhite,
+  OxfordBlue,
+  Ghostwhite,
+  PolynesianBlue,
+  AliceBlue,
+  DunRose,
+  OldRose,
+  RedCMYK,
+  OrchidPink,
+  Licorice,
+  LicoriceBlack,
+  Eerieblack,
+  white,
+  blue,
+  black,
   // Modal
   ModalOverlay,
 

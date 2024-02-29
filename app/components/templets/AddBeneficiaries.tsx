@@ -129,7 +129,7 @@ function AddBeneficiaries({route}) {
                   style={[
                     styles.cameraView,
                     layouts.allCentered,
-                    {backgroundColor: 'white'},
+                    {backgroundColor: theme?.InputBackgroundColor},
                   ]}>
                   {imageUri ? (
                     <Image

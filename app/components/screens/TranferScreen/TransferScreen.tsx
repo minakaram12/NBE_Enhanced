@@ -177,7 +177,7 @@ const TransferScreen = () => {
                 <MainBtn
                   buttonText="Transfer"
                   onPress={formikProps.handleSubmit}
-                  buttonStyle={[layouts.flexed, layouts.px.md, layouts.mb.lg]}
+                  buttonStyle={[layouts.flexed, layouts.px.md, layouts.mb.xxl]}
                   disabled={submitDisabled}
                 />
               </View>

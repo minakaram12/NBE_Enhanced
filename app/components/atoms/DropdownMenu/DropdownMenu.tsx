@@ -55,7 +55,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           dropdownTextStyles={styles.dropList}
           dropdownStyles={styles.dropStyle}
           arrowicon={<DropDownSvg />}
-
+         
           // defaultOption={{key: options[0].key, value: options[0].value}}
         />
       </View>

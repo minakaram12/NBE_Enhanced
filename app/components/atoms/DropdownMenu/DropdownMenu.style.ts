@@ -4,7 +4,7 @@ import {StyleSheet} from 'react-native';
 import { theme } from '../../../theme/theme';
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: theme?.white,
+    backgroundColor: theme?.InputBackgroundColor,
     borderRadius: 15,
     borderWidth: 1,
     borderColor: theme?.cardBorder,
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 15,
     fontFamily: 'Roboto-Black',
-    color: theme?.OxfordBlue,
+    color: theme?.InputLabelColor,
     paddingTop: 5,
   },
   dropBorder: {
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   dropList: {
     fontFamily: 'Roboto-Regular',
     fontSize: 15,
-    color: theme?.OxfordBlue,
+    color: theme?.InputTextColor,
   },
 
   dropStyle: {

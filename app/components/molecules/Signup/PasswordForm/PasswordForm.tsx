@@ -1,17 +1,16 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import layouts, {px} from '../../../constants/styles/layouts';
-import InputField from '../../atoms/InputField/InputField';
-import ValidationList from '../../atoms/Validation/ValidationList';
-import {Formik, FormikProps} from 'formik';
+import {View, Text} from 'react-native';
+import layouts from '../../../../constants/styles/layouts';
+import InputField from '../../../atoms/InputField/InputField';
+import ValidationList from '../../../atoms/Validation/ValidationList';
+import {Formik} from 'formik';
 import * as Yup from 'yup';
-import MainBtn from '../../atoms/MainBtn/MainBtn';
-import {validationList} from '../../../Faker';
+import styles from './PasswordForm.style';
+import MainBtn from '../../../atoms/MainBtn/MainBtn';
+import {validationList} from '../../../../Faker';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faLock} from '@fortawesome/free-solid-svg-icons/faLock';
-import {ParamListBase, useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import { setPassword, setUsername } from '../../../storage/mmkv';
+import {setPassword, setUsername} from '../../../../storage/mmkv';
 
 library.add(faLock);
 
@@ -126,17 +125,3 @@ const PasswordForm = ({navigation}) => {
 
 export default PasswordForm;
 
-const styles = StyleSheet.create({
-  title: {
-    fontSize: px(20),
-    fontFamily: 'Roboto-Bold',
-    color: '#1C2437',
-    lineHeight: px(23.44),
-  },
-  caption: {
-    fontSize: px(16),
-    fontFamily: 'Roboto-Regular',
-    color: '#B7B7B7',
-    lineHeight: px(18.75),
-  },
-});

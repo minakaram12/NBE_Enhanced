@@ -1,8 +1,8 @@
 import {createStackNavigator} from '@react-navigation/stack';
-import Mobile from './Mobile';
+import Mobile from './Mobile/Mobile';
 import OTPScreen from '../OTPScreen/OTPScreen';
-import Password from './Password';
-import Finish from './Finish';
+import Password from './Password/Password';
+import Finish from './Finish/Finish';
 
 const Signup = () => {
   const Stack = createStackNavigator();

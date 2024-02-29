@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {px} from '../../../constants/styles/layouts';
+import { theme } from '../../../theme/theme';
 
 export default StyleSheet.create({
   container: {
@@ -13,6 +14,6 @@ export default StyleSheet.create({
     fontSize: px(14),
     fontFamily: 'Roboto-Regular',
     lineHeight: px(18.75),
-    color: '#1C2437',
+    color: theme?.textColorBlue,
   },
 });

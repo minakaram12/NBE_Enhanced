@@ -73,10 +73,10 @@ function AddBeneficiaries({route}) {
             ? {
                 firstName: item.name.split(' ')[0] || '',
                 lastName: item.name.split(' ')[1] || '',
-                accountNumber: '', // You may need to update this based on the actual property in your `item`
+                accountNumber: item.accountNumber, // You may need to update this based on the actual property in your `item`
                 phoneNumber: item.mobileNumber || '',
-                email: '', // You may need to update this based on the actual property in your `item`
-                branch: '',
+                email: item.email || '', // You may need to update this based on the actual property in your `item`
+                branch: item.branch || '',
               }
             : {
                 firstName: '',
@@ -99,6 +99,10 @@ function AddBeneficiaries({route}) {
                 balance: '999',
                 image: require('../../assets/images/profimg.jpg'),
                 color: '#ffffff',
+                key: values.firstName + ' ' + values.lastName,
+                accountNumber: values.accountNumber,
+                phoneNumber: values.phoneNumber,
+                email: values.email,
               },
             ];
             console.log('====================================n');
@@ -117,6 +121,10 @@ function AddBeneficiaries({route}) {
               balance: '999',
               image: require('../../assets/images/profimg.jpg'),
               color: '#ffffff',
+              key: values.firstName + ' ' + values.lastName,
+              accountNumber: values.accountNumber,
+              phoneNumber: values.phoneNumber,
+              email: values.email,
             };
             navigation.navigate('BenefiiciaryListScreen', {newCards});
           }

@@ -45,11 +45,20 @@ const SwipeableCardList: React.FC<SwipeableCardListProps> = ({
 
   const navigation = useNavigation();
   const deleteRow = (rowMap, id) => {
+    console.log('====================================');
+    console.log(`the id is ${id}`);
+    console.log('====================================');
     closeSpecificRow(rowMap, id);
     const newData = [...cards];
+    console.log('====================================');
+    console.log(`cards before deletion ${newData}`);
+    console.log('====================================');
     const prevIndex = newData.findIndex(item => item.key === id);
     console.log('the index of the deleted item is ' + prevIndex);
     newData.splice(prevIndex, 1);
+    console.log('====================================');
+    console.log(`cards after deletiono ${newData}`);
+    console.log('====================================');
     cardsSetter(newData);
   };
 

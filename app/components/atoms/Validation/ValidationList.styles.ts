@@ -5,7 +5,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexWrap: 'wrap',
-    maxHeight: px(90),
+    maxHeight: px(110),
     width: px(362),
     alignContent: 'space-between',
   },

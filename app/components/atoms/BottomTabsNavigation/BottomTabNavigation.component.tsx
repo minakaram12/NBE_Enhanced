@@ -1,3 +1,4 @@
+import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {StyleSheet} from 'react-native';
 import {Text, View} from 'react-native';
@@ -11,16 +12,12 @@ import IconFingerPrint from 'react-native-vector-icons/FontAwesome5';
 
 import {layouts} from '../../../constants/styles';
 import {px} from '../../../constants/styles/layouts';
-import Beneficiary from '../../screens/Benificiary/Benificiary';
-import BenefiiciaryListScreen from '../../screens/BeneficiaryListScreen/BeneficiaryListScreen';
-import DrawerMenu from '../../screens/DrawerNavigator/DrawerMenu';
 import BeneficiaryStack from '../BeneficiaryStack/BeneficiaryStack';
 import HomeScreen from '../../screens/HomeScreen/HomeScreen';
-import TransferScreen from '../../screens/TranferScreen/TransferScreen';
 import AirPayScreen from '../../screens/AirPay/AirPayScreen';
 import CashTransfer from '../../screens/TranferScreen/CashTransfer';
 import Map from '../../screens/Map/Map';
-import { theme } from '../../../theme/theme';
+import {theme} from '../../../theme/theme';
 
 function BottomTabsNavigation() {
   const Tab = createBottomTabNavigator();
@@ -126,18 +123,15 @@ function BottomTabsNavigation() {
     tabBarInactiveBackgroundColor: theme?.BackgroundNav,
     tabBarActiveTintColor: '#ffffff',
     tabBarInactiveTintColor: '#B7B7B7',
-    
+
     tabBarStyle: {
-      height: 80,
-      backgroundColor: 'blue',
+      height: 84,
     },
+    tabBarItemStyle: {backgroundColor: theme.BottomTab},
     tabBarShowLabel: false,
     headerShown: false,
   };
 
-  const tabBarStyle = {
-    style: {backgroundColor: '#e4e4e4'},
-  };
   return (
     <Tab.Navigator initialRouteName="HomeScreen" screenOptions={globalStyle}>
       <Tab.Screen
@@ -166,22 +160,6 @@ function BottomTabsNavigation() {
 }
 
 export default BottomTabsNavigation;
-
-function Screen1() {
-  return <Text>screen 1</Text>;
-}
-function Screen2() {
-  return <Text>screen 2</Text>;
-}
-function Screen3() {
-  return <Text>screen 3</Text>;
-}
-function Screen4() {
-  return <Text>screen 4</Text>;
-}
-function Screen5() {
-  return <Text>screen 5</Text>;
-}
 
 const styles = StyleSheet.create({
   container: {

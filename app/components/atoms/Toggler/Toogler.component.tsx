@@ -48,19 +48,19 @@ function Toggler({
           style={[
             layouts.yCentered,
             layouts.xCentered,
-            {backgroundColor: colView ? backgroundColor : activeColor},
+            {backgroundColor: colView ? activeColor : backgroundColor},
             styles.iconStyle,
           ]}>
-          <ColViewSvg color={colView ? inActiveColor : 'white'} />
+          <ColViewSvg color={colView ? 'white' : inActiveColor} />
         </View>
         <View
           style={[
             layouts.yCentered,
             layouts.xCentered,
-            {backgroundColor: !colView ? backgroundColor : activeColor},
+            {backgroundColor: !colView ? activeColor : backgroundColor},
             styles.iconStyle,
           ]}>
-          <RowView color={colView ? 'white' : inActiveColor} />
+          <RowView color={colView ? inActiveColor : 'white'} />
         </View>
       </Pressable>
     </View>

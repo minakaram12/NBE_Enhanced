@@ -110,8 +110,6 @@ function AddBeneficiaries({route}) {
             console.log('====================================n');
             navigation.navigate('BenefiiciaryListScreen', {newCards});
           } else {
-            //aktb al code bta3 al add beneficiary
-
             const newCards = [...cards];
             console.log(newCards);
             console.log(prevIndex);
@@ -180,6 +178,7 @@ function AddBeneficiaries({route}) {
                   formikProps.setFieldValue('branch', value)
                 }
                 style={[{marginTop: 10, marginLeft: 0, marginRight: 0}]}
+                initialValue={{key:1,value:"Between your account"}}
               />
 
               <InputField

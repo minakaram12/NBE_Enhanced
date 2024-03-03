@@ -25,7 +25,6 @@ const Mobile = () => {
       ]}>
       <Header
         back={true}
-        addBeneficiar={false}
         login={false}
         onBack={backHandler}
       />

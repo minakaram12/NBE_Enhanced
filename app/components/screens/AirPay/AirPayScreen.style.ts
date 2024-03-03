@@ -4,7 +4,7 @@ import {theme} from '../../../theme/theme';
 
 const styles = StyleSheet.create({
   pageContainer: {
-    backgroundColor: theme.BackgroundMenu,
+    backgroundColor: theme?.BackgroundMenu,
   },
   cardsTitle: {
     fontSize: px(20),
@@ -13,6 +13,9 @@ const styles = StyleSheet.create({
   },
   draggableCardContainer: {
     height: px(280),
+  },
+  buttonText: {
+    fontFamily: 'Roboto-Bold',
   },
 });
 export default styles;

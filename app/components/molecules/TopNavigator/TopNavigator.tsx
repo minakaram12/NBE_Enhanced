@@ -34,10 +34,11 @@ const TopNavigator: React.FC<TopNavProps> = ({
         justifyContent: 'space-between',
         alignItems: 'center',
         // marginHorizontal: 15,
-        marginTop: 25,
+        marginVertical: 25,
+        paddingHorizontal: 5,
         // backgroundColor:theme.BackgroundMenu,
-       // backgroundColor:theme.BackgroundMenu,
-       marginBottom: 25,
+        // backgroundColor:theme.BackgroundMenu,
+
         height: 40,
         // backgroundColor: colors.transparent,
       }}>

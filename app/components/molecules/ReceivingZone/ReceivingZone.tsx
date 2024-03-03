@@ -6,7 +6,15 @@ import styles from './ReceivingZone.style';
 import {visaCardsData} from '../../../Faker/Faker';
 import VisaCard from '../../atoms/VisaCard/VisaCard';
 
-const ReceivingZone = ({receiverCardIndex, setReceiverCardIndex}) => {
+interface ReceivingZoneProps {
+  receiverCardIndex: number;
+  setReceiverCardIndex: (index: number) => void;
+}
+
+const ReceivingZone = ({
+  receiverCardIndex,
+  setReceiverCardIndex,
+}: ReceivingZoneProps) => {
   return (
     <DraxView
       renderContent={() => {
@@ -26,8 +34,11 @@ const ReceivingZone = ({receiverCardIndex, setReceiverCardIndex}) => {
       }}
       onReceiveDragDrop={({dragged}) => {
         const {payload} = dragged;
-        if (typeof payload === 'number') setReceiverCardIndex(payload);
-        else setReceiverCardIndex(payload.index);
+        if (typeof payload === 'number') {
+          setReceiverCardIndex(payload);
+        } else {
+          setReceiverCardIndex(payload.index);
+        }
       }}
     />
   );

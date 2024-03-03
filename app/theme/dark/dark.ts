@@ -1,5 +1,6 @@
 import {colors} from '../colors';
 
+const bottomTabColor = '#1a2421';
 const DarkSpringGreen = '#007236';
 const PakistanGreen = '#003D1D';
 const AureolinYellow = '#FBED1F';
@@ -104,4 +105,6 @@ export default {
   black,
 
   cardBorder,
+  //bottom tab navigation
+  BottomTab: bottomTabColor,
 };

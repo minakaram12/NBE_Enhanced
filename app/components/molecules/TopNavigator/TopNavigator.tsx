@@ -35,6 +35,7 @@ const TopNavigator: React.FC<TopNavProps> = ({
         alignItems: 'center',
         // marginHorizontal: 15,
         marginVertical: 25,
+        paddingHorizontal:5,
         // backgroundColor:theme.BackgroundMenu,
        // backgroundColor:theme.BackgroundMenu,
         height: 40,

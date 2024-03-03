@@ -97,7 +97,11 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
     setShowMenu(!showMenu);
   };
 
-  let contentLeft: any = <IconCard icon={MenuTogglerSvg}></IconCard>;
+  let contentLeft: any = <IconCard 
+                    icon={MenuTogglerSvg} 
+                    iconProps={{fill:theme.BasicColor}}
+                    containerstyle={{backgroundColor:theme.BackgroundScreen}}>
+                   </IconCard>;
   if (showMenu) {
     contentLeft = (
       <Image

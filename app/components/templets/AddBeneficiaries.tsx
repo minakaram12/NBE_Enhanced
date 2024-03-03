@@ -5,6 +5,7 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
+  Text,
 } from 'react-native';
 import {layouts} from '../../constants/styles';
 import InputField from '../atoms/InputField/InputField';
@@ -23,10 +24,14 @@ const validationsSchema = yup.object().shape({
   lastName: yup.string().required('last name is required'),
   accountNumber: yup
     .string()
+    .matches(/^[0-9]{10,14}$/, 'Invalid account number') // Regex for valid account numbers
     .required('account number is required')
     .min(10, 'minimum 10 numbers')
-    .max(14, "you can't exeed 14 number"),
-  phoneNumber: yup.string().required('phone number is required'),
+    .max(14, "you can't exceed 14 numbers"),
+  phoneNumber: yup
+    .string()
+    .matches(/^[0-9]{10,14}$/, 'Invalid phone number') // Adjust the regex based on your requirements
+    .required('phone number is required'),
   email: yup
     .string()
     .email('invalid email address')
@@ -154,6 +159,7 @@ function AddBeneficiaries({route}) {
                 <InputField
                   label="First Name"
                   name="firstName"
+                  showErrors={false}
                   outerContainerStyle={[
                     layouts.flexed,
                     layouts.me.sm,
@@ -163,6 +169,7 @@ function AddBeneficiaries({route}) {
                 <InputField
                   label="Last Name"
                   name="lastName"
+                  showErrors={false}
                   outerContainerStyle={[
                     layouts.flexed,
                     layouts.ms.sm,
@@ -177,13 +184,13 @@ function AddBeneficiaries({route}) {
                 onSelectOption={value =>
                   formikProps.setFieldValue('branch', value)
                 }
-                style={[{marginTop: 10, marginLeft: 0, marginRight: 0}]}
-                initialValue={{key:1,value:"Between your account"}}
+                style={[styles.dropDownCustomStyle]}
               />
 
               <InputField
                 label="Account number"
                 name="accountNumber"
+                showErrors={false}
                 outerContainerStyle={[
                   layouts.my.lg,
                   {height: 65, elevation: 15},
@@ -192,6 +199,7 @@ function AddBeneficiaries({route}) {
               <InputField
                 label="Phone number"
                 name="phoneNumber"
+                showErrors={false}
                 outerContainerStyle={[
                   layouts.my.lg,
                   {height: 65, elevation: 15},
@@ -200,11 +208,17 @@ function AddBeneficiaries({route}) {
               <InputField
                 label="Email"
                 name="email"
+                showErrors={false}
                 outerContainerStyle={[
                   layouts.my.lg,
                   {height: 65, elevation: 15},
                 ]}
               />
+              {Object.keys(formikProps.errors).length > 0 && (
+                <Text style={styles.generalError}>
+                  check your inputs and try again
+                </Text>
+              )}
               {edit ? (
                 <MainBtn
                   buttonStyle={{marginTop: 30, height: 50}}
@@ -231,5 +245,18 @@ const styles = StyleSheet.create({
   camImg: {width: 40, height: 40},
   scrollViewContent: {flexGrow: 1},
   formicContainer: {backgroundColor: theme.BackgroundMenu},
+  generalError: {
+    color: 'red',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginTop: 10,
+    textAlign: 'center',
+  },
+  dropDownCustomStyle: {
+    marginTop: 15,
+    marginLeft: 0,
+    marginRight: 0,
+    elevation: 0,
+  },
 });
 export default AddBeneficiaries;

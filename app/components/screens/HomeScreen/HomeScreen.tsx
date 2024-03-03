@@ -24,6 +24,7 @@ import {width} from '@fortawesome/free-solid-svg-icons/faEye';
 
 const HomeScreen = () => {
   const [showVisaCards, setShowVisaCards] = useState(false);
+  const [showAll, setShowAll] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
   return (
@@ -57,8 +58,8 @@ const HomeScreen = () => {
             style={[
               layouts.justifyAround,
               layouts.row,
-              {height: '20%', width: '100%'},
-              layouts.my.sm,
+              {width: '100%'},
+              layouts.my.xs,
               layouts.px.lg,
             ]}>
             <TouchableOpacity
@@ -127,15 +128,20 @@ const HomeScreen = () => {
             </TouchableOpacity>
           </View>
 
-          <View
-            style={[
-              layouts.ms.sm,
-              layouts.px.lg,
-              {marginTop: 15},
-             
-            ]}>
-            <Text style={[styles.titleText]}>Send Money</Text>
-            <SendMoneyList cardsData={simpleCardsArray} />
+          <View style={[layouts.ms.sm, layouts.px.lg, {marginTop: px(10)}]}>
+            <View
+              style={[layouts.row, layouts.justifyBetween, layouts.alignedEnd]}>
+              <Text style={[styles.titleText]}>Send Money</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  setShowAll(!showAll);
+                }}>
+                {!showAll && <Text style={[styles.viewAllText]}>View All</Text>}
+                {showAll && <Text style={[styles.viewAllText]}>View less</Text>}
+              </TouchableOpacity>
+            </View>
+
+            <SendMoneyList cardsData={simpleCardsArray} showAll={showAll} />
           </View>
         </View>
       )}
@@ -153,16 +159,18 @@ const HomeScreen = () => {
         style={[
           [layouts.mx.xl],
           {
-            height: !showVisaCards ? px(200) : '65%',
+            height: !showVisaCards ? px(260) : '65%',
             marginTop: !showVisaCards ? 10 : 15,
           },
           // {height: '100%'},
           // {flex: 1},
         ]}>
+          
         <TranactionHistory
           transactionitems={HistoryWithImg}
           displayImage={true}
           header="History"
+          viewAll={true}
         />
       </View>
     </View>

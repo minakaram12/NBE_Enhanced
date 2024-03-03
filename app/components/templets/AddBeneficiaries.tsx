@@ -14,7 +14,7 @@ import MainBtn from '../atoms/MainBtn/MainBtn';
 import {Formik} from 'formik';
 
 import * as yup from 'yup';
-import {transferType} from '../../Faker';
+import {transferType} from '../../Faker/Faker';
 import {useNavigation} from '@react-navigation/native';
 import {launchCamera} from 'react-native-image-picker';
 import {theme} from '../../theme/theme';
@@ -140,7 +140,7 @@ function AddBeneficiaries({route}) {
                   style={[
                     styles.cameraView,
                     layouts.allCentered,
-                    {backgroundColor: 'white'},
+                    {backgroundColor: theme?.InputBackgroundColor},
                   ]}>
                   {imageUri ? (
                     <Image

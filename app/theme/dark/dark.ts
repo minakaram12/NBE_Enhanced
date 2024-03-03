@@ -9,7 +9,7 @@ const silver = '#B7B7B7';
 const Battleshipgray = '#848484';
 const Gray = '#808080';
 const SeasaltWhite = '#F7F7F7';
-const cardBorder = '#eeeeee';
+const cardBorder = 'transparent';
 
 //bgscreen
 const Ghostwhite = '#F1F3FB';
@@ -23,6 +23,7 @@ const ImperialRed = '#f3cfdd';
 
 //nav
 const greyLight = '#333333';
+const greylighter = '#B3B3B3';
 
 const PolynesianBlue = '#004E9F';
 const AliceBlue = '#DFEAFB';
@@ -70,17 +71,6 @@ export default {
   textColorBlue: white,
   textColorGreen: DarkSpringGreen,
 
-  // Modal
-  ModalOverlay,
-
-  // InputField
-  InputBackgroundColor: '#393939',
-  InputLabelColor: EmeraldGreen,
-  InputPlaceholderColor: silver,
-  InputTextColor: white,
-  InputIconsColor: white,
-  InputError: ImperialRed,
-
   DarkSpringGreen,
   PakistanGreen,
   AureolinYellow,
@@ -88,6 +78,8 @@ export default {
   silver,
   Battleshipgray,
   Gray,
+  greylighter,
+  greyLight,
   SeasaltWhite,
   OxfordBlue,
   Ghostwhite,
@@ -103,6 +95,16 @@ export default {
   white,
   blue,
   black,
+  // Modal
+  ModalOverlay,
+
+  // InputField
+  InputBackgroundColor: '#393939',
+  InputLabelColor: EmeraldGreen,
+  InputPlaceholderColor: silver,
+  InputTextColor: white,
+  InputIconsColor: white,
+  InputError: ImperialRed,
 
   cardBorder,
   //bottom tab navigation

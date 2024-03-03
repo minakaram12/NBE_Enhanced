@@ -10,7 +10,8 @@ import UtilitiesSvg from '../../../assets/svgs/UtilitiesSvg';
 import HistorySvg from '../../../assets/svgs/HistorySvg';
 import TranactionHistory from '../../templets/TransactionHistory/TransactionHistory.componet';
 import styles from './HomeScreen.style';
-import {visaCardsData} from '../../../Faker';
+
+import {visaCardsData} from '../../../Faker/Faker';
 import {simpleCardsArray} from '../../molecules/SimpleCardList/simpleCardListFaker';
 import SendMoneyList from '../../molecules/SendMoneyList/SendMoneyList';
 import {ParamListBase, useNavigation} from '@react-navigation/native';

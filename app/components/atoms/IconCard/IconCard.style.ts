@@ -1,11 +1,12 @@
 import { StyleSheet } from "react-native";
+import { theme } from "../../../theme/theme";
 
 export default StyleSheet.create({
     defaultContainer: {
         borderRadius: 10,
         padding: 16,
         margin:6,
-        backgroundColor:'white',
+        backgroundColor:theme?.white,
         width:40, 
         height: 40,
         alignItems:"center",
@@ -16,7 +17,7 @@ export default StyleSheet.create({
         borderRadius: 10,
         padding: 16,
         margin:6,
-        backgroundColor:'#007236',
+        backgroundColor:theme?.DarkSpringGreen,
         width:40, 
         height: 40,
         alignItems:"center",
@@ -26,7 +27,7 @@ export default StyleSheet.create({
         borderRadius: 10,
         padding: 16,
         margin:6,
-        backgroundColor:'white',
+        backgroundColor:theme?.white,
         width:40, 
         height: 40,
         alignItems:"center",

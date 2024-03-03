@@ -1,6 +1,6 @@
 import {Image, View} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
-import {markers} from '../../../Faker';
+import {markers} from '../../../Faker/Faker';
 import styles from './Map.style';
 import layouts from './../../../constants/styles/layouts';
 import {getTheme} from '../../../storage/mmkv';

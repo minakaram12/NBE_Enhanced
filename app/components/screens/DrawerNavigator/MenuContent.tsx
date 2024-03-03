@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     View,
     Text,
     StyleSheet,
     Image,
-    TouchableOpacity,
     Pressable,
 } from 'react-native';
 import Sidebar from '../../molecules/SidebarMenu/SidebarMenu';
 import IconCard from '../../atoms/IconCard/IconCard';
 import { px } from '../../../constants/styles/layouts';
 import LogoutSvg from '../../../assets/svgs/LogoutSvg';
-import { useTheme } from '../../../ContextAPI/ThemeContext';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { logout } from '../../../storage/mmkv';
@@ -20,8 +18,6 @@ import { theme } from '../../../theme/theme';
 interface userInfo {
     userName: string;
     phoneNumber: string;
-    // isEnabledDark: boolean;
-    // toggleSwitch: () => void;
 }
 const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber }) => {
     const logo = require('../../../assets/images/logoGreen.png');
@@ -30,7 +26,6 @@ const MenuContent: React.FC<userInfo> = ({ userName, phoneNumber }) => {
     const LogOut = () => {
         logout();
         navigate.navigate('loginScreen')
-        // console.log("goneeeeee");
     }
     return (
         <View >
@@ -96,13 +91,13 @@ const styles = StyleSheet.create({
         fontSize: px(18),
         flexDirection: "row",
         fontFamily: "Roboto-bold",
-        color: "#EB001B",
+        color: theme?.RedCMYK,
         fontWeight: "bold",
 
 
     },
     icon: {
-        backgroundColor: '#EED1D4',
+        backgroundColor: theme?.DunRose,
         width: px(30),
         height: px(30),
         marginRight: px(10),
@@ -111,7 +106,7 @@ const styles = StyleSheet.create({
         width: px(296),
         height: px(89),
         borderRadius: px(29),
-        backgroundColor: "white",
+        backgroundColor: theme?.white,
         padding: px(10),
         marginLeft: px(10),
         marginVertical: px(10),
@@ -130,7 +125,7 @@ const styles = StyleSheet.create({
 
     },
     userText: {
-        color: "black",
+        color: theme?.black,
         fontSize: px(18),
         fontWeight: "500",
 

@@ -1,12 +1,12 @@
 import {StyleSheet} from 'react-native';
 import {px} from '../../../constants/styles/layouts';
-import { theme } from '../../../theme/theme';
+import {theme} from '../../../theme/theme';
 
 export default StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    width: px(148),
+    width: '60%',
     height: px(30),
   },
   text: {

@@ -11,33 +11,32 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   cardBackground: {
-    width: '100%',
-    height: screenHeight * 0.25,
+    width: '92%',
+    height: screenHeight * 0.18,
     borderRadius: 20,
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     overflow: 'hidden',
     marginHorizontal: 18,
+    marginBottom: 10,
   },
   cardImage: {
     resizeMode: 'stretch',
     width: '100%',
     height: '100%',
-    opacity: 0.85,
   },
 
   cardContent: {
-    paddingHorizontal: 25,
+    paddingHorizontal: 10,
     flexDirection: 'row',
     justifyContent: 'center', // Center the items horizontally
     alignItems: 'center', // Align items vertically
-    marginVertical: 10,
-    marginHorizontal: 15,
+    marginHorizontal: 5,
   },
 
   CreditText: {
     color: theme?.SeasaltWhite,
-    fontSize: 20,
+    fontSize: 25,
     fontFamily: 'Roboto',
     includeFontPadding: false,
     flex: 1,
@@ -45,19 +44,19 @@ const styles = StyleSheet.create({
   },
 
   svgView: {
-    marginRight: 30,
+    marginRight: 1,
   },
 
   cardView: {
-    paddingVertical: 30,
+    paddingVertical: 5,
     width: '100%',
     height: '100%',
     justifyContent: 'space-around',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   containerstyle: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
   },
   servicesText: {
     color: theme?.itemColor,
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
     includeFontPadding: false,
     fontWeight: 'bold',
-    marginBottom: 0,
+    marginBottom: 2,
   },
 });
 export default styles;

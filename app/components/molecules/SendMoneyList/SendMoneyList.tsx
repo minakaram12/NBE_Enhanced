@@ -20,15 +20,12 @@ const SendMoneyList: React.FC<SimpleCardListProp> = ({cardsData}) => {
   // };
 
   return (
-    <View style={[layouts.allCentered, {paddingHorizontal: 5}]}>
-      <FlatList
-        data={cardsData}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        renderItem={renderSimpleCard}
-       
-      />
-    </View>
+    <FlatList
+      data={cardsData}
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      renderItem={renderSimpleCard}
+    />
   );
 };
 

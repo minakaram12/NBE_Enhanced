@@ -19,6 +19,8 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {px} from '../../../constants/styles/layouts';
 import {theme} from '../../../theme/theme';
 import {HistoryWithImg} from '../../../Faker/HistoryWithImg';
+import {ScrollView} from 'react-native-gesture-handler';
+import {width} from '@fortawesome/free-solid-svg-icons/faEye';
 
 const HomeScreen = () => {
   const [showVisaCards, setShowVisaCards] = useState(false);
@@ -26,12 +28,13 @@ const HomeScreen = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
   return (
     <View style={styles.outerContainer}>
+      {/* <ScrollView> */}
       {!showVisaCards && (
         <View>
           {/* balaance */}
           <TouchableOpacity onPress={() => setShowVisaCards(true)}>
             <ImageBackground
-              source={require('../../../assets/images/home_card.png')} // Replace 'visa_card_bg.jpg' with the path to your image
+              source={require('../../../assets/images/balance.png')} // Replace 'visa_card_bg.jpg' with the path to your image
               style={[styles.cardBackground]}
               imageStyle={styles.cardImage}>
               <View style={styles.cardView}>
@@ -50,7 +53,14 @@ const HomeScreen = () => {
             </ImageBackground>
           </TouchableOpacity>
           {/* services */}
-          <View style={[layouts.justifyAround, layouts.row]}>
+          <View
+            style={[
+              layouts.justifyAround,
+              layouts.row,
+              {height: '20%', width: '100%'},
+              layouts.my.sm,
+              layouts.px.lg,
+            ]}>
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate('Beneficiary');
@@ -117,13 +127,19 @@ const HomeScreen = () => {
             </TouchableOpacity>
           </View>
 
-          <View style={[layouts.mt.xxxl, layouts.ms.sm, layouts.px.mlg]}>
+          <View
+            style={[
+              layouts.ms.sm,
+              layouts.px.lg,
+              {marginTop: 15},
+             
+            ]}>
             <Text style={[styles.titleText]}>Send Money</Text>
+            <SendMoneyList cardsData={simpleCardsArray} />
           </View>
-          <SendMoneyList cardsData={simpleCardsArray} />
         </View>
       )}
-
+      {/* </ScrollView> */}
       {showVisaCards && (
         <View>
           <VisaCardList
@@ -135,8 +151,13 @@ const HomeScreen = () => {
 
       <View
         style={[
-          [layouts.mx.xl, layouts.mt.xl],
-          {height: !showVisaCards ? px(140) : '65%'},
+          [layouts.mx.xl],
+          {
+            height: !showVisaCards ? px(200) : '65%',
+            marginTop: !showVisaCards ? 10 : 15,
+          },
+          // {height: '100%'},
+          // {flex: 1},
         ]}>
         <TranactionHistory
           transactionitems={HistoryWithImg}

@@ -43,10 +43,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
     fontSize: 20,
     fontWeight: '700',
-    lineHeight: 23,
+    lineHeight: 20,
     letterSpacing: 0,
     color: theme?.itemColor,
-    marginBottom: 15,
+    marginBottom: 5,
   },
 });
 

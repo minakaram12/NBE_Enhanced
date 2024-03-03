@@ -27,8 +27,10 @@ export default SimpleCard;
 const styles = StyleSheet.create({
   simpleCardContainer: {
     aspectRatio: 0.89,
-    width: 90,
-    margin: 5,
+    width: 70,
+    marginTop: 5,
+    marginHorizontal: 5,
+    marginBottom: 2,
     backgroundColor: '#ffffff',
     borderRadius: 18,
   },

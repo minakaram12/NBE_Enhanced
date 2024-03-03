@@ -16,25 +16,30 @@ const cardBorder = '#eeeeee';
 const EmeraldGreen = '#cdede7';
 const PictonBlue = '#cde9fb';
 
-const greyLight = '#333333';
-const greylighter = '#B3B3B3';
-const PolynesianBlue = '#004E9F';
-const AliceBlue = '#DFEAFB';
-const DunRose = '#DDCBAC';
-const OldRose = '#B47980';
-const ImperialRed = '#f3cfdd';
-const RedCMYK = '#E3000D';
-const OrchidPink = '#E5B8C0';
-const Licorice = '#231912';
 
-const LicoriceBlack = '#231912';
-const Eerieblack = '#1B1B1B';
+
+const greyLight='#333333';
+const greylighter="#B3B3B3";
+const PolynesianBlue ='#004E9F';
+const AliceBlue='#DFEAFB'
+const DunRose ='#DDCBAC';
+const OldRose='#B47980';
+const ImperialRed ='#f3cfdd';
+const RedCMYK='#E3000D';
+const OrchidPink ='#E5B8C0';
+const Licorice='#231912';
+
+const LicoriceBlack='#231912';
+const Eerieblack ='#1B1B1B';
+
 
 const white = '#FFFFFF';
 const blue = '#3B82F6';
 const black = '#000000';
 
 const ModalOverlay = 'rgba(0, 0, 0, 0.6)';
+
+
 
 export default {
   name: 'Light',
@@ -66,19 +71,19 @@ export default {
   //statueBar
   BackgroundStatus: white,
 
-  greyLight,
-  greylighter,
-  DarkSpringGreen,
-  PakistanGreen,
-  AureolinYellow,
-  CanaryYellow,
-  silver,
-  Battleshipgray,
-  Gray,
-  SeasaltWhite,
-  Ghostwhite,
-
-  OxfordBlue,
+     greyLight,
+     greylighter,
+     DarkSpringGreen,
+     PakistanGreen,
+     AureolinYellow,
+     CanaryYellow,
+     silver ,
+     Battleshipgray,
+     Gray,
+     SeasaltWhite,
+     Ghostwhite,
+    
+     OxfordBlue,
   // Modal
   ModalOverlay,
 

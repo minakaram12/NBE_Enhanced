@@ -1,10 +1,5 @@
 import React, {ReactNode, useEffect, useRef, useState} from 'react';
-import {
-  Animated,
-  Image,
-  View,
-  StyleSheet,
-} from 'react-native';
+import {Animated, Image, View, StyleSheet} from 'react-native';
 import MenuContent from './MenuContent';
 import IconCard from '../../atoms/IconCard/IconCard';
 import MenuTogglerSvg from '../../../assets/svgs/MenuTogglerSvg';
@@ -20,7 +15,7 @@ import {
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
-import { screenWidth } from '../../../constants/styles/layouts';
+import {screenWidth} from '../../../constants/styles/layouts';
 
 interface DrawerMenuProps {
   children: ReactNode;
@@ -35,9 +30,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   const route = useRoute();
   const routeName = getFocusedRouteNameFromRoute(route) ?? 'HomeScreen';
 
-
   console.log(routeName);
-
 
   const offsetValue = useRef(new Animated.Value(0)).current;
   const scaleValue = useRef(new Animated.Value(1)).current;
@@ -45,7 +38,6 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   const ScaleBottomNav = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-  
     const unsubscribe = navigation.addListener('state', () => {
       // Accessing the nested stack navigator named 'Beneficiary' within the 'home' stack navigator
       const stackNavigatorState = navigation
@@ -70,7 +62,6 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   }, [routeName, navigation]);
 
   const handleMenuPress = () => {
-    
     Animated.parallel([
       Animated.timing(scaleValue, {
         toValue: showMenu ? 1 : 0.88,
@@ -78,7 +69,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
         useNativeDriver: true,
       }),
       Animated.timing(offsetValue, {
-        toValue: showMenu ? 0 : screenWidth*0.9,
+        toValue: showMenu ? 0 : screenWidth * 0.9,
         duration: 300,
         useNativeDriver: true,
       }),
@@ -113,8 +104,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   }
 
   return (
-    <View
-      style={styles.container}>
+    <View style={styles.container}>
       {/* MenuItem */}
       <ScrollView>
         <MenuContent
@@ -139,26 +129,28 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
         <Animated.View
           // eslint-disable-next-line react-native/no-inline-styles
           style={{
-            transform: [{translateY: closeButtonOffset},{translateY: ScaleBottomNav}],
+            transform: [
+              {translateY: closeButtonOffset},
+              {translateY: ScaleBottomNav},
+            ],
             backgroundColor: theme?.BackgroundMenu,
-            height:'100%',
+            height: '100%',
           }}>
-           
-         {
-          showTopNav && (  <TopNavigator
-            onPressLeft={handleMenuPress}
-            contentLeft={contentLeft}
-            contentMiddle={
-              <TopNavImg
-                name={getUsername() || 'Ahmed'}
-                imgUrl={require('../../../assets/images/dummyUser.png')}
-              />
-            }
-            contentRight={<IconCard icon={BellSvg} Type="Notification" />}
-          />)
-         } 
-            {/* homeScreen content */}
-            {children}
+          {showTopNav && (
+            <TopNavigator
+              onPressLeft={handleMenuPress}
+              contentLeft={contentLeft}
+              contentMiddle={
+                <TopNavImg
+                  name={getUsername() || 'Ahmed'}
+                  imgUrl={require('../../../assets/images/dummyUser.png')}
+                />
+              }
+              contentRight={<IconCard icon={BellSvg} Type="Notification" />}
+            />
+          )}
+          {/* homeScreen content */}
+          {children}
         </Animated.View>
       </Animated.View>
     </View>

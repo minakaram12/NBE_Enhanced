@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
 
     },
     icon: {
-        backgroundColor: theme?.DunRose,
+        backgroundColor: theme?.IconLogoutBackground,
         width: px(30),
         height: px(30),
         marginRight: px(10),

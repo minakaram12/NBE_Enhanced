@@ -60,7 +60,7 @@ const HomeScreen = () => {
                 icon={AccountsSvg}
                 containerstyle={[
                   {
-                    backgroundColor: theme?.EmeraldGreen,
+                    backgroundColor: theme?.IconAccountBackground,
                   },
                   styles.containerstyle,
                 ]}
@@ -76,7 +76,7 @@ const HomeScreen = () => {
                 icon={CardsSvg}
                 containerstyle={[
                   {
-                    backgroundColor: theme?.PictonBlue,
+                    backgroundColor: theme?.IconCardstBackground,
                   },
                   styles.containerstyle,
                 ]}
@@ -92,7 +92,7 @@ const HomeScreen = () => {
                 icon={UtilitiesSvg}
                 containerstyle={[
                   {
-                    backgroundColor: theme?.orangeWeb,
+                    backgroundColor: theme?.IconutilitiesBackground,
                   },
                   styles.containerstyle,
                 ]}
@@ -108,7 +108,7 @@ const HomeScreen = () => {
                 icon={HistorySvg}
                 containerstyle={[
                   {
-                    backgroundColor: theme?.ImperialRed,
+                    backgroundColor: theme?.IconHistoryBackground,
                   },
                   styles.containerstyle,
                 ]}

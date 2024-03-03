@@ -21,6 +21,7 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import { screenWidth } from '../../../constants/styles/layouts';
+import { colors } from '../../../constants/styles';
 
 interface DrawerMenuProps {
   children: ReactNode;
@@ -100,7 +101,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   let contentLeft: any = <IconCard 
                     icon={MenuTogglerSvg} 
                     iconProps={{fill:theme.BasicColor}}
-                    containerstyle={{backgroundColor:theme.BackgroundScreen}}>
+                    containerstyle={{backgroundColor:theme.BackgroundNav}}>
                    </IconCard>;
   if (showMenu) {
     contentLeft = (
@@ -144,7 +145,8 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
           // eslint-disable-next-line react-native/no-inline-styles
           style={{
             transform: [{translateY: closeButtonOffset},{translateY: ScaleBottomNav}],
-            backgroundColor: theme?.BackgroundMenu,
+            //background of top nav bar
+            backgroundColor: theme.BackgroundNav,
             height:'100%',
           }}>
            
@@ -174,7 +176,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    backgroundColor: theme?.BackgroundMenu,
+    //backgroung of menuContent
+   backgroundColor: theme?.BackgroundMenu,
   },
 });
 

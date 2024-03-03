@@ -1,5 +1,6 @@
 import {colors} from '../colors';
 
+const bottomTabColor = '#ffffff';
 const DarkSpringGreen = '#007236';
 const PakistanGreen = '#003D1D';
 const AureolinYellow = '#FBED1F';
@@ -117,4 +118,6 @@ export default {
   white,
   blue,
   black,
+  //bottom tab
+  BottomTab: bottomTabColor,
 };

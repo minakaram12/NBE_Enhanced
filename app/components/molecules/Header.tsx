@@ -11,13 +11,15 @@ import GreenLogoSvg from '../../assets/svgs/GreenLogoSvg';
 
 interface HeaderProps {
   back?: boolean;
-  addBeneficiar?: boolean;
+  bell?: boolean;
+  lang?: boolean;
   login?: boolean;
   onBack?(): void;
 }
 const Header = ({
   back = false,
-  addBeneficiar = false,
+  bell = false,
+  lang = false,
   login = true,
   onBack,
 }: HeaderProps) => {
@@ -25,8 +27,8 @@ const Header = ({
     if (onBack) onBack();
   };
 
-  const beneficiarHandler = () => {
-    console.log('Go to Add Beneficiaries Screen');
+  const bellHandler = () => {
+    console.log('Go to Notifications');
   };
 
   const langHandler = () => {
@@ -41,7 +43,7 @@ const Header = ({
         {height: 60, alignItems: 'center'},
       ]}>
       <View style={[layouts.row]}>
-        {login && (
+        {lang && (
           <Pressable onPress={langHandler}>
             <IconCard
               icon={ArSvg}
@@ -70,8 +72,8 @@ const Header = ({
             </Pressable>
           </View>
         )}
-        {addBeneficiar && (
-          <Pressable onPress={beneficiarHandler}>
+        {bell && (
+          <Pressable onPress={bellHandler}>
             <IconCard
               icon={BellSvg}
               containerstyle={{

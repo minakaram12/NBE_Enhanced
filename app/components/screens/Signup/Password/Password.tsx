@@ -25,7 +25,6 @@ const Password = () => {
       ]}>
       <Header
         back={true}
-        addBeneficiar={false}
         login={false}
         onBack={backHandler}
       />

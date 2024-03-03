@@ -113,7 +113,7 @@ function BottomTabsNavigation() {
                   ? styles.NavigatorActiveTextStyle
                   : styles.NavigatorInActiveTextStyle
               }>
-              Air play
+              Air Pay
             </Text>
           </View>
         </View>

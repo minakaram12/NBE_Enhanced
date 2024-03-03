@@ -5,7 +5,17 @@ import {layouts} from '../../../constants/styles';
 import {visaCards} from '../../../Faker/VisaCards';
 import styles from './DraggableCard.style';
 
-const DraggableCard = ({item, index, setReceiverCardIndex}) => {
+interface DraggableCardProps {
+  item: any;
+  index: number;
+  setReceiverCardIndex: Function;
+}
+
+const DraggableCard = ({
+  item,
+  index,
+  setReceiverCardIndex,
+}: DraggableCardProps) => {
   return (
     <DraxView
       style={[

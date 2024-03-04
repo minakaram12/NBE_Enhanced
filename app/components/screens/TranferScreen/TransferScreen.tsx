@@ -21,6 +21,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {ScrollView} from 'react-native-gesture-handler';
 import {theme} from '../../../theme/theme';
 import {height} from '@fortawesome/free-solid-svg-icons/faEye';
+import { px } from '../../../constants/styles/layouts';
 
 interface FormValues {
   amount: string;
@@ -116,6 +117,7 @@ const TransferScreen = () => {
           {formikProps => (
             <View
               style={{
+                flex: 1,
                 justifyContent: 'space-between',
                 flexDirection: 'column',
                 alignItems: 'stretch',
@@ -156,7 +158,7 @@ const TransferScreen = () => {
                   <InputField
                     name="reason"
                     placeholder="Reason of transfer"
-                    outerContainerStyle={[layouts.mb.xxl]}
+                    outerContainerStyle={[layouts.mb.xs]}
                     innerContainerStyle={shadows()}
                     onChangeText={text => {
                       formikProps.setFieldValue('reason', text);
@@ -178,6 +180,9 @@ const TransferScreen = () => {
                   onConfirmPress={() => setShowFailedModal(false)}
                   cancelButtonText="Cancel"
                   onCancelPress={() => setShowFailedModal(false)}
+                  imageSource={require('../../../assets/images/error-cards.png')}
+                  imageWidth={px(230.18)}
+                  imageHeight={px(181.42)}
                 />
                 <MainBtn
                   buttonText="Transfer"

@@ -87,4 +87,30 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
   },
 ];
 
-// Now detailedCardPropsArray is an array of 10 items with the DetailedCardProps type
+// Now detailedCardPropsArray is an array of 10 items with the DetailedCardProps type //
+
+const objectsList = [];
+
+for (let i = 0; i < 10; i++) {
+  const randomFirstName = 'John' + i;
+  const randomLastName = 'Doe' + i;
+  const randomPhoneNumber = '+0126520' + Math.floor(Math.random() * 10000);
+  const randomAccountNumber = '1000' + Math.floor(Math.random() * 1000000);
+  const randomEmail = `john.doe${Math.floor(Math.random() * 100)}@example.com`;
+
+  const newObject = {
+    name: randomFirstName + ' ' + randomLastName,
+    mobileNumber: randomPhoneNumber,
+    balance: '999',
+    image: require('../../../assets/images/profimg.jpg'),
+    color: '#ffffff',
+    key: randomFirstName + ' ' + randomLastName,
+    accountNumber: randomAccountNumber,
+    phoneNumber: randomPhoneNumber,
+    email: randomEmail,
+  };
+
+  objectsList.push(newObject);
+}
+
+export default objectsList;

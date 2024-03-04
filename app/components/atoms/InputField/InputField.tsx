@@ -227,11 +227,16 @@ const InputField: React.FC<InputProps> = ({
               <Pressable
                 style={[layouts.my.md]}
                 onPress={togglePasswordVisibility}>
-                {/* <ClosedEye /> */}
                 <FontAwesomeIcon
                   icon={isPasswordVisible ? faEye : faEyeSlash}
                   size={23}
-                  color={isFocus ? '#B7B7B7' : '#fff'}
+                  color={
+                    variant === 'transparent'
+                      ? isFocus
+                        ? '#B7B7B7'
+                        : '#fff'
+                      : '#B7B7B7'
+                  }
                 />
               </Pressable>
             )}

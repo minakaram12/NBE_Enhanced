@@ -1,4 +1,4 @@
-// import {px} from '@app/constants/styles/layouts';
+import {px} from '../../../constants/styles/layouts';
 // import {theme} from '@app/theme/theme';
 import {screenHeight} from '../../../constants/styles/layouts';
 import shadows from '../../../constants/styles/shadows';
@@ -9,69 +9,75 @@ const styles = StyleSheet.create({
   outerContainer: {
     backgroundColor: theme?.BackgroundScreen,
     height: '100%',
+    paddingHorizontal: 15,
   },
   cardBackground: {
     width: '100%',
-    height: screenHeight * 0.25,
+    height: px(132),
     borderRadius: 20,
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     overflow: 'hidden',
-    marginHorizontal: 18,
+    marginBottom: 10,
   },
   cardImage: {
     resizeMode: 'stretch',
     width: '100%',
     height: '100%',
-    opacity: 0.85,
   },
 
   cardContent: {
-    paddingHorizontal: 25,
+    paddingHorizontal: 10,
     flexDirection: 'row',
     justifyContent: 'center', // Center the items horizontally
     alignItems: 'center', // Align items vertically
-    marginVertical: 10,
-    marginHorizontal: 15,
+    marginHorizontal: 5,
   },
 
   CreditText: {
     color: theme?.SeasaltWhite,
-    fontSize: 20,
+    fontSize: px(20),
     fontFamily: 'Roboto',
     includeFontPadding: false,
     flex: 1,
-    marginBottom: 20,
+    marginBottom: px(15),
   },
 
   svgView: {
-    marginRight: 30,
+    marginRight: 1,
   },
 
   cardView: {
-    paddingVertical: 30,
+    paddingVertical: px(2),
     width: '100%',
     height: '100%',
     justifyContent: 'space-around',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   containerstyle: {
-    width: 60,
-    height: 60,
+    width: px(50),
+    height: px(50),
   },
   servicesText: {
     color: theme?.itemColor,
-    fontSize: 17,
+    fontSize: px(15),
     fontFamily: 'Roboto',
     includeFontPadding: false,
   },
   titleText: {
     color: theme?.itemColor,
-    fontSize: 20,
+    fontSize: px(18),
     fontFamily: 'Roboto',
     includeFontPadding: false,
     fontWeight: 'bold',
-    marginBottom: 0,
+    marginBottom: 2,
+  },
+  viewAllText: {
+    color: theme?.silver,
+    fontSize: px(15),
+    fontFamily: 'Roboto',
+    includeFontPadding: false,
+    marginBottom: 2,
   },
 });
 export default styles;

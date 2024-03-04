@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Image, Text, StyleSheet, ViewStyle} from 'react-native';
 import {layouts} from '../../../constants/styles';
+import { px } from '../../../constants/styles/layouts';
 
 export interface SimpleCardProp {
   image: number; //number not string as we are passing require(string name). require funciton returns a number
@@ -27,8 +28,10 @@ export default SimpleCard;
 const styles = StyleSheet.create({
   simpleCardContainer: {
     aspectRatio: 0.89,
-    width: 90,
-    margin: 5,
+    width: px(70),
+    marginTop: 5,
+    marginHorizontal: 5,
+    marginBottom: 2,
     backgroundColor: '#ffffff',
     borderRadius: 18,
   },

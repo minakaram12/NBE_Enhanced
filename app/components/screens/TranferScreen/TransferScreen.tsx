@@ -90,8 +90,8 @@ const TransferScreen = () => {
   };
 
   return (
-    <ScrollView>
-      <View style={[styles.container]}>
+    <View style={[styles.container]}>
+      <ScrollView>
         <TopNavigator
           onPressLeft={HandleGoBack}
           contentLeft={<IconCard icon={BackSvg} Type="back" />}
@@ -114,8 +114,13 @@ const TransferScreen = () => {
             console.log(values);
           }}>
           {formikProps => (
-            <View>
-              <View style={{paddingBottom: 23}}>
+            <View
+              style={{
+                justifyContent: 'space-between',
+                flexDirection: 'column',
+                alignItems: 'stretch',
+              }}>
+              <View style={{paddingBottom: 40}}>
                 <View style={[layouts.px.md, layouts.py.md]}>
                   <DropdownMenu
                     options={transferType}
@@ -135,7 +140,7 @@ const TransferScreen = () => {
                     }
                   />
                 </View>
-                <View style={[layouts.px.xl, layouts.py.md]}>
+                <View style={[layouts.px.xl, layouts.my.xs]}>
                   <InputField
                     name="amount"
                     label="Amount to transfer"
@@ -184,8 +189,8 @@ const TransferScreen = () => {
             </View>
           )}
         </Formik>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 

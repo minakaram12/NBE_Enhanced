@@ -28,6 +28,10 @@ const RedCMYK = '#E3000D';
 const OrchidPink = '#E5B8C0';
 const Licorice = '#231912';
 
+
+
+const DarkRed = '#2d0108';
+
 const LicoriceBlack = '#231912';
 const Eerieblack = '#1B1B1B';
 
@@ -51,6 +55,11 @@ export default {
   orangeWeb,
   ImperialRed,
 
+  IconAccountBackground: EmeraldGreen,
+  IconCardstBackground: PictonBlue,
+  IconutilitiesBackground: orangeWeb,
+  IconHistoryBackground: ImperialRed,
+
   //Top &bottom navigation
   BackgroundNav: Ghostwhite,
 
@@ -63,6 +72,9 @@ export default {
   textColorGrey: silver,
   textColorBlue: OxfordBlue,
   textColorGreen: DarkSpringGreen,
+
+  //BackgroundRed
+  IconLogoutBackground: DunRose,
 
   //statueBar
   BackgroundStatus: white,

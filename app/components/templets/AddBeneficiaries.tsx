@@ -216,7 +216,13 @@ function AddBeneficiaries({route}) {
               />
               {Object.keys(formikProps.errors).length > 0 && (
                 <Text style={styles.generalError}>
-                  check your inputs and try again
+                  {Object.keys(formikProps.errors).map((errorKey, index) => (
+                    <Text key={index}>
+                      {formikProps.errors[errorKey]}
+                      {index < Object.keys(formikProps.errors).length - 1 &&
+                        ', '}
+                    </Text>
+                  ))}
                 </Text>
               )}
               {edit ? (

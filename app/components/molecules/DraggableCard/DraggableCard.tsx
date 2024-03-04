@@ -2,17 +2,27 @@ import React from 'react';
 import {DraxView} from 'react-native-drax';
 import VisaCard from '../../atoms/VisaCard/VisaCard';
 import {layouts} from '../../../constants/styles';
-import {visaCards} from '../../../Faker/VisaCards';
+import {visaCardsData} from '../../../Faker/Faker';
 import styles from './DraggableCard.style';
 
-const DraggableCard = ({item, index, setReceiverCardIndex}) => {
+interface DraggableCardProps {
+  item: any;
+  index: number;
+  setReceiverCardIndex: Function;
+}
+
+const DraggableCard = ({
+  item,
+  index,
+  setReceiverCardIndex,
+}: DraggableCardProps) => {
   return (
     <DraxView
       style={[
         layouts.mx.sm,
         layouts.allCentered,
         index === 0 ? layouts.ms.xl : null,
-        index === visaCards.length - 1 ? layouts.me.xl : null,
+        index === visaCardsData.length - 1 ? layouts.me.xl : null,
         styles.draggableCardContainer,
       ]}
       dragPayload={index}

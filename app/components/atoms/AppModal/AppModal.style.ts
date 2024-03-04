@@ -5,20 +5,16 @@ import {theme} from '../../../theme/theme';
 const styles = StyleSheet.create({
   overlay: {
     backgroundColor: theme?.ModalOverlay,
-    width: '100%',
-    height: '100%',
   },
   modalContent: {
-    width: '90%',
+    width: px(346),
     backgroundColor: theme?.BackgroundScreen,
-    borderRadius: 30,
+    borderRadius: px(30),
   },
-
   imageContainer: {
     width: px(230.18),
     height: px(181.42),
   },
-
   modalTitle: {
     color: theme?.textColor,
     fontSize: px(20),
@@ -30,11 +26,11 @@ const styles = StyleSheet.create({
   },
   modalMony: {
     fontSize: px(40),
-    fontWeight: 'bold',
+    fontFamily: 'Roboto-Bold',
     color: theme?.textColorBlue,
   },
   boldFont: {
-    fontWeight: 'bold',
+    fontFamily: 'Roboto-Bold',
   },
   errorText: {
     color: '#EB001B',

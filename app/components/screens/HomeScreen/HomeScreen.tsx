@@ -19,19 +19,23 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {px} from '../../../constants/styles/layouts';
 import {theme} from '../../../theme/theme';
 import {HistoryWithImg} from '../../../Faker/HistoryWithImg';
+import {ScrollView} from 'react-native-gesture-handler';
+import {width} from '@fortawesome/free-solid-svg-icons/faEye';
 
 const HomeScreen = () => {
   const [showVisaCards, setShowVisaCards] = useState(false);
+  const [showAll, setShowAll] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
   return (
     <View style={styles.outerContainer}>
+      {/* <ScrollView> */}
       {!showVisaCards && (
         <View>
           {/* balaance */}
           <TouchableOpacity onPress={() => setShowVisaCards(true)}>
             <ImageBackground
-              source={require('../../../assets/images/home_card.png')} // Replace 'visa_card_bg.jpg' with the path to your image
+              source={require('../../../assets/images/balance.png')} // Replace 'visa_card_bg.jpg' with the path to your image
               style={[styles.cardBackground]}
               imageStyle={styles.cardImage}>
               <View style={styles.cardView}>
@@ -50,7 +54,14 @@ const HomeScreen = () => {
             </ImageBackground>
           </TouchableOpacity>
           {/* services */}
-          <View style={[layouts.justifyAround, layouts.row]}>
+          <View
+            style={[
+              layouts.justifyAround,
+              layouts.row,
+              {width: '100%'},
+              layouts.my.xs,
+              layouts.px.lg,
+            ]}>
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate('Beneficiary');
@@ -60,7 +71,7 @@ const HomeScreen = () => {
                 icon={AccountsSvg}
                 containerstyle={[
                   {
-                    backgroundColor: theme?.EmeraldGreen,
+                    backgroundColor: theme?.IconAccountBackground,
                   },
                   styles.containerstyle,
                 ]}
@@ -76,7 +87,7 @@ const HomeScreen = () => {
                 icon={CardsSvg}
                 containerstyle={[
                   {
-                    backgroundColor: theme?.PictonBlue,
+                    backgroundColor: theme?.IconCardstBackground,
                   },
                   styles.containerstyle,
                 ]}
@@ -92,7 +103,7 @@ const HomeScreen = () => {
                 icon={UtilitiesSvg}
                 containerstyle={[
                   {
-                    backgroundColor: theme?.orangeWeb,
+                    backgroundColor: theme?.IconutilitiesBackground,
                   },
                   styles.containerstyle,
                 ]}
@@ -108,7 +119,7 @@ const HomeScreen = () => {
                 icon={HistorySvg}
                 containerstyle={[
                   {
-                    backgroundColor: theme?.ImperialRed,
+                    backgroundColor: theme?.IconHistoryBackground,
                   },
                   styles.containerstyle,
                 ]}
@@ -117,13 +128,24 @@ const HomeScreen = () => {
             </TouchableOpacity>
           </View>
 
-          <View style={[layouts.mt.xxxl, layouts.ms.sm, layouts.px.mlg]}>
-            <Text style={[styles.titleText]}>Send Money</Text>
+          <View style={[layouts.ms.sm, layouts.px.lg, {marginTop: px(10)}]}>
+            <View
+              style={[layouts.row, layouts.justifyBetween, layouts.alignedEnd]}>
+              <Text style={[styles.titleText]}>Send Money</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  setShowAll(!showAll);
+                }}>
+                {!showAll && <Text style={[styles.viewAllText]}>View All</Text>}
+                {showAll && <Text style={[styles.viewAllText]}>View less</Text>}
+              </TouchableOpacity>
+            </View>
+
+            <SendMoneyList cardsData={simpleCardsArray} showAll={showAll} />
           </View>
-          <SendMoneyList cardsData={simpleCardsArray} />
         </View>
       )}
-
+      {/* </ScrollView> */}
       {showVisaCards && (
         <View>
           <VisaCardList
@@ -135,13 +157,20 @@ const HomeScreen = () => {
 
       <View
         style={[
-          [layouts.mx.xl, layouts.mt.xl],
-          {height: !showVisaCards ? px(140) : '65%'},
+          [layouts.mx.xl],
+          {
+            height: !showVisaCards ? px(260) : '65%',
+            marginTop: !showVisaCards ? 10 : 15,
+          },
+          // {height: '100%'},
+          // {flex: 1},
         ]}>
+          
         <TranactionHistory
           transactionitems={HistoryWithImg}
           displayImage={true}
           header="History"
+          viewAll={true}
         />
       </View>
     </View>

@@ -25,7 +25,7 @@ const MenuContent: React.FC<userInfo> = ({userName, phoneNumber}) => {
 
   console.log(screenHeight);
   return (
-    <View>
+    <View style={styles.MainComponent}>
       {/* AR button and logo */}
       <View style={styles.TopContainer}>
         <View style={styles.header}>
@@ -65,9 +65,14 @@ const MenuContent: React.FC<userInfo> = ({userName, phoneNumber}) => {
 };
 
 const styles = StyleSheet.create({
+  MainComponent:{
+    flex:1,
+    justifyContent:"space-between",
+    flexDirection:"column",
+  },
   TopContainer: {
-    marginBottom:
-      screenHeight >= 800 ? screenHeight * 0.07 : screenHeight * 0.01,
+    paddingBottom:
+      screenHeight >= 800 ? screenHeight * 0.1 : screenHeight * 0.04,
   },
   header: {
     flexDirection: 'row',
@@ -77,7 +82,7 @@ const styles = StyleSheet.create({
     marginLeft: px(10),
   },
   outerContainer: {
-    marginTop: px(40),
+  // marginTop: px(40),
   },
   container: {
     flexDirection: 'row',

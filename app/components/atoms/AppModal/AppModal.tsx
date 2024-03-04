@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Alert,
-  DimensionValue,
-  Image,
-  Modal,
-  Pressable,
-  Text,
-  View,
-} from 'react-native';
+import {Alert, Image, Modal, Pressable, Text, View} from 'react-native';
 
 import styles from './AppModal.style';
 import {layouts} from '../../../constants/styles';
@@ -18,8 +10,8 @@ interface AppModalProps {
   modalVisible: boolean;
   setModalVisible: (value: boolean) => void;
   imageSource?: any;
-  imageWidth?: DimensionValue;
-  imageHeight?: DimensionValue;
+  imageWidth?: number;
+  imageHeight?: number;
   titleText?: string;
   errorTitle?: boolean;
   descriptionText?: string;
@@ -58,9 +50,9 @@ const AppModal: React.FC<AppModalProps> = ({
         <Pressable
           onPress={() => setModalVisible(!modalVisible)}
           style={[
-            layouts.allCentered,
-            layouts.px.xl,
             layouts.absolute,
+            layouts.fullHeight,
+            layouts.fullWidth,
             styles.overlay,
           ]}
         />

@@ -49,5 +49,5 @@ const styles = StyleSheet.create({
   curved: {borderRadius: 18},
   leftBtn: {backgroundColor: '#007236'},
   righBtn: {backgroundColor: '#7a1712'},
-  textStyle: {color: theme.textColor},
+  textStyle: {color: '#ffffff'},
 });

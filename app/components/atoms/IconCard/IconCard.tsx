@@ -21,9 +21,9 @@ const IconCard: React.FC<IconProps> = ({
       case 'back':
         return styles.BackContainer;
       case 'Notification':
-        return styles.NotificationContainer;
+        return [styles.NotificationContainer, containerstyle];
       default:
-        return [styles.defaultContainer, containerstyle]
+        return [styles.defaultContainer, containerstyle];
     }
   };
   

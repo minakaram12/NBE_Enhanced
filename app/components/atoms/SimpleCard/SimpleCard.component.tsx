@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Image, Text, StyleSheet, ViewStyle} from 'react-native';
 import {layouts} from '../../../constants/styles';
 import { px } from '../../../constants/styles/layouts';
+import { theme } from '../../../theme/theme';
 
 export interface SimpleCardProp {
   image: number; //number not string as we are passing require(string name). require funciton returns a number
@@ -15,7 +16,7 @@ const SimpleCard: React.FC<SimpleCardProp> = ({image, name, style}) => {
         styles.simpleCardContainer,
         layouts.xCentered,
         layouts.yCentered,
-        {backgroundColor: 'white'},
+        {backgroundColor: theme?.notificationBackground},
         style,
       ]}>
       <Image source={image} style={styles.simpleCardImage} />
@@ -49,5 +50,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 16.41,
     textAlign: 'center',
+    color: theme?.BasicColor,
   },
 });

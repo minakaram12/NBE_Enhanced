@@ -15,8 +15,8 @@ import {
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
-import { screenWidth } from '../../../constants/styles/layouts';
-import { colors } from '../../../constants/styles';
+import {screenWidth} from '../../../constants/styles/layouts';
+import {colors} from '../../../constants/styles';
 
 interface DrawerMenuProps {
   children: ReactNode;
@@ -89,11 +89,12 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
     setShowMenu(!showMenu);
   };
 
-  let contentLeft: any = <IconCard 
-                    icon={MenuTogglerSvg} 
-                    iconProps={{fill:theme.BasicColor}}
-                    containerstyle={{backgroundColor:theme.BackgroundNav}}>
-                   </IconCard>;
+  let contentLeft: any = (
+    <IconCard
+      icon={MenuTogglerSvg}
+      iconProps={{fill: theme.BasicColor}}
+      containerstyle={{backgroundColor: theme.BackgroundNav}}></IconCard>
+  );
   if (showMenu) {
     contentLeft = (
       <Image
@@ -134,10 +135,13 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
         <Animated.View
           // eslint-disable-next-line react-native/no-inline-styles
           style={{
-            transform: [{translateY: closeButtonOffset},{translateY: ScaleBottomNav}],
+            transform: [
+              {translateY: closeButtonOffset},
+              {translateY: ScaleBottomNav},
+            ],
             //background of top nav bar
-            backgroundColor: theme.BackgroundNav,
-            height:'100%',
+            backgroundColor: theme.BackgroundMenu,
+            height: '100%',
           }}>
           {showTopNav && (
             <TopNavigator
@@ -149,7 +153,16 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
                   imgUrl={require('../../../assets/images/dummyUser.png')}
                 />
               }
-              contentRight={<IconCard icon={BellSvg} Type="Notification" />}
+              contentRight={
+                <IconCard
+                  icon={BellSvg}
+                  Type="Notification"
+                  iconProps={{fill: theme.BasicColor}}
+                  containerstyle={{
+                    backgroundColor: theme?.notificationBackground,
+                  }}
+                />
+              }
             />
           )}
           {/* homeScreen content */}
@@ -166,7 +179,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     //backgroung of menuContent
-   backgroundColor: theme?.BackgroundMenu,
+    backgroundColor: theme?.BackgroundMenu,
   },
 });
 

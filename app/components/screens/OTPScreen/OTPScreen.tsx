@@ -18,6 +18,7 @@ import AppModal from '../../atoms/AppModal/AppModal';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {getPhoneNumber} from '../../../storage/mmkv';
+import { px } from '../../../constants/styles/layouts';
 
 const OTPScreen = ({route}: {route: any}) => {
   const {otpTitle, displaySuccessModal} = route.params;
@@ -155,6 +156,9 @@ const OTPScreen = ({route}: {route: any}) => {
           onConfirmPress={() => setShowFailedModal(false)}
           cancelButtonText="Cancel"
           onCancelPress={() => setShowFailedModal(false)}
+          imageSource={require('../../../assets/images/error-cards.png')}
+          imageWidth={px(230.18)}
+          imageHeight={px(181.42)}
         />
 
         <View>

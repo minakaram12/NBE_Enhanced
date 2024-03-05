@@ -26,7 +26,6 @@ const DarkerPictonBlue = '#001a25';
 const DarkerorangeWeb = '#251805';
 const DarkerImperialRed = '#250007';
 
-
 //nav
 const greyLight = '#333333';
 const greylighter = '#B3B3B3';
@@ -35,7 +34,7 @@ const PolynesianBlue = '#004E9F';
 const AliceBlue = '#DFEAFB';
 const DunRose = '#DDCBAC';
 const OldRose = '#B47980';
-const DarkRed='#2d0108';
+const DarkRed = '#2d0108';
 const RedCMYK = '#E3000D';
 const OrchidPink = '#E5B8C0';
 const Licorice = '#231912';
@@ -62,15 +61,14 @@ export default {
   orangeWeb,
   ImperialRed,
 
-  IconAccountBackground:DarkerEmeraldGreen,
-  IconCardstBackground:DarkerPictonBlue,
-  IconutilitiesBackground:DarkerorangeWeb,
-  IconHistoryBackground:DarkerImperialRed,
-
+  IconAccountBackground: DarkerEmeraldGreen,
+  IconCardstBackground: DarkerPictonBlue,
+  IconutilitiesBackground: DarkerorangeWeb,
+  IconHistoryBackground: DarkerImperialRed,
 
   //Top &bottom navigation
   BackgroundNav: greyLight,
-
+  notificationBackground: greyLight,
   //drawer
   BackgroundMenu: black,
   itemColor: white,
@@ -85,7 +83,7 @@ export default {
   textColorGreen: DarkSpringGreen,
 
   //BackgroundRed
-  IconLogoutBackground:DarkRed,
+  IconLogoutBackground: DarkRed,
 
   DarkSpringGreen,
   PakistanGreen,

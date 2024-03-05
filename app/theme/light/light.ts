@@ -102,7 +102,7 @@ export default {
   InputTextColor: black,
   InputIconsColor: greyLight,
   InputError: RedCMYK,
-
+  notificationBackground: white,
   cardBorder,
 
   PolynesianBlue,

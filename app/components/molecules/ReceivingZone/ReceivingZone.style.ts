@@ -3,7 +3,6 @@ import {px} from '../../../constants/styles/layouts';
 
 const styles = StyleSheet.create({
   cardBox: {
-    // width: '93%',
     width: px(346),
     height: px(216),
     borderWidth: px(2),

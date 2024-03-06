@@ -54,14 +54,7 @@ const HomeScreen = () => {
             </ImageBackground>
           </TouchableOpacity>
           {/* services */}
-          <View
-            style={[
-              layouts.justifyAround,
-              layouts.row,
-              {width: '100%'},
-              layouts.my.xs,
-              layouts.px.lg,
-            ]}>
+          <View style={[layouts.justifyBetween, layouts.row, layouts.my.xs]}>
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate('Beneficiary');
@@ -128,7 +121,7 @@ const HomeScreen = () => {
             </TouchableOpacity>
           </View>
 
-          <View style={[layouts.ms.sm, layouts.px.lg, {marginTop: px(10)}]}>
+          <View style={[{marginTop: px(10)}]}>
             <View
               style={[layouts.row, layouts.justifyBetween, layouts.alignedEnd]}>
               <Text style={[styles.titleText]}>Send Money</Text>
@@ -157,7 +150,6 @@ const HomeScreen = () => {
 
       <View
         style={[
-          [layouts.mx.xl],
           {
             height: !showVisaCards ? px(260) : '65%',
             marginTop: !showVisaCards ? 10 : 15,
@@ -165,12 +157,11 @@ const HomeScreen = () => {
           // {height: '100%'},
           // {flex: 1},
         ]}>
-          
         <TranactionHistory
           transactionitems={HistoryWithImg}
           displayImage={true}
           header="History"
-          viewAll={true}
+          viewAll={showVisaCards ? false : true}
         />
       </View>
     </View>

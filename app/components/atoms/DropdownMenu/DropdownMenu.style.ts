@@ -1,7 +1,8 @@
 // import {px} from '@app/constants/styles/layouts';
 // import {theme} from '@app/theme/theme';
 import {StyleSheet} from 'react-native';
-import { theme } from '../../../theme/theme';
+import {theme} from '../../../theme/theme';
+import {px} from '../../../constants/styles/layouts';
 const styles = StyleSheet.create({
   card: {
     backgroundColor: theme?.InputBackgroundColor,
@@ -12,7 +13,7 @@ const styles = StyleSheet.create({
   },
 
   content: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 1,
     paddingVertical: 5,
   },
   title: {
@@ -32,9 +33,12 @@ const styles = StyleSheet.create({
   },
 
   dropStyle: {
+    marginHorizontal: px(10),
+    marginBottom: px(3),
     borderColor: theme?.DarkSpringGreen,
     borderWidth: 3,
     borderStyle: 'solid',
+
   },
   FocusStyle: {
     borderColor: theme?.DarkSpringGreen,

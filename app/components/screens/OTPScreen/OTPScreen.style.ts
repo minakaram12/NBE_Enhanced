@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
 
   pinCodeContainer: {
-    backgroundColor: theme?.white,
+    backgroundColor: theme?.InputBackgroundColor,
     marginBottom: 10,
   },
 
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
 
   pinCodeText: {
-    color: theme?.OxfordBlue,
+    color: theme?.InputTextColor,
     fontFamily: 'Roboto',
     fontWeight: 'bold',
   },

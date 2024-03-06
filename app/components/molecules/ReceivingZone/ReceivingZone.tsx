@@ -16,31 +16,17 @@ const ReceivingZone = ({
   setReceiverCardIndex,
 }: ReceivingZoneProps) => {
   return (
-    <DraxView
-      renderContent={() => {
-        return (
-          <View style={[styles.cardBox, layouts.allCentered]}>
-            {receiverCardIndex !== -1 ? (
-              <Pressable onPress={() => setReceiverCardIndex(-1)}>
-                <VisaCard {...visaCardsData[receiverCardIndex]} />
-              </Pressable>
-            ) : (
-              <Text style={styles.cardBoxText}>
-                Touch & hold a card then drag it to this box
-              </Text>
-            )}
-          </View>
-        );
-      }}
-      onReceiveDragDrop={({dragged}) => {
-        const {payload} = dragged;
-        if (typeof payload === 'number') {
-          setReceiverCardIndex(payload);
-        } else {
-          setReceiverCardIndex(payload.index);
-        }
-      }}
-    />
+    <View style={[styles.cardBox, layouts.allCentered]}>
+      {receiverCardIndex !== -1 ? (
+        <Pressable onPress={() => setReceiverCardIndex(-1)}>
+          <VisaCard {...visaCardsData[receiverCardIndex]} />
+        </Pressable>
+      ) : (
+        <Text style={styles.cardBoxText}>
+          Touch & hold a card then drag it to this box
+        </Text>
+      )}
+    </View>
   );
 };
 

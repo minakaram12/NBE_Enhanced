@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, ScrollView, Pressable} from 'react-native';
+import {Text, View, ScrollView} from 'react-native';
 
 // Styles
 import styles from './AirPayScreen.style';
@@ -15,68 +15,17 @@ import MainBtn from '../../atoms/MainBtn/MainBtn';
 
 // Components
 import AppModal from '../../atoms/AppModal/AppModal';
-// import DraggableCard from '../../molecules/DraggableCard/DraggableCard';
-// import ReceivingZone from '../../molecules/ReceivingZone/ReceivingZone';
+import DraggableCard from '../../molecules/DraggableCard/DraggableCard';
+import ReceivingZone from '../../molecules/ReceivingZone/ReceivingZone';
 
 // Icons
 import SmallOutlinedFingerPrintSvg from '../../../assets/svgs/SmallOutlinedFingerPrintSvg';
 
 import {visaCardsData} from '../../../Faker/Faker';
-import VisaCard from '../../atoms/VisaCard/VisaCard';
 
 const AirPayScreen = () => {
   const [showModal, setShowModal] = useState(false);
   const [receiverCardIndex, setReceiverCardIndex] = useState(-1);
-
-  const DraggableCard = ({item, index}) => {
-    return (
-      <DraxView
-        style={[
-          layouts.mx.sm,
-          layouts.allCentered,
-          index === 0 ? layouts.ms.xl : null,
-          index === visaCardsData.length - 1 ? layouts.me.xl : null,
-          styles.draggableCardContainer,
-        ]}
-        dragPayload={index}
-        key={index}
-        onDragStart={() => {
-          setReceiverCardIndex(-1);
-        }}>
-        <VisaCard {...item} />
-      </DraxView>
-    );
-  };
-
-  const ReceivingZone = () => {
-    return (
-      <DraxView
-        renderContent={() => {
-          return (
-            <View style={[styles.cardBox, layouts.allCentered]}>
-              {receiverCardIndex !== -1 ? (
-                <Pressable onPress={() => setReceiverCardIndex(-1)}>
-                  <VisaCard {...visaCardsData[receiverCardIndex]} />
-                </Pressable>
-              ) : (
-                <Text style={styles.cardBoxText}>
-                  Touch & hold a card then drag it to this box
-                </Text>
-              )}
-            </View>
-          );
-        }}
-        onReceiveDragDrop={({dragged}) => {
-          const {payload} = dragged;
-          if (typeof payload === 'number') {
-            setReceiverCardIndex(payload);
-          } else {
-            setReceiverCardIndex(payload.index);
-          }
-        }}
-      />
-    );
-  };
 
   return (
     <View style={[styles.pageContainer, layouts.fullHeight]}>
@@ -85,27 +34,42 @@ const AirPayScreen = () => {
 
         <GestureHandlerRootView>
           <DraxProvider style={[layouts.allCentered]}>
-            <View style={[styles.draggableCardContainer]}>
-              <DraxList
-                data={visaCardsData}
-                renderItemContent={({item, index}) => (
-                  <DraggableCard
-                    item={item}
-                    index={index}
-                    setReceiverCardIndex={setReceiverCardIndex}
-                  />
-                )}
-                keyExtractor={(item, index: number) => index.toString()}
-                horizontal={true}
-                scrollEnabled={true}
-              />
-            </View>
-            <View style={[layouts.mt.xl]}>
-              <ReceivingZone
-                receiverCardIndex={receiverCardIndex}
-                setReceiverCardIndex={setReceiverCardIndex}
-              />
-            </View>
+            <DraxView
+              renderContent={() => {
+                return (
+                  <View style={[layouts.allCentered]}>
+                    <View style={[styles.draggableCardContainer]}>
+                      <DraxList
+                        showsHorizontalScrollIndicator={false}
+                        data={visaCardsData}
+                        renderItemContent={({item, index}) => (
+                          <DraggableCard
+                            item={item}
+                            index={index}
+                            setReceiverCardIndex={setReceiverCardIndex}
+                          />
+                        )}
+                        keyExtractor={(item, index: number) => index.toString()}
+                        horizontal={true}
+                        scrollEnabled={true}
+                      />
+                    </View>
+                    <ReceivingZone
+                      receiverCardIndex={receiverCardIndex}
+                      setReceiverCardIndex={setReceiverCardIndex}
+                    />
+                  </View>
+                );
+              }}
+              onReceiveDragDrop={({dragged}) => {
+                const {payload} = dragged;
+                if (typeof payload === 'number') {
+                  setReceiverCardIndex(payload);
+                } else {
+                  setReceiverCardIndex(payload.index);
+                }
+              }}
+            />
           </DraxProvider>
         </GestureHandlerRootView>
 
@@ -124,7 +88,7 @@ const AirPayScreen = () => {
         <AppModal
           titleText="Mission Complete"
           descriptionText="Your payment to IKEA was successful"
-          mony={`$${visaCardsData[receiverCardIndex]?.amount}`}
+          money={`$${visaCardsData[receiverCardIndex]?.amount}`}
           imageSource={require('../../../assets/images/cards.png')}
           imageWidth={px(230.18)}
           imageHeight={px(181.42)}

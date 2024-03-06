@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     color: theme?.textColorBlue,
   },
   draggableCardContainer: {
-    height: px(280),
+    height: px(250),
   },
   buttonText: {
     fontFamily: 'Roboto-Bold',

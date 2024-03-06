@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     fontSize: px(16),
     color: '#7B7B7B',
   },
-  modalMony: {
+  modalMoney: {
     fontSize: px(40),
     fontFamily: 'Roboto-Bold',
     color: theme?.textColorBlue,

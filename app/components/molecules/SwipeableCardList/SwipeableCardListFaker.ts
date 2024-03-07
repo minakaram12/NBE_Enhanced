@@ -94,7 +94,7 @@ const objectsList = [];
 for (let i = 0; i < 10; i++) {
   const randomFirstName = 'John' + i;
   const randomLastName = 'Doe' + i;
-  const randomPhoneNumber = '+0126520' + Math.floor(Math.random() * 10000);
+  const randomPhoneNumber = '0126520' + Math.floor(Math.random() * 10000);
   const randomAccountNumber = '1000' + Math.floor(Math.random() * 1000000);
   const randomEmail = `john.doe${Math.floor(Math.random() * 100)}@example.com`;
 

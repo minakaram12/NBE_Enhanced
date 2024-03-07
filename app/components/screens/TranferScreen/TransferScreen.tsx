@@ -1,3 +1,4 @@
+/* eslint-disable no-const-assign */
 import React, {useState} from 'react';
 import {View, Image, Text} from 'react-native';
 import styles from './TransferScreen.style';
@@ -21,7 +22,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {ScrollView} from 'react-native-gesture-handler';
 import {theme} from '../../../theme/theme';
 import {height} from '@fortawesome/free-solid-svg-icons/faEye';
-import { px } from '../../../constants/styles/layouts';
+import {px} from '../../../constants/styles/layouts';
 
 interface FormValues {
   amount: string;

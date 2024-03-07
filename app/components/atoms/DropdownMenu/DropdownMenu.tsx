@@ -7,6 +7,7 @@ import shadows from '../../../constants/styles/shadows';
 
 import styles from './DropdownMenu.style';
 import DropDownSvg from '../../../assets/svgs/DropDownSvg';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 interface DropdownMenuProps {
   options: Array<object>;
   title: string;

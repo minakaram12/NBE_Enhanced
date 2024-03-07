@@ -39,7 +39,7 @@ const VisaCardList: React.FC<VisaCardListProps> = ({
   const keyExtractor = (item: VisaCardData) => item.id;
 
   return (
-    <View style={[layouts.allCentered, {paddingHorizontal: 5}]}>
+    <View style={[layouts.allCentered]}>
       <FlatList
         data={VisaCardsData}
         horizontal

@@ -22,7 +22,7 @@ const SendMoneyList: React.FC<SimpleCardListProp> = ({cardsData, showAll}) => {
 
   return (
     <FlatList
-      data={showAll ? cardsData : cardsData.slice(0, 4)}
+      data={showAll ? cardsData : cardsData.slice(0, 5)}
       horizontal
       showsHorizontalScrollIndicator={false}
       renderItem={renderSimpleCard}

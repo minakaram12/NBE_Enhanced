@@ -15,7 +15,7 @@ interface AppModalProps {
   titleText?: string;
   errorTitle?: boolean;
   descriptionText?: string;
-  mony?: string;
+  money?: string;
   confirmButtonText?: string;
   cancelButtonText?: string;
   onConfirmPress?(): void;
@@ -33,7 +33,7 @@ const AppModal: React.FC<AppModalProps> = ({
   descriptionText,
   confirmButtonText,
   cancelButtonText,
-  mony,
+  money: money,
   onConfirmPress,
   onCancelPress,
 }) => {
@@ -86,7 +86,7 @@ const AppModal: React.FC<AppModalProps> = ({
               {descriptionText}
             </Text>
           )}
-          {mony && <Text style={[styles.modalMony]}>{mony}</Text>}
+          {money && <Text style={[styles.modalMoney]}>{money}</Text>}
           <View style={[layouts.row]}>
             {cancelButtonText && (
               <MainBtn

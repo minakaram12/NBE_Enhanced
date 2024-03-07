@@ -14,7 +14,7 @@ export default StyleSheet.create({
     height: '100%',
   },
   markerImage: {
-    width: 17,
-    height: 21,
+    width: 22,
+    height: 25,
   },
 });

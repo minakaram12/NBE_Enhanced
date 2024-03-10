@@ -1,6 +1,5 @@
 import React from 'react';
 import {Pressable, Text, View} from 'react-native';
-import {DraxView} from 'react-native-drax';
 import {layouts} from '../../../constants/styles';
 import styles from './ReceivingZone.style';
 import {visaCardsData} from '../../../Faker/Faker';

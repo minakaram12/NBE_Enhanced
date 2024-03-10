@@ -43,15 +43,15 @@ const AirPayScreen = () => {
                         showsHorizontalScrollIndicator={false}
                         data={visaCardsData}
                         renderItemContent={({item, index}) => (
-                          <DraggableCard
-                            item={item}
-                            index={index}
-                            setReceiverCardIndex={setReceiverCardIndex}
-                          />
+                          <DraggableCard item={item} index={index} />
                         )}
                         keyExtractor={(item, index: number) => index.toString()}
                         horizontal={true}
                         scrollEnabled={true}
+                        itemStyles={{
+                          dragReleasedStyle: {opacity: 1},
+                          hoverStyle: {opacity: 0.8},
+                        }}
                       />
                     </View>
                     <ReceivingZone
@@ -80,7 +80,7 @@ const AirPayScreen = () => {
             <SmallOutlinedFingerPrintSvg width={px(32.83)} height={px(32)} />
           }
           onPress={() => setShowModal(prev => !prev)}
-          buttonStyle={[layouts.my.xxl, layouts.mx.xl]}
+          buttonStyle={[layouts.mt.xxl, layouts.mx.xl]}
           indicatorSize={'large'}
           disabled={receiverCardIndex !== -1 ? false : true}
         />

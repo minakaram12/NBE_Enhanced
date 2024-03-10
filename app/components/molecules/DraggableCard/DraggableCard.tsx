@@ -9,14 +9,9 @@ import {View} from 'react-native';
 interface DraggableCardProps {
   item: any;
   index: number;
-  setReceiverCardIndex: Function;
 }
 
-const DraggableCard = ({
-  item,
-  index,
-  setReceiverCardIndex,
-}: DraggableCardProps) => {
+const DraggableCard = ({item, index}: DraggableCardProps) => {
   return (
     <View
       style={[
@@ -25,16 +20,8 @@ const DraggableCard = ({
         index === 0 ? layouts.ms.xl : null,
         index === visaCardsData.length - 1 ? layouts.me.xl : null,
         styles.draggableCardContainer,
-        layouts.relative,
       ]}>
-      <DraxView
-        style={[layouts.absolute]}
-        dragPayload={index}
-        key={index}
-        onDragStart={() => {
-          setReceiverCardIndex(-1);
-        }}
-      />
+      <DraxView dragPayload={index} key={index} />
       <VisaCard {...item} />
     </View>
   );

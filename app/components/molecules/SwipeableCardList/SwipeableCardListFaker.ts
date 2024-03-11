@@ -1,4 +1,6 @@
+import { ViewStyle } from 'react-native';
 import {DetailedCardProps} from '../../atoms/DetailedCard/DetailedCard.component';
+import { DetailedCardExtraProps } from './SwipeableCardList';
 
 export interface ExtendedCardProps extends DetailedCardProps {
   key: string;
@@ -87,8 +89,22 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
   },
 ];
 
+// Define the interface for an individual object in the list
+export interface Beneficiary {
+  name?: string;
+  mobileNumber?: string;
+  balance?: string;
+  image?: any;
+  color?: string;
+  key?: string;
+  accountNumber?: string;
+  phoneNumber?: string;
+  email?: string;
+  ViewStyle?: ViewStyle;
+}
 
-const objectsList = [];
+// Define the type for the array of beneficiaries
+const objectsList: Beneficiary[] = [];
 
 for (let i = 0; i < 12; i++) {
   const randomFirstName = 'John' + i;
@@ -97,11 +113,12 @@ for (let i = 0; i < 12; i++) {
   const randomAccountNumber = '1000' + Math.floor(Math.random() * 1000000);
   const randomEmail = `john.doe${Math.floor(Math.random() * 100)}@example.com`;
 
-  const newObject = {
+  // Define the type for an individual object
+  const newObject: Beneficiary = {
     name: randomFirstName + ' ' + randomLastName,
     mobileNumber: randomPhoneNumber,
     balance: '999',
-    image: require('../../../assets/images/profimg.jpg'),
+    image: require('../../../assets/images/profimg.jpg'), // You might want to specify a more specific type for the image
     color: '#ffffff',
     key: randomFirstName + ' ' + randomLastName,
     accountNumber: randomAccountNumber,

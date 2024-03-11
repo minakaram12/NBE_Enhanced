@@ -1,8 +1,15 @@
 import React from 'react';
-import {View, Text, StyleSheet, Pressable} from 'react-native';
+import {View, Text, Pressable} from 'react-native';
 import {layouts} from '../../../constants/styles';
-
-const HiddenItemWithActions = ({onDelete, onEdit}) => {
+import {RowMapType} from '../../molecules/SwipeableCardList/SwipeableCardList';
+import {styles} from './hiddenItemStyles';
+interface HiddenItemProps {
+  onDelete: () => void;
+  onEdit: () => void;
+  data?: any;
+  rowMap?: RowMapType;
+}
+const HiddenItemWithActions = ({onDelete, onEdit}: HiddenItemProps) => {
   return (
     <View
       style={[
@@ -42,11 +49,3 @@ const HiddenItemWithActions = ({onDelete, onEdit}) => {
   );
 };
 export default HiddenItemWithActions;
-const styles = StyleSheet.create({
-  container: {height: 89, borderRadius: 18, overflow: 'hidden'},
-  buttonsWidth: {width: 100},
-  curved: {borderRadius: 18},
-  leftBtn: {backgroundColor: '#007236'},
-  righBtn: {backgroundColor: '#7a1712'},
-  textStyle: {color: '#ffffff'},
-});

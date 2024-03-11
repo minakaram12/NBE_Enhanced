@@ -1,23 +1,33 @@
 import React from 'react';
 import {SwipeListView} from 'react-native-swipe-list-view';
-import DetailedCard from '../../atoms/DetailedCard/DetailedCard.component';
-import {Pressable} from 'react-native';
+import DetailedCard, {
+  DetailedCardProps,
+} from '../../atoms/DetailedCard/DetailedCard.component';
+import {ListRenderItemInfo, Pressable, ViewStyle} from 'react-native';
 import HiddenItemWithActions from '../../atoms/hiddenItemWithActions/HiddenItemWithActions';
 
-import {ExtendedCardProps} from './SwipeableCardListFaker';
+import {Beneficiary} from './SwipeableCardListFaker';
 import {Dispatch, SetStateAction} from 'react';
 import {useNavigation} from '@react-navigation/native';
 
 interface SwipeableCardListProps {
-  cards: Array<ExtendedCardProps>;
-  cardsSetter: Dispatch<SetStateAction<Array<ExtendedCardProps>>>;
+  cards: Array<Beneficiary>;
+  cardsSetter: Dispatch<SetStateAction<Array<Beneficiary>>>;
 }
+export interface DetailedCardExtraProps extends DetailedCardProps {
+  ViewStyle: ViewStyle;
+  key: string;
+}
+
+export type RowMapType = {
+  [key: string]: React.RefObject<any> | any;
+};
 
 const SwipeableCardList: React.FC<SwipeableCardListProps> = ({
   cards,
   cardsSetter,
 }) => {
-  const renderItem = data => {
+  const renderItem = (data: ListRenderItemInfo<DetailedCardExtraProps>) => {
     return (
       <Pressable>
         <DetailedCard
@@ -32,7 +42,10 @@ const SwipeableCardList: React.FC<SwipeableCardListProps> = ({
     );
   };
 
-  const renderHiddenItem = (data, rowMap) => {
+  const renderHiddenItem = (
+    data: ListRenderItemInfo<DetailedCardExtraProps>,
+    rowMap: RowMapType,
+  ) => {
     return (
       <HiddenItemWithActions
         data={data}
@@ -44,32 +57,21 @@ const SwipeableCardList: React.FC<SwipeableCardListProps> = ({
   };
 
   const navigation = useNavigation();
-  const deleteRow = (rowMap, id) => {
-    console.log('====================================');
-    console.log(`the id is ${id}`);
-    console.log('====================================');
+  const deleteRow = (rowMap: RowMapType, id: string) => {
     closeSpecificRow(rowMap, id);
     const newData = [...cards];
-    console.log('====================================');
-    console.log(`cards before deletion ${newData}`);
-    console.log('====================================');
     const prevIndex = newData.findIndex(item => item.key === id);
-    console.log('the index of the deleted item is ' + prevIndex);
     newData.splice(prevIndex, 1);
-    console.log('====================================');
-    console.log(`cards after deletiono ${newData}`);
-    console.log('====================================');
     cardsSetter(newData);
   };
 
-  const closeSpecificRow = (rowMap, id) => {
+  const closeSpecificRow = (rowMap: RowMapType, id: string) => {
     if (rowMap[id]) {
       rowMap[id].closeRow();
     }
   };
 
-  const editRow = (rowMap, id) => {
-    // do it later
+  const editRow = (rowMap: RowMapType, id: string) => {
     rowMap[id].closeRow();
     const newData = [...cards];
     const prevIndex = newData.findIndex(item => item.key === id);
@@ -80,12 +82,12 @@ const SwipeableCardList: React.FC<SwipeableCardListProps> = ({
       edit: true,
       prevIndex,
       cards,
-    }); //item is extended card
+    });
   };
 
   return (
     <SwipeListView
-      data={cards} // Use the cards prop here
+      data={cards}
       renderItem={renderItem}
       renderHiddenItem={renderHiddenItem}
       rightOpenValue={-100}

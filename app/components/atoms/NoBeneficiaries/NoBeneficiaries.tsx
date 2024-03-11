@@ -1,17 +1,18 @@
 import React from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, View} from 'react-native';
 import {Pressable} from 'react-native';
 import {layouts} from '../../../constants/styles';
 import {useNavigation} from '@react-navigation/native';
-
+import {Beneficiary} from '../../molecules/SwipeableCardList/SwipeableCardListFaker';
+import {styles} from './NoBenef';
 function NoBeneficiary() {
   const navigation = useNavigation();
-  const cards = [];
+  const cards: Array<Beneficiary> = [];
   const navigateToAddScreen = () => {
     navigation.navigate('AddBeneficiaries', {cards});
-  }; 
+  };
   return (
-    <View style={[{marginTop: 140}, layouts.yCentered, layouts.fullHeight]}>
+    <View style={[styles.topMargin, layouts.yCentered, layouts.fullHeight]}>
       <Pressable onPress={navigateToAddScreen}>
         <Image
           source={require('../../../assets/images/noBeneficiaries.png')}
@@ -21,6 +22,4 @@ function NoBeneficiary() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({noBenfImg: {width: 240, height: 259}});
 export default NoBeneficiary;

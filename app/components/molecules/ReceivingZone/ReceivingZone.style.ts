@@ -18,13 +18,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   closeIconContainer: {
-    top: -95,
-    right: -165,
+    top: -115,
+    right: -185,
+    backgroundColor:'black',
+    padding:10,
+    borderRadius:15
   },
   closeIcon: {
-    width: 22,
-    height: 22,
+    width: 15,
+    height: 15,
     tintColor: 'white',
+   
   },
 });
 export default styles;

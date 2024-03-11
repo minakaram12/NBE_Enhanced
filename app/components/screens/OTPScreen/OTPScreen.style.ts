@@ -1,26 +1,28 @@
 import {StyleSheet} from 'react-native';
 import {theme} from '../../../theme/theme';
+import {px} from '../../../constants/styles/layouts';
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    paddingVertical: px(9),
+    paddingHorizontal: px(3),
   },
 
   OuterContainer: {
     backgroundColor: theme?.BackgroundScreen,
-    paddingHorizontal: 10,
+    paddingHorizontal: px(9),
     justifyContent: 'space-between',
     flexGrow: 1,
-    paddingVertical: 15,
+    paddingVertical: px(14),
   },
 
   pinCodeContainer: {
     backgroundColor: theme?.InputBackgroundColor,
-    marginBottom: 10,
+    marginBottom: px(9),
   },
 
   activePinCodeContainer: {
     borderColor: theme?.DarkSpringGreen,
-    borderWidth: 3,
+    borderWidth: px(2),
   },
 
   pinCodeText: {
@@ -32,19 +34,21 @@ const styles = StyleSheet.create({
     color: theme?.textColor,
     fontFamily: 'Roboto',
     fontWeight: 'bold',
-    fontSize: 17,
-    marginBottom: 10,
+    fontSize: px(16),
   },
 
   infoText: {
-    color: theme?.silver,
-    fontFamily: 'Roboto',
-    fontSize: 17,
-    fontWeight: '500',
+    fontFamily: 'Roboto-Regular',
+    fontSize: px(16),
+    color: theme?.textColorGrey,
+    lineHeight: px(18),
   },
 
   otpTitle: {
-    fontSize: 25,
+    fontFamily: 'Roboto-Bold',
+    fontSize: px(20),
+    color: theme?.textColorBlue,
+    lineHeight: px(23),
   },
 });
 

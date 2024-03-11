@@ -1,17 +1,16 @@
 import React from 'react';
-import {ScrollView, View} from 'react-native';
+import {ScrollView} from 'react-native';
 import layouts from '../../../../constants/styles/layouts';
-import Header from '../../../molecules/Header';
+import Header from '../../../molecules/Header/Header';
 import MobileForm from '../../../molecules/Signup/MobileForm/MobileForm';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {theme} from '../../../../theme/theme';
+import styles from './Mobile.style';
 
 const Mobile = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
   const backHandler = () => {
-    // console.log('Go to Login Screen');
     navigation.goBack();
   };
 
@@ -21,14 +20,10 @@ const Mobile = () => {
         layouts.flexGrow,
         layouts.px.xl,
         layouts.py.xl,
-        {backgroundColor: theme.BackgroundMenu},
+        styles.container,
       ]}>
-      <Header
-        back={true}
-        login={false}
-        onBack={backHandler}
-      />
-      <MobileForm navigation={navigation} />
+      <Header back={true} login={false} onBack={backHandler} />
+      <MobileForm />
     </ScrollView>
   );
 };

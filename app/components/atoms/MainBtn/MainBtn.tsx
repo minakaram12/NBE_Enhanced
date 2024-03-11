@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {ReactNode, useMemo} from 'react';
 import {
   TouchableOpacity,
   Text,
@@ -11,6 +11,7 @@ import {
 
 import styles from './MainBtn.style';
 import {layouts} from '../../../constants/styles';
+import {colors} from '../../../theme/colors';
 
 interface ButtonProps {
   onPress(): void;
@@ -25,8 +26,8 @@ interface ButtonProps {
   indicatorSize?: 'small' | 'large' | number;
   disabledStyle?: StyleProp<ViewStyle> | null;
   disabledTextStyle?: StyleProp<TextStyle> | null;
-  iconLeft?: any;
-  iconRight?: any;
+  iconLeft?: ReactNode;
+  iconRight?: ReactNode;
 }
 
 const MainBtn: React.FC<ButtonProps> = ({
@@ -42,7 +43,6 @@ const MainBtn: React.FC<ButtonProps> = ({
   indicatorSize = 20.25,
   disabledStyle = null,
   disabledTextStyle = null,
-
   iconLeft,
   iconRight,
 }) => {
@@ -75,7 +75,7 @@ const MainBtn: React.FC<ButtonProps> = ({
       case 'primary':
         return '#ffffff';
       case 'secondary':
-        return '#007236';
+        return colors.mainColor;
       case 'outline':
         return '#EB001B';
       default:
@@ -112,7 +112,7 @@ const MainBtn: React.FC<ButtonProps> = ({
           <Text
             style={[
               layouts.mx.md,
-              // fontSizes.medium,
+
               styles.text,
               disabled ? disabledTextStyle : finalTextStyle,
               textStyle,

@@ -6,38 +6,23 @@ import ValidationList from '../../../atoms/Validation/ValidationList';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 import styles from './PasswordForm.style';
-import { validationList } from '../../../../Faker/Faker';
+import {validationList} from '../../../../Faker/Faker';
 import MainBtn from '../../../atoms/MainBtn/MainBtn';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faLock} from '@fortawesome/free-solid-svg-icons/faLock';
 import {setPassword, setUsername} from '../../../../storage/mmkv';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 library.add(faLock);
 
-interface FormValues {
-  password: string;
-  confirmPassword: string;
-}
-
-const PasswordForm = ({navigation}) => {
+const PasswordForm = () => {
   const [validationListState, setValidationListState] =
     React.useState(validationList);
 
-  // const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
-  const passwordSchema = Yup.object().shape({
-    username: Yup.string().required(),
-    password: Yup.string()
-      .min(8)
-      .max(50)
-      .required()
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-      ),
-    confirmPassword: Yup.string()
-      .oneOf([Yup.ref('password'), undefined])
-      .required(),
-  });
+  const passwordSchema = Yup.object().shape({});
 
   const passwordChangeHandler = (value: string) => {
     const validations = [
@@ -124,4 +109,3 @@ const PasswordForm = ({navigation}) => {
 };
 
 export default PasswordForm;
-

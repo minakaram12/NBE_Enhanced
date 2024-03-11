@@ -7,7 +7,7 @@ import SignalsSvg from '../../../assets/svgs/SignalsSvg';
 import GreenCard from '../../../assets/images/green_card.png';
 import RedCard from '../../../assets/images/red_card.png';
 
-interface VisaCardProps {
+export interface VisaCardProps {
   amount: string;
   card_num: number;
   name: string;

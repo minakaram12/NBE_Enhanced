@@ -1,24 +1,19 @@
 import React, {useState} from 'react';
 import {Text, View, ScrollView} from 'react-native';
 
-// Styles
 import styles from './AirPayScreen.style';
 import {layouts} from '../../../constants/styles';
 import {px} from '../../../constants/styles/layouts';
 
-// Drag and Drop
 import {DraxList, DraxProvider, DraxView} from 'react-native-drax';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
-// Components
 import MainBtn from '../../atoms/MainBtn/MainBtn';
 
-// Components
 import AppModal from '../../atoms/AppModal/AppModal';
 import DraggableCard from '../../molecules/DraggableCard/DraggableCard';
 import ReceivingZone from '../../molecules/ReceivingZone/ReceivingZone';
 
-// Icons
 import SmallOutlinedFingerPrintSvg from '../../../assets/svgs/SmallOutlinedFingerPrintSvg';
 
 import {visaCardsData} from '../../../Faker/Faker';
@@ -90,8 +85,8 @@ const AirPayScreen = () => {
           descriptionText="Your payment to IKEA was successful"
           money={`$${visaCardsData[receiverCardIndex]?.amount}`}
           imageSource={require('../../../assets/images/cards.png')}
-          imageWidth={px(230.18)}
-          imageHeight={px(181.42)}
+          imageWidth={px(230)}
+          imageHeight={px(181)}
           confirmButtonText="Done"
           onConfirmPress={() => setShowModal(false)}
           modalVisible={showModal}

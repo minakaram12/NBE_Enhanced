@@ -4,14 +4,14 @@ import {layouts} from '../../../constants/styles';
 import styles from './SplashScreen.style';
 import Logo from '../../../assets/svgs/Logo';
 import NamedLogo from '../../../assets/svgs/NamedLogo';
-import {
-  getPassword,
-  getRememberMe,
-  getUsername,
-  logout,
-} from '../../../storage/mmkv';
+import {getPassword, getRememberMe, getUsername} from '../../../storage/mmkv';
 
-const SplashScreen = ({navigation}: {navigation: any}) => {
+interface NavigationProps {
+  replace: (routeName: string, params?: object) => void;
+  navigate: (routeName: string, params?: object) => void;
+}
+
+const SplashScreen = ({navigation}: {navigation: NavigationProps}) => {
   const bounceValue = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {

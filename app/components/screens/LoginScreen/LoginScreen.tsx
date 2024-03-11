@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {
   ImageBackground,
@@ -14,19 +13,19 @@ import BouncyCheckbox from 'react-native-bouncy-checkbox';
 
 import {setLoginData, setUsername} from '../../../storage/mmkv';
 import {SafeAreaView} from 'react-native';
-// styles
+
 import {layouts} from '../../../constants/styles';
 import styles from './LoginScreen.style';
 import {px} from '../../../constants/styles/layouts';
-// images + svg icons
+
 import LoginBackgroundImage from '../../../assets/images/login_bg.jpg';
 import NamedLogo from '../../../assets/svgs/NamedLogo';
 import Logo from '../../../assets/svgs/Logo';
-// form + validations
+
 import {Formik} from 'formik';
 import {loginValidationsSchema} from '../../../validations/login';
 import InputField from '../../atoms/InputField/InputField';
-// fontawesome icons
+
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {fab} from '@fortawesome/free-brands-svg-icons';
 import {faLock} from '@fortawesome/free-solid-svg-icons/faLock';
@@ -35,7 +34,12 @@ import OutlinedFingerPrintSvg from '../../../assets/svgs/OutlinedFingerPrintSvg'
 
 library.add(fab, faAt, faLock);
 
-const LoginScreen = ({navigation}: {navigation: any}) => {
+interface NavigationProps {
+  replace: (routeName: string, params?: object) => void;
+  navigate: (routeName: string, params?: object) => void;
+}
+
+const LoginScreen = ({navigation}: {navigation: NavigationProps}) => {
   const handelForgotPasswordClick = () => {
     console.log('Forgot password?');
   };
@@ -120,11 +124,8 @@ const LoginScreen = ({navigation}: {navigation: any}) => {
                           iconStyle={{
                             borderRadius: px(6.25),
                           }}
-                          innerIconStyle={{borderWidth: 0}}
-                          textStyle={[
-                            styles.whiteText,
-                            {textDecorationLine: 'none'},
-                          ]}
+                          innerIconStyle={styles.checkboxIcon}
+                          textStyle={[styles.whiteText, styles.checkboxText]}
                           onPress={(isChecked: boolean) =>
                             setIsRememberMe(isChecked)
                           }

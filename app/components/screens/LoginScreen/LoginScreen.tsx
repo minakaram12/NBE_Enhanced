@@ -35,7 +35,12 @@ import OutlinedFingerPrintSvg from '../../../assets/svgs/OutlinedFingerPrintSvg'
 
 library.add(fab, faAt, faLock);
 
-const LoginScreen = ({navigation}: {navigation: any}) => {
+interface NavigationProps {
+  replace: (routeName: string, params?: object) => void;
+  navigate: (routeName: string, params?: object) => void;
+}
+
+const LoginScreen = ({navigation}: {navigation: NavigationProps}) => {
   const handelForgotPasswordClick = () => {
     console.log('Forgot password?');
   };

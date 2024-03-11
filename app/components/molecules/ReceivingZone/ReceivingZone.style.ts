@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {px} from '../../../constants/styles/layouts';
+import {colors} from '../../../theme/colors';
 
 const styles = StyleSheet.create({
   cardBox: {
@@ -8,13 +9,22 @@ const styles = StyleSheet.create({
     borderWidth: px(2),
     borderRadius: px(27),
     borderStyle: 'dashed',
-    borderColor: '#007236',
+    borderColor: colors.mainColor,
   },
   cardBoxText: {
-    color: '#007236',
+    color: colors.mainColor,
     fontSize: px(20),
     fontWeight: '600',
     textAlign: 'center',
+  },
+  closeIconContainer: {
+    top: -95,
+    right: -165,
+  },
+  closeIcon: {
+    width: 22,
+    height: 22,
+    tintColor: 'white',
   },
 });
 export default styles;

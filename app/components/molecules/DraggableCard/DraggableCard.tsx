@@ -1,13 +1,13 @@
 import React from 'react';
 import {DraxView} from 'react-native-drax';
-import VisaCard from '../../atoms/VisaCard/VisaCard';
+import VisaCard, {VisaCardProps} from '../../atoms/VisaCard/VisaCard';
 import {layouts} from '../../../constants/styles';
 import {visaCardsData} from '../../../Faker/Faker';
 import styles from './DraggableCard.style';
 import {View} from 'react-native';
 
 interface DraggableCardProps {
-  item: any;
+  item: VisaCardProps;
   index: number;
 }
 

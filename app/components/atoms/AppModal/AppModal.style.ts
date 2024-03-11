@@ -35,6 +35,12 @@ const styles = StyleSheet.create({
   errorText: {
     color: '#EB001B',
   },
+  cancelButtonText: {
+    color: 'red',
+  },
+  cancelButtonStyle: {
+    borderColor: 'red',
+  },
 });
 
 export default styles;

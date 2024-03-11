@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {px} from '../../../constants/styles/layouts';
 import {theme} from '../../../theme/theme';
+import {colors} from '../../../theme/colors';
 
 const styles = StyleSheet.create({
   innerContainer: {
@@ -10,7 +11,7 @@ const styles = StyleSheet.create({
   },
   outlineContainer: {
     borderWidth: px(1.5),
-    borderColor: '#007236',
+    borderColor: colors.mainColor,
   },
   outlineErrorContainer: {
     borderWidth: px(1.5),

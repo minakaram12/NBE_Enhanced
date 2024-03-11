@@ -1,4 +1,5 @@
 export const colors = {
+  mainColor: '#007236',
 
   //Basic colors
   white: '#FFFFFF',

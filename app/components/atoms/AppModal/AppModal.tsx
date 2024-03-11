@@ -1,5 +1,13 @@
 import React from 'react';
-import {Alert, Image, Modal, Pressable, Text, View} from 'react-native';
+import {
+  Alert,
+  Image,
+  ImageSourcePropType,
+  Modal,
+  Pressable,
+  Text,
+  View,
+} from 'react-native';
 
 import styles from './AppModal.style';
 import {layouts} from '../../../constants/styles';
@@ -9,7 +17,7 @@ import {px} from '../../../constants/styles/layouts';
 interface AppModalProps {
   modalVisible: boolean;
   setModalVisible: (value: boolean) => void;
-  imageSource?: any;
+  imageSource?: ImageSourcePropType | undefined;
   imageWidth?: number;
   imageHeight?: number;
   titleText?: string;
@@ -100,9 +108,9 @@ const AppModal: React.FC<AppModalProps> = ({
                 buttonStyle={[
                   layouts.mt.lg,
                   layouts.me.lg,
-                  {borderColor: 'red'},
+                  styles.cancelButtonStyle,
                 ]}
-                textStyle={[styles.boldFont, {color: 'red'}]}
+                textStyle={[styles.boldFont, styles.cancelButtonText]}
               />
             )}
             {confirmButtonText && (

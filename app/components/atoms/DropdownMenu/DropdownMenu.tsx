@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, ViewStyle} from 'react-native';
+import {View, Text, ViewStyle} from 'react-native';
 import {SelectList} from 'react-native-dropdown-select-list';
 
 import Layouts from '../../../constants/styles/layouts';

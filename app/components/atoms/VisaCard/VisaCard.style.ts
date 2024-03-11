@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {px} from '../../../constants/styles/layouts';
-import { theme } from '../../../theme/theme';
+import {theme} from '../../../theme/theme';
 const styles = StyleSheet.create({
   cardBackground: {
     padding: px(16),

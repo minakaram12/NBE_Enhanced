@@ -1,7 +1,5 @@
 import {px} from '../../../constants/styles/layouts';
 // import {theme} from '@app/theme/theme';
-import {screenHeight} from '../../../constants/styles/layouts';
-import shadows from '../../../constants/styles/shadows';
 import {StyleSheet} from 'react-native';
 import {theme} from '../../../theme/theme';
 

@@ -1,4 +1,3 @@
-// MyComponent.tsx
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import styles from './MenuItem.styles';

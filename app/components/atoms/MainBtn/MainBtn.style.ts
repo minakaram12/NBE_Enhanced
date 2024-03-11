@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
   },
   outlineButton: {
     borderWidth: 1,
-    // borderColor: '#EB001B',
     borderColor: '#007236',
   },
   disabledButton: {
@@ -38,7 +37,6 @@ const styles = StyleSheet.create({
     color: '#007236',
   },
   outlineText: {
-    // color: '#EB001B',
     color: '#007236',
   },
 });

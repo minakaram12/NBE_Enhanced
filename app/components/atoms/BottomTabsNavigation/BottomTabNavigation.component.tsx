@@ -2,7 +2,6 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {StyleSheet} from 'react-native';
 import {Text, View} from 'react-native';
-
 import Icon from 'react-native-vector-icons/AntDesign';
 import IconFontAwsome from 'react-native-vector-icons/FontAwesome';
 import IconUserFriends from 'react-native-vector-icons/FontAwesome5';
@@ -162,10 +161,6 @@ function BottomTabsNavigation() {
 export default BottomTabsNavigation;
 
 const styles = StyleSheet.create({
-  container: {
-    // Common styles for the container
-    // You can set default background color, etc.
-  },
   focusedStyle: {
     backgroundColor: '#007236',
     width: px(70),
@@ -174,31 +169,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: px(15),
     marginVertical: px(10),
-    // Other styles for focused state
   },
   blurredStyle: {
-    backgroundColor: '#F1F3FB',
+    backgroundColor: theme?.blurredTabColor,
     width: px(70),
     height: px(70),
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: px(15),
     marginVertical: px(10),
-    // Other styles for blurred state
   },
   NavigatorActiveTextStyle: {
     fontFamily: 'Roboto',
     fontSize: px(10),
-    lineHeight: px(11.72),
+    lineHeight: px(16),
     textAlign: 'center',
-
     color: '#F7F7F7',
   },
   NavigatorInActiveTextStyle: {
     fontFamily: 'Roboto',
 
     fontSize: px(10),
-    lineHeight: px(11.72),
+    lineHeight: px(16),
     textAlign: 'center',
     color: '#B7B7B7',
   },

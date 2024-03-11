@@ -54,7 +54,8 @@ export default {
   BackgroundScreen: black,
   //basicChange
   BasicColor: white,
-
+  blurredTabColor:black,
+  btmCard:Eerieblack,
   //icon
   EmeraldGreen,
   PictonBlue,

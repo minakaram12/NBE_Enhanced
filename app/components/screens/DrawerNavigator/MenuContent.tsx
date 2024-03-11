@@ -27,7 +27,7 @@ const MenuContent: React.FC<userInfo> = ({userName, phoneNumber}) => {
   return (
     <View style={styles.MainComponent}>
       {/* AR button and logo */}
-      <View style={styles.TopContainer}>
+      <View>
         <View style={styles.header}>
           <Image source={logo}></Image>
           <Image source={AR}></Image>
@@ -37,7 +37,7 @@ const MenuContent: React.FC<userInfo> = ({userName, phoneNumber}) => {
       </View>
 
       {/* LOGOOUT AND BOTTOM NAV */}
-      <View style={styles.outerContainer}>
+      <View style={layouts.mt.xl}>
         <Pressable onPress={LogOut}>
           <View style={styles.container}>
             <IconCard icon={LogoutSvg} containerstyle={styles.icon}></IconCard>
@@ -70,19 +70,14 @@ const styles = StyleSheet.create({
     justifyContent:"space-between",
     flexDirection:"column",
   },
-  TopContainer: {
-    paddingBottom:
-      screenHeight >= 800 ? screenHeight * 0.1 : screenHeight * 0.04,
-  },
+
   header: {
+    flex:1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: px(8),
     marginBottom: px(15),
     marginLeft: px(10),
-  },
-  outerContainer: {
-  // marginTop: px(40),
   },
   container: {
     flexDirection: 'row',
@@ -106,7 +101,7 @@ const styles = StyleSheet.create({
     width: px(296),
     height: px(89),
     borderRadius: px(29),
-    backgroundColor: theme?.white,
+    backgroundColor: theme?.btmCard,
     padding: px(10),
     marginLeft: px(10),
     marginVertical: px(10),
@@ -122,12 +117,13 @@ const styles = StyleSheet.create({
     paddingLeft: px(10),
   },
   userText: {
-    color: theme?.black,
+    color: theme?.BasicColor,
     fontSize: px(18),
     fontWeight: '500',
   },
   userPhone: {
     fontSize: px(14),
+    color: theme?.BasicColor,
   },
   dots: {
     marginLeft: 296 * 0.3,

@@ -20,8 +20,6 @@ import {transferValidationSchema} from '../../../validations/Transfer';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {ScrollView} from 'react-native-gesture-handler';
-import {theme} from '../../../theme/theme';
-import {height} from '@fortawesome/free-solid-svg-icons/faEye';
 import {px} from '../../../constants/styles/layouts';
 
 interface FormValues {
@@ -94,6 +92,7 @@ const TransferScreen = () => {
   return (
     <View style={[styles.container]}>
       <ScrollView>
+      <View style={layouts.px.xl}>
         <TopNavigator
           onPressLeft={HandleGoBack}
           contentLeft={<IconCard icon={BackSvg} Type="back" />}
@@ -102,7 +101,7 @@ const TransferScreen = () => {
               source={require('../../../assets/images/GreenLogo.png')}></Image>
           }
         />
-
+     </View>
         <Text style={[styles.headerStyle]}>Transfer</Text>
 
         <Formik

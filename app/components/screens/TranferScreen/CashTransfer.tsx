@@ -17,7 +17,6 @@ const CashTransfer = () => {
         component={OTPScreen}
         initialParams={{otpTitle: 'OTP', displaySuccessModal: true}}
       />
-      {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
     </Stack.Navigator>
   );
 };

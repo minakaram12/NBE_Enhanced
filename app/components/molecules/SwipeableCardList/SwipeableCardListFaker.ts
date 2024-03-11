@@ -87,11 +87,10 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
   },
 ];
 
-// Now detailedCardPropsArray is an array of 10 items with the DetailedCardProps type //
 
 const objectsList = [];
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 12; i++) {
   const randomFirstName = 'John' + i;
   const randomLastName = 'Doe' + i;
   const randomPhoneNumber = '0126520' + Math.floor(Math.random() * 10000);

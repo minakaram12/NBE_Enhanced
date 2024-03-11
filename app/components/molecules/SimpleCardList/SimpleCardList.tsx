@@ -1,23 +1,25 @@
 import React from 'react';
 import SimpleCard from '../../atoms/SimpleCard/SimpleCard.component';
-import {FlatList, StyleSheet} from 'react-native';
-import {layouts} from '../../../constants/styles';
+import { FlatList, StyleSheet, Dimensions } from 'react-native';
+import { layouts } from '../../../constants/styles';
 import NoBeneficiary from '../../atoms/NoBeneficiaries/NoBeneficiaries';
-import {ExtendedCardProps} from '../SwipeableCardList/SwipeableCardListFaker';
-import {theme} from '../../../theme/theme';
+import { ExtendedCardProps } from '../SwipeableCardList/SwipeableCardListFaker';
+import { theme } from '../../../theme/theme';
 
 interface SimpleCardListProp {
   cards: Array<ExtendedCardProps>;
 }
-
-const SimpleCardList: React.FC<SimpleCardListProp> = ({cards = []}) => {
-  const renderItem = ({item}: {item: ExtendedCardProps}) => {
+const screenWidth = Dimensions.get('window').width;
+const cardWidth = (screenWidth - 30 - 40) / 4; 
+const SimpleCardList: React.FC<SimpleCardListProp> = ({ cards = [] }) => {
+  const renderItem = ({ item }: { item: ExtendedCardProps }) => {
     return (
-      <SimpleCard
-        image={item.image}
-        name={item.name}
-        style={{width: '23%', margin: '1%'}}
-      />
+        <SimpleCard
+          image={item.image}
+          name={item.name}
+        style={{width: cardWidth}}
+        />
+
     );
   };
   const isCardsExists = cards.length > 0;
@@ -28,7 +30,7 @@ const SimpleCardList: React.FC<SimpleCardListProp> = ({cards = []}) => {
           data={cards}
           renderItem={renderItem}
           numColumns={4}
-          style={[layouts.px.sm, styles.flasListStyle]}
+          style={[layouts.px.sm, styles.flasListStyle ]}
         />
       ) : (
         <NoBeneficiary />
@@ -37,6 +39,6 @@ const SimpleCardList: React.FC<SimpleCardListProp> = ({cards = []}) => {
   );
 };
 const styles = StyleSheet.create({
-  flasListStyle: {backgroundColor: theme?.BackgroundMenu},
+  flasListStyle: { backgroundColor: theme?.BackgroundMenu, },
 })
 export default SimpleCardList;

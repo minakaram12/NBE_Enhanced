@@ -5,7 +5,7 @@ import { px } from '../../../constants/styles/layouts';
 import { theme } from '../../../theme/theme';
 
 export interface SimpleCardProp {
-  image: number; //number not string as we are passing require(string name). require funciton returns a number
+  image: number; 
   name: string;
   style?: ViewStyle;
 }

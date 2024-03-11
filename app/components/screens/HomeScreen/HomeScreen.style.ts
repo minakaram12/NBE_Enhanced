@@ -9,7 +9,10 @@ const styles = StyleSheet.create({
   outerContainer: {
     backgroundColor: theme?.BackgroundScreen,
     height: '100%',
-    paddingHorizontal: 15,
+    // paddingHorizontal: 15,
+  },
+  ph15:{
+    paddingHorizontal: 15
   },
   cardBackground: {
     width: '100%',
@@ -29,22 +32,28 @@ const styles = StyleSheet.create({
   cardContent: {
     paddingHorizontal: 10,
     flexDirection: 'row',
-    justifyContent: 'center', // Center the items horizontally
-    alignItems: 'center', // Align items vertically
+    justifyContent: 'center', 
+    alignItems: 'center', 
     marginHorizontal: 5,
   },
 
   CreditText: {
     color: theme?.SeasaltWhite,
     fontSize: px(20),
+    fontWeight: 'bold',
     fontFamily: 'Roboto',
     includeFontPadding: false,
     flex: 1,
-    marginBottom: px(15),
+    marginBottom: px(8),
   },
-
-  svgView: {
-    marginRight: 1,
+  CreditText2:{
+    color: theme?.SeasaltWhite,
+    fontSize: px(20),
+    fontWeight: 'bold',
+    fontFamily: 'Roboto',
+    includeFontPadding: false,
+    flex: 1,
+    marginBottom: px(35),
   },
 
   cardView: {

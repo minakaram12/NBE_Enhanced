@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   rowView: {flexDirection: 'row', alignItems: 'center'},
   bgView: {
     borderRadius: 10,
-    margin: 6,
+    marginRight: 8,
     width: 45,
     height: 45,
     resizeMode:'cover'

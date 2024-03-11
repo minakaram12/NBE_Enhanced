@@ -3,7 +3,6 @@ import {theme} from '../../../theme/theme';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme?.BackgroundMenu,
-    paddingHorizontal: 10,
     height: '100%',
   },
   headerStyle: {

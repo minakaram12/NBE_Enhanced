@@ -1,5 +1,3 @@
-// import {px} from '@app/constants/styles/layouts';
-// import {theme} from '@app/theme/theme';
 import {StyleSheet} from 'react-native';
 import {theme} from '../../../theme/theme';
 import {px} from '../../../constants/styles/layouts';

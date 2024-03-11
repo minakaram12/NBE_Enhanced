@@ -48,6 +48,8 @@ export default {
   BackgroundScreen: Ghostwhite,
   //basicChange
   BasicColor: black,
+  blurredTabColor:Ghostwhite,
+  btmCard:white,
 
   //icon
   EmeraldGreen,

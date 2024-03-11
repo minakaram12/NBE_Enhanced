@@ -9,7 +9,7 @@ function NoBeneficiary() {
   const cards = [];
   const navigateToAddScreen = () => {
     navigation.navigate('AddBeneficiaries', {cards});
-  }; // Declare it with const
+  }; 
   return (
     <View style={[{marginTop: 140}, layouts.yCentered, layouts.fullHeight]}>
       <Pressable onPress={navigateToAddScreen}>

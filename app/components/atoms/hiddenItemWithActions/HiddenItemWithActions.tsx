@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Pressable} from 'react-native';
 import {layouts} from '../../../constants/styles';
-import {theme} from '../../../theme/theme';
 
 const HiddenItemWithActions = ({onDelete, onEdit}) => {
   return (

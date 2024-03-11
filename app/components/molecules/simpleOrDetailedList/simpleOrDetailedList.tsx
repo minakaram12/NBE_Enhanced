@@ -12,7 +12,7 @@ import NoBeneficiary from '../../atoms/NoBeneficiaries/NoBeneficiaries';
 import {theme} from '../../../theme/theme';
 
 interface SimpleOrDetailedListProps {
-  newCards: ExtendedCardProps[];
+  newCards: Beneficiary[];
 }
 
 function SimpleOrDetailedList({newCards}: SimpleOrDetailedListProps) {

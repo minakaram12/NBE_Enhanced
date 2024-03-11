@@ -1,24 +1,35 @@
 import React from 'react';
 import DetailedCard from '../../atoms/DetailedCard/DetailedCard.component';
 import TranactionHistory from '../../templets/TransactionHistory/TransactionHistory.componet';
-import {View} from 'react-native';
+import {Text, View} from 'react-native';
 import {layouts} from '../../../constants/styles';
 import {theme} from '../../../theme/theme';
+import {Beneficiary} from '../../molecules/SwipeableCardList/SwipeableCardListFaker';
 
-function BeneficiaryTransactionScreenComponent({route}) {
-  const {transactions, user} = route.params;
+interface BeneficiaryTransactionScreenComponentProp {
+  route: {params: {transactions: Array<any>; user: Beneficiary}};
+}
+
+function BeneficiaryTransactionScreenComponent({
+  route,
+}: BeneficiaryTransactionScreenComponentProp) {
+  const {transactions, user} = route.params || {};
+
+  if (!user) {
+    return <Text>User data not available.</Text>;
+  }
+
   return (
     <>
-      {/* <DrawerMenu> */}
       <View style={[layouts.fullHeight, layouts.px.lg, styles.outerView]}>
         <DetailedCard
-          name={user.name}
-          balance={user.balance}
+          name={user.name || ''}
+          balance={user.balance || ''}
           image={user.image}
-          mobileNumber={user.mobileNumber}
+          mobileNumber={user.mobileNumber || ''}
           color={user.color}
           key={user.color}
-          viewStyle={user.viewStyle}
+          viewStyle={user.ViewStyle || undefined}
         />
         <TranactionHistory
           transactionitems={transactions ? transactions : []}
@@ -26,13 +37,14 @@ function BeneficiaryTransactionScreenComponent({route}) {
           displayImage={false}
         />
       </View>
-      {/* </DrawerMenu> */}
     </>
   );
 }
+
 const styles = {
-  outerView:{
+  outerView: {
     backgroundColor: theme?.BackgroundScreen,
-  }
-}
+  },
+};
+
 export default BeneficiaryTransactionScreenComponent;

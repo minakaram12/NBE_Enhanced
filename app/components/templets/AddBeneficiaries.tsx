@@ -12,6 +12,7 @@ import {useNavigation} from '@react-navigation/native';
 import {launchCamera} from 'react-native-image-picker';
 import {theme} from '../../theme/theme';
 import {styles} from './AddBeneficiaryStyle';
+import {addBenefprops} from '../atoms/BeneficiaryStack/navigationinfo';
 
 const validationsSchema = yup.object().shape({
   firstName: yup.string().required('first name is required'),
@@ -32,18 +33,7 @@ const validationsSchema = yup.object().shape({
     .required('Email is required'),
 });
 
-interface AddBeneficiariesProps {
-  route: {
-    params: {
-      cards: any[];
-      edit: boolean;
-      item?: any;
-      prevIndex?: number | undefined;
-    };
-  };
-}
-
-function AddBeneficiaries({route}: AddBeneficiariesProps) {
+function AddBeneficiaries({route}: addBenefprops) {
   const [imageUri, setImageUri] = useState<string | null | undefined>(null);
   const openCamera = () => {
     launchCamera(
@@ -83,12 +73,11 @@ function AddBeneficiaries({route}: AddBeneficiariesProps) {
         initialValues={
           edit
             ? {
-                firstName: item.name.split(' ')[0] || '',
-                lastName: item.name.split(' ')[1] || '',
-                accountNumber: item.accountNumber,
-                phoneNumber: item.mobileNumber || '',
-                email: item.email || '',
-                branch: item.branch || '',
+                firstName: item?.name?.split(' ')[0] ?? '',
+                lastName: item?.name?.split(' ')[1] ?? '',
+                accountNumber: item?.accountNumber ?? '',
+                phoneNumber: item?.mobileNumber ?? '',
+                email: item?.email ?? '',
               }
             : {
                 firstName: '',

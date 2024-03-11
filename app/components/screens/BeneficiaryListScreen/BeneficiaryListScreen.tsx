@@ -1,21 +1,8 @@
 import React from 'react';
 import SimpleOrDetailedList from '../../molecules/simpleOrDetailedList/simpleOrDetailedList';
-import {RouteProp} from '@react-navigation/native';
+import {benflistProps} from '../../atoms/BeneficiaryStack/navigationinfo';
 
-type RootStackParamList = {
-  BeneficiaryList: {newCards?: any[]};
-};
-
-type BeneficiaryListRouteProp = RouteProp<
-  RootStackParamList,
-  'BeneficiaryList'
->;
-
-interface BeneficiaryListProps {
-  route: BeneficiaryListRouteProp;
-}
-
-function BeneficiaryListScreen({route}: BeneficiaryListProps) {
+function BeneficiaryListScreen({route}: benflistProps) {
   const {newCards = []} = route.params || {};
 
   return (

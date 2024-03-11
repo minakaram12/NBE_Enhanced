@@ -29,7 +29,7 @@ const MenuItem: React.FC<MyComponentProps> = ({ iconName:IconName, itemTitle }) 
     onPressIn={handlePressIn}
     onPressOut={handlePressOut}
 >
-       <IconCard icon={IconName} containerstyle={{backgroundColor:theme?.greylighter, width: px(30), height: px(30), marginRight: px(8)}}></IconCard>
+       <IconCard icon={IconName} containerstyle={styles.IconCardStyle}></IconCard>
        <Text style={styles.text}>{itemTitle}</Text>
     </TouchableOpacity>
   );

@@ -1,10 +1,6 @@
-import {colors} from '../colors';
 
 const bottomTabColor = '#1a2421';
 const DarkSpringGreen = '#007236';
-const PakistanGreen = '#003D1D';
-const AureolinYellow = '#FBED1F';
-const CanaryYellow = '#FFEB00';
 const silver = '#B7B7B7';
 const Battleshipgray = '#848484';
 const Gray = '#808080';
@@ -14,7 +10,6 @@ const cardBorder = 'transparent';
 //bgscreen
 const Ghostwhite = '#F1F3FB';
 
-const OxfordBlue = '#1C2437';
 
 const EmeraldGreen = '#cdede7';
 const PictonBlue = '#cde9fb';
@@ -30,16 +25,9 @@ const DarkerImperialRed = '#250007';
 const greyLight = '#333333';
 const greylighter = '#B3B3B3';
 
-const PolynesianBlue = '#004E9F';
-const AliceBlue = '#DFEAFB';
 const DunRose = '#DDCBAC';
-const OldRose = '#B47980';
 const DarkRed = '#2d0108';
 const RedCMYK = '#E3000D';
-const OrchidPink = '#E5B8C0';
-const Licorice = '#231912';
-
-const LicoriceBlack = '#231912';
 const Eerieblack = '#1B1B1B';
 const white = '#FFFFFF';
 const blue = '#3B82F6';
@@ -56,12 +44,8 @@ export default {
   BasicColor: white,
   blurredTabColor:black,
   btmCard:Eerieblack,
-  //icon
-  EmeraldGreen,
-  PictonBlue,
-  orangeWeb,
-  ImperialRed,
 
+  //icon
   IconAccountBackground: DarkerEmeraldGreen,
   IconCardstBackground: DarkerPictonBlue,
   IconutilitiesBackground: DarkerorangeWeb,
@@ -86,30 +70,6 @@ export default {
   //BackgroundRed
   IconLogoutBackground: DarkRed,
 
-  DarkSpringGreen,
-  PakistanGreen,
-  AureolinYellow,
-  CanaryYellow,
-  silver,
-  Battleshipgray,
-  Gray,
-  greylighter,
-  greyLight,
-  SeasaltWhite,
-  OxfordBlue,
-  Ghostwhite,
-  PolynesianBlue,
-  AliceBlue,
-  DunRose,
-  OldRose,
-  RedCMYK,
-  OrchidPink,
-  Licorice,
-  LicoriceBlack,
-  Eerieblack,
-  white,
-  blue,
-  black,
   // Modal
   ModalOverlay,
 
@@ -122,6 +82,25 @@ export default {
   InputError: ImperialRed,
 
   cardBorder,
+
   //bottom tab navigation
   BottomTab: bottomTabColor,
+  
+  
+  DarkSpringGreen,
+  silver,
+  Battleshipgray,
+  Gray,
+  greylighter,
+  greyLight,
+  SeasaltWhite,
+  Ghostwhite,
+  DunRose,
+  RedCMYK,
+  Eerieblack,
+  white,
+  blue,
+  black,
+
+
 };

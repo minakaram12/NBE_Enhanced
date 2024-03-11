@@ -22,7 +22,6 @@ import ReceivingZone from '../../molecules/ReceivingZone/ReceivingZone';
 import SmallOutlinedFingerPrintSvg from '../../../assets/svgs/SmallOutlinedFingerPrintSvg';
 
 import {visaCardsData} from '../../../Faker/Faker';
-
 const AirPayScreen = () => {
   const [showModal, setShowModal] = useState(false);
   const [receiverCardIndex, setReceiverCardIndex] = useState(-1);

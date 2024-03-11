@@ -3,19 +3,10 @@ import VisaCard from '../../atoms/VisaCard/VisaCard';
 import {VisaCardProps} from '../../atoms/VisaCard/VisaCard';
 import {px} from '../../../constants/styles/layouts';
 import layouts from '../../../constants/styles/layouts';
-import React from 'react';
-interface VisaCardData {
-  id: string;
-  amount: string;
-  card_num: number;
-  name: string;
-  accType: string;
-  date: string;
-  cvv: string;
-}
 
+import React from 'react';
 interface VisaCardListProps {
-  VisaCardsData: VisaCardData[];
+  VisaCardsData: VisaCardProps[];
   onPress: () => void;
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -23,7 +14,7 @@ const VisaCardList: React.FC<VisaCardListProps> = ({
   VisaCardsData,
   onPress,
 }) => {
-  const renderVisaCard: ListRenderItem<VisaCardData> = ({item}) => (
+  const renderVisaCard: ListRenderItem<VisaCardProps> = ({item}) => (
     <TouchableOpacity onPress={onPress} style={{paddingHorizontal: 5}}>
       <VisaCard
         amount={item.amount}
@@ -36,7 +27,7 @@ const VisaCardList: React.FC<VisaCardListProps> = ({
     </TouchableOpacity>
   );
 
-  const keyExtractor = (item: VisaCardData) => item.id;
+  const keyExtractor = (item: VisaCardProps) => item.card_num + item.accType;
 
   return (
     <View style={[layouts.allCentered]}>

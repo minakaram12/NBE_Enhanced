@@ -26,6 +26,7 @@ const SendMoneyList: React.FC<SimpleCardListProp> = ({cardsData, showAll}) => {
       horizontal
       showsHorizontalScrollIndicator={false}
       renderItem={renderSimpleCard}
+      key={showAll ? 'showAll' : 'showLess'}
     />
   );
 };

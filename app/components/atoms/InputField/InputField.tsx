@@ -18,7 +18,7 @@ import {faCircleExclamation} from '@fortawesome/free-solid-svg-icons/faCircleExc
 
 import {IconProp} from '@fortawesome/fontawesome-svg-core';
 import styles from './InputField.style';
-import {Field, FormikValues, useFormikContext} from 'formik';
+import {Field, FieldInputProps, FormikValues, useFormikContext} from 'formik';
 import {TextInputMask} from 'react-native-masked-text';
 
 interface InputProps {
@@ -35,20 +35,20 @@ interface InputProps {
     | 'phone-pad'
     | 'url';
   mask?: string | undefined;
-  // styles
+
   outerContainerStyle?: StyleProp<ViewStyle> | Array<ViewStyle> | null;
   innerContainerStyle?: StyleProp<ViewStyle> | Array<ViewStyle> | null;
   labelStyle?: StyleProp<TextStyle> | Array<TextStyle> | null;
   shadow?: boolean;
-  // left icon
+
   leftIcon?: string;
   leftIconSize?: number;
   leftIconColor?: string;
-  // boolean props
+
   disabled?: boolean;
   isPassword?: boolean;
   showErrors?: boolean;
-  // functions
+
   onChangeText?: (text: string) => void;
 }
 
@@ -163,7 +163,7 @@ const InputField: React.FC<InputProps> = ({
           )}
           <View style={[layouts.row, layouts.allCentered]}>
             <Field name={name}>
-              {({field}) =>
+              {({field}: {field: FieldInputProps<any>}) =>
                 mask ? (
                   <TextInputMask
                     type={'custom'}
@@ -247,7 +247,7 @@ const InputField: React.FC<InputProps> = ({
         <View style={[layouts.row, layouts.mt.md, layouts.yCentered]}>
           <FontAwesomeIcon icon={faCircleExclamation} size={16} color={'red'} />
           <Text style={[styles.label, layouts.ms.sm, styles.errorTextColor]}>
-            {errors[name]}
+            {errors[name] as string}
           </Text>
         </View>
       )}

@@ -3,6 +3,7 @@ import {px} from '../../../../constants/styles/layouts';
 import {theme} from '../../../../theme/theme';
 
 export default StyleSheet.create({
+  container: {backgroundColor: theme?.DarkSpringGreen},
   title: {
     fontFamily: 'Roboto-Bold',
     fontSize: px(30),

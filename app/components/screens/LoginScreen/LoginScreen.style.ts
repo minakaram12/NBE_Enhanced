@@ -31,6 +31,10 @@ const styles = StyleSheet.create({
   copyright: {
     fontSize: px(10),
   },
+  checkboxIcon: {
+    borderWidth: 0,
+  },
+  checkboxText: {textDecorationLine: 'none'},
 });
 
 export default styles;

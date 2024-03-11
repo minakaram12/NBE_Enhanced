@@ -7,12 +7,12 @@ export default StyleSheet.create({
     fontSize: px(20),
     fontFamily: 'Roboto-Bold',
     color: theme?.textColorBlue,
-    lineHeight: px(23.44),
+    lineHeight: px(23),
   },
   caption: {
     fontSize: px(16),
     fontFamily: 'Roboto-Regular',
     color: theme?.textColorGrey,
-    lineHeight: px(18.75),
+    lineHeight: px(18),
   },
 });

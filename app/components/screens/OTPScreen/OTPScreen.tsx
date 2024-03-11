@@ -1,15 +1,7 @@
 import {OtpInput} from 'react-native-otp-entry';
 import React, {useState, useEffect} from 'react';
-import {
-  View,
-  Alert,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Image, Text, TouchableOpacity} from 'react-native';
 import MainBtn from '../../atoms/MainBtn/MainBtn';
-import {shadows} from '../../../constants/styles';
 import TopNavigator from '../../molecules/TopNavigator/TopNavigator';
 import IconCard from '../../atoms/IconCard/IconCard';
 import BackSvg from '../../../assets/svgs/BackSvg';
@@ -18,7 +10,7 @@ import AppModal from '../../atoms/AppModal/AppModal';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {getPhoneNumber} from '../../../storage/mmkv';
-import { px } from '../../../constants/styles/layouts';
+import layouts, {px} from '../../../constants/styles/layouts';
 
 const OTPScreen = ({route}: {route: any}) => {
   const {otpTitle, displaySuccessModal} = route.params;
@@ -31,34 +23,31 @@ const OTPScreen = ({route}: {route: any}) => {
   const [showSuccesModal, setShowSuccessModal] = useState(false);
   const [showFailedModal, setShowFailedModal] = useState(false);
 
-  // Start the countdown when the screen load
   useEffect(() => {
     let interval: NodeJS.Timeout;
     interval = setInterval(() => {
       setTimer(prevTimer => {
         if (prevTimer === 0) {
           clearInterval(interval);
-          setResendDisabled(false); // Enable resend button when timer reaches 0
-          return 120; // Reset timer to 2 minutes (120 seconds)
+          setResendDisabled(false);
+          return 120;
         }
         return prevTimer - 1;
       });
     }, 1000);
 
-    // Clean up the interval when the component unmounts
     return () => clearInterval(interval);
   }, []);
 
   const handleResendOTP = (): void => {
     setResendDisabled(true);
-    setTimer(120); // Reset timer to 2 minutes (120 seconds)
-    // Start the countdown again
+    setTimer(120);
     let interval = setInterval(() => {
       setTimer(prevTimer => {
         if (prevTimer === 0) {
           clearInterval(interval);
-          setResendDisabled(false); // Enable resend button when timer reaches 0
-          return 120; // Reset timer to 2 minutes (120 seconds)
+          setResendDisabled(false);
+          return 120;
         }
         return prevTimer - 1;
       });
@@ -71,9 +60,8 @@ const OTPScreen = ({route}: {route: any}) => {
     return `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
-  // enable submit btn when otp is filled
   useEffect(() => {
-    setSubmitDisabled(otp.length !== 5); // Disable submit button if OTP is not complete
+    setSubmitDisabled(otp.length !== 5);
   }, [otp]);
 
   const handleOTPChange = (otp: string) => {
@@ -83,7 +71,6 @@ const OTPScreen = ({route}: {route: any}) => {
   const handleVerifyOTP = (otp: string) => {
     if (otp === '12345') {
       setShowSuccessModal(true);
-      // navigation by rawan here
       if (!displaySuccessModal) {
         navigation.navigate('PasswordScreen');
       }
@@ -94,12 +81,12 @@ const OTPScreen = ({route}: {route: any}) => {
 
   const handleSubmit = () => {
     handleVerifyOTP(otp);
-    // navigation.navigate('PasswordScreen');
   };
 
   const HandleGoBack = () => {
     navigation.goBack();
   };
+
   return (
     <View style={[styles.OuterContainer]}>
       <View>
@@ -111,7 +98,7 @@ const OTPScreen = ({route}: {route: any}) => {
               source={require('../../../assets/images/GreenLogo.png')}></Image>
           }
         />
-        <Text style={[styles.timerText, styles.otpTitle]}> {otpTitle}</Text>
+        <Text style={[styles.timerText, styles.otpTitle, layouts.my.sm]}> {otpTitle}</Text>
 
         <Text style={styles.infoText}>
           {' '}
@@ -122,7 +109,6 @@ const OTPScreen = ({route}: {route: any}) => {
           onTextChange={(code: string) => handleOTPChange(code)}
           focusColor="green"
           focusStickBlinkingDuration={1000}
-          onFilled={text => console.log(`otp is ${text}`)}
           theme={{
             containerStyle: styles.container,
             pinCodeContainerStyle: styles.pinCodeContainer,
@@ -157,8 +143,8 @@ const OTPScreen = ({route}: {route: any}) => {
           cancelButtonText="Cancel"
           onCancelPress={() => setShowFailedModal(false)}
           imageSource={require('../../../assets/images/error-cards.png')}
-          imageWidth={px(230.18)}
-          imageHeight={px(181.42)}
+          imageWidth={px(232)}
+          imageHeight={px(182)}
         />
 
         <View>

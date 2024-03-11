@@ -5,16 +5,17 @@ import InputField from '../../../atoms/InputField/InputField';
 import MainBtn from '../../../atoms/MainBtn/MainBtn';
 import {Formik} from 'formik';
 import styles from './MobileForm.style';
-import * as Yup from 'yup';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faMobile} from '@fortawesome/free-solid-svg-icons/faMobile';
 import {setPhoneNumber} from '../../../../storage/mmkv';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {mobileSchema} from '../../../../validations/mobile';
+
 library.add(faMobile);
 
-const MobileForm = ({navigation}) => {
-  const mobileSchema = Yup.object().shape({
-    mobileNumber: Yup.string().required().length(16),
-  });
+const MobileForm = () => {
+  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
   return (
     <Formik
@@ -32,7 +33,7 @@ const MobileForm = ({navigation}) => {
               Enter the mobile number registred in the bank
             </Text>
           </View>
-          <View style={[layouts.flexed, layouts.my.xxl]}>
+          <View style={[layouts.flexed, layouts.my.xl]}>
             <InputField
               name="mobileNumber"
               placeholder="Enter your mobile number"

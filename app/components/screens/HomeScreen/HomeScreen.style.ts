@@ -1,7 +1,5 @@
 import {px} from '../../../constants/styles/layouts';
 // import {theme} from '@app/theme/theme';
-import {screenHeight} from '../../../constants/styles/layouts';
-import shadows from '../../../constants/styles/shadows';
 import {StyleSheet} from 'react-native';
 import {theme} from '../../../theme/theme';
 
@@ -11,8 +9,14 @@ const styles = StyleSheet.create({
     height: '100%',
     // paddingHorizontal: 15,
   },
-  ph15:{
-    paddingHorizontal: 15
+  ph15: {
+    paddingHorizontal: 15,
+  },
+  mt20: {
+    marginTop: px(20),
+  },
+  ml10: {
+    marginLeft: px(10),
   },
   cardBackground: {
     width: '100%',
@@ -32,8 +36,8 @@ const styles = StyleSheet.create({
   cardContent: {
     paddingHorizontal: 10,
     flexDirection: 'row',
-    justifyContent: 'center', 
-    alignItems: 'center', 
+    justifyContent: 'center',
+    alignItems: 'center',
     marginHorizontal: 5,
   },
 
@@ -46,7 +50,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginBottom: px(8),
   },
-  CreditText2:{
+  CreditText2: {
     color: theme?.SeasaltWhite,
     fontSize: px(20),
     fontWeight: 'bold',
@@ -54,6 +58,7 @@ const styles = StyleSheet.create({
     includeFontPadding: false,
     flex: 1,
     marginBottom: px(35),
+    textAlign: 'center',
   },
 
   cardView: {

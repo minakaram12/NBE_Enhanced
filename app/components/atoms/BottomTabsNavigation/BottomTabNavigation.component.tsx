@@ -1,6 +1,5 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {StyleSheet} from 'react-native';
 import {Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import IconFontAwsome from 'react-native-vector-icons/FontAwesome';
@@ -10,18 +9,25 @@ import IconCreditCard from 'react-native-vector-icons/AntDesign';
 import IconFingerPrint from 'react-native-vector-icons/FontAwesome5';
 
 import {layouts} from '../../../constants/styles';
-import {px} from '../../../constants/styles/layouts';
 import BeneficiaryStack from '../BeneficiaryStack/BeneficiaryStack';
 import HomeScreen from '../../screens/HomeScreen/HomeScreen';
 import AirPayScreen from '../../screens/AirPay/AirPayScreen';
 import CashTransfer from '../../screens/TranferScreen/CashTransfer';
 import Map from '../../screens/Map/Map';
 import {theme} from '../../../theme/theme';
+import {styles} from './BottomNavStyles';
+
+interface BottomTabBarIconProps {
+  focused: boolean;
+  size: number;
+  color: string;
+}
 
 function BottomTabsNavigation() {
   const Tab = createBottomTabNavigator();
   const addHomeIcon = {
-    tabBarIcon: ({focused, size, color}) => {
+    // eslint-disable-next-line react/no-unstable-nested-components
+    tabBarIcon: ({focused, size, color}: BottomTabBarIconProps) => {
       return (
         <View style={focused ? styles.focusedStyle : styles.blurredStyle}>
           <Icon name="home" color={color} size={size} />
@@ -39,7 +45,8 @@ function BottomTabsNavigation() {
   };
 
   const addTransfer = {
-    tabBarIcon: ({focused, size, color}) => {
+    // eslint-disable-next-line react/no-unstable-nested-components
+    tabBarIcon: ({focused, size, color}: BottomTabBarIconProps) => {
       return (
         <View style={focused ? styles.focusedStyle : styles.blurredStyle}>
           <IconFontAwsome name="paper-plane-o" color={color} size={size} />
@@ -57,7 +64,8 @@ function BottomTabsNavigation() {
   };
 
   const addBeneficiariesIcon = {
-    tabBarIcon: ({focused, size, color}) => {
+    // eslint-disable-next-line react/no-unstable-nested-components
+    tabBarIcon: ({focused, size, color}: BottomTabBarIconProps) => {
       return (
         <View style={focused ? styles.focusedStyle : styles.blurredStyle}>
           <IconUserFriends name="user-friends" color={color} size={size} />
@@ -75,7 +83,8 @@ function BottomTabsNavigation() {
   };
 
   const addAtms = {
-    tabBarIcon: ({focused, size, color}) => {
+    // eslint-disable-next-line react/no-unstable-nested-components
+    tabBarIcon: ({focused, size, color}: BottomTabBarIconProps) => {
       return (
         <View style={focused ? styles.focusedStyle : styles.blurredStyle}>
           <IconAtm name="location" color={color} size={size * 1.5} />
@@ -93,7 +102,8 @@ function BottomTabsNavigation() {
   };
 
   const addAirPlay = {
-    tabBarIcon: ({focused, size, color}) => {
+    // eslint-disable-next-line react/no-unstable-nested-components
+    tabBarIcon: ({focused, size, color}: BottomTabBarIconProps) => {
       return (
         <View style={focused ? styles.focusedStyle : styles.blurredStyle}>
           <IconFingerPrint
@@ -159,46 +169,3 @@ function BottomTabsNavigation() {
 }
 
 export default BottomTabsNavigation;
-
-const styles = StyleSheet.create({
-  focusedStyle: {
-    backgroundColor: '#007236',
-    width: px(70),
-    height: px(70),
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: px(15),
-    marginVertical: px(10),
-  },
-  blurredStyle: {
-    backgroundColor: theme?.blurredTabColor,
-    width: px(70),
-    height: px(70),
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: px(15),
-    marginVertical: px(10),
-  },
-  NavigatorActiveTextStyle: {
-    fontFamily: 'Roboto',
-    fontSize: px(10),
-    lineHeight: px(16),
-    textAlign: 'center',
-    color: '#F7F7F7',
-  },
-  NavigatorInActiveTextStyle: {
-    fontFamily: 'Roboto',
-
-    fontSize: px(10),
-    lineHeight: px(16),
-    textAlign: 'center',
-    color: '#B7B7B7',
-  },
-  smallIcon: {
-    width: px(11),
-    height: px(11),
-    position: 'absolute',
-    top: px(4),
-    left: px(4),
-  },
-});

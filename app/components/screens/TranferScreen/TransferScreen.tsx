@@ -92,16 +92,16 @@ const TransferScreen = () => {
   return (
     <View style={[styles.container]}>
       <ScrollView>
-      <View style={layouts.px.xl}>
-        <TopNavigator
-          onPressLeft={HandleGoBack}
-          contentLeft={<IconCard icon={BackSvg} Type="back" />}
-          contentRight={
-            <Image
-              source={require('../../../assets/images/GreenLogo.png')}></Image>
-          }
-        />
-     </View>
+        <View style={layouts.px.md}>
+          <TopNavigator
+            onPressLeft={HandleGoBack}
+            contentLeft={<IconCard icon={BackSvg} Type="back" />}
+            contentRight={
+              <Image
+                source={require('../../../assets/images/GreenLogo.png')}></Image>
+            }
+          />
+        </View>
         <Text style={[styles.headerStyle]}>Transfer</Text>
 
         <Formik
@@ -115,14 +115,8 @@ const TransferScreen = () => {
             console.log(values);
           }}>
           {formikProps => (
-            <View
-              style={{
-                flex: 1,
-                justifyContent: 'space-between',
-                flexDirection: 'column',
-                alignItems: 'stretch',
-              }}>
-              <View style={{paddingBottom: 40}}>
+            <View style={[layouts.flexed, layouts.justifyBetween]}>
+              <View style={styles.pb40}>
                 <View style={[layouts.px.md, layouts.py.md]}>
                   <DropdownMenu
                     options={transferType}
@@ -181,8 +175,8 @@ const TransferScreen = () => {
                   cancelButtonText="Cancel"
                   onCancelPress={() => setShowFailedModal(false)}
                   imageSource={require('../../../assets/images/error-cards.png')}
-                  imageWidth={px(230.18)}
-                  imageHeight={px(181.42)}
+                  imageWidth={px(231)}
+                  imageHeight={px(182)}
                 />
                 <MainBtn
                   buttonText="Transfer"

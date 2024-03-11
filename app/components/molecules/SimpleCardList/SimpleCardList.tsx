@@ -1,25 +1,24 @@
 import React from 'react';
 import SimpleCard from '../../atoms/SimpleCard/SimpleCard.component';
-import { FlatList, StyleSheet, Dimensions } from 'react-native';
-import { layouts } from '../../../constants/styles';
+import {FlatList, Dimensions} from 'react-native';
+import {layouts} from '../../../constants/styles';
 import NoBeneficiary from '../../atoms/NoBeneficiaries/NoBeneficiaries';
-import { ExtendedCardProps } from '../SwipeableCardList/SwipeableCardListFaker';
-import { theme } from '../../../theme/theme';
+import {Beneficiary} from '../SwipeableCardList/SwipeableCardListFaker';
+import {styles} from './simpleCardStyles';
 
 interface SimpleCardListProp {
-  cards: Array<ExtendedCardProps>;
+  cards: Array<Beneficiary>;
 }
 const screenWidth = Dimensions.get('window').width;
-const cardWidth = (screenWidth - 30 - 40) / 4; 
-const SimpleCardList: React.FC<SimpleCardListProp> = ({ cards = [] }) => {
-  const renderItem = ({ item }: { item: ExtendedCardProps }) => {
+const cardWidth = (screenWidth - 30 - 40) / 4;
+const SimpleCardList: React.FC<SimpleCardListProp> = ({cards = []}) => {
+  const renderItem = ({item}: {item: Beneficiary}) => {
     return (
-        <SimpleCard
-          image={item.image}
-          name={item.name}
+      <SimpleCard
+        image={item.image}
+        name={item.name}
         style={{width: cardWidth}}
-        />
-
+      />
     );
   };
   const isCardsExists = cards.length > 0;
@@ -30,7 +29,7 @@ const SimpleCardList: React.FC<SimpleCardListProp> = ({ cards = [] }) => {
           data={cards}
           renderItem={renderItem}
           numColumns={4}
-          style={[layouts.px.sm, styles.flasListStyle ]}
+          style={[layouts.px.sm, styles.flasListStyle]}
         />
       ) : (
         <NoBeneficiary />
@@ -38,7 +37,5 @@ const SimpleCardList: React.FC<SimpleCardListProp> = ({ cards = [] }) => {
     </>
   );
 };
-const styles = StyleSheet.create({
-  flasListStyle: { backgroundColor: theme?.BackgroundMenu, },
-})
+
 export default SimpleCardList;

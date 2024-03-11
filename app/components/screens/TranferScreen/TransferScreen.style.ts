@@ -12,6 +12,9 @@ const styles = StyleSheet.create({
     fontSize: 30,
     paddingHorizontal: 15,
   },
+  pb40: {
+    paddingBottom: 40,
+  },
 });
 
 export default styles;

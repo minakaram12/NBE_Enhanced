@@ -1,7 +1,10 @@
 import React from 'react';
 import SimpleOrDetailedList from '../../molecules/simpleOrDetailedList/simpleOrDetailedList';
-function BenefiiciaryListScreen({route}) {
+import {benflistProps} from '../../atoms/BeneficiaryStack/navigationinfo';
+
+function BeneficiaryListScreen({route}: benflistProps) {
   const {newCards = []} = route.params || {};
+
   return (
     <>
       <SimpleOrDetailedList newCards={newCards} />
@@ -9,4 +12,4 @@ function BenefiiciaryListScreen({route}) {
   );
 }
 
-export default BenefiiciaryListScreen;
+export default BeneficiaryListScreen;

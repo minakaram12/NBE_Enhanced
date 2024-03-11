@@ -1,12 +1,5 @@
 import React, {useState} from 'react';
-import {
-  Image,
-  StyleSheet,
-  View,
-  ScrollView,
-  TouchableOpacity,
-  Text,
-} from 'react-native';
+import {Image, View, ScrollView, TouchableOpacity, Text} from 'react-native';
 import {layouts} from '../../constants/styles';
 import InputField from '../atoms/InputField/InputField';
 import DropdownMenu from '../atoms/DropdownMenu/DropdownMenu';
@@ -18,29 +11,30 @@ import {transferType} from '../../Faker/Faker';
 import {useNavigation} from '@react-navigation/native';
 import {launchCamera} from 'react-native-image-picker';
 import {theme} from '../../theme/theme';
+import {styles} from './AddBeneficiaryStyle';
+import {addBenefprops} from '../atoms/BeneficiaryStack/navigationinfo';
 
 const validationsSchema = yup.object().shape({
   firstName: yup.string().required('first name is required'),
   lastName: yup.string().required('last name is required'),
   accountNumber: yup
     .string()
-    .matches(/^[0-9]{10,14}$/, 'Invalid account number') // Regex for valid account numbers
+    .matches(/^[0-9]{10,14}$/, 'Invalid account number')
     .required('account number is required')
     .min(10, 'minimum 10 numbers')
     .max(14, "you can't exceed 14 numbers"),
   phoneNumber: yup
     .string()
-    .matches(/^[0-9]{10,14}$/, 'Invalid phone number') // Adjust the regex based on your requirements
+    .matches(/^[0-9]{10,14}$/, 'Invalid phone number')
     .required('phone number is required'),
   email: yup
     .string()
     .email('invalid email address')
     .required('Email is required'),
 });
-//
 
-function AddBeneficiaries({route}) {
-  const [imageUri, setImageUri] = useState(null);
+function AddBeneficiaries({route}: addBenefprops) {
+  const [imageUri, setImageUri] = useState<string | null | undefined>(null);
   const openCamera = () => {
     launchCamera(
       {
@@ -59,7 +53,10 @@ function AddBeneficiaries({route}) {
             response.errorMessage,
           );
         } else {
-          setImageUri(response.assets[0].uri);
+          const uri = response.assets?.[0]?.uri;
+          if (uri) {
+            setImageUri(uri);
+          }
         }
       },
     );
@@ -70,18 +67,17 @@ function AddBeneficiaries({route}) {
   const navigation = useNavigation();
 
   return (
-    <View style={[layouts.fullHeight, {paddingBottom: 80}]}>
+    <View style={[layouts.fullHeight, styles.container]}>
       <Formik
         validationSchema={validationsSchema}
         initialValues={
           edit
             ? {
-                firstName: item.name.split(' ')[0] || '',
-                lastName: item.name.split(' ')[1] || '',
-                accountNumber: item.accountNumber, // You may need to update this based on the actual property in your `item`
-                phoneNumber: item.mobileNumber || '',
-                email: item.email || '', // You may need to update this based on the actual property in your `item`
-                branch: item.branch || '',
+                firstName: item?.name?.split(' ')[0] ?? '',
+                lastName: item?.name?.split(' ')[1] ?? '',
+                accountNumber: item?.accountNumber ?? '',
+                phoneNumber: item?.mobileNumber ?? '',
+                email: item?.email ?? '',
               }
             : {
                 firstName: '',
@@ -93,8 +89,6 @@ function AddBeneficiaries({route}) {
               }
         }
         onSubmit={values => {
-          // Handle form submission with the values
-
           if (!edit) {
             const newCards = [
               ...cards,
@@ -110,15 +104,12 @@ function AddBeneficiaries({route}) {
                 email: values.email,
               },
             ];
-            console.log('====================================n');
-            console.log(newCards);
-            console.log('====================================n');
             navigation.navigate('BenefiiciaryListScreen', {newCards});
           } else {
             const newCards = [...cards];
-            console.log(newCards);
-            console.log(prevIndex);
-            newCards[prevIndex] = {
+            const index = prevIndex !== undefined ? prevIndex : 0;
+
+            newCards[index] = {
               name: values.firstName + ' ' + values.lastName,
               mobileNumber: values.phoneNumber,
               balance: '999',
@@ -143,10 +134,7 @@ function AddBeneficiaries({route}) {
                     {backgroundColor: theme?.InputBackgroundColor},
                   ]}>
                   {imageUri ? (
-                    <Image
-                      source={{uri: imageUri}}
-                      style={{width: 138, height: 138, borderRadius: 30}}
-                    />
+                    <Image source={{uri: imageUri}} style={styles.image} />
                   ) : (
                     <Image
                       source={require('../../assets/images/cam.png')}
@@ -155,7 +143,7 @@ function AddBeneficiaries({route}) {
                   )}
                 </View>
               </TouchableOpacity>
-              <View style={[layouts.row, {marginTop: 20}]}>
+              <View style={[layouts.row, styles.SiblingsInput]}>
                 <InputField
                   label="First Name"
                   name="firstName"
@@ -163,7 +151,7 @@ function AddBeneficiaries({route}) {
                   outerContainerStyle={[
                     layouts.flexed,
                     layouts.me.sm,
-                    {height: 65, elevation: 15},
+                    styles.inputField,
                   ]}
                 />
                 <InputField
@@ -173,7 +161,7 @@ function AddBeneficiaries({route}) {
                   outerContainerStyle={[
                     layouts.flexed,
                     layouts.ms.sm,
-                    {height: 65, elevation: 15},
+                    styles.inputField,
                   ]}
                 />
               </View>
@@ -191,49 +179,48 @@ function AddBeneficiaries({route}) {
                 label="Account number"
                 name="accountNumber"
                 showErrors={false}
-                outerContainerStyle={[
-                  layouts.my.lg,
-                  {height: 65, elevation: 15},
-                ]}
+                outerContainerStyle={[layouts.my.lg, styles.inputField]}
               />
               <InputField
                 label="Phone number"
                 name="phoneNumber"
                 showErrors={false}
-                outerContainerStyle={[
-                  layouts.my.lg,
-                  {height: 65, elevation: 15},
-                ]}
+                outerContainerStyle={[layouts.my.lg, styles.inputField]}
               />
               <InputField
                 label="Email"
                 name="email"
                 showErrors={false}
-                outerContainerStyle={[
-                  layouts.my.lg,
-                  {height: 65, elevation: 15},
-                ]}
+                outerContainerStyle={[layouts.my.lg, styles.inputField]}
               />
               {Object.keys(formikProps.errors).length > 0 && (
                 <Text style={styles.generalError}>
-                  {Object.keys(formikProps.errors).map((errorKey, index) => (
-                    <Text key={index}>
-                      {formikProps.errors[errorKey]}
-                      {index < Object.keys(formikProps.errors).length - 1 &&
-                        ', '}
-                    </Text>
-                  ))}
+                  {Object.entries(formikProps.errors).map(
+                    ([_, errorMessage], index) => (
+                      <React.Fragment key={index}>
+                        {typeof errorMessage === 'string' && (
+                          <>
+                            {errorMessage}
+                            {index <
+                              Object.keys(formikProps.errors).length - 1 &&
+                              ', '}
+                          </>
+                        )}
+                      </React.Fragment>
+                    ),
+                  )}
                 </Text>
               )}
+
               {edit ? (
                 <MainBtn
-                  buttonStyle={{marginTop: 30, height: 50}}
+                  buttonStyle={styles.buttonStyle}
                   buttonText="Edit Beneficiar"
                   onPress={formikProps.handleSubmit}
                 />
               ) : (
                 <MainBtn
-                  buttonStyle={{marginTop: 30, height: 50}}
+                  buttonStyle={styles.buttonStyle}
                   buttonText="Add Beneficiar"
                   onPress={formikProps.handleSubmit}
                 />
@@ -246,23 +233,4 @@ function AddBeneficiaries({route}) {
   );
 }
 
-const styles = StyleSheet.create({
-  cameraView: {width: 138, height: 138, borderRadius: 30},
-  camImg: {width: 40, height: 40},
-  scrollViewContent: {flexGrow: 1},
-  formicContainer: {backgroundColor: theme.BackgroundMenu},
-  generalError: {
-    color: 'red',
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginTop: 10,
-    textAlign: 'center',
-  },
-  dropDownCustomStyle: {
-    marginTop: 15,
-    marginLeft: 0,
-    marginRight: 0,
-    elevation: 0,
-  },
-});
 export default AddBeneficiaries;

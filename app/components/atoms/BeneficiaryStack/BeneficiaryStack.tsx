@@ -3,10 +3,10 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Beneficiary from '../../screens/Benificiary/Benificiary';
 import BenefiiciaryListScreen from '../../screens/BeneficiaryListScreen/BeneficiaryListScreen';
 import BeneficiaryTransactionScreenComponent from '../../screens/BeneficiaryTransactionScreen/BeneficiaryTransactionScreen';
-
+import {RootStackParamList} from './navigationinfo';
 createStackNavigator;
 function BeneficiaryStack() {
-  const Stack = createStackNavigator();
+  const Stack = createStackNavigator<RootStackParamList>();
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen

@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     height: 40,
     alignItems: 'center',
+    width:"100%",
   },
   alignCenter: {
     alignItems: 'center',

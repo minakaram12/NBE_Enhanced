@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import{theme} from '../../../theme/theme'
+import { px } from "../../../constants/styles/layouts";
 
 export default StyleSheet.create({
     itemContainer: {
@@ -27,4 +28,10 @@ export default StyleSheet.create({
     hoveredItem: {
         backgroundColor: theme?.DarkSpringGreen,
       },
+    IconCardStyle:{
+        backgroundColor:theme?.greylighter, 
+        width: px(30),
+        height: px(30), 
+        marginRight: px(8)
+    }
 });

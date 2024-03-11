@@ -1,14 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
+import {View, Text, Image, Pressable} from 'react-native';
 import Sidebar from '../../molecules/SidebarMenu/SidebarMenu';
 import IconCard from '../../atoms/IconCard/IconCard';
-import layouts, {px, screenHeight} from '../../../constants/styles/layouts';
+import layouts, { screenHeight} from '../../../constants/styles/layouts';
 import LogoutSvg from '../../../assets/svgs/LogoutSvg';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {logout} from '../../../storage/mmkv';
-import {theme} from '../../../theme/theme';
-import Scaling from '../../../constants/styles/scaling';
+import styles from '../DrawerNavigator/MenuContent.style';
 
 interface userInfo {
   userName: string;
@@ -23,7 +22,6 @@ const MenuContent: React.FC<userInfo> = ({userName, phoneNumber}) => {
     navigate.navigate('loginScreen');
   };
 
-  console.log(screenHeight);
   return (
     <View style={styles.MainComponent}>
       {/* AR button and logo */}
@@ -37,7 +35,7 @@ const MenuContent: React.FC<userInfo> = ({userName, phoneNumber}) => {
       </View>
 
       {/* LOGOOUT AND BOTTOM NAV */}
-      <View style={layouts.mt.xl}>
+      <View style={layouts.mt.xxxl}>
         <Pressable onPress={LogOut}>
           <View style={styles.container}>
             <IconCard icon={LogoutSvg} containerstyle={styles.icon}></IconCard>
@@ -64,70 +62,6 @@ const MenuContent: React.FC<userInfo> = ({userName, phoneNumber}) => {
   );
 };
 
-const styles = StyleSheet.create({
-  MainComponent:{
-    flex:1,
-    justifyContent:"space-between",
-    flexDirection:"column",
-  },
 
-  header: {
-    flex:1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: px(8),
-    marginBottom: px(15),
-    marginLeft: px(10),
-  },
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginLeft: px(5),
-  },
-  textStyle: {
-    fontSize: px(18),
-    flexDirection: 'row',
-    fontFamily: 'Roboto-bold',
-    color: theme?.RedCMYK,
-    fontWeight: 'bold',
-  },
-  icon: {
-    backgroundColor: theme?.IconLogoutBackground,
-    width: px(30),
-    height: px(30),
-    marginRight: px(10),
-  },
-  userCard: {
-    width: px(296),
-    height: px(89),
-    borderRadius: px(29),
-    backgroundColor: theme?.btmCard,
-    padding: px(10),
-    marginLeft: px(10),
-    marginVertical: px(10),
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  image: {
-    width: px(50),
-    height: px(50),
-  },
-  userinfo: {
-    flexDirection: 'column',
-    paddingLeft: px(10),
-  },
-  userText: {
-    color: theme?.BasicColor,
-    fontSize: px(18),
-    fontWeight: '500',
-  },
-  userPhone: {
-    fontSize: px(14),
-    color: theme?.BasicColor,
-  },
-  dots: {
-    marginLeft: 296 * 0.3,
-  },
-});
 
 export default MenuContent;

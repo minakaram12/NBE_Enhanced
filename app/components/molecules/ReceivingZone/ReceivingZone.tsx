@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pressable, Text, View} from 'react-native';
+import {Image, Pressable, Text, View} from 'react-native';
 import {layouts} from '../../../constants/styles';
 import styles from './ReceivingZone.style';
 import {visaCardsData} from '../../../Faker/Faker';
@@ -17,9 +17,19 @@ const ReceivingZone = ({
   return (
     <View style={[styles.cardBox, layouts.allCentered]}>
       {receiverCardIndex !== -1 ? (
-        <Pressable onPress={() => setReceiverCardIndex(-1)}>
-          <VisaCard {...visaCardsData[receiverCardIndex]} />
-        </Pressable>
+        <View style={[layouts.relative, layouts.allCentered]}>
+          <View style={[layouts.absolute]}>
+            <VisaCard {...visaCardsData[receiverCardIndex]} />
+          </View>
+          <Pressable
+            onPress={() => setReceiverCardIndex(-1)}
+            style={[layouts.absolute, styles.closeIconContainer]}>
+            <Image
+              source={require('../../../assets/images/close.png')}
+              style={[styles.closeIcon]}
+            />
+          </Pressable>
+        </View>
       ) : (
         <Text style={styles.cardBoxText}>
           Touch & hold a card then drag it to this box

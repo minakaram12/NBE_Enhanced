@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {px} from '../../../constants/styles/layouts';
+import {colors} from '../../../theme/colors';
 
 const styles = StyleSheet.create({
   container: {backgroundColor: 'rgba(0, 0, 0, 0.6)'},
@@ -9,7 +10,7 @@ const styles = StyleSheet.create({
     padding: px(10),
   },
   languageButtonText: {
-    color: '#007236',
+    color: colors.mainColor,
     fontSize: px(16),
     fontWeight: 'bold',
   },
@@ -30,6 +31,10 @@ const styles = StyleSheet.create({
   copyright: {
     fontSize: px(10),
   },
+  checkboxIcon: {
+    borderWidth: 0,
+  },
+  checkboxText: {textDecorationLine: 'none'},
 });
 
 export default styles;

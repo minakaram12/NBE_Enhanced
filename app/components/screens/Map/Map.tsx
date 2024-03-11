@@ -87,14 +87,14 @@ const Map = () => {
     },
   ];
   return (
-    <View style={[layouts.fullHeight, layouts.fullWidth, layouts.relative]}>
+    <View style={[layouts.fullHeight, layouts.fullWidth]}>
       <MapView
-        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-        style={[styles.map, layouts.absolute, {zIndex: 1}]}
+        provider={PROVIDER_GOOGLE}
+        style={[styles.map]}
         customMapStyle={getTheme() === 'Light' ? [] : mapCustomStyle}
         region={{
-          latitude: 30.062981,
-          longitude: 31.34597,
+          latitude: 30.05,
+          longitude: 31.35,
           latitudeDelta: 0.1,
           longitudeDelta: 0.1,
         }}>

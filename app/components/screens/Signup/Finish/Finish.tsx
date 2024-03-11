@@ -1,5 +1,5 @@
 import {ImageBackground, Text, View} from 'react-native';
-import Header from '../../../molecules/Header';
+import Header from '../../../molecules/Header/Header';
 import layouts from '../../../../constants/styles/layouts';
 import MainBtn from '../../../atoms/MainBtn/MainBtn';
 import styles from './Finish.style';
@@ -7,13 +7,10 @@ import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 
 const Finish = () => {
-  const handleBack = () => {
-    console.log('Test');
-  };
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
   return (
-    <View style={[layouts.flexed, {backgroundColor: '#007236'}]}>
+    <View style={[layouts.flexed, styles.container]}>
       <View style={[layouts.mx.xl, layouts.my.xl]}>
         <Header />
       </View>

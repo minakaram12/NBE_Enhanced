@@ -1,7 +1,5 @@
-import {View, FlatList, ListRenderItem, TouchableOpacity} from 'react-native';
-import VisaCard from '../../atoms/VisaCard/VisaCard';
+import {FlatList, ListRenderItem} from 'react-native';
 
-import layouts from '../../../constants/styles/layouts';
 import React from 'react';
 import {ExtendedCardProps} from '../SwipeableCardList/SwipeableCardListFaker';
 import SimpleCard from '../../atoms/SimpleCard/SimpleCard.component';
@@ -26,6 +24,7 @@ const SendMoneyList: React.FC<SimpleCardListProp> = ({cardsData, showAll}) => {
       horizontal
       showsHorizontalScrollIndicator={false}
       renderItem={renderSimpleCard}
+      key={showAll ? 'showAll' : 'showLess'}
     />
   );
 };

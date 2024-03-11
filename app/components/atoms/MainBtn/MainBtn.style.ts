@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {px} from '../../../constants/styles/layouts';
+import {colors} from '../../../theme/colors';
 
 const styles = StyleSheet.create({
   // Button Style
@@ -7,11 +8,11 @@ const styles = StyleSheet.create({
     height: px(50),
   },
   primaryButton: {
-    backgroundColor: '#007236',
+    backgroundColor: colors.mainColor,
   },
   secondaryButton: {
     backgroundColor: '#fff',
-    shadowColor: '#007236',
+    shadowColor: colors.mainColor,
     shadowOpacity: 0.8,
     elevation: 6,
     shadowRadius: 12.5,
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   },
   outlineButton: {
     borderWidth: 1,
-    borderColor: '#007236',
+    borderColor: colors.mainColor,
   },
   disabledButton: {
     backgroundColor: 'grey',
@@ -34,10 +35,10 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   secondaryText: {
-    color: '#007236',
+    color: colors.mainColor,
   },
   outlineText: {
-    color: '#007236',
+    color: colors.mainColor,
   },
 });
 

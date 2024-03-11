@@ -10,13 +10,14 @@ import {theme} from '../../../theme/theme';
 import {ScrollView} from 'react-native-gesture-handler';
 import {getUsername} from '../../../storage/mmkv';
 import {getPhoneNumber} from './../../../storage/mmkv';
+import styles from '../DrawerNavigator/DrawerMenu.style';
 import {
   getFocusedRouteNameFromRoute,
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
 import {screenWidth} from '../../../constants/styles/layouts';
-import {colors} from '../../../constants/styles';
+import { BlurView } from '@react-native-community/blur';
 
 interface DrawerMenuProps {
   children: ReactNode;
@@ -31,7 +32,6 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   const route = useRoute();
   const routeName = getFocusedRouteNameFromRoute(route) ?? 'HomeScreen';
 
-  console.log(routeName);
 
   const offsetValue = useRef(new Animated.Value(0)).current;
   const scaleValue = useRef(new Animated.Value(1)).current;
@@ -111,7 +111,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
 
   return (
     <View style={styles.container}>
-      {/* MenuItem */}
+     
       <ScrollView>
         <MenuContent
           userName={getUsername() || 'Ahmed'}
@@ -119,30 +119,20 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
         />
       </ScrollView>
 
+     
       <Animated.View
-        style={{
-          flexGrow: 1,
-          // backgroundColor: theme?.white,
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          left: 0,
-          right: 0,
+        style={[styles.outerAnimated, {
           borderRadius: showMenu ? 15 : 0,
-          overflow: 'hidden',
           transform: [{scale: scaleValue}, {translateX: offsetValue}],
-        }}>
+        }]}
+          >
         <Animated.View
-          // eslint-disable-next-line react-native/no-inline-styles
-          style={{
+          style={[styles.innerAnimated,{
             transform: [
               {translateY: closeButtonOffset},
               {translateY: ScaleBottomNav},
             ],
-            //background of top nav bar
-            backgroundColor: theme.BackgroundMenu,
-            height: '100%',
-          }}>
+          }]}>
           {showTopNav && (
             <TopNavigator
               onPressLeft={handleMenuPress}
@@ -168,19 +158,18 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
           {/* homeScreen content */}
           {children}
         </Animated.View>
+
+        {/* {showMenu && (
+          <BlurView
+            blurType="light"
+            blurAmount={10}
+          />
+        )} */}
       </Animated.View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    //backgroung of menuContent
-    backgroundColor: theme?.BackgroundMenu,
-  },
-});
+
 
 export default DrawerMenu;

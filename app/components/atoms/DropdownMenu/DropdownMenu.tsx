@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, ViewStyle} from 'react-native';
+import {View, Text, ViewStyle} from 'react-native';
 import {SelectList} from 'react-native-dropdown-select-list';
 
 import Layouts from '../../../constants/styles/layouts';
@@ -55,7 +55,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
           dropdownTextStyles={styles.dropList}
           dropdownStyles={styles.dropStyle}
           arrowicon={<DropDownSvg />}
-         
+
           // defaultOption={{key: options[0].key, value: options[0].value}}
         />
       </View>

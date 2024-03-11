@@ -7,8 +7,6 @@ export default StyleSheet.create({
       flex:1,
       justifyContent:"space-between",
       flexDirection:"column",
-     
-
     },
   
     header: {

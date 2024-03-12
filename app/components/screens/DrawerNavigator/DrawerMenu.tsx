@@ -25,7 +25,6 @@ interface DrawerMenuProps {
 }
 
 const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
-  const close = require('../../../assets/images/close.png');
 
   const [showMenu, setShowMenu] = useState(false);
   const [showTopNav, setShowTopNav] = useState(true);
@@ -39,6 +38,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   const closeButtonOffset = useRef(new Animated.Value(0)).current;
   const ScaleBottomNav = useRef(new Animated.Value(0)).current;
 
+
   useEffect(() => {
     const unsubscribe = navigation.addListener('state', () => {
       // Accessing the nested stack navigator named 'Beneficiary' within the 'home' stack navigator
@@ -48,11 +48,12 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
       const currentRoute = stackNavigatorState?.routes.find(
         route => route.name === 'Beneficiary',
       )?.state;
+      console.log('Navigation state changed:', navigation.getState());
 
       // Check if the current route within the nested stack navigator is 'AddBeneficiaries'
       if (
-        routeName === 'CashTransfer' ||
-        currentRoute?.routes[1]?.name === 'AddBeneficiaries'
+        routeName === 'CashTransfer' ||(routeName==='Beneficiary'&&currentRoute?.routes[1]?.name === 'AddBeneficiaries'
+        )
       ) {
         setShowTopNav(false); // Hide the top navigation
       } else {
@@ -85,6 +86,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
         duration: 300,
         useNativeDriver: true,
       }),
+    
     ]).start();
 
     setShowMenu(!showMenu);

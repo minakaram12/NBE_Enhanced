@@ -20,6 +20,11 @@ const MenuContent: React.FC<userInfo> = ({userName, phoneNumber}) => {
   const LogOut = () => {
     logout();
     navigate.navigate('loginScreen');
+     // Reset navigation state
+    navigate.reset({
+      index: 0,
+      routes: [{ name: 'loginScreen' }],
+    });
   };
 
   return (

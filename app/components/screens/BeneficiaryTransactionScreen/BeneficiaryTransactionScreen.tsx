@@ -3,8 +3,8 @@ import DetailedCard from '../../atoms/DetailedCard/DetailedCard.component';
 import TranactionHistory from '../../templets/TransactionHistory/TransactionHistory.componet';
 import {Text, View} from 'react-native';
 import {layouts} from '../../../constants/styles';
-import {theme} from '../../../theme/theme';
 import {Beneficiary} from '../../molecules/SwipeableCardList/SwipeableCardListFaker';
+import {styles} from './benefTransStyles';
 
 interface BeneficiaryTransactionScreenComponentProp {
   route: {params: {transactions: Array<any>; user: Beneficiary}};
@@ -40,11 +40,5 @@ function BeneficiaryTransactionScreenComponent({
     </>
   );
 }
-
-const styles = {
-  outerView: {
-    backgroundColor: theme?.BackgroundScreen,
-  },
-};
 
 export default BeneficiaryTransactionScreenComponent;

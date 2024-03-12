@@ -1,11 +1,12 @@
 import React from 'react';
 import TransactionCard from '../../atoms/Transactioncard/TransactionCard.component';
 import {TransactionCardProp} from '../../atoms/Transactioncard/TransactionCard.component';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {FlatList, View} from 'react-native';
+import {styles} from './transactionListstyles';
 
 interface TransactionListProps {
   transactions: Array<TransactionCardProp>;
-  showImage: boolean; // Optional prop to control image display
+  showImage: boolean;
 }
 
 function TransactionList({transactions, showImage}: TransactionListProps) {
@@ -15,7 +16,6 @@ function TransactionList({transactions, showImage}: TransactionListProps) {
         transactionItem={item.transactionItem}
         date={new Date(item.date)}
         transactionValue={item.transactionValue}
-        // Conditionally pass the image prop based on displayImage prop
         image={showImage ? item.image : undefined}
       />
     );
@@ -33,9 +33,5 @@ function TransactionList({transactions, showImage}: TransactionListProps) {
     />
   );
 }
-
-const styles = StyleSheet.create({
-  separatorStyle: {height: 1, backgroundColor: '#B7B7B7'},
-});
 
 export default TransactionList;

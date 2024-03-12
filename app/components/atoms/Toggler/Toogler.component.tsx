@@ -1,9 +1,10 @@
 import React from 'react';
-import {Pressable, StyleSheet, View} from 'react-native';
+import {Pressable, View} from 'react-native';
 import {layouts} from '../../../constants/styles';
 import {useState} from 'react';
 import ColViewSvg from '../../../assets/svgs/ColViewSvg';
 import RowView from '../../../assets/svgs/RowViewSvg';
+import {styles} from './tooglestyles';
 
 interface TogglerProps {
   activeColor?: string;
@@ -66,18 +67,5 @@ function Toggler({
     </View>
   );
 }
-const styles = StyleSheet.create({
-  iconStyle: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
-  },
-  container: {
-    width: 61,
-    borderRadius: 15,
-    height: 30,
-    padding: 5,
-  },
-});
 
 export default Toggler;

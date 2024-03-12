@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
 import SimpleCardList from '../SimpleCardList/SimpleCardList';
 import SwipeableCardList from '../SwipeableCardList/SwipeableCardList';
 import BeneficiariesController from '../Beneficiaries-controller/BeneficiariesController.component';
@@ -9,7 +9,7 @@ import objectsList, {
   ExtendedCardProps,
 } from '../SwipeableCardList/SwipeableCardListFaker';
 import NoBeneficiary from '../../atoms/NoBeneficiaries/NoBeneficiaries';
-import {theme} from '../../../theme/theme';
+import {styles} from './simpleOrDetailedStyles';
 
 interface SimpleOrDetailedListProps {
   newCards: Beneficiary[];
@@ -58,10 +58,5 @@ function SimpleOrDetailedList({newCards}: SimpleOrDetailedListProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  controller: {marginBottom: 10},
-  outerVeiw: {backgroundColor: theme?.BackgroundScreen},
-});
 
 export default SimpleOrDetailedList;

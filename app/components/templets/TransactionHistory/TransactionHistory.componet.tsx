@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import NoHistory from '../../atoms/NoHistory/NoHistory.component';
 import {TransactionCardProp} from '../../atoms/Transactioncard/TransactionCard.component';
 import TransactionList from '../../molecules/TransactionList/TransactionList.component';
 import {layouts} from '../../../constants/styles';
-import {theme} from '../../../theme/theme';
-import {px} from '../../../constants/styles/layouts';
+import {styles} from './transactionhistorystyles';
 
 interface TrasactionHistoryProps {
   transactionitems: Array<TransactionCardProp>;
@@ -55,23 +54,5 @@ function TranactionHistory({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  title: {
-    fontFamily: 'Roboto',
-    fontSize: px(20),
-    fontWeight: '700',
-    lineHeight: 20,
-    letterSpacing: 0,
-    color: theme?.itemColor,
-    // marginBottom: 5,
-  },
-  viewAllText: {
-    color: theme?.silver,
-    fontSize: px(15),
-    fontFamily: 'Roboto',
-    includeFontPadding: false,
-  },
-});
 
 export default TranactionHistory;

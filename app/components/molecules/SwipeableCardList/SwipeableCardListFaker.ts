@@ -1,7 +1,5 @@
-import { ViewStyle } from 'react-native';
+import {ViewStyle} from 'react-native';
 import {DetailedCardProps} from '../../atoms/DetailedCard/DetailedCard.component';
-import { DetailedCardExtraProps } from './SwipeableCardList';
-
 export interface ExtendedCardProps extends DetailedCardProps {
   key: string;
 }

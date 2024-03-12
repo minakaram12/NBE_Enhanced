@@ -8,6 +8,7 @@ interface TopNavProps {
   contentLeft?: any;
   contentMiddle?: any;
   contentRight?: any;
+  routeName?:string;
 }
 
 const TopNavigator: React.FC<TopNavProps> = ({
@@ -17,6 +18,7 @@ const TopNavigator: React.FC<TopNavProps> = ({
   contentLeft,
   contentMiddle,
   contentRight,
+  routeName,
 }) => {
   return (
     <View
@@ -25,6 +27,8 @@ const TopNavigator: React.FC<TopNavProps> = ({
         layouts.justifyBetween,
         styles.spaces,
         styles.alignCenter,
+        {position:routeName==="Screen4"?"absolute":"relative",
+        zIndex:routeName==="Screen4"?1:0,}
       ]}>
       <View style={[layouts.row, styles.alignCenter]}>
         <TouchableOpacity onPress={onPressLeft}>{contentLeft}</TouchableOpacity>

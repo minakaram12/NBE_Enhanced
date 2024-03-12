@@ -18,6 +18,7 @@ import {
 } from '@react-navigation/native';
 import {screenWidth} from '../../../constants/styles/layouts';
 import { BlurView } from '@react-native-community/blur';
+import CloseSvg from '../../../assets/svgs/closeSvg';
 
 interface DrawerMenuProps {
   children: ReactNode;
@@ -97,29 +98,23 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
   );
   if (showMenu) {
     contentLeft = (
-      <Image
-        source={close}
-        style={{
-          width: 20,
-          height: 20,
-          tintColor: theme?.BasicColor,
-          margin: 10,
-        }}
-      />
+      <IconCard icon={CloseSvg}
+      iconProps={{fill: theme.BasicColor}}
+      containerstyle={{backgroundColor: theme.BackgroundNav}}>
+        
+      </IconCard>
     );
   }
 
   return (
     <View style={styles.container}>
-     
-      <ScrollView>
+
+       <ScrollView>
         <MenuContent
           userName={getUsername() || 'Ahmed'}
           phoneNumber={getPhoneNumber() || '123456789'}
         />
       </ScrollView>
-
-     
       <Animated.View
         style={[styles.outerAnimated, {
           borderRadius: showMenu ? 15 : 0,
@@ -135,6 +130,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
           }]}>
           {showTopNav && (
             <TopNavigator
+              routeName={routeName}
               onPressLeft={handleMenuPress}
               contentLeft={contentLeft}
               contentMiddle={
@@ -166,6 +162,8 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
           />
         )} */}
       </Animated.View>
+
+     
     </View>
   );
 };

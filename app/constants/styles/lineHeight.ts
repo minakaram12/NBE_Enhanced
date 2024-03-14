@@ -1,5 +1,3 @@
-// import {px} from '@common/utils';
-
 import {px} from './layouts';
 
 const lineHeights = {

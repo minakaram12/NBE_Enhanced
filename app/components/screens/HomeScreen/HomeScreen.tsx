@@ -7,7 +7,7 @@ import AccountsSvg from '../../../assets/svgs/AccountsSvg';
 import CardsSvg from '../../../assets/svgs/CardsSvg';
 import UtilitiesSvg from '../../../assets/svgs/UtilitiesSvg';
 import HistorySvg from '../../../assets/svgs/HistorySvg';
-import TranactionHistory from '../../templets/TransactionHistory/TransactionHistory.componet';
+import TransactionHistory from '../../templets/TransactionHistory/TransactionHistory.componet';
 import styles from './HomeScreen.style';
 import SendMoneyList from '../../molecules/SendMoneyList/SendMoneyList';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
@@ -22,10 +22,9 @@ const HomeScreen = () => {
   const [showVisaCards, setShowVisaCards] = useState(false);
   const [showAll, setShowAll] = useState(false);
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
- 
+
   return (
     <View style={styles.outerContainer}>
-      {/* <ScrollView> */}
       {!showVisaCards && (
         <View>
           <View style={styles.ph15}>
@@ -144,7 +143,6 @@ const HomeScreen = () => {
         </View>
       )}
       <View style={styles.ph15}>
-        {/* </ScrollView> */}
         {showVisaCards && (
           <View>
             <VisaCardList
@@ -161,7 +159,7 @@ const HomeScreen = () => {
               marginTop: !showVisaCards ? px(20) : px(15),
             },
           ]}>
-          <TranactionHistory
+          <TransactionHistory
             transactionitems={HistoryWithImg}
             displayImage={true}
             header="History"

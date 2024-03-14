@@ -37,10 +37,17 @@ export const styles = StyleSheet.create({
     color: '#B7B7B7',
   },
   smallIcon: {
-    width: px(11),
-    height: px(11),
+    width: px(19),
+    height: px(19),
     position: 'absolute',
-    top: px(4),
-    left: px(4),
+    top: px(-2),
+    left: px(-2),
+    backgroundColor: '#DBDBDB',
+    borderRadius: px(6),
+    borderWidth: px(2),
+    borderColor: 'white',
+  },
+  focusedFingerIcon: {
+    backgroundColor: '#F6A721',
   },
 });

@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     height: 45,
     resizeMode: 'cover',
   },
-  // img: {resizeMode: 'cover', width: '100%', height: '100%', borderRadius: 10},
   messageText: {fontFamily: 'Roboto-Light', color: theme?.itemColor},
   nameText: {fontFamily: 'Roboto-Bold', color: theme?.itemColor},
 });

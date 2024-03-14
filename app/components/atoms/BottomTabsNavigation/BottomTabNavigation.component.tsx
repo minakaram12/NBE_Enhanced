@@ -1,12 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Text, View} from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
-import IconFontAwsome from 'react-native-vector-icons/FontAwesome';
-import IconUserFriends from 'react-native-vector-icons/FontAwesome5';
-import IconAtm from 'react-native-vector-icons/EvilIcons';
-import IconCreditCard from 'react-native-vector-icons/AntDesign';
-import IconFingerPrint from 'react-native-vector-icons/FontAwesome5';
 
 import {layouts} from '../../../constants/styles';
 import BeneficiaryStack from '../BeneficiaryStack/BeneficiaryStack';
@@ -16,6 +10,13 @@ import CashTransfer from '../../screens/TranferScreen/CashTransfer';
 import Map from '../../screens/Map/Map';
 import {theme} from '../../../theme/theme';
 import {styles} from './BottomNavStyles';
+import AirPaySvg from '../../../assets/svgs/AirPaySvg';
+import FingerPrintSvg from '../../../assets/svgs/FingerPrintSvg';
+import {px} from '../../../constants/styles/layouts';
+import BeneficiariesSvg from '../../../assets/svgs/BeneficiariesSvg';
+import ATMsSvg from '../../../assets/svgs/ATMsSvg';
+import TransferSvg from '../../../assets/svgs/TransferSvg';
+import HomeSvg from '../../../assets/svgs/HomeSvg';
 
 interface BottomTabBarIconProps {
   focused: boolean;
@@ -27,10 +28,10 @@ function BottomTabsNavigation() {
   const Tab = createBottomTabNavigator();
   const addHomeIcon = {
     // eslint-disable-next-line react/no-unstable-nested-components
-    tabBarIcon: ({focused, size, color}: BottomTabBarIconProps) => {
+    tabBarIcon: ({focused, color}: BottomTabBarIconProps) => {
       return (
         <View style={focused ? styles.focusedStyle : styles.blurredStyle}>
-          <Icon name="home" color={color} size={size} />
+          <HomeSvg fill={color} />
           <Text
             style={
               focused
@@ -46,10 +47,10 @@ function BottomTabsNavigation() {
 
   const addTransfer = {
     // eslint-disable-next-line react/no-unstable-nested-components
-    tabBarIcon: ({focused, size, color}: BottomTabBarIconProps) => {
+    tabBarIcon: ({focused, color}: BottomTabBarIconProps) => {
       return (
         <View style={focused ? styles.focusedStyle : styles.blurredStyle}>
-          <IconFontAwsome name="paper-plane-o" color={color} size={size} />
+          <TransferSvg fill={color} />
           <Text
             style={
               focused
@@ -65,10 +66,10 @@ function BottomTabsNavigation() {
 
   const addBeneficiariesIcon = {
     // eslint-disable-next-line react/no-unstable-nested-components
-    tabBarIcon: ({focused, size, color}: BottomTabBarIconProps) => {
+    tabBarIcon: ({focused, color}: BottomTabBarIconProps) => {
       return (
         <View style={focused ? styles.focusedStyle : styles.blurredStyle}>
-          <IconUserFriends name="user-friends" color={color} size={size} />
+          <BeneficiariesSvg fill={color} />
           <Text
             style={
               focused
@@ -84,10 +85,10 @@ function BottomTabsNavigation() {
 
   const addAtms = {
     // eslint-disable-next-line react/no-unstable-nested-components
-    tabBarIcon: ({focused, size, color}: BottomTabBarIconProps) => {
+    tabBarIcon: ({focused, color}: BottomTabBarIconProps) => {
       return (
         <View style={focused ? styles.focusedStyle : styles.blurredStyle}>
-          <IconAtm name="location" color={color} size={size * 1.5} />
+          <ATMsSvg fill={color} />
           <Text
             style={
               focused
@@ -103,16 +104,19 @@ function BottomTabsNavigation() {
 
   const addAirPlay = {
     // eslint-disable-next-line react/no-unstable-nested-components
-    tabBarIcon: ({focused, size, color}: BottomTabBarIconProps) => {
+    tabBarIcon: ({focused, color}: BottomTabBarIconProps) => {
       return (
         <View style={focused ? styles.focusedStyle : styles.blurredStyle}>
-          <IconFingerPrint
-            name="fingerprint"
-            style={styles.smallIcon}
-            color={color}
-          />
+          <View
+            style={[
+              layouts.allCentered,
+              styles.smallIcon,
+              focused ? styles.focusedFingerIcon : null,
+            ]}>
+            <FingerPrintSvg width={px(11)} height={px(11)} fill={color} />
+          </View>
           <View style={layouts.xCentered}>
-            <IconCreditCard name="creditcard" color={color} size={size} />
+            <AirPaySvg fill={color} />
             <Text
               style={
                 focused

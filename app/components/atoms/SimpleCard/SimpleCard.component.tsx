@@ -20,7 +20,9 @@ const SimpleCard: React.FC<SimpleCardProp> = ({image, name, style}) => {
         style,
       ]}>
       <Image source={image} style={styles.simpleCardImage} />
-      <Text style={styles.simpleCardText}>{name?.split(' ')[0]}</Text>
+      <Text style={[styles.simpleCardText, layouts.mt.sm]}>
+        {name?.split(' ')[0]}
+      </Text>
     </View>
   );
 };

@@ -22,6 +22,6 @@ export const styles = StyleSheet.create({
   buttonStyle: {marginTop: 30, height: 50},
   inputField: {height: 65, elevation: 15},
   image: {width: 138, height: 138, borderRadius: 30},
-  container: {paddingBottom: 80},
+  container: {paddingBottom: 0},
   SiblingsInput: {marginTop: 20},
 });

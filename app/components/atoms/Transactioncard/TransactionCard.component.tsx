@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import {layouts} from '../../../constants/styles';
-import {theme} from '../../../theme/theme';
+import styles from './TransactionCard.style';
 export interface TransactionCardProp {
   transactionItem: String;
   date: Date | string;
   transactionValue: number;
-  image?: number; // Optional image prop
+  image?: number;
 }
 const TransactionCard: React.FC<TransactionCardProp> = ({
   transactionItem,
@@ -24,9 +24,11 @@ const TransactionCard: React.FC<TransactionCardProp> = ({
           <Text style={[styles.transactionItemStyle, layouts.mb.lg]}>
             {transactionItem}
           </Text>
-          <Text style={styles.dateStyle}>{`${date.getDate()}-${
-            date.getMonth() + 1
-          }-${date.getFullYear()}`}</Text>
+          <Text style={styles.dateStyle}>{`${
+            date instanceof Date ? date.getDate() : ''
+          }-${date instanceof Date ? date.getMonth() + 1 : ''}-${
+            date instanceof Date ? date.getFullYear() : ''
+          }`}</Text>
         </View>
       </View>
       <View style={layouts.xCentered}>
@@ -36,32 +38,4 @@ const TransactionCard: React.FC<TransactionCardProp> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    height: 69,
-    backgroundColor: theme?.BackgroundMenu,
-  },
-  imageStyle: {borderRadius: 10, width: 50, height: 50, marginRight: 10},
-  transactionItemStyle: {
-    fontFamily: 'Roboto',
-    fontSize: 18,
-    lineHeight: 21.09,
-    fontWeight: '400',
-    color: theme?.itemColor,
-  },
-  dateStyle: {
-    fontFamily: 'Roboto',
-    fontWeight: '400',
-    fontSize: 15,
-    lineHeight: 16.41,
-    color: '#B7B7B7',
-  },
-  transactionValue: {
-    fontFamily: 'Roboto',
-    fontWeight: '700',
-    fontSize: 18,
-    lineHeight: 21.09,
-    color: theme?.itemColor,
-  },
-});
 export default TransactionCard;

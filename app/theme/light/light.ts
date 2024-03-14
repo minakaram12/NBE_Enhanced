@@ -31,8 +31,8 @@ export default {
   BackgroundScreen: Ghostwhite,
   //basicChange
   BasicColor: black,
-  blurredTabColor:Ghostwhite,
-  btmCard:white,
+  blurredTabColor: Ghostwhite,
+  btmCard: white,
 
   //icon
   IconAccountBackground: EmeraldGreen,
@@ -72,14 +72,12 @@ export default {
   notificationBackground: white,
   cardBorder,
 
-
-
   DunRose,
   RedCMYK,
   Eerieblack,
   white,
   blue,
-   greyLight,
+  greyLight,
   greylighter,
   DarkSpringGreen,
   silver,
@@ -89,7 +87,6 @@ export default {
   Ghostwhite,
   black,
 
-  
   //bottom tab
   BottomTab: bottomTabColor,
 };

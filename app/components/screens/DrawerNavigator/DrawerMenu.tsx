@@ -1,5 +1,5 @@
 import React, {ReactNode, useEffect, useRef, useState} from 'react';
-import {Animated, Image, View, StyleSheet} from 'react-native';
+import {Animated, View} from 'react-native';
 import MenuContent from './MenuContent';
 import IconCard from '../../atoms/IconCard/IconCard';
 import MenuTogglerSvg from '../../../assets/svgs/MenuTogglerSvg';
@@ -17,7 +17,6 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import {screenWidth} from '../../../constants/styles/layouts';
-import { BlurView } from '@react-native-community/blur';
 import CloseSvg from '../../../assets/svgs/closeSvg';
 
 interface DrawerMenuProps {
@@ -25,7 +24,6 @@ interface DrawerMenuProps {
 }
 
 const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
-  const close = require('../../../assets/images/close.png');
 
   const [showMenu, setShowMenu] = useState(false);
   const [showTopNav, setShowTopNav] = useState(true);
@@ -155,12 +153,6 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({children}) => {
           {children}
         </Animated.View>
 
-        {/* {showMenu && (
-          <BlurView
-            blurType="light"
-            blurAmount={10}
-          />
-        )} */}
       </Animated.View>
 
      

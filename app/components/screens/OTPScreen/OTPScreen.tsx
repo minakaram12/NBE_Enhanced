@@ -11,6 +11,8 @@ import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {getPhoneNumber} from '../../../storage/mmkv';
 import layouts, {px} from '../../../constants/styles/layouts';
+import NamedLogo from '../../../assets/svgs/NamedLogo';
+import Logo from '../../../assets/svgs/Logo';
 
 const OTPScreen = ({route}: {route: any}) => {
   const {otpTitle, displaySuccessModal} = route.params;
@@ -94,11 +96,20 @@ const OTPScreen = ({route}: {route: any}) => {
           onPressLeft={HandleGoBack}
           contentLeft={<IconCard icon={BackSvg} Type="back" />}
           contentRight={
-            <Image
-              source={require('../../../assets/images/GreenLogo.png')}></Image>
+            <View style={[layouts.flexed, layouts.row, layouts.ms.xl]}>
+              <NamedLogo
+                width={130}
+                height={40}
+                containerStyle={[layouts.me.md]}
+              />
+              <Logo width={34} height={40} />
+            </View>
           }
         />
-        <Text style={[styles.timerText, styles.otpTitle, layouts.my.sm]}> {otpTitle}</Text>
+        <Text style={[styles.timerText, styles.otpTitle, layouts.my.sm]}>
+          {' '}
+          {otpTitle}
+        </Text>
 
         <Text style={styles.infoText}>
           {' '}

@@ -21,7 +21,6 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
     balance: '50.00',
     image: require('../../../assets/images/profimg.jpg'),
     key: '2',
-    // No color and viewStyle specified for this item
   },
   {
     name: 'Alice Johnson',
@@ -45,7 +44,6 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
     balance: '90.25',
     image: require('../../../assets/images/profimg.jpg'),
     key: '5',
-    // No color and viewStyle specified for this item
   },
   {
     name: 'Michael Johnson',
@@ -69,7 +67,6 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
     balance: '80.20',
     image: require('../../../assets/images/profimg.jpg'),
     key: '8',
-    // No color and viewStyle specified for this item
   },
   {
     name: 'Olivia Davis',
@@ -88,8 +85,6 @@ export const detailedCardPropsArray: ExtendedCardProps[] = [
     key: '10',
   },
 ];
-
-// Define the interface for an individual object in the list
 export interface Beneficiary {
   name?: string;
   mobileNumber?: string;
@@ -103,7 +98,6 @@ export interface Beneficiary {
   ViewStyle?: ViewStyle;
 }
 
-// Define the type for the array of beneficiaries
 const objectsList: Beneficiary[] = [];
 
 for (let i = 0; i < 12; i++) {
@@ -113,12 +107,11 @@ for (let i = 0; i < 12; i++) {
   const randomAccountNumber = '1000' + Math.floor(Math.random() * 1000000);
   const randomEmail = `john.doe${Math.floor(Math.random() * 100)}@example.com`;
 
-  // Define the type for an individual object
   const newObject: Beneficiary = {
     name: randomFirstName + ' ' + randomLastName,
     mobileNumber: randomPhoneNumber,
     balance: '999',
-    image: require('../../../assets/images/profimg.jpg'), // You might want to specify a more specific type for the image
+    image: require('../../../assets/images/profimg.jpg'),
     color: '#ffffff',
     key: randomFirstName + ' ' + randomLastName,
     accountNumber: randomAccountNumber,

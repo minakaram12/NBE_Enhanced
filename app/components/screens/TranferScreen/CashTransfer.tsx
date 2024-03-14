@@ -1,8 +1,6 @@
 import {createStackNavigator} from '@react-navigation/stack';
-import Mobile from './Mobile';
 import OTPScreen from '../OTPScreen/OTPScreen';
 import TransferScreen from './TransferScreen';
-import HomeScreen from '../HomeScreen/HomeScreen';
 
 const CashTransfer = () => {
   const Stack = createStackNavigator();

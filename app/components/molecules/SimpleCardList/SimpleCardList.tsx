@@ -29,7 +29,7 @@ const SimpleCardList: React.FC<SimpleCardListProp> = ({cards = []}) => {
           data={cards}
           renderItem={renderItem}
           numColumns={4}
-          style={[layouts.px.sm, styles.flasListStyle]}
+          style={[layouts.px.sm, styles.flatListStyle]}
         />
       ) : (
         <NoBeneficiary />

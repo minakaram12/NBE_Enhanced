@@ -146,50 +146,57 @@ function AddBeneficiaries({route}: addBenefprops) {
               <View style={[layouts.row, styles.SiblingsInput]}>
                 <InputField
                   label="First Name"
+                  placeholder="First Name"
                   name="firstName"
                   showErrors={false}
                   outerContainerStyle={[
                     layouts.flexed,
-                    layouts.me.sm,
+                    layouts.me.md,
                     styles.inputField,
                   ]}
                 />
                 <InputField
                   label="Last Name"
+                  placeholder="Last Name"
                   name="lastName"
                   showErrors={false}
                   outerContainerStyle={[
                     layouts.flexed,
-                    layouts.ms.sm,
+                    layouts.ms.md,
                     styles.inputField,
                   ]}
                 />
               </View>
 
-              <DropdownMenu
-                title="Bank Branch"
-                options={transferType}
-                onSelectOption={value =>
-                  formikProps.setFieldValue('branch', value)
-                }
-                style={[styles.dropDownCustomStyle]}
-              />
+              <View style={[layouts.mt.lg]}>
+                <DropdownMenu
+                  title="Bank Branch"
+                  options={transferType}
+                  onSelectOption={value =>
+                    formikProps.setFieldValue('branch', value)
+                  }
+                  style={[styles.dropDownCustomStyle]}
+                />
+              </View>
 
               <InputField
                 label="Account number"
                 name="accountNumber"
+                placeholder="Account number"
                 showErrors={false}
                 outerContainerStyle={[layouts.my.lg, styles.inputField]}
               />
               <InputField
                 label="Phone number"
                 name="phoneNumber"
+                placeholder="Phone number"
                 showErrors={false}
                 outerContainerStyle={[layouts.my.lg, styles.inputField]}
               />
               <InputField
                 label="Email"
                 name="email"
+                placeholder="Email"
                 showErrors={false}
                 outerContainerStyle={[layouts.my.lg, styles.inputField]}
               />

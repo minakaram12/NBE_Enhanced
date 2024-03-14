@@ -1,21 +1,21 @@
 import {View, FlatList, ListRenderItem, TouchableOpacity} from 'react-native';
 import VisaCard from '../../atoms/VisaCard/VisaCard';
 import {VisaCardProps} from '../../atoms/VisaCard/VisaCard';
-import {px} from '../../../constants/styles/layouts';
 import layouts from '../../../constants/styles/layouts';
 
 import React from 'react';
+import styles from './VisaCardList.style';
 interface VisaCardListProps {
   VisaCardsData: VisaCardProps[];
   onPress: () => void;
 }
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 const VisaCardList: React.FC<VisaCardListProps> = ({
   VisaCardsData,
   onPress,
 }) => {
   const renderVisaCard: ListRenderItem<VisaCardProps> = ({item}) => (
-    <TouchableOpacity onPress={onPress} style={{paddingHorizontal: 5}}>
+    <TouchableOpacity onPress={onPress} style={styles.card}>
       <VisaCard
         amount={item.amount}
         card_num={item.card_num}

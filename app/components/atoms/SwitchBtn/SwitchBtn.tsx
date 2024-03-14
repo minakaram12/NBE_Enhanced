@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, Switch} from 'react-native';
-import { getTheme, setTheme } from '../../../storage/mmkv';
+import { setTheme } from '../../../storage/mmkv';
 import { GetTheme } from '../../../theme/themes';
-import RNRestart from 'react-native-restart'; // Import package from node modules
+import RNRestart from 'react-native-restart';
 import { theme } from '../../../theme/theme';
 
 const SwitchBtn: React.FC = () => {
@@ -18,9 +18,6 @@ const SwitchBtn: React.FC = () => {
       setIsDarkMode(GetTheme(newTheme));
       setTheme(newTheme);
     };
-
-    
-
 
     return (
       <View>

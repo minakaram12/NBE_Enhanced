@@ -1,4 +1,3 @@
-/* eslint-disable no-const-assign */
 import React, {useState} from 'react';
 import {View, Image, Text} from 'react-native';
 import styles from './TransferScreen.style';
@@ -21,6 +20,8 @@ import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {ScrollView} from 'react-native-gesture-handler';
 import {px} from '../../../constants/styles/layouts';
+import NamedLogo from '../../../assets/svgs/NamedLogo';
+import Logo from '../../../assets/svgs/Logo';
 
 interface FormValues {
   amount: string;
@@ -81,7 +82,6 @@ const TransferScreen = () => {
       setShowFailedModal(true);
     } else {
       // go to otp
-      // console.log('go to otp screen');
       navigation.navigate('OtpScreen');
     }
   };
@@ -97,8 +97,14 @@ const TransferScreen = () => {
             onPressLeft={HandleGoBack}
             contentLeft={<IconCard icon={BackSvg} Type="back" />}
             contentRight={
-              <Image
-                source={require('../../../assets/images/GreenLogo.png')}></Image>
+              <View style={[layouts.flexed, layouts.row, layouts.ms.xl]}>
+                <NamedLogo
+                  width={130}
+                  height={40}
+                  containerStyle={[layouts.me.md]}
+                />
+                <Logo width={34} height={40} />
+              </View>
             }
           />
         </View>
@@ -112,7 +118,6 @@ const TransferScreen = () => {
           validationSchema={transferValidationSchema}
           onSubmit={values => {
             handleFormChange(values);
-            console.log(values);
           }}>
           {formikProps => (
             <View style={[layouts.flexed, layouts.justifyBetween]}>

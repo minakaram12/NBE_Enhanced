@@ -7,16 +7,11 @@ interface SimpleCardListProp {
   cardsData: Array<ExtendedCardProps>;
   showAll: boolean;
 }
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 const SendMoneyList: React.FC<SimpleCardListProp> = ({cardsData, showAll}) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const renderSimpleCard: ListRenderItem<ExtendedCardProps> = ({item}) => (
     <SimpleCard image={item.image} name={item.name} />
   );
-
-  // const keyExtractor = (item: ExtendedCardProps) => {
-  //  Math.random().toString();
-  // };
 
   return (
     <FlatList

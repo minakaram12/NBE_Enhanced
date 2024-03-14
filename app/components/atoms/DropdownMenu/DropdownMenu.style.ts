@@ -4,7 +4,7 @@ import {px} from '../../../constants/styles/layouts';
 const styles = StyleSheet.create({
   card: {
     backgroundColor: theme?.InputBackgroundColor,
-    borderRadius: 15,
+    borderRadius: px(10),
     borderWidth: 1,
     borderColor: theme?.cardBorder,
     overflow: 'hidden',

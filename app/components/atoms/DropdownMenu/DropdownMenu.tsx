@@ -20,43 +20,26 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   style,
 }) => {
   const [selected, setSelected] = useState('');
-  //const [isSelectListOpen, setIsSelectListOpen] = useState(false);
-
-  // const toggleSelectList = () => {
-  //   setIsSelectListOpen(prevState => !prevState);
-  // };
 
   return (
-    <View
-      style={[
-        styles.card,
-        shadows(),
-        Layouts.my.md,
-        Layouts.mx.lg,
-        style,
-        //isSelectListOpen && styles.FocusStyle,
-        //!isSelectListOpen && styles.BlurStyle,
-      ]}>
+    <View style={[styles.card, shadows(), Layouts.my.md, Layouts.mx.lg, style]}>
       <View style={styles.content}>
         <Text style={[styles.title, Layouts.px.xl]}>{title}</Text>
 
         <SelectList
-          setSelected={val => {
-            console.log(`selected value is ${val}`);
+          setSelected={(val: React.SetStateAction<string>) => {
             setSelected(val);
             if (onSelectOption) {
-              onSelectOption(val);
+              onSelectOption(selected);
             }
           }}
           data={options}
           save="value"
-          boxStyles={styles.dropBorder} // Customize dropdown background color
+          boxStyles={styles.dropBorder}
           inputStyles={styles.dropList}
           dropdownTextStyles={styles.dropList}
           dropdownStyles={styles.dropStyle}
           arrowicon={<DropDownSvg />}
-
-          // defaultOption={{key: options[0].key, value: options[0].value}}
         />
       </View>
     </View>

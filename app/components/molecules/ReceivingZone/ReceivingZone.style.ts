@@ -20,15 +20,14 @@ const styles = StyleSheet.create({
   closeIconContainer: {
     top: -115,
     right: -185,
-    backgroundColor:'black',
-    padding:10,
-    borderRadius:15
+    backgroundColor: 'black',
+    padding: 10,
+    borderRadius: 15,
   },
   closeIcon: {
     width: 15,
     height: 15,
     tintColor: 'white',
-   
   },
 });
 export default styles;

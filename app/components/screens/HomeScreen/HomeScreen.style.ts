@@ -1,5 +1,4 @@
 import {px} from '../../../constants/styles/layouts';
-// import {theme} from '@app/theme/theme';
 import {StyleSheet} from 'react-native';
 import {theme} from '../../../theme/theme';
 
@@ -7,7 +6,6 @@ const styles = StyleSheet.create({
   outerContainer: {
     backgroundColor: theme?.BackgroundScreen,
     height: '100%',
-    // paddingHorizontal: 15,
   },
   ph15: {
     paddingHorizontal: 15,

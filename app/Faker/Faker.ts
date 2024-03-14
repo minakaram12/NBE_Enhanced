@@ -54,12 +54,12 @@ export const myArray: MenuItems[] = [
   },
 ];
 
-export interface ValidationList {
+export interface ValidationListProps {
   text: string;
   state: boolean;
 }
 
-export const validationList: ValidationList[] = [
+export const validationList: ValidationListProps[] = [
   {
     text: 'Lower case letter',
     state: false,

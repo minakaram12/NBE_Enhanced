@@ -1,4 +1,3 @@
-
 const bottomTabColor = '#1a2421';
 const DarkSpringGreen = '#007236';
 const silver = '#B7B7B7';
@@ -10,9 +9,7 @@ const cardBorder = 'transparent';
 //bgscreen
 const Ghostwhite = '#F1F3FB';
 
-
 const EmeraldGreen = '#cdede7';
-const PictonBlue = '#cde9fb';
 const orangeWeb = '#f2e8db';
 const ImperialRed = '#f3cfdd';
 
@@ -42,8 +39,8 @@ export default {
   BackgroundScreen: black,
   //basicChange
   BasicColor: white,
-  blurredTabColor:black,
-  btmCard:Eerieblack,
+  blurredTabColor: black,
+  btmCard: Eerieblack,
 
   //icon
   IconAccountBackground: DarkerEmeraldGreen,
@@ -85,8 +82,7 @@ export default {
 
   //bottom tab navigation
   BottomTab: bottomTabColor,
-  
-  
+
   DarkSpringGreen,
   silver,
   Battleshipgray,
@@ -101,6 +97,4 @@ export default {
   white,
   blue,
   black,
-
-
 };
